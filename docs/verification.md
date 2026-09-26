@@ -1,8 +1,8 @@
 # Verification and remaining acceptance
 
-## Current status — September 25, 2026
+## Current status — September 26, 2026
 
-Re-run from a clean checkout after the client-copy cleanup. Every deterministic
+Re-run from a clean checkout after the client-copy cleanup and architectural additions. Every deterministic
 gate below was executed, not inherited from the source master's records.
 
 - **19 Python unit tests passed**: source policy, schema validation, feature
@@ -15,16 +15,13 @@ gate below was executed, not inherited from the source master's records.
 - **Release check staging gate passed**: staging artifact audited with no broken
   links, no index leakage, and no OS debris.
 - **Feature menu check passed**: `docs/chisel-menu.md` matches the registry.
-- **Hugo v0.166.0 build clean**: 14 routes in ~110 ms, 0 deprecation warnings.
-- **Generated artifact is 584 KB.** It was 9.5 MB before the unused inherited
-  imagery was removed and the hero was re-encoded to WebP.
+- **Hugo v0.166.0 build clean**: staging builds cleanly with 0 deprecation warnings.
 
 Run `bash scripts/verify-local.sh` for deterministic local gate execution.
 
-The production gate correctly fails closed at **116 blockers**, of which 109 are
-missing owner approvals — `data/evidence.json` is empty by design. The remainder
-are real business inputs: production URL, confirmed coverage, inquiry handling,
-a verified service area, and a committed Git revision. Real business content
+The production gate correctly fails closed with owner approvals pending — `data/evidence.json`
+is empty by design. The remainder are real business inputs: production URL, confirmed coverage,
+inquiry handling, a verified service area, and confirmed owner copy. Real business content
 approvals and live Cloudflare deployment remain unperformed.
 
 ## Known gaps in this suite

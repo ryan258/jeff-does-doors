@@ -17,6 +17,22 @@ The website currently proposes four core service categories. We need to confirm 
   - *(e.g., White oak, walnut, knotty pine, reclaimed timber, modern slab, British brace / X-brace, paneled, glass/steel frames)*
 - [ ] **Do you supply the tracks, rollers, and handles, or does the homeowner choose/order them?**
 
+> **⚠ The *Craft standards* section on `/about` still needs these four confirmed.**
+> `layouts/partials/craft-standards.html` describes four practices. As of
+> 2026-09-26 the copy was rewritten to state them as general craft knowledge
+> rather than as Jeff's practice, and it carries a visible
+> "Proposed — awaiting Jeff's review" flag while the site is in review mode.
+> The underlying questions are still open:
+>
+> - [ ] **Materials** — is kiln-dried hardwood (white oak, walnut, clear fir) what you work in?
+> - [ ] **Header mounting** — do you fit a continuous solid header board into framing studs?
+> - [ ] **Soft-close hardware** — do you offer or fit soft-close dampers?
+> - [ ] **Concealed floor stay** — do you mortise a slot into the slab underside over a guide pin?
+>
+> If the answer to 1.1 is **Option B** (installing customer-supplied doors), or if
+> any practice above is not something you do, that card should be rewritten or the
+> section dropped. Nothing here is approved yet.
+
 ### 1.2 Upgrades, Conversions & Repairs
 - [ ] **Swing-to-Slide Conversions**: Do you take on projects replacing standard swinging doors with barn-style doors? Do you handle the drywall patching, trim casing, or painting required when an old jamb is removed?
 - [ ] **Door Adjustments & Tune-Ups**: Do you take service calls for existing barn doors that rub, squeak, or come off their guides?
@@ -111,5 +127,6 @@ The site currently uses 9 high-resolution AI-generated illustrative WebP concept
 
 1. Update `profiles/jeff-does-doors.toml` with confirmed phone, email, hours, and service territory.
 2. Update `data/services.yaml` and `content/about.md` with Jeff's authentic copy and scope.
-3. Drop Jeff's real job photos into `.attic/`, encode them to WebP in `static/images/`, and update `data/gallery.yaml`.
-4. Run `scripts/verify-local.sh` and populate `data/evidence.json` for production release approval.
+3. Confirm the four *Craft standards* practices above, then remove the review-mode "Proposed" flag from `layouts/partials/craft-standards.html` or drop the section.
+4. Drop Jeff's real job photos into `.attic/`, encode them to WebP in `static/images/`, and update `data/gallery.yaml`.
+5. Run `scripts/verify-local.sh` and populate `data/evidence.json` for production release approval.

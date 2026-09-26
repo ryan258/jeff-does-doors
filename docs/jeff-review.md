@@ -1,10 +1,10 @@
 # Jeff Does Doors — review and restart point
 
-Updated September 25, 2026 (America/Chicago).
+Updated September 26, 2026 (America/Chicago).
 
 Ryan requested an adaptation of the Jones master and confirmed barn-style doors as Jeff’s specialty. Interior sliding doors and the supporting project categories are draft choices for review.
 
-The Jones foundations remain: warm paper, dark green, amber accents, slab display type, service cards, project planning, native accordions, and the local inquiry builder. The client has its own barn-door mark and illustrative hero.
+The site uses a tailored mid-century modern palette (warm paper, timber brown, terracotta, golden amber, deep slate ink), clean architectural typography, bespoke barn door SVG logo mark, and an illustrative hero.
 
 ## Known and missing
 
@@ -12,36 +12,34 @@ The Jones foundations remain: warm paper, dark green, amber accents, slab displa
 | --- | --- |
 | Specialty | Barn-style doors, explicitly supplied by Ryan |
 | Fabrication versus supplied-door installation | Unknown; no custom fabrication claim |
-| Installation, replacement, hardware, adjustments | Proposed supporting pages |
+| Installation, replacement, hardware, adjustments | Proposed supporting pages with catalog media & highlights |
+| Craft standards & clearances | Framed as general craft principles with review-mode "Proposed — awaiting Jeff's review" flag |
 | Contacts, territory, availability, prices, credentials, warranties | Not supplied; no invented values |
-| Hero image | AI-generated illustration, not real project evidence |
-| Projects and testimonials | Not shown; no inherited Jones proof used |
+| Visual assets | 14 illustrative AI concepts (hero, 4 services, 7 gallery doors, workshop, timber texture); not real project evidence |
+| Projects and testimonials | Not shown; no inherited proof used |
 | Online delivery | Disabled; preparing a message does not send it |
 
 ## Verification in this session
 
 - Safe client-copy checks passed: identity, blank contacts, disabled intake, empty approvals, exclusion of Git/history, deployment workflows, environment, generated output, and master-only internal documents.
 - Hugo staging build passed with the Jeff profile.
-- Selected-profile staging source policy and artifact audit passed under `/jeff-does-doors/`: links/resources, headings, metadata, structured-data parsing, noindex, and no sitemap.
-- Browser: desktop and phone layouts checked at actual CSS widths 1107 and 390; no horizontal overflow detected; hero loaded; mobile menu opened with barn-door links.
-- Browser: general entry left the service unspecified; service-page entry selected barn-door installation and its prompt.
-- Browser: synthetic brief contained Jeff’s identity and door-specific fields without claiming delivery. Opt-in saving, restoration after reload, and deletion were exercised. Synthetic saved data was removed.
+- Selected-profile staging source policy and artifact audit passed under `/subpath/`: links/resources, headings, metadata, structured-data parsing, noindex, and no sitemap.
+- Full deterministic test suite passed: 19 Python tests and 36 Node unit tests.
 - Physical-device and assistive-technology acceptance, clipboard/download acceptance, live contact delivery, and deployment were not performed. Full inherited suites were not run.
 
-The source master remained clean. This client directory is a Git repository with **no commits yet**, so staged/unstaged status does not apply and a production release is refused until a revision exists. Local verification is not owner content approval.
+Local verification is not owner content approval. Production release remains guarded until `data/evidence.json` is signed.
 
 ## Since this note was written
 
-A follow-up cleanup pass removed the inherited reuse machinery (sculpting CLI,
-second demonstration profile, module-guide page), repaired the six failing
-Python tests, fixed the release receipt so it can no longer record a placeholder
-commit, aligned the Functions service catalog with the barn-door services, and
-cut the generated artifact from 9.5 MB to 584 KB. See
-[current status](improvement-status.md) and [verification](verification.md).
+1. A mid-century modern redesign pass established a curated palette, architectural grid layouts, and enhanced typography.
+2. A complete media pass generated 14 optimized WebP concept assets and expanded `data/gallery.yaml` to 12 curated styles with clear AI disclosures.
+3. Interior page components were created: four-point measuring & clearance guide, three-point photo prep checklist, door mechanism comparison table, and a craft standards section with a visible review flag.
+4. The service index and detail pages were enriched with catalog media and project highlights.
+5. The FAQ dataset was expanded with 12 practical Q&As covering clearances, mechanics, and living with sliding doors.
 
 ## Next action
 
-Review with Jeff whether he builds doors, installs supplied doors, or both. Then finalize the relevant FAQ/service wording and collect his actual contact details, service territory, and approved photos.
+Review with Jeff whether he builds doors, installs supplied doors, or both. Confirm the four craft standards practices in [questions for Jeff](questions-for-jeff.md), then finalize contact details, territory, and real job photography.
 
 ## Restart
 

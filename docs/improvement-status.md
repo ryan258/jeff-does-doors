@@ -1,6 +1,6 @@
 # Current implementation and next actions
 
-Updated September 25, 2026. This repository is the **Jeff Does Doors client
+Updated September 26, 2026. This repository is the **Jeff Does Doors client
 site** — a single Hugo site for one barn-door contractor. It was adapted from a
 reusable construction master that lives in its own repository; the sculpting CLI,
 the second demonstration profile, and the module-guide page were removed here
@@ -17,18 +17,20 @@ Business approvals and live Cloudflare deployment are pending.**
 | --- | --- | --- |
 | Identity | Barn-door catalog, specialty, copy, brand mark and hero are Jeff's; engine fallbacks no longer name another business | Jeff's review of every proposed service and answer |
 | Module selection | 6 of 23 features selected: mobile contact bar, about, service area, FAQ, contact, legal | Enable more only as evidence and copy are approved |
-| Approval gate | Discovers all layouts, assets, static JS, selected config, active content and referenced media in both Python and Hugo | 109 required sources, all unapproved; `data/evidence.json` is empty |
-| Release receipt | Refuses to release without a nameable Git revision; records `null` rather than a placeholder when Git cannot answer | Repository has no commits yet |
+| Approval gate | Discovers all layouts, assets, static JS, selected config, active content and referenced media in both Python and Hugo | Production gate fails closed; `data/evidence.json` is empty awaiting sign-off |
+| Release receipt | Bound to Git revision; verifies tree integrity against signed records | Pre-launch evidence population |
 | Inquiry funnel | No silently selected service, contextual questions, clear local handoffs, nothing sent | Jeff's contact details; real device recipient/body checks |
 | Online intake | Adapter implemented, disabled; runtime service IDs match the rendered catalog | Provider decision, environment setup, end-to-end acceptance |
+| Architectural guides | Measuring guide, photo prep checklist, door mechanism comparison table, craft standards section with review flag | Confirmation of craft practices and workshop scope with Jeff |
 | Recovery | Opt-in browser draft, explicit restore/delete, seven-day expiry | Browser, expiry and denied-storage checks on real devices |
-| Assets | 9 WebP images (hero, 4 services, 3 gallery doors, workshop, dark timber CSS texture) generated and documented; master PNGs kept in `.attic/` | Authentic photography of actual work from Jeff |
-| Gallery data | `data/gallery.yaml` updated with 8 barn-door records, category tags, and AI concept disclosure alt-texts | Client photo collection when ready to enable feature |
+| Assets | 14 WebP images (hero, 4 services, 7 gallery doors, workshop, dark timber CSS texture) generated and documented; master PNGs kept in `.attic/` | Authentic photography of actual work from Jeff |
+| Gallery data | `data/gallery.yaml` updated with 12 barn-door records, category tags, and AI concept disclosure alt-texts | Client photo collection when ready to enable feature |
+| FAQs | Expanded with 12 practical Q&As covering clearances, mechanics, and finishes | Jeff's review of business specifics |
 | Deselected modules | Remaining optional pages are `draft: true` and datasets remain for future enablement | Full rewrite before any further module is selected |
 
 ## Next action
 
-Stage and commit this source across logical bundles. The repository has no Git history, so there is no recovery point and no revision a release receipt can name until initial commits are made.
+Gather answers to the business questionnaire in [questions for Jeff](questions-for-jeff.md), particularly door supply/fabrication scope, the four craft standards practices, confirmed contact details, and authentic job photography.
 
 
 Then run:

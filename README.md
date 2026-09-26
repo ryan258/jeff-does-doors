@@ -15,11 +15,13 @@ Open <http://localhost:1317/>. The site uses the selected client features, noind
 ## Current site
 
 - Home: “A door is part of the room.” (mid-century modern redesign)
-- Four proposed project pages: barn-door installation, replacement/upgrades, tracks/hardware, and adjustments.
+- Four proposed project pages: barn-door installation, replacement/upgrades, tracks/hardware, and adjustments; service index features catalog imagery and project highlights.
 - About, service area, FAQs, contact, privacy, preview terms, and accessibility.
+- Architectural guidance components: four-point measuring & clearance guide, three-point photo prep checklist, door mechanism comparison table (sliding vs. pocket vs. hinged), and craft standards.
 - Local project-message builder with service-specific prompts, copy/download, and optional seven-day device saving.
-- Barn-door brand mark, favicon, and a complete suite of 9 optimized WebP images (services, about, gallery entries, and dark timber CSS background textures); all identified as illustrative concepts in [imagery docs](docs/imagery.md).
-- Updated `data/gallery.yaml` with 8 barn-door records, category tags, and AI concept disclosures.
+- Barn-door brand mark, favicon, and a complete suite of 14 optimized WebP images (hero, 4 services, about workshop, 7 gallery door styles, and dark timber CSS background texture); all identified as illustrative concepts in [imagery docs](docs/imagery.md).
+- Updated `data/gallery.yaml` with 12 barn-door records, category tags (Pantry, Rustic, Double doors, Modern, Hardware, Craftsman, Custom, Bypass, Chevron, Glass, Mirrored), and AI concept disclosures.
+- Expanded `data/faqs.yaml` addressing clearances & fit, hardware mechanics, and material/finish considerations.
 - Generated site is responsive, lightweight, and cleanly audited.
 
 See [the project roadmap](roadmap.md) for milestone tracking.
@@ -32,10 +34,12 @@ The source master is unchanged. No Git history, credentials, deployment workflow
 | --- | --- |
 | `profiles/jeff-does-doors.toml` | Identity, contacts, coverage, hero |
 | `data/specialties.yaml` | Barn-door homepage positioning |
-| `data/services.yaml` and `content/services/` | Proposed catalog and detail pages |
-| `data/gallery.yaml` | Barn door gallery dataset (Pantry, Rustic, Double doors, Modern, Hardware, Craftsman, Custom) |
-| `data/faqs.yaml`, `data/process.yaml` | Questions and project-planning steps |
+| `data/services.yaml` and `content/services/` | Proposed catalog, detail pages, and service index highlights |
+| `data/gallery.yaml` | Barn door gallery dataset (12 styles and hardware entries) |
+| `data/faqs.yaml`, `data/process.yaml` | Questions, clearances, mechanics, and project-planning steps |
 | `layouts/index.html` | Homepage copy and sections |
+| `layouts/partials/` | Architectural partials: measuring guide, photo prep, door comparison, craft standards |
+| `assets/scss/_modern.scss` | Modern design system, component layouts, and responsive styling |
 | `assets/scss/_doors.scss` | Client refinements & CSS wood texture overlays over shared foundations |
 | `hugo.toml`, `hugo-launch.toml` | Matching minimal feature selections |
 | `data/evidence.json` | Revision-bound approvals, currently empty |

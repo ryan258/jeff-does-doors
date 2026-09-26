@@ -20,7 +20,7 @@ A milestone plan for taking the **Jeff Does Doors** local website draft from fou
 
 ## Phase 2: Visual & Media Flesh-Out (Completed)
 
-- [x] **High-Resolution WebP Suite**: Generated 9 optimized WebP assets tailored to architectural door work:
+- [x] **High-Resolution WebP Suite**: Generated 13 optimized WebP assets tailored to architectural door work:
   - Hero image: `images/barn-door-illustration.webp` (natural oak sliding door)
   - Service 01: `images/barn-door-pantry.webp` (modern white shaker slider)
   - Service 02: `images/barn-door-walnut.webp` (dark walnut X-brace slider)
@@ -29,10 +29,20 @@ A milestone plan for taking the **Jeff Does Doors** local website draft from fou
   - Gallery 01: `images/barn-door-french-glass.webp` (double French divided-lite glass sliders)
   - Gallery 02: `images/barn-door-oak-slab.webp` (minimalist rift-cut white oak slab)
   - Gallery 03: `images/barn-door-craftsman.webp` (warm amber Craftsman panel door)
+  - Gallery 04: `images/barn-door-bypass.webp` (double bypass closet sliders)
+  - Gallery 05: `images/barn-door-chevron.webp` (chevron pattern feature door)
+  - Gallery 06: `images/barn-door-frosted-glass.webp` (frosted reeded glass privacy slider)
+  - Gallery 07: `images/barn-door-mirrored.webp` (full-length mirror dressing slider)
   - About / Craft: `images/barn-door-workshop.webp` (artisan workbench with hand plane & track hardware)
 - [x] **CSS Background Integration**: Generated `images/wood-texture-dark.webp` and integrated subtle timber grain overlays in `_doors.scss` for `.cta-banner`, `.approach`, and hero blocks.
-- [x] **Gallery Data Replacement**: Replaced all inherited excavation/septic placeholders in `data/gallery.yaml` with authentic door entries, tags, and AI concept disclosure alt-texts.
-- [x] **Prose Image Integration**: Embedded illustrative visuals across service markdown files and `/about`.
+- [x] **Gallery Dataset**: Expanded `data/gallery.yaml` to 12 curated door records with category tags and AI concept disclosures.
+- [x] **Interior Page Guidance Components**:
+  - Four-point measuring & clearance guide (`measuring-guide.html`) integrated on contact, FAQ, and service pages.
+  - Three-point photo prep checklist (`photo-prep-guide.html`) integrated in sidebar cards across about, contact, and service detail pages.
+  - Door mechanism comparison table (`door-comparison.html`) comparing sliding barn, pocket, and hinged doors on `/faq`.
+  - Craftsmanship standards section (`craft-standards.html`) on `/about` with a review-mode "Proposed — awaiting Jeff's review" flag.
+  - Service index (`/services`) enriched with introductory prose, catalog imagery, and feature bullet lists.
+- [x] **Expanded FAQ Dataset**: Added 12 practical FAQs in `data/faqs.yaml` addressing clearances, hardware mechanics, and material/finish considerations.
 - [x] **Documentation & Provenance**: Recorded prompt records, dimensions, and `.attic/` source archives in `docs/imagery.md`.
 
 ---
@@ -43,6 +53,7 @@ See [`docs/questions-for-jeff.md`](docs/questions-for-jeff.md) for the complete 
 
 - [ ] **Core Business Questions with Jeff**:
   - Does Jeff build/fabricate doors, install customer-supplied doors, or both?
+  - Confirm the four craft standards (hardwood species, header ledger beam, soft-close dampers, concealed floor stay) or adjust/remove the section.
   - Does he offer swing-to-slide conversions and tune-up/adjustment services?
 
 - [ ] **Contact & Operational Details**:
