@@ -18,9 +18,12 @@
             <a class="link-arrow link-arrow--light" href="{{ "service-area/" | relURL }}">Check coverage <span aria-hidden="true">↗</span></a>
           </div>
         {{ end }}
+        {{ partial "photo-prep-guide.html" . }}
       </aside>
     </div>
   </section>
+
+  {{ partial "craft-standards.html" . }}
 
   {{ if (partial "feature-enabled.html" "team") }}
     <section class="team l-section">

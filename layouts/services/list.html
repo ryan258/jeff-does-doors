@@ -9,18 +9,33 @@
   </section>
   <section class="service-index l-section">
     <div class="l-container">
+      <article class="prose prose--narrow">{{ .Content }}</article>
       <div class="service-index__grid">
-        {{ range (partial "services.html" .) }}
-          <a class="service-index__card" href="{{ printf "services/%s/" .path | relURL }}">
-            <span class="service-index__number">{{ .number }}</span>
-            <span class="service-index__icon">{{ partial "icon.html" .icon }}</span>
-            <span class="service-index__kicker">{{ .kicker }}</span>
-            <h2>{{ .title }}</h2>
-            <p>{{ .summary }}</p>
-            <span class="link-arrow">Explore service <span aria-hidden="true">↗</span></span>
+        {{ range $s := (partial "services.html" .) }}
+          <a class="service-index__card" href="{{ printf "services/%s/" $s.path | relURL }}">
+            {{ with $s.catalogImage }}
+              <div class="service-index__media">
+                {{ partial "image.html" (dict "src" . "alt" ($s.catalogAlt | default $s.title) "sizes" "(max-width: 760px) 100vw, 25vw") }}
+              </div>
+            {{ end }}
+            <div class="service-index__body">
+              <span class="service-index__number">{{ $s.number }}</span>
+              <span class="service-index__icon">{{ partial "icon.html" $s.icon }}</span>
+              <span class="service-index__kicker">{{ $s.kicker }}</span>
+              <h2>{{ $s.title }}</h2>
+              <p>{{ $s.summary }}</p>
+              {{ with $s.bullets }}
+                <ul class="service-index__bullets">
+                  {{ range . }}<li>{{ . }}</li>{{ end }}
+                </ul>
+              {{ end }}
+              <span class="link-arrow">Explore service <span aria-hidden="true">↗</span></span>
+            </div>
           </a>
         {{ end }}
       </div>
     </div>
   </section>
+  {{ partial "measuring-guide.html" . }}
+  {{ partial "cta-banner.html" (dict "heading" "Ready to discuss your doorway?") }}
 {{ end }}

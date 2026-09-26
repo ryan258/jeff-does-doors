@@ -26,12 +26,14 @@
       <div class="service-detail__card"><p class="service-detail__card-label">Service coverage</p><p>{{ site.Params.serviceArea }}</p>
         {{ if partial "feature-enabled.html" "serviceArea" }}<a class="link-arrow" href="{{ "service-area/" | relURL }}">Check the service area</a>{{ end }}
       </div>
+      {{ partial "photo-prep-guide.html" . }}
       <div class="service-detail__card"><p class="service-detail__card-label">Related work</p><ul>
         {{ range $service.relatedServices }}{{ range where hugo.Data.services "id" . }}<li><a href="{{ printf "services/%s/" .path | relURL }}">{{ .title }}</a></li>{{ end }}{{ end }}
       </ul></div>
       {{ with site.Params.contactResponse }}<div class="service-detail__card"><p class="service-detail__card-label">After you contact us</p><p>{{ . }}</p></div>{{ end }}
     </aside>
   </div></section>
+  {{ partial "measuring-guide.html" . }}
   {{ partial "related-content.html" . }}
   {{ partial "cta-banner.html" (dict "service" .Params.serviceID "heading" "Tell us what your door needs.") }}
 {{ end }}

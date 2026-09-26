@@ -17,6 +17,7 @@
           {{ end }}
           {{ with site.Params.mapURL }}<div><strong>Listing</strong><a href="{{ . }}" target="_blank" rel="noopener noreferrer">Google Maps <span aria-hidden="true">↗</span></a></div>{{ end }}
         </div>
+        {{ partial "photo-prep-guide.html" . }}
       </div>
       <div class="contact-page__form">
         <h2>Prepare your project details</h2>
@@ -25,4 +26,5 @@
       </div>
     </div>
   </section>
+  {{ partial "measuring-guide.html" . }}
 {{ end }}
