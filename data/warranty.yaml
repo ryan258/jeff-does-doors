@@ -1,0 +1,14 @@
+# Workmanship guarantee. Every term below is a contractual claim — the business owner
+# confirms the exact wording or this section stays off the live build.
+verified: false
+headline: "The work is not done until the site is right."
+body: "Confirm the exact guarantee the business owner stands behind — term length, what it covers, and what it does not. Until then this section shows on staging only."
+points:
+  - title: "Workmanship term"
+    body: "Confirm the period covered on installation and repair work."
+  - title: "Manufacturer coverage"
+    body: "Tanks, pumps, and components carry their own warranties. Confirm which are passed through."
+  - title: "Callbacks"
+    body: "Confirm how a problem after completion gets handled and how fast."
+  - title: "What is excluded"
+    body: "Confirm exclusions — damage from misuse, other trades, or acts of nature."

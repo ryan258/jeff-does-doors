@@ -1,0 +1,21 @@
+# Payment and financing options. NOTHING here should go live until the business owner
+# confirms exactly what he offers — payment terms are a contractual claim.
+intro: "Septic replacement and site work land on people at bad times. These are the payment paths worth confirming so nobody has to choose between a working system and a working budget."
+options:
+  - title: "Deposit and progress payments"
+    body: "Typical for larger scopes: a deposit to schedule and buy materials, then payments tied to milestones. Confirm the exact split."
+    verified: false
+  - title: "Payment on completion"
+    body: "Common on smaller repairs. Confirm which job sizes qualify."
+    verified: false
+  - title: "Card, check, or transfer"
+    body: "Confirm which methods are accepted and whether card carries a fee."
+    verified: false
+  - title: "Third-party financing"
+    body: "If the business owner works with a lender, name them here. If not, delete this row — do not imply financing that does not exist."
+    verified: false
+accepted:
+  - "Check"
+  - "Cash"
+  - "Card (confirm)"
+  - "Bank transfer (confirm)"

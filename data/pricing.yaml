@@ -1,0 +1,37 @@
+# "What does this usually cost?" — the question every visitor has and most
+# contractor sites dodge. Ranges are PLACEHOLDERS. Publishing a number the business owner
+# has not approved is worse than publishing none, so every row starts unverified.
+disclaimer: "Ranges are for orientation only, not a quote. Every property is different: soil, access, distance to the road, permits, and how much rock is under the grass all move the number. The only real price comes after walking the site."
+rows:
+  - service: "Septic system — new install"
+    range: "Confirm range"
+    drivers: "Soil test and permit, system type, tank size, lateral field length, access for equipment."
+    verified: false
+  - service: "Septic repair"
+    range: "Confirm range"
+    drivers: "What failed, how deep it sits, whether the field is still sound."
+    verified: false
+  - service: "Red dirt building pad"
+    range: "Confirm range"
+    drivers: "Pad size, how much fill has to be hauled in, compaction, distance from the pit."
+    verified: false
+  - service: "Driveway or lane"
+    range: "Confirm range"
+    drivers: "Length, base rock depth, culverts, drainage, slope."
+    verified: false
+  - service: "Land clearing"
+    range: "Confirm range"
+    drivers: "Acreage, tree size, what happens to the debris, stump removal."
+    verified: false
+  - service: "Demolition"
+    range: "Confirm range"
+    drivers: "Structure size, materials, disposal fees, utility disconnects."
+    verified: false
+  - service: "Water line / yard hydrant"
+    range: "Confirm range"
+    drivers: "Run length, depth, rock, tie-in point, meter or well side."
+    verified: false
+  - service: "Custom construction"
+    range: "Quoted per project"
+    drivers: "Scope, materials, finish level, permits."
+    verified: false

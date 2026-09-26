@@ -1,0 +1,6 @@
+- quote: "Illustrative review layout. Replace with a sourced customer quote."
+  name: "Example customer"
+  context: "Example project"
+  url: "https://example.com/"
+  date: ""
+  approved: false

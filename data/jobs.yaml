@@ -1,0 +1,26 @@
+# Open positions. Construction hiring is constant; this page is cheap to keep.
+intro: "the team hires people who show up, run equipment carefully, and leave a site better than they found it. If that is you, start the conversation."
+positions:
+  - title: "Equipment operator"
+    type: "Full-time"
+    detail: "Excavator and skid steer work: septic installs, pads, trenching, and clearing. Experience preferred, attitude required."
+    requirements:
+      - "Valid driver's license"
+      - "Comfortable running an excavator or skid steer"
+      - "Reliable transportation to job sites"
+    open: true
+  - title: "General laborer"
+    type: "Full-time / seasonal"
+    detail: "Site work, hand digging, pipe work, cleanup, and learning the machines from the ground up."
+    requirements:
+      - "Willing to work outside year-round"
+      - "Shows up on time"
+      - "No experience required — training provided"
+    open: true
+  - title: "CDL driver"
+    type: "As needed"
+    detail: "Hauling dirt, rock, and equipment between jobs."
+    requirements:
+      - "Current CDL"
+      - "Clean driving record"
+    open: false

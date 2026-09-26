@@ -1,0 +1,303 @@
+{
+  "core": [
+    "hugo.toml",
+    "data/services.yaml",
+    "data/faqs.yaml",
+    "data/process.yaml",
+    "content/_index.md",
+    "content/services/_index.md",
+    "content/thank-you.md",
+    "layouts/index.html",
+    "layouts/services/single.html",
+    "layouts/partials/brief-form.html",
+    "layouts/partials/header.html",
+    "layouts/partials/footer.html",
+    "layouts/partials/contact-methods.html",
+    "layouts/partials/cta-banner.html",
+    "layouts/partials/schema.html"
+  ],
+  "features": {
+    "promoBanner": {
+      "label": "Announcement",
+      "requires": [],
+      "sources": [
+        "data/promo.yaml"
+      ],
+      "sections": [],
+      "useWhen": "There is a current, useful announcement.",
+      "inputs": "Approved message, destination, and an expiry/review owner.",
+      "route": "#top"
+    },
+    "stickyCallBar": {
+      "label": "Mobile contact",
+      "requires": [],
+      "sources": [],
+      "sections": [],
+      "useWhen": "Phone visitors need immediate contact access.",
+      "inputs": "Real phone; confirmed SMS support; a message destination.",
+      "route": "#contact"
+    },
+    "stats": {
+      "label": "Business statistics",
+      "requires": [],
+      "sources": [
+        "data/stats.yaml",
+        "layouts/partials/stats.html"
+      ],
+      "sections": [],
+      "useWhen": "Verified numbers help evaluate experience.",
+      "inputs": "Source, date, and owner for each number.",
+      "route": "#services"
+    },
+    "credentials": {
+      "label": "Credentials",
+      "requires": [],
+      "sources": [
+        "data/credentials.yaml",
+        "layouts/partials/credentials.html"
+      ],
+      "sections": [],
+      "useWhen": "Qualifications matter to choosing this contractor.",
+      "inputs": "Actual credentials, scope, jurisdiction, insurance wording.",
+      "route": "#about"
+    },
+    "beforeAfter": {
+      "label": "Before and after",
+      "requires": [
+        "projects"
+      ],
+      "sources": [
+        "layouts/partials/before-after.html"
+      ],
+      "sections": [],
+      "useWhen": "Matched images explain a meaningful transformation.",
+      "inputs": "Real paired photos, same job, permission, accurate captions.",
+      "route": "projects/"
+    },
+    "gallery": {
+      "label": "Gallery",
+      "requires": [],
+      "sources": [
+        "data/gallery.yaml",
+        "content/gallery.md",
+        "layouts/partials/gallery-grid.html"
+      ],
+      "sections": [],
+      "useWhen": "A visual collection adds evidence beyond case studies.",
+      "inputs": "Permissioned job photos, service tags, meaningful descriptions.",
+      "route": "gallery/"
+    },
+    "projects": {
+      "label": "Project stories",
+      "requires": [],
+      "sources": [
+        "layouts/projects/list.html",
+        "layouts/projects/single.html"
+      ],
+      "sections": [
+        "projects"
+      ],
+      "useWhen": "Customers need evidence of comparable completed work.",
+      "inputs": "Actual job, location at appropriate privacy level, scope, decisions, finish, photos.",
+      "route": "projects/"
+    },
+    "blog": {
+      "label": "Field guides",
+      "requires": [],
+      "sources": [
+        "layouts/blog/list.html",
+        "layouts/blog/single.html"
+      ],
+      "sections": [
+        "blog"
+      ],
+      "useWhen": "Real customer questions merit maintained guidance.",
+      "inputs": "Service relationship, author/reviewer, sources, actual publish/update dates.",
+      "route": "blog/"
+    },
+    "about": {
+      "label": "About",
+      "requires": [],
+      "sources": [
+        "content/about.md",
+        "layouts/_default/about.html"
+      ],
+      "sections": [],
+      "useWhen": "Visitors need to know who will do the work.",
+      "inputs": "Approved business history, owner introduction, working practices.",
+      "route": "about/"
+    },
+    "team": {
+      "label": "Crew",
+      "requires": [
+        "about"
+      ],
+      "sources": [
+        "data/team.yaml"
+      ],
+      "sections": [],
+      "useWhen": "Identifying crew members helps the customer relationship.",
+      "inputs": "Names, roles, permissioned photos and biographies.",
+      "route": "about/"
+    },
+    "serviceArea": {
+      "label": "Service area",
+      "requires": [],
+      "sources": [
+        "data/service_area.yaml",
+        "content/service-area.md",
+        "layouts/_default/service-area.html"
+      ],
+      "sections": [],
+      "useWhen": "Visitors need to know whether their property is covered.",
+      "inputs": "Confirmed business base, town/state/county records, service boundaries.",
+      "route": "service-area/"
+    },
+    "pricing": {
+      "label": "Pricing",
+      "requires": [],
+      "sources": [
+        "data/pricing.yaml",
+        "content/pricing.md",
+        "layouts/_default/pricing.html"
+      ],
+      "sections": [],
+      "useWhen": "The business can responsibly explain costs or ranges.",
+      "inputs": "Approved cost factors or ranges, assumptions, exclusions, review date.",
+      "route": "pricing/"
+    },
+    "financing": {
+      "label": "Payment options",
+      "requires": [],
+      "sources": [
+        "data/financing.yaml",
+        "content/financing.md",
+        "layouts/_default/financing.html"
+      ],
+      "sections": [],
+      "useWhen": "A real payment or financing arrangement is offered.",
+      "inputs": "Provider and applicable terms, eligibility, disclosures, accurate destination.",
+      "route": "financing/"
+    },
+    "warranty": {
+      "label": "Warranty",
+      "requires": [],
+      "sources": [
+        "data/warranty.yaml"
+      ],
+      "sections": [],
+      "useWhen": "A defined workmanship commitment is offered.",
+      "inputs": "Term, coverage, exclusions, claims process.",
+      "route": "#warranty"
+    },
+    "careers": {
+      "label": "Careers",
+      "requires": [],
+      "sources": [
+        "data/jobs.yaml",
+        "content/careers.md",
+        "layouts/_default/careers.html"
+      ],
+      "sections": [],
+      "useWhen": "The business is actively recruiting.",
+      "inputs": "Real role, requirements, current availability, application contact.",
+      "route": "careers/"
+    },
+    "equipment": {
+      "label": "Equipment",
+      "requires": [],
+      "sources": [
+        "data/equipment.yaml",
+        "content/equipment.md",
+        "layouts/_default/equipment.html"
+      ],
+      "sections": [],
+      "useWhen": "Equipment capabilities help establish fit for a job.",
+      "inputs": "Actual equipment and its customer-relevant capability.",
+      "route": "equipment/"
+    },
+    "emergency": {
+      "label": "Urgent help",
+      "requires": [],
+      "sources": [
+        "content/emergency.md",
+        "layouts/_default/emergency.html"
+      ],
+      "sections": [],
+      "useWhen": "The business supports urgent inquiries.",
+      "inputs": "Supported situations, hours, real emergency number, response expectations.",
+      "route": "emergency/"
+    },
+    "reviewsPage": {
+      "label": "Reviews",
+      "requires": [],
+      "sources": [
+        "data/reviews.yaml",
+        "content/reviews.md",
+        "layouts/_default/reviews.html"
+      ],
+      "sections": [],
+      "useWhen": "Verified customer feedback is available.",
+      "inputs": "Exact quotes, attribution, source links and publication dates.",
+      "route": "reviews/"
+    },
+    "faqPage": {
+      "label": "FAQ",
+      "requires": [],
+      "sources": [
+        "content/faq.md",
+        "layouts/_default/faq.html"
+      ],
+      "sections": [],
+      "useWhen": "Questions need a browsable home beyond service pages.",
+      "inputs": "Accurate answers, service scope, reviewed technical guidance.",
+      "route": "faq/"
+    },
+    "contactPage": {
+      "label": "Contact",
+      "requires": [],
+      "sources": [
+        "content/contact.md",
+        "layouts/_default/contact.html"
+      ],
+      "sections": [],
+      "useWhen": "Visitors need a clear contact destination.",
+      "inputs": "Real contact methods, supported SMS, hours and response expectations.",
+      "route": "contact/"
+    },
+    "estimateWizard": {
+      "label": "Estimate builder",
+      "requires": [],
+      "sources": [
+        "content/estimate.md",
+        "layouts/_default/estimate.html"
+      ],
+      "sections": [],
+      "useWhen": "Projects benefit from guided context gathering.",
+      "inputs": "Service prompts, clear local-draft wording, verified device handoffs.",
+      "route": "estimate/"
+    },
+    "search": {
+      "label": "Search",
+      "requires": [],
+      "sources": [],
+      "sections": [],
+      "useWhen": "The selected site has enough content to benefit from search.",
+      "inputs": "Useful titles, summaries, relationships and customer vocabulary.",
+      "route": ""
+    },
+    "legal": {
+      "label": "Policies",
+      "requires": [],
+      "sources": [
+        "content/accessibility.md",
+        "content/privacy.md",
+        "content/terms.md"
+      ],
+      "sections": [],
+      "useWhen": "The site needs accurate policies and accessibility information.",
+      "inputs": "Actual hosting, storage, integrations, business terms, support channel.",
+      "route": "privacy/"
+    }
+  }
+}

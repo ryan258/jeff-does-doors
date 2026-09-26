@@ -1,0 +1,6 @@
+# Dismissible announcement bar. Set active: false (or flip features.promoBanner)
+# to hide it. Keep the message specific and true.
+active: true
+message: "Booking site work and septic installs for the current season."
+linkLabel: "Check availability"
+linkURL: "#brief"

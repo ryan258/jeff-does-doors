@@ -1,0 +1,13 @@
+# Crew cards. Names, roles, and photos all need owner approval before launch.
+- name: "Example owner"
+  role: "Owner & operator"
+  bio: "Runs the machines, walks the sites, and writes the estimates. Confirm the bio copy before launch."
+  image: "images/placeholder-portrait.webp"
+  alt: "Placeholder portrait graphic pending an approved crew photo"
+  placeholder: true
+- name: "Crew member"
+  role: "Equipment operator"
+  bio: "Add the people the business owner wants named. Delete this file to drop the crew section."
+  image: "images/placeholder-portrait.webp"
+  alt: "Placeholder portrait graphic pending an approved crew photo"
+  placeholder: true

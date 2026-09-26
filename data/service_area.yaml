@@ -1,0 +1,10 @@
+verified: false
+counties: []
+primary:
+  label: Core service area
+  note: Actual coverage awaiting owner confirmation.
+  towns: []
+extended:
+  label: Extended area
+  note: Actual coverage awaiting owner confirmation.
+  towns: []

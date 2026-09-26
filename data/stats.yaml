@@ -1,0 +1,20 @@
+# Owner input required. Every figure here is UNVERIFIED until the business owner confirms it.
+# Set verified: true per stat once confirmed; unverified stats render with a
+# "to confirm" marker on staging and are hidden from the live build.
+- id: "years"
+  value: "To confirm"
+  label: "Years working this ground"
+  note: "The founding year is awaiting confirmation."
+  verified: false
+- value: "500+"
+  label: "Projects finished"
+  note: "Septic, dirt work, clearing, water lines, and custom builds."
+  verified: false
+- value: "45 mi"
+  label: "Typical service radius"
+  note: "Farther for larger scopes — ask."
+  verified: false
+- value: "Same week"
+  label: "Typical first site visit"
+  note: "Emergency septic and water-line calls move sooner."
+  verified: false

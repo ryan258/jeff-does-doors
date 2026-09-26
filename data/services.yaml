@@ -1,0 +1,133 @@
+- id: barn-door-installation
+  title: Barn-door installation
+  number: '01'
+  kicker: Give the opening some character
+  icon: barn-door
+  summary: Explore a sliding barn-style door for a room, closet, or an opening you
+    want to make a feature of.
+  bullets:
+  - Room and opening planning
+  - Door style and finish choices
+  - Track and hardware coordination
+  inquiryPrompt: Where would you like a barn-style door? Describe the opening, the
+    wall space beside it, and any door or inspiration photo you have in mind.
+  relatedServices:
+  - tracks-hardware
+  - barn-door-replacement
+  costDrivers:
+  - Opening and surrounding wall conditions
+  - Door dimensions, style, material, and finish
+  - Hardware, preparation, and finishing scope
+  questions:
+  - question: Is a barn-style door right for this opening?
+    answer: Share a photo of the opening and the wall on both sides. The room layout,
+      available space, trim, and your expectations for privacy should be discussed
+      before choosing a door.
+  - question: Does Jeff build the door or install a supplied one?
+    answer: Supply and custom fabrication arrangements have not been confirmed for
+      this draft. Include your preferred style or any product you already have so
+      that responsibility can be agreed.
+  path: barn-door-installation
+  searchTerms:
+  - Barn-door installation
+  - barn door
+  - sliding door
+- id: barn-door-replacement
+  title: Door replacements & upgrades
+  number: '02'
+  kicker: A new look for a familiar space
+  icon: interior-door
+  summary: Change the style of an existing barn door or explore replacing a swinging
+    door with a sliding design.
+  bullets:
+  - Existing barn-door replacements
+  - Swing-to-slide project planning
+  - Style and finish updates
+  inquiryPrompt: Are you replacing an existing barn door or changing from a swinging
+    door? Tell us what you want to keep and what you want to change.
+  relatedServices:
+  - barn-door-installation
+  - tracks-hardware
+  costDrivers:
+  - Existing door and hardware condition
+  - Compatibility of retained parts
+  - Trim, wall, and finish changes included in the scope
+  questions:
+  - question: Can the existing track stay?
+    answer: Do not assume the existing track will suit another door. Share the hardware
+      details and proposed replacement so compatibility can be checked before deciding
+      what to reuse.
+  - question: Can a swinging door become a barn-style door?
+    answer: That is a project to assess against the opening, surrounding wall, room
+      layout, and desired privacy. Include photos of both sides of the opening in
+      the initial conversation.
+  path: barn-door-replacement
+  searchTerms:
+  - Door replacements & upgrades
+  - barn door
+  - sliding door
+- id: tracks-hardware
+  title: Tracks, pulls & hardware
+  number: '03'
+  kicker: The details are part of the design
+  icon: door-hardware
+  summary: Bring the visible details together, from the track above the opening to
+    the pull you reach for every day.
+  bullets:
+  - Track and roller selection
+  - Pulls and finish coordination
+  - Hardware compatibility review
+  inquiryPrompt: Which track, rollers, or pulls are you considering? Include the existing
+    door details and any product names or links.
+  relatedServices:
+  - barn-door-installation
+  - barn-door-adjustments
+  costDrivers:
+  - Selected hardware and door compatibility
+  - Existing mounting conditions
+  - Adjustment and finishing needs
+  questions:
+  - question: Can I buy the hardware myself?
+    answer: Confirm product suitability and supply responsibilities before ordering.
+      Include the product information and door details in your message.
+  - question: Can the hardware match the rest of the room?
+    answer: Share the finishes you want to coordinate and examples you like. The look
+      and compatibility both belong in the selection discussion.
+  path: tracks-hardware
+  searchTerms:
+  - Tracks, pulls & hardware
+  - barn door
+  - sliding door
+- id: barn-door-adjustments
+  title: Barn-door adjustments
+  number: '04'
+  kicker: When the slide needs attention
+  icon: door-repair
+  summary: Describe an existing sliding door that rubs, feels awkward, or no longer
+    moves the way you expect.
+  bullets:
+  - Rubbing and clearance concerns
+  - Track and guide assessment
+  - Repair or replacement discussion
+  inquiryPrompt: What happens when the door moves? Describe any rubbing, noise, or
+    change in movement and share the existing door and hardware details if known.
+  relatedServices:
+  - tracks-hardware
+  - barn-door-replacement
+  costDrivers:
+  - Cause of the movement or fit problem
+  - Door and hardware condition
+  - Available replacement parts and adjustment scope
+  questions:
+  - question: Can an existing barn door be adjusted?
+    answer: The existing setup needs to be assessed before a repair can be promised.
+      Describe the symptoms, when they started, and any known door or hardware details.
+  - question: What should I photograph?
+    answer: A full view of the door, the track, the floor guide, and the area where
+      the problem occurs can help explain it. This preview does not upload photos;
+      keep them for the later conversation.
+  path: barn-door-adjustments
+  searchTerms:
+  - Barn-door adjustments
+  - barn door
+  - sliding door

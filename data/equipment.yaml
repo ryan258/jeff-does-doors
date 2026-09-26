@@ -1,0 +1,32 @@
+# The fleet. Useful proof that a job will actually start on schedule.
+# Confirm what the business owner actually owns before publishing.
+- verified: false
+  name: "Compact excavator"
+  detail: "Trenching, septic work, tight-access digging, and utility lines."
+  spec: "Confirm make, model, and size class"
+  icon: "dirt"
+- verified: false
+  name: "Skid steer"
+  detail: "Grading, brush work, material handling, and finish work around the site."
+  spec: "Confirm attachments: bucket, grapple, forks, brush cutter"
+  icon: "custom"
+- verified: false
+  name: "Dump truck"
+  detail: "Hauling red dirt, gravel, rock, and demolition debris off site."
+  spec: "Confirm capacity and whether hauling is billed separately"
+  icon: "dirt"
+- verified: false
+  name: "Dozer"
+  detail: "Clearing, pushing, and rough grading on larger acreage."
+  spec: "Confirm ownership vs. rental for large clearing jobs"
+  icon: "clearing"
+- verified: false
+  name: "Trencher"
+  detail: "Water lines, electrical runs, and drainage trenching."
+  spec: "Confirm depth and width range"
+  icon: "water"
+- verified: false
+  name: "Compaction equipment"
+  detail: "Building pads and driveways that stay where you put them."
+  spec: "Confirm plate compactor / roller"
+  icon: "septic"

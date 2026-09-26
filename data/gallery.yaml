@@ -1,0 +1,59 @@
+# Photo gallery. Every entry is a placeholder graphic until the business owner supplies real
+# job photos. Keep `placeholder: true` until the actual image is dropped in.
+- image: "images/barn-door-pantry.webp"
+  alt: "Illustrative concept of a modern white shaker sliding barn door for a pantry opening; not a Jeff Does Doors project"
+  caption: "Modern white shaker pantry door"
+  tag: "Pantry"
+  width: 1200
+  height: 896
+  placeholder: true
+- image: "images/barn-door-walnut.webp"
+  alt: "Illustrative concept of a dark walnut sliding barn door with classic X-brace pattern; not a Jeff Does Doors project"
+  caption: "Dark walnut X-brace bedroom door"
+  tag: "Rustic"
+  width: 1200
+  height: 896
+  placeholder: true
+- image: "images/barn-door-french-glass.webp"
+  alt: "Illustrative concept of double sliding French-style glass paneled barn doors with black steel frame; not a Jeff Does Doors project"
+  caption: "Double French glass sliders"
+  tag: "Double doors"
+  width: 1200
+  height: 896
+  placeholder: true
+- image: "images/barn-door-oak-slab.webp"
+  alt: "Illustrative concept of a minimalist natural white oak vertical plank sliding slab door; not a Jeff Does Doors project"
+  caption: "Natural white oak minimalist slab"
+  tag: "Modern"
+  width: 1200
+  height: 896
+  placeholder: true
+- image: "images/barn-door-hardware.webp"
+  alt: "Illustrative close-up of matte black steel spoke roller wheel, track rail, and hex lag bolts; not a Jeff Does Doors project"
+  caption: "Heavy-duty spoke roller & track"
+  tag: "Hardware"
+  width: 1200
+  height: 896
+  placeholder: true
+- image: "images/barn-door-craftsman.webp"
+  alt: "Illustrative concept of a warm amber Craftsman-style horizontal panel sliding door; not a Jeff Does Doors project"
+  caption: "Amber Craftsman dining room slider"
+  tag: "Craftsman"
+  width: 1200
+  height: 896
+  placeholder: true
+- image: "images/barn-door-floor-guide.webp"
+  alt: "Illustrative close-up of an adjustable matte black steel floor guide and bottom door mortise; not a Jeff Does Doors project"
+  caption: "Precision floor guide & stay roller"
+  tag: "Hardware"
+  width: 1200
+  height: 896
+  placeholder: true
+- image: "images/barn-door-workshop.webp"
+  alt: "Illustrative workshop scene showing handcrafted door slab, hand plane, wood shavings, and sliding hardware; not a Jeff Does Doors project"
+  caption: "Workshop door staging & assembly"
+  tag: "Custom"
+  width: 1200
+  height: 896
+  placeholder: true
+
