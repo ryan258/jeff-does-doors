@@ -39,9 +39,12 @@ A milestone plan for taking the **Jeff Does Doors** local website draft from fou
 
 ## Phase 3: Owner Discovery & Business Intake (Next Action)
 
+See [`docs/questions-for-jeff.md`](docs/questions-for-jeff.md) for the complete questionnaire to gather these inputs.
+
 - [ ] **Core Business Questions with Jeff**:
   - Does Jeff build/fabricate doors, install customer-supplied doors, or both?
   - Does he offer swing-to-slide conversions and tune-up/adjustment services?
+
 - [ ] **Contact & Operational Details**:
   - Confirmed business phone, SMS support, email, and response turnaround.
   - Confirmed physical address or service-area radius (counties and towns served).

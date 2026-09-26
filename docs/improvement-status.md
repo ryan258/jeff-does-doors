@@ -42,9 +42,12 @@ cases in [verification](verification.md).
 
 ## Business-dependent work
 
+See [questions for Jeff](questions-for-jeff.md) for the structured intake questionnaire.
+
 The first question is whether Jeff builds doors, installs supplied doors, or
 both. That answer gates the service copy and two FAQ answers, so it is worth
 resolving before any other content review.
+
 
 Then: real contact details, domain, confirmed service territory, opening and
 response expectations, offered services and exclusions, authentic job media and
