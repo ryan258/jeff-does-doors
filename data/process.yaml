@@ -1,12 +1,20 @@
 - step: '01'
   title: Show the space
-  body: Start with the opening, the room, and the wall beside it. Keep a few photos
-    and your town or ZIP code ready.
+  body: Send photos of the opening and the wall beside it, plus rough measurements
+    and your town or ZIP code.
+  drawing: photo
 - step: '02'
   title: Find the look
-  body: Bring the style you have in mind. Talk through the door, finish, track, and
-    pull as one complete design.
+  body: Talk through wood, proportions, hardware, and finish as one design for the
+    room.
+  drawing: swatches
 - step: '03'
   title: Define the work
-  body: Confirm supply, fitting, finishing, timing, and the estimate before ordering
-    or scheduling.
+  body: Agree on supply, fitting, finishing, timing, and the estimate before anything
+    is ordered or scheduled.
+  drawing: plan
+- step: '04'
+  title: Fit the room
+  body: The door, track, and pull come together in the opening they were planned
+    for.
+  drawing: door

@@ -8,91 +8,118 @@
   {{ if partial "review-mode.html" . }}{{ $reviews = hugo.Data.reviews }}{{ end }}
   {{ $projects := where site.RegularPages "Section" "projects" }}
 
-  <section class="hero" id="top">
-    <div class="hero__media" aria-hidden="true">
+  <section class="room-hero" id="top">
+    <div class="room-hero__media" aria-hidden="true">
       {{ partial "image.html" (dict "src" site.Params.heroImage "alt" "" "width" "1600" "height" "900" "priority" true "sizes" "100vw") }}
     </div>
-    <div class="hero__shade" aria-hidden="true"></div>
-    <div class="l-container hero__inner">
-      <div class="hero__copy">
-        <p class="eyebrow eyebrow--light"><span class="eyebrow__dot"></span> {{ $specialty.eyebrow }}</p>
-        <h1>{{ $specialty.headline }}</h1>
-        <p class="hero__lede">{{ $specialty.introduction }}</p>
-        <p class="hero__service-area">{{ if site.Params.coverageConfirmed }}Serving {{ end }}{{ site.Params.serviceArea }}</p>
-        <div class="hero__actions">
-          {{ with $contactPhone }}<a class="button button--accent" href="tel:{{ $contactTel }}">Call about your project</a>{{ end }}
-          <a class="link-arrow link-arrow--light" href="{{ partial "brief-url.html" "" }}">{{ site.Params.primaryAction }} <span aria-hidden="true">↗</span></a>
-          {{ with site.Params.mapURL }}<a class="link-arrow link-arrow--light" href="{{ . }}" target="_blank" rel="noopener noreferrer">Open the Google Maps listing <span aria-hidden="true">↗</span></a>{{ end }}
+    <div class="room-hero__shade" aria-hidden="true"></div>
+    <div class="l-container room-hero__inner">
+      <p class="room-hero__kicker"><span>No. 01</span><span>{{ $specialty.eyebrow }}</span></p>
+      <h1 class="room-hero__title">{{ range split $specialty.headline "|" }}<span>{{ . }}</span> {{ end }}</h1>
+      <div class="room-hero__foot">
+        <p class="room-hero__lede">{{ $specialty.introduction }}</p>
+        <div class="room-hero__actions">
+          <a class="mcm-button" href="{{ partial "brief-url.html" "" }}">Start a door <span aria-hidden="true">→</span></a>
+          <a class="mcm-link mcm-link--light" href="#catalog">See the work</a>
+          {{ with $contactPhone }}<a class="mcm-link mcm-link--light" href="tel:{{ $contactTel }}">Call {{ . }}</a>{{ end }}
         </div>
       </div>
-      <div class="hero__note">
-        <span class="hero__note-label">{{ site.Params.tagline }}</span>
-        <strong>{{ $specialty.proofPrompt }}</strong><small class="hero__image-note">Illustrative image · not a completed Jeff project</small>
-      </div>
+      <small class="room-hero__note">Illustrative image · not a completed Jeff project</small>
     </div>
-    <a class="hero__scroll-cue" href="#services" aria-label="Scroll to services"><span>Scroll to see the work</span><span class="hero__scroll-line" aria-hidden="true"></span></a>
   </section>
 
-  <section class="proof-strip" aria-label="What makes a useful project inquiry">
-    <div class="l-container proof-strip__grid">
-      <div class="proof-strip__item"><span class="proof-strip__icon" aria-hidden="true">↗</span><span><strong>Barn-style doors</strong><small>Make the opening a feature</small></span></div>
-      <div class="proof-strip__item"><span class="proof-strip__icon" aria-hidden="true">◷</span><span><strong>Your kind of room</strong><small>Start with the space</small></span></div>
-      <div class="proof-strip__item"><span class="proof-strip__icon" aria-hidden="true">▣</span><span><strong>The complete look</strong><small>Door, track, pull, and finish</small></span></div>
-      <div class="proof-strip__item"><span class="proof-strip__icon" aria-hidden="true">⌁</span><span><strong>A clear next step</strong><small>Prepare the project details</small></span></div>
-    </div>
+  <section class="spec-strip" aria-label="How every door is approached">
+    <ol class="l-container spec-strip__list">
+      <li><span>01</span>Designed for your space</li>
+      <li><span>02</span>Sized to the opening</li>
+      <li><span>03</span>Wood, finish &amp; hardware</li>
+      <li><span>04</span>A clear plan first</li>
+    </ol>
   </section>
 
   {{ partial "credentials.html" . }}
 
-  <section class="intro l-section" id="about">
-    <div class="l-container intro__grid">
-      <div class="section-heading">
-        <p class="eyebrow">The big picture</p>
-        <h2>Some doors just open.<br>Others change the room.</h2>
+  <section class="furniture l-section" id="about">
+    <div class="l-container furniture__grid">
+      <div class="furniture__title">
+        <p class="mcm-eyebrow">The idea</p>
+        <h2>The door<br>is furniture.</h2>
+        {{ partial "geo.html" "orbit" }}
       </div>
-      <div class="intro__copy">
-        <p class="intro__lead">There’s a reason a barn-style door catches your eye. The texture of the wood. The line of the track. The way an ordinary opening becomes part of the room.</p>
-        <p>That’s the focus at Jeff Does Doors. Start with a room you want to change and a style you like. Then talk through the opening, the hardware, and the details that make it feel at home.</p>
-        <div class="intro__links">
-          <a class="link-arrow" href="#approach">See how the work comes together <span aria-hidden="true">↗</span></a>
-          {{ if (partial "feature-enabled.html" "about") }}<a class="link-arrow" href="{{ "about/" | relURL }}">About {{ site.Params.companyName }} <span aria-hidden="true">↗</span></a>{{ end }}
-        </div>
+      <div class="furniture__copy">
+        <p class="furniture__lead">A barn-style door takes up a surprising amount of visual space.</p>
+        <p>So it deserves the same thought you would give cabinetry, a sofa, or a good lamp. Start with the room. Then choose the wood, the proportions, and the hardware that belong there.</p>
+        <ul class="swatches" aria-label="Finish directions to talk through">
+          <li class="swatch swatch--walnut"><span class="swatch__chip" aria-hidden="true"></span><span class="swatch__code">A</span>Walnut</li>
+          <li class="swatch swatch--oak"><span class="swatch__chip" aria-hidden="true"></span><span class="swatch__code">B</span>White oak</li>
+          <li class="swatch swatch--painted"><span class="swatch__chip" aria-hidden="true"></span><span class="swatch__code">C</span>Painted wood</li>
+        </ul>
+        {{ if (partial "feature-enabled.html" "about") }}<a class="mcm-link" href="{{ "about/" | relURL }}">About {{ site.Params.companyName }}</a>{{ end }}
       </div>
     </div>
   </section>
 
-  <section class="services l-section" id="services">
+  <section class="styles l-section" id="styles">
     <div class="l-container">
-      <div class="section-heading section-heading--wide">
+      <div class="mcm-heading mcm-heading--split">
         <div>
-          <p class="eyebrow">Find your starting point</p>
-          <h2>One specialty.<br><em>A few ways to make it yours.</em></h2>
+          <p class="mcm-eyebrow mcm-eyebrow--light">Door styles</p>
+          <h2>Four ways to<br>dress an opening.</h2>
         </div>
-        <p class="section-heading__aside">Barn-style doors are the focus. These project options are a starting point for Jeff’s review; supply, custom work, and repair scope still need confirmation.</p>
+        <p>Style directions to react to. Each image is an illustration, not a finished Jeff project.</p>
       </div>
-      <div class="services__grid">
-        {{ range (partial "services.html" .) }}
-          <article class="service-card" id="{{ .id }}">
-            <div class="service-card__head">
-              <span class="service-card__number">{{ .number }}</span>
-              <span class="service-card__icon">{{ partial "icon.html" .icon }}</span>
+      <ul class="styles__row">
+        {{ range slice
+          (dict "src" "images/barn-door-oak-slab.webp" "name" "Flush slab" "note" "Quiet, modern, all grain." "alt" "Illustrative flush oak sliding door")
+          (dict "src" "images/barn-door-craftsman.webp" "name" "Paneled" "note" "Tailored lines for a classic room." "alt" "Illustrative five-panel wood sliding door beside a dining room")
+          (dict "src" "images/barn-door-pantry.webp" "name" "Painted" "note" "Color that matches the walls or the trim." "alt" "Illustrative white painted sliding door on a pantry")
+          (dict "src" "images/barn-door-french-glass.webp" "name" "Glass grid" "note" "Light passes through. The room stays open." "alt" "Illustrative pair of black steel-and-glass sliding doors")
+        }}
+          <li class="style-tile">
+            <div class="style-tile__media">{{ partial "image.html" (dict "src" .src "alt" .alt "sizes" "(max-width: 700px) 50vw, 25vw") }}</div>
+            <h3>{{ .name }}</h3>
+            <p>{{ .note }}</p>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </section>
+
+  <section class="catalog l-section" id="catalog">
+    <div class="l-container">
+      <div class="mcm-heading mcm-heading--split">
+        <div>
+          <p class="mcm-eyebrow">The catalog</p>
+          <h2>Every part<br>of the door.</h2>
+        </div>
+        <p>These project options are a starting point for Jeff’s review. Supply, custom work, and repair scope still need confirmation.</p>
+      </div>
+      <div class="catalog__list" id="services">
+        {{ range $i, $s := (partial "services.html" .) }}
+          <article class="catalog-entry{{ if modBool $i 2 }}{{ else }} catalog-entry--flip{{ end }}" id="{{ .id }}">
+            <div class="catalog-entry__media{{ with .catalogDrawing }} catalog-entry__media--drawing{{ end }}">
+              {{ with .catalogImage }}
+                {{ partial "image.html" (dict "src" . "alt" $s.catalogAlt "sizes" "(max-width: 760px) 100vw, 55vw") }}
+                <small>Illustrative image</small>
+              {{ else }}
+                {{ partial "geo.html" .catalogDrawing }}
+              {{ end }}
             </div>
-            <p class="service-card__kicker">{{ .kicker }}</p>
-            <h3>{{ .title }}</h3>
-            <p class="service-card__summary">{{ .summary }}</p>
-            <ul class="service-card__list">
-              {{ range .bullets }}<li class="service-card__item">{{ . }}</li>{{ end }}
-            </ul>
-            <div class="service-card__actions">
-              <a class="link-arrow" href="{{ printf "services/%s/" .path | relURL }}">Explore this service <span aria-hidden="true">↗</span></a>
-              <a class="service-card__brief-link" href="{{ partial "brief-url.html" .id }}">Start a project</a>
+            <div class="catalog-entry__body">
+              <p class="catalog-entry__label"><span>{{ printf "%02d" (add $i 1) }}</span>{{ .catalogLabel | default .kicker }}</p>
+              <h3>{{ .title }}</h3>
+              <p>{{ .summary }}</p>
+              <ul>{{ range .bullets }}<li>{{ . }}</li>{{ end }}</ul>
+              <div class="catalog-entry__actions">
+                <a class="mcm-link" href="{{ printf "services/%s/" .path | relURL }}">Explore this service</a>
+                <a class="catalog-entry__brief" href="{{ partial "brief-url.html" .id }}">Start a project</a>
+              </div>
             </div>
           </article>
         {{ end }}
       </div>
     </div>
   </section>
-
   {{ partial "stats.html" . }}
 
   {{ if partial "feature-enabled.html" "projects" }}
@@ -148,24 +175,23 @@
     </section>
   {{ end }}
 
-  <section class="approach l-section" id="approach">
+
+  <section class="board l-section" id="approach">
     <div class="l-container">
-      <div class="approach__top">
-        <div class="section-heading">
-          <p class="eyebrow eyebrow--light">Planning your project</p>
-          <h2>The right questions.<br><em>A clearer next step.</em></h2>
+      <div class="mcm-heading mcm-heading--split">
+        <div>
+          <p class="mcm-eyebrow mcm-eyebrow--light">The project board</p>
+          <h2>Design.<br>Define. Fit.</h2>
         </div>
-        <div class="approach__statement">
-          <span class="approach__statement-mark" aria-hidden="true">“</span>
-          <p>The room comes first. The right door feels like it belongs there.</p>
-        </div>
+        <blockquote class="board__quote"><p>The room comes first. The right door feels like it belongs there.</p></blockquote>
       </div>
-      <ol class="process-list">
+      <ol class="board__steps">
         {{ range hugo.Data.process }}
-          <li class="process-list__item">
-            <span class="process-list__step">{{ .step }}</span>
-            <div><h3>{{ .title }}</h3><p>{{ .body }}</p></div>
-            <span class="process-list__arrow" aria-hidden="true">↗</span>
+          <li class="board-step">
+            <div class="board-step__drawing">{{ partial "geo.html" .drawing }}</div>
+            <p class="board-step__num">{{ .step }}</p>
+            <h3>{{ .title }}</h3>
+            <p>{{ .body }}</p>
           </li>
         {{ end }}
       </ol>
@@ -191,19 +217,23 @@
     {{ end }}
   {{ end }}
 
+
   {{ if (partial "feature-enabled.html" "serviceArea") }}
     {{ $area := hugo.Data.service_area }}
-    <section class="area-teaser l-section" id="area">
-      <div class="l-container area-teaser__grid">
-        <div class="section-heading">
-          <p class="eyebrow">Where the work happens</p>
-          <h2>{{ site.Params.serviceArea }}</h2>
-          <p class="section-heading__aside">{{ (index $area "primary").note }}</p>
-          <a class="link-arrow" href="{{ "service-area/" | relURL }}">See the full service area <span aria-hidden="true">↗</span></a>
+    <section class="local l-section" id="area">
+      <div class="l-container local__grid">
+        <div>
+          <p class="mcm-eyebrow">Close to home</p>
+          <h2>Planned room<br>by room.</h2>
         </div>
-        <ul class="area-teaser__towns">
-          {{ if or site.Params.coverageConfirmed site.Params.showExampleLocations }}{{ range (index $area "primary").towns }}<li>{{ partial "town-label.html" . }}</li>{{ end }}{{ end }}
-        </ul>
+        <div class="local__copy">
+          <p>A door looks best when it is planned for the home it lives in. That starts with the room, the light, and the materials already there.</p>
+          <p class="local__area"><span>Service area</span>{{ site.Params.serviceArea }}</p>
+          {{ if or site.Params.coverageConfirmed site.Params.showExampleLocations }}
+            <p class="local__towns">{{ range $i, $t := (index $area "primary").towns }}{{ if $i }} · {{ end }}{{ partial "town-label.html" $t }}{{ end }}</p>
+          {{ end }}
+          <a class="mcm-link" href="{{ "service-area/" | relURL }}">See the service area</a>
+        </div>
       </div>
     </section>
   {{ end }}
@@ -277,16 +307,30 @@
     {{ end }}
   {{ end }}
 
-  <section class="faq l-section" id="faq">
-    <div class="l-container faq__grid">
-      <div class="section-heading">
-        <p class="eyebrow">Before you reach out</p>
-        <h2>Start with the question you actually have.</h2>
-        <p class="section-heading__aside">If your project does not fit neatly into one service, that is exactly what the first conversation is for.</p>
-        {{ if (partial "feature-enabled.html" "faqPage") }}<a class="link-arrow" href="{{ "faq/" | relURL }}">See every question <span aria-hidden="true">↗</span></a>{{ end }}
+
+  <section class="consult l-section" id="faq">
+    <div class="l-container">
+      <div class="consult__panel">
+        <div>
+          <p class="mcm-eyebrow mcm-eyebrow--dark">A design consultation</p>
+          <h2>Before anything<br>is made…</h2>
+        </div>
+        <ol class="consult__questions">
+          <li>What kind of room is it?</li>
+          <li>How wide is the opening?</li>
+          <li>What woods are already in the space?</li>
+          <li>Should the door disappear — or become the centerpiece?</li>
+        </ol>
       </div>
-      <div>
-        {{ partial "faq-list.html" (dict "groups" (where hugo.Data.faqs "featured" true) "showCategories" false) }}
+      <div class="consult__faq">
+        <div class="mcm-heading">
+          <p class="mcm-eyebrow">Common questions</p>
+          <h2>The practical side.</h2>
+          {{ if (partial "feature-enabled.html" "faqPage") }}<a class="mcm-link" href="{{ "faq/" | relURL }}">See every question</a>{{ end }}
+        </div>
+        <div>
+          {{ partial "faq-list.html" (dict "groups" (where hugo.Data.faqs "featured" true) "showCategories" false) }}
+        </div>
       </div>
     </div>
   </section>
