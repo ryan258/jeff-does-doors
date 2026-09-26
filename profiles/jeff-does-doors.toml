@@ -1,0 +1,43 @@
+title = "Jeff Does Doors | Barn-Style Doors"
+[params]
+profileID = "jeff-does-doors"
+companyName = "Jeff Does Doors"
+brandName = "Jeff"
+brandDescriptor = "Does Doors"
+specialty = "doors"
+serviceArea = "Coverage awaiting confirmation"
+description = "Jeff Does Doors specializes in barn-style doors. Explore sliding-door ideas, hardware, and the details that shape your project."
+tagline = "A little character. A whole new room."
+primaryAction = "Tell us about your door"
+brandTone = "amber"
+marketLabel = ""
+heroImage = "images/barn-door-illustration.webp"
+heroAlt = "AI-generated illustration of a natural oak sliding barn-style interior door with black track; not a Jeff Does Doors project"
+contactPhone = ""
+contactEmail = ""
+contactResponse = ""
+hoursText = ""
+mapURL = ""
+reviewURL = ""
+reviewRequestURL = ""
+productionURL = ""
+emergencyPhone = ""
+formEndpoint = ""
+streetAddress = ""
+addressLocality = ""
+addressRegion = ""
+postalCode = ""
+facebookURL = ""
+instagramURL = ""
+coverageConfirmed = false
+showExampleLocations = false
+supportsSMS = false
+publicAddress = false
+approvalConfigFiles = ["hugo.toml", "profiles/jeff-does-doors.toml"]
+
+[params.intake]
+enabled = false
+environment = ""
+siteKey = ""
+consentVersion = ""
+retentionNotice = ""

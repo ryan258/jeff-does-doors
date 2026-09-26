@@ -1,0 +1,16 @@
+/public/
+/resources/
+.hugo_build.lock
+.DS_Store
+__pycache__/
+
+.venv/
+.cache/
+
+# Cloudflare runtime secrets and local state
+.dev.vars*
+.wrangler/
+private-exports/
+
+# Jeff-only source art kept out of the build; see docs/imagery.md
+.attic/

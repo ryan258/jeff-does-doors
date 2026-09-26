@@ -1,0 +1,29 @@
+[params]
+productionURL = ""
+approvalConfigFiles = ["hugo.toml", "profiles/jeff-does-doors.toml", "hugo-launch.toml"]
+
+[params.features]
+# Explicit minimal starter selection — enable additional modules as evidence and copy are approved.
+promoBanner     = false
+stickyCallBar   = true
+stats           = false
+credentials     = false
+beforeAfter     = false
+gallery         = false
+projects        = false
+blog            = false
+about           = true
+team            = false
+serviceArea     = true
+pricing         = false
+financing       = false
+warranty        = false
+careers         = false
+equipment       = false
+emergency       = false
+reviewsPage     = false
+faqPage         = true
+contactPage     = true
+estimateWizard  = false
+search          = false
+legal           = true

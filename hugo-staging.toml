@@ -1,0 +1,7 @@
+# GitHub Pages is currently a review/staging surface, not the live site.
+# Layer after the engine and business profile. Public preview pages allow
+# crawling so noindex can be read. This is not authentication or a privacy boundary.
+disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+
+[params]
+  noindex = true

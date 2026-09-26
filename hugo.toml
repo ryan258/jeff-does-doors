@@ -1,0 +1,87 @@
+# Keep this local-friendly value for development. Pass the confirmed production URL
+# to scripts/release_check.py before launch so canonical URLs and the sitemap are correct.
+baseURL = "/"
+defaultContentLanguage = "en"
+title = "Jeff Does Doors | Barn-Style Doors"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+ignoreFiles = ["\\.DS_Store$"]
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[languages]
+  [languages.en]
+    label = "English"
+    locale = "en-us"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+
+[params]
+  approvalConfigFiles = ["hugo.toml"]
+  productionURL = "" # Owner-confirmed absolute HTTPS URL before launch.
+  # Keep the eventual live site indexable. The staging Pages workflow overrides this in hugo-staging.toml.
+  noindex = false
+  # Identity lives in profiles/jeff-does-doors.toml; these are the fallbacks used
+  # when a command forgets the profile, so they must not name another business.
+  companyName = "Jeff Does Doors"
+  specialty = "doors"
+  profileID = "jeff-does-doors"
+  tagline = "A little character. A whole new room."
+  emergencySupportsSMS = false
+  draftRecovery = true
+  primaryAction = "Tell us about your door"
+  contactPhone = ""
+  contactEmail = ""
+  mapURL = ""
+  reviewURL = ""
+  formEndpoint = ""
+  loadWebFonts = true
+
+  # ---------------------------------------------------------------------------
+  # CHISEL MENU — flip a flag to false to remove a section or its navigation.
+  # See docs/chisel-menu.md for what each one controls and what to delete
+  # if the client wants the page gone entirely rather than hidden.
+  # ---------------------------------------------------------------------------
+  [params.features]
+    promoBanner     = false   # dismissible seasonal/announcement bar
+    stickyCallBar   = true   # mobile bottom call/text/brief bar
+    stats           = false   # homepage counters (years, jobs, service radius)
+    credentials     = false   # licensed / insured / local trust badges
+    beforeAfter     = false   # before/after slider on project stories
+    gallery         = false   # photo gallery with lightbox
+    projects        = false   # /projects portfolio section
+    blog            = false   # /blog articles + RSS
+    about           = true   # /about story page
+    team            = false   # crew cards (on /about)
+    serviceArea     = true   # /service-area towns + counties
+    pricing         = false   # /pricing what-things-cost ranges
+    financing       = false   # /financing payment options
+    warranty        = false   # workmanship guarantee block
+    careers         = false   # /careers hiring page
+    equipment       = false   # /equipment fleet page
+    emergency       = false   # /emergency urgent-work page
+    reviewsPage     = false   # /reviews full testimonial page
+    faqPage         = true   # /faq full question page
+    contactPage     = true   # /contact page
+    estimateWizard  = false   # /estimate multi-step request builder
+    search          = false   # client-side site search
+    legal           = true   # privacy / terms / accessibility pages
+
+# Share source images with Hugo's responsive image pipeline.
+[[module.mounts]]
+  source = "assets"
+  target = "assets"
+[[module.mounts]]
+  source = "static/images"
+  target = "assets/images"
+
+# Optional adapter; existing local draft and handoff behavior remains the default.
+[params.intake]
+  enabled = false
+  environment = ""
+  siteKey = ""
+  consentVersion = ""
+  retentionNotice = ""

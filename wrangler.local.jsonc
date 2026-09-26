@@ -1,0 +1,23 @@
+{
+  "name": "jeff-does-doors-local-only",
+  "pages_build_output_dir": "public",
+  "compatibility_date": "2026-09-19",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "jeff-does-doors-local-only",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "preview_database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "INTAKE_ENABLED": "false",
+    "INTAKE_ENV": "local",
+    "INTAKE_PROFILE": "jeff-does-doors",
+    "INTAKE_SUPPORTS_SMS": "false",
+    "INTAKE_SERVICES": "[\"barn-door-installation\",\"barn-door-replacement\",\"tracks-hardware\",\"barn-door-adjustments\"]",
+    "TURNSTILE_HOSTNAMES": "localhost,127.0.0.1",
+    "CONSENT_VERSION": "local-test-v1"
+  }
+}
