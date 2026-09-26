@@ -14,7 +14,7 @@ Open <http://localhost:1317/>. The site uses the selected client features, noind
 
 ## Current site
 
-- Home: “A door that makes the room.”
+- Home: “A door is part of the room.” (mid-century modern redesign)
 - Four proposed project pages: barn-door installation, replacement/upgrades, tracks/hardware, and adjustments.
 - About, service area, FAQs, contact, privacy, preview terms, and accessibility.
 - Local project-message builder with service-specific prompts, copy/download, and optional seven-day device saving.

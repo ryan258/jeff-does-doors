@@ -2,6 +2,9 @@
   title: Barn-door installation
   number: '01'
   kicker: Give the opening some character
+  catalogLabel: The door
+  catalogImage: images/barn-door-walnut.webp
+  catalogAlt: Illustrative concept of a walnut sliding door between a bedroom and a bath
   icon: barn-door
   summary: Explore a sliding barn-style door for a room, closet, or an opening you
     want to make a feature of.
@@ -36,6 +39,8 @@
   title: Door replacements & upgrades
   number: '02'
   kicker: A new look for a familiar space
+  catalogLabel: The opening
+  catalogDrawing: elevation
   icon: interior-door
   summary: Change the style of an existing barn door or explore replacing a swinging
     door with a sliding design.
@@ -70,6 +75,9 @@
   title: Tracks, pulls & hardware
   number: '03'
   kicker: The details are part of the design
+  catalogLabel: The hardware
+  catalogImage: images/barn-door-hardware.webp
+  catalogAlt: Illustrative close-up of a steel roller wheel riding on a sliding-door track
   icon: door-hardware
   summary: Bring the visible details together, from the track above the opening to
     the pull you reach for every day.
@@ -102,6 +110,9 @@
   title: Barn-door adjustments
   number: '04'
   kicker: When the slide needs attention
+  catalogLabel: The fit
+  catalogImage: images/barn-door-floor-guide.webp
+  catalogAlt: Illustrative close-up of a steel floor guide holding the bottom of a sliding door
   icon: door-repair
   summary: Describe an existing sliding door that rubs, feels awkward, or no longer
     moves the way you expect.

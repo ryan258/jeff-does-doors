@@ -1,44 +1,10 @@
-/* Client refinements; shared Jones foundations stay in the base partials. */
-.hero__copy { max-width: 620px; }
-.hero h1 { max-width: 620px; font-size: clamp(4rem, 7.7vw, 7.2rem); line-height: .98; letter-spacing: -.065em; }
-.hero__image-note { display: block; margin-top: 18px; color: rgba(255,255,255,.78); font-size: .7rem; line-height: 1.5; }
-.services__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.service-card, .service-card:nth-child(4) { grid-column: auto; min-height: 400px; }
-.hero__note { max-width: 240px; }
-.brand__copy > span { font-size: 1.7rem; }
-.brand__copy small { letter-spacing: .17em; }
+/* Client refinements; shared foundations stay in the base partials.
+   The mid-century homepage and palette live in _modern.scss. */
 .call-bar { grid-template-columns: 1fr; }
-@media (max-width: 760px) {
-  .hero__media img { object-position: 68% center; }
-  .hero h1 { font-size: clamp(3.2rem, 12vw, 5.5rem); }
-}
-@media (max-width: 560px) {
-  .services__grid { grid-template-columns: minmax(0, 1fr); }
-  .service-card, .service-card:nth-child(4) { min-height: 0; }
-}
 
-/* Rich timber texture background overlays for dark sections */
 .cta-banner {
-  background-color: #1a1714;
-  background-image: linear-gradient(rgba(26, 23, 20, 0.90), rgba(26, 23, 20, 0.90)), url('/images/wood-texture-dark.webp');
-  background-size: cover;
-  background-position: center;
-}
-
-.approach {
-  background-color: #1a1714;
-  background-image: linear-gradient(rgba(26, 23, 20, 0.92), rgba(26, 23, 20, 0.92)), url('/images/wood-texture-dark.webp');
-  background-size: cover;
-  background-position: center;
-}
-
-.service-hero,
-.service-index--hero,
-.page-hero {
-  background-color: #1a1714;
-  background-image: linear-gradient(rgba(26, 23, 20, 0.92), rgba(26, 23, 20, 0.92)), url('/images/wood-texture-dark.webp');
-  background-size: cover;
-  background-position: center;
+  background-color: var(--walnut);
+  background-image: none;
 }
 
 /* Service prose illustration image styling */
@@ -52,4 +18,3 @@
   border-radius: 4px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
-

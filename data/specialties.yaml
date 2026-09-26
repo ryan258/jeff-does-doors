@@ -1,3 +1,4 @@
+# The headline splits into stacked hero lines at each "|".
 doors:
   label: Barn-style doors
   primaryService: barn-door-installation
@@ -6,8 +7,8 @@ doors:
   - barn-door-replacement
   - tracks-hardware
   - barn-door-adjustments
-  eyebrow: Barn-style doors · character in every opening
-  headline: A door that makes the room.
-  introduction: Warm wood. A clean line. That unmistakable slide. Jeff Does Doors
-    specializes in barn-style doors that bring a different feel to an everyday space.
+  eyebrow: Barn-style doors · designed around the room
+  headline: A door|is part of|the room.
+  introduction: Barn-style doors designed around your space. Planned for the way
+    you live.
   proofPrompt: The door is the detail you build the room around.

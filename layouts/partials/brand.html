@@ -1,7 +1,9 @@
 <a class="brand{{ with .modifier }} {{ . }}{{ end }}" href="{{ "" | relURL }}" aria-label="{{ site.Params.companyName }} home">
   <span class="brand__mark" aria-hidden="true">
+    {{- /* Overhead view of a sliding door: track, roller, slab, and a J cut into it. */ -}}
     <svg viewBox="0 0 44 44" role="img">
-      <path d="M5 8h34M12 8v5M32 8v5M10 14h24v24H10zM14 18h16M14 34h16M14 18l16 16M29 23v7" />
+      <path d="M6 10h32M13 15h18v22H13zM25 20v9a4 4 0 0 1-8 0" />
+      <circle class="brand__roller" cx="31" cy="10" r="3" />
     </svg>
   </span>
   <span class="brand__copy"><span>{{ site.Params.brandName | default site.Params.companyName }}</span><small>{{ site.Params.brandDescriptor }}</small></span>

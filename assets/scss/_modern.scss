@@ -1,0 +1,1105 @@
+/* Mid-century residential architecture, not retro decoration.
+   Color arrives in large fields (walls, cabinetry, upholstery); geometry is one
+   quiet system of thin rules, circles, and rounded rectangles. Loaded last. */
+
+:root {
+  --ink: #{$color-espresso};
+  --ink-soft: #5e5248;
+  --paper: #{$color-ivory};
+  --paper-bright: #faf5ec;
+  --sand: #e8dcc7;
+  --line: rgba(36, 32, 28, 0.16);
+  --line-light: rgba(243, 235, 221, 0.22);
+  --clay: #97482a;          // tobacco, deepened for text on ivory
+  --clay-deep: #{$color-walnut};
+  --gold: #{$color-ochre};
+  --moss: #{$color-olive};
+  --walnut: #{$color-walnut};
+  --tobacco: #{$color-tobacco};
+  --olive: #{$color-olive};
+  --teal: #{$color-teal};
+  --brass: #{$color-brass};
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --shadow-soft: 0 20px 55px rgba(36, 32, 28, 0.1);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* Shared type: architectural caps for structure, serif for editorial asides. */
+.eyebrow,
+.mcm-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  color: var(--clay);
+  font-family: $font-sans;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.mcm-eyebrow::before {
+  width: 34px;
+  height: 1px;
+  background: currentColor;
+  content: "";
+}
+
+.eyebrow--light,
+.mcm-eyebrow--light {
+  color: var(--gold);
+}
+
+.mcm-eyebrow--dark {
+  color: var(--ink);
+}
+
+.section-heading h2,
+.mcm-heading h2 {
+  font-family: $font-display;
+  font-size: clamp(2.5rem, 5.2vw, 4.9rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.section-heading h2 em {
+  color: var(--clay);
+}
+
+.mcm-heading {
+  margin-bottom: 64px;
+}
+
+.mcm-heading--split {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.mcm-heading--split > p,
+.mcm-heading--split > blockquote {
+  max-width: 340px;
+  margin: 0 0 6px;
+  color: var(--ink-soft);
+  font-family: $font-serif;
+  font-size: 1.12rem;
+  line-height: 1.5;
+}
+
+/* Buttons and links */
+.mcm-button,
+.button {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-family: $font-sans;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.mcm-button {
+  border: 1px solid transparent;
+}
+
+.mcm-button,
+.button--accent {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.mcm-button:hover,
+.button--accent:hover {
+  background: #e6ad48;
+  transform: translateY(-2px);
+}
+
+.button--dark {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.button--dark:hover {
+  background: var(--walnut);
+}
+
+.mcm-link,
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid currentColor;
+  color: var(--clay);
+  font-family: $font-sans;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.mcm-link::after {
+  content: "→";
+  transition: transform 160ms ease;
+}
+
+.mcm-link:hover::after {
+  transform: translateX(4px);
+}
+
+.mcm-link--light,
+.link-arrow--light {
+  color: var(--paper);
+}
+
+a:focus-visible,
+summary:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* Header and brand mark */
+.site-header__inner {
+  border-bottom-color: var(--line-light);
+}
+
+.site-header__nav a,
+.site-header__cta,
+.site-header__phone {
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.site-header__cta:hover {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.brand__mark {
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(243, 235, 221, 0.55);
+  border-radius: 50%;
+  background: transparent;
+}
+
+.brand__mark svg {
+  width: 30px;
+  height: 30px;
+  stroke-width: 2;
+}
+
+.brand__mark .brand__roller {
+  fill: var(--gold);
+  stroke: none;
+}
+
+.brand__copy > span {
+  font-family: $font-display;
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.brand__copy small {
+  margin-top: 5px;
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+}
+
+/* 1 · Full-room hero */
+.room-hero {
+  position: relative;
+  min-height: 720px;
+  min-height: unquote("max(720px, 100svh)");
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.room-hero__media,
+.room-hero__shade {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+}
+
+.room-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% center;
+}
+
+.room-hero__shade {
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(36, 32, 28, 0.9) 0%, rgba(36, 32, 28, 0.62) 38%, rgba(36, 32, 28, 0.08) 70%),
+    linear-gradient(0deg, rgba(36, 32, 28, 0.85) 0%, rgba(36, 32, 28, 0) 42%);
+}
+
+.room-hero__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: 720px;
+  min-height: unquote("max(720px, 100svh)");
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: 150px;
+  padding-bottom: 64px;
+}
+
+.room-hero__kicker {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.room-hero__kicker span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.room-hero__kicker span:first-child::after {
+  width: 64px;
+  height: 1px;
+  background: var(--brass);
+  content: "";
+}
+
+.room-hero__title {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: $font-display;
+  font-size: clamp(3.3rem, 9vw, 8.6rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.room-hero__title span:nth-child(2) {
+  padding-left: 0.9em;
+  color: var(--gold);
+}
+
+.room-hero__foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 44px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line-light);
+}
+
+.room-hero__lede {
+  max-width: 440px;
+  margin: 0;
+  color: rgba(243, 235, 221, 0.86);
+  font-family: $font-serif;
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  line-height: 1.45;
+}
+
+.room-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 28px;
+}
+
+.room-hero__note {
+  margin-top: 26px;
+  color: rgba(243, 235, 221, 0.66);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+}
+
+/* 2 · Specification strip */
+.spec-strip {
+  background: var(--walnut);
+  color: var(--paper);
+}
+
+.spec-strip__list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-block: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.spec-strip__list li {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 30px 24px;
+  border-left: 1px solid rgba(184, 139, 67, 0.55);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.spec-strip__list li:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.spec-strip__list span {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* Geometry system */
+.geo {
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.geo__dot {
+  fill: var(--gold);
+  stroke: none;
+}
+
+.geo__fill {
+  fill: currentColor;
+  fill-opacity: 0.14;
+}
+
+.geo__faint {
+  stroke-dasharray: 4 6;
+  opacity: 0.6;
+}
+
+.geo text {
+  fill: currentColor;
+  stroke: none;
+  font-family: $font-sans;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+}
+
+/* 3 · The door is furniture */
+.furniture {
+  background: var(--paper);
+}
+
+.furniture__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(48px, 8vw, 120px);
+  align-items: center;
+}
+
+.furniture__title {
+  position: relative;
+}
+
+.furniture__title h2 {
+  position: relative;
+  z-index: 1;
+  font-family: $font-display;
+  font-size: clamp(3rem, 7.4vw, 7rem);
+  font-weight: 500;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.furniture__title .geo--orbit {
+  width: clamp(120px, 14vw, 180px);
+  margin-top: 40px;
+  color: var(--olive);
+}
+
+.furniture__copy {
+  color: var(--ink-soft);
+  font-size: 1.06rem;
+}
+
+.furniture__lead {
+  margin-bottom: 20px;
+  color: var(--ink);
+  font-family: $font-serif;
+  font-size: clamp(1.45rem, 2.3vw, 1.95rem);
+  line-height: 1.2;
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 36px 0;
+  list-style: none;
+}
+
+.swatch {
+  display: grid;
+  gap: 4px;
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.swatch__chip {
+  height: 96px;
+  margin-bottom: 10px;
+  border-radius: 48px 48px 4px 4px;
+  box-shadow: inset 0 0 0 1px rgba(36, 32, 28, 0.12);
+}
+
+.swatch__code {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.swatch--walnut .swatch__chip {
+  background:
+    repeating-linear-gradient(94deg, rgba(0, 0, 0, 0.13) 0 2px, transparent 2px 9px, rgba(255, 255, 255, 0.05) 9px 11px, transparent 11px 17px),
+    linear-gradient(180deg, #6b412c, #4a2b1d);
+}
+
+.swatch--oak .swatch__chip {
+  background:
+    repeating-linear-gradient(92deg, rgba(120, 84, 40, 0.14) 0 1px, transparent 1px 7px, rgba(120, 84, 40, 0.08) 7px 9px, transparent 9px 15px),
+    linear-gradient(180deg, #dcc39b, #c9aa7a);
+}
+
+.swatch--painted .swatch__chip {
+  background: linear-gradient(180deg, #58807b, var(--teal));
+}
+
+/* 4 · Door styles, on a teal field */
+.styles {
+  background: var(--teal);
+  color: #fff;
+}
+
+.styles .mcm-heading--split > p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.styles__row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  list-style: none;
+}
+
+.style-tile__media {
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  margin-bottom: 18px;
+  border-radius: 999px 999px 6px 6px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.style-tile__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.style-tile h3 {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.style-tile p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: $font-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* 5 · Catalog: alternating horizontal compositions, no cards */
+.catalog {
+  background: var(--paper-bright);
+}
+
+.catalog__list {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.catalog-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 88px);
+  align-items: center;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 100px;
+}
+
+.catalog-entry--flip .catalog-entry__media {
+  order: 2;
+}
+
+.catalog-entry__media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-sm);
+  background: var(--sand);
+}
+
+.catalog-entry__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.catalog-entry__media small {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(36, 32, 28, 0.72);
+  color: var(--paper);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+}
+
+.catalog-entry__media--drawing {
+  display: grid;
+  place-items: center;
+  padding: 7%;
+  background: var(--olive);
+  color: var(--paper);
+}
+
+.catalog-entry__media--drawing .geo {
+  width: 100%;
+  max-height: 100%;
+}
+
+.catalog-entry__label {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 18px;
+  color: var(--clay);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.catalog-entry__label span {
+  color: var(--ink);
+  font-family: $font-display;
+  font-size: 3.2rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.catalog-entry__body h3 {
+  margin-bottom: 14px;
+  font-family: $font-display;
+  font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.catalog-entry__body > p {
+  max-width: 440px;
+  color: var(--ink-soft);
+  font-size: 1.04rem;
+}
+
+.catalog-entry__body ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0 28px;
+  list-style: none;
+}
+
+.catalog-entry__body li {
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+.catalog-entry__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 26px;
+}
+
+.catalog-entry__brief {
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.catalog-entry__brief:hover {
+  color: var(--clay);
+}
+
+/* 7 · Process as an architect's project board */
+.board {
+  position: relative;
+  background-color: var(--ink);
+  background-image:
+    linear-gradient(rgba(184, 139, 67, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 139, 67, 0.09) 1px, transparent 1px);
+  background-size: 48px 48px;
+  color: var(--paper);
+}
+
+.board .mcm-heading h2 {
+  color: var(--paper);
+}
+
+.board__quote {
+  padding-left: 22px;
+  border-left: 2px solid var(--gold);
+}
+
+.board__quote p {
+  margin: 0;
+  color: rgba(243, 235, 221, 0.86);
+  font-style: italic;
+}
+
+.board__steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  list-style: none;
+  border-top: 1px solid rgba(184, 139, 67, 0.5);
+}
+
+.board-step {
+  padding: 34px 28px 10px;
+  border-left: 1px solid rgba(184, 139, 67, 0.5);
+}
+
+.board-step:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.board-step__drawing {
+  width: 110px;
+  margin-bottom: 28px;
+  color: var(--paper);
+}
+
+.board-step__num {
+  margin-bottom: 10px;
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+}
+
+.board-step h3 {
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.board-step p:last-child {
+  margin: 0;
+  color: rgba(243, 235, 221, 0.78);
+  font-size: 0.98rem;
+}
+
+/* 8 · Local statement */
+.local {
+  background: var(--paper);
+}
+
+.local__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(40px, 8vw, 120px);
+  align-items: end;
+}
+
+.local h2 {
+  font-family: $font-display;
+  font-size: clamp(2.5rem, 5.2vw, 4.9rem);
+  font-weight: 500;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.local__copy {
+  max-width: 460px;
+  color: var(--ink-soft);
+  font-size: 1.06rem;
+}
+
+.local__area {
+  display: grid;
+  gap: 4px;
+  margin: 26px 0;
+  padding: 16px 0;
+  border-block: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.local__area span,
+.local__towns {
+  color: var(--clay);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* 11 · FAQ as a design consultation */
+.consult {
+  background: var(--paper-bright);
+}
+
+.consult__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(32px, 6vw, 88px);
+  margin-bottom: 110px;
+  padding: clamp(36px, 6vw, 80px);
+  border-radius: var(--radius-lg);
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.consult__panel h2 {
+  font-family: $font-display;
+  font-size: clamp(2.2rem, 4.4vw, 4rem);
+  font-weight: 500;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.consult__questions {
+  margin: 0;
+  list-style: none;
+  counter-reset: consult;
+}
+
+.consult__questions li {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(36, 32, 28, 0.25);
+  font-family: $font-serif;
+  font-size: clamp(1.2rem, 1.9vw, 1.55rem);
+  line-height: 1.25;
+  counter-increment: consult;
+}
+
+.consult__questions li:first-child {
+  padding-top: 0;
+}
+
+.consult__questions li::before {
+  padding-top: 0.35em;
+  font-family: $font-sans;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  content: counter(consult, decimal-leading-zero);
+}
+
+.consult__faq {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(32px, 6vw, 88px);
+}
+
+.consult__faq .mcm-heading h2 {
+  margin-bottom: 26px;
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+}
+
+.faq-item summary {
+  font-family: $font-sans;
+  font-weight: 500;
+}
+
+/* 12 · Brief and contact */
+.brief-builder {
+  background: var(--sand);
+}
+
+.brief-builder h2,
+.contact h2 {
+  font-family: $font-display;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.brief-builder h2 {
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  line-height: 0.95;
+}
+
+.contact h2 {
+  font-size: clamp(2.4rem, 4.8vw, 4.4rem);
+  line-height: 0.95;
+}
+
+.brief-form label:has(> input[type="checkbox"]) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brief-form input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  padding: 0;
+  accent-color: var(--walnut);
+}
+
+.button--ghost {
+  border-color: var(--line);
+  background: transparent;
+  color: var(--ink);
+}
+
+.contact {
+  background: var(--walnut);
+  color: var(--paper);
+}
+
+.quote-card {
+  border-radius: var(--radius-md);
+  background: var(--paper);
+}
+
+/* Inner pages share the same walnut field in place of the dark timber photo. */
+.page-hero,
+.service-hero,
+.service-index--hero {
+  background: var(--walnut);
+  background-image: none;
+}
+
+.page-hero h1,
+.service-hero h1 {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* 13 · Minimal walnut footer */
+.site-footer {
+  background: var(--ink);
+  border-top: 10px solid var(--walnut);
+}
+
+.site-footer__label {
+  color: var(--gold);
+  letter-spacing: 0.22em;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .spec-strip__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .spec-strip__list li:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .spec-strip__list li:nth-child(n + 3) {
+    border-top: 1px solid rgba(184, 139, 67, 0.35);
+  }
+
+  .styles__row,
+  .board__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .board-step:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .board-step:nth-child(n + 3) {
+    border-top: 1px solid rgba(184, 139, 67, 0.5);
+  }
+
+  .consult__panel,
+  .consult__faq {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .mcm-heading--split,
+  .room-hero__foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+
+  .mcm-heading {
+    margin-bottom: 40px;
+  }
+
+  .room-hero__media img {
+    object-position: 74% center;
+  }
+
+  .room-hero__shade {
+    background:
+      linear-gradient(0deg, rgba(36, 32, 28, 0.96) 0%, rgba(36, 32, 28, 0.7) 48%, rgba(36, 32, 28, 0.2) 100%);
+  }
+
+  .room-hero__title span:nth-child(2) {
+    padding-left: 0;
+  }
+
+  .room-hero__kicker span:first-child {
+    display: none;
+  }
+
+  .spec-strip__list li {
+    padding: 20px 14px;
+    font-size: 0.68rem;
+  }
+
+  .spec-strip__list li:nth-child(odd) {
+    padding-left: 0;
+  }
+
+  .furniture__grid,
+  .catalog-entry,
+  .local__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .furniture__title .geo--orbit {
+    display: none;
+  }
+
+  .catalog-entry {
+    padding: 40px 0;
+    gap: 26px;
+  }
+
+  .catalog-entry--flip .catalog-entry__media {
+    order: 0;
+  }
+
+  .swatch__chip {
+    height: 72px;
+  }
+
+  .styles__row {
+    gap: 26px 16px;
+  }
+
+  .board-step {
+    padding: 28px 16px 8px;
+  }
+
+  .board-step:nth-child(odd) {
+    padding-left: 0;
+  }
+
+  .board-step__drawing {
+    width: 80px;
+  }
+
+  .consult__panel {
+    margin-bottom: 72px;
+  }
+}
+
+@media (max-width: 460px) {
+  .board__steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .board-step,
+  .board-step:nth-child(odd) {
+    padding: 26px 0 8px;
+    border-left: 0;
+  }
+
+  .board-step + .board-step {
+    border-top: 1px solid rgba(184, 139, 67, 0.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mcm-button,
+  .mcm-link::after {
+    transition: none;
+  }
+}
