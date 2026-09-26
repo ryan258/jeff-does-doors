@@ -15,7 +15,7 @@ All imagery assets on this draft site are illustrative concepts created to flesh
 | `images/barn-door-craftsman.webp` | 1200×896 | 79 KB | Gallery (amber Craftsman horizontal panel) | `barn-door-craftsman.jpg` |
 | `images/barn-door-floor-guide.webp` | 1200×896 | 97 KB | Service 04 (`barn-door-adjustments`), Gallery | `barn-door-floor-guide.jpg` |
 | `images/barn-door-workshop.webp` | 1200×896 | 155 KB | About page (`/about`), Gallery | `barn-door-workshop.jpg` |
-| `images/wood-texture-dark.webp` | 1376×768 | 274 KB | Not currently used; the mid-century redesign replaced it with flat walnut fields | `wood-texture-dark.jpg` |
+| `images/wood-texture-dark.webp` | 1376×768 | 274 KB | Homepage closing section material study (`.contact__material`) | `wood-texture-dark.jpg` |
 
 ## Hero image
 

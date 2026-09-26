@@ -317,6 +317,7 @@
       `Project inquiry for ${companyName}`,
       '',
       `Work: ${valueFor('projectType', 'Not specified yet')}`,
+      ...optionalLine('Starting point', 'startingPoint'),
       `Property / area: ${valueFor('location', 'Not specified yet')}`,
       ...optionalLine('Service details', 'serviceDetails'),
       ...optionalLine('Property type', 'propertyType'),

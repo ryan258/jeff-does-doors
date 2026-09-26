@@ -15,13 +15,17 @@
       data-supports-sms="{{ $p.supportsSMS }}"
       data-map-url="{{ $p.mapURL }}"
       aria-describedby="{{ $id }}-help {{ $id }}-privacy">
-  <div class="brief-form__head"><span>{{ if $wizard }}Project message{{ else }}Build a quick project brief{{ end }}</span><span data-wizard-progress role="status" aria-live="polite">{{ if $wizard }}Step 1 of 3{{ else }}Local draft{{ end }}</span></div>
+  <div class="brief-form__head"><span>{{ if $wizard }}Project message{{ else }}Room brief{{ end }}</span><span data-wizard-progress role="status" aria-live="polite">{{ if $wizard }}Step 1 of 3{{ else }}Local draft{{ end }}</span></div>
   <p class="brief-form__help" id="{{ $id }}-help">Your area and a short description are enough to prepare a draft. Contact details are not yet available on this preview, so nothing here is sent to Jeff.</p>
 
   <div class="brief-form__fields" data-wizard-step="1">
     {{ if $wizard }}<p class="brief-form__step-label" data-step-heading tabindex="-1">Step 1 — the work</p>{{ end }}
+    <fieldset class="brief-form__field brief-form__field--full brief-form__choices">
+      <legend>Where are you starting? <small>(optional)</small></legend>
+      {{ range slice "New door" "Replace an existing door" "Not sure yet" }}<label class="brief-form__chip"><input type="radio" name="startingPoint" value="{{ . }}"><span>{{ . }}</span></label>{{ end }}
+    </fieldset>
     <label class="brief-form__field">
-      <span>What kind of work?</span>
+      <span>Which service fits? <small>(optional)</small></span>
       <select name="projectType" autocomplete="off">
         <option value="" data-service-id="">Choose a service, or leave unspecified</option>
         {{ range (partial "services.html" .) }}<option value="{{ .title }}" data-service-id="{{ .id }}" data-inquiry-prompt="{{ .inquiryPrompt }}">{{ .title }}</option>{{ end }}
@@ -29,12 +33,12 @@
       </select>
     </label>
     <label class="brief-form__field">
-      <span>Property / area <small>(required)</small></span>
+      <span>Your town or ZIP <small>(required)</small></span>
       <input type="text" name="location" maxlength="300" autocomplete="address-level2" placeholder="Your town or ZIP code" required>
     </label>
     <label class="brief-form__field brief-form__field--full">
-      <span>What needs attention? <small>(required)</small></span>
-      <textarea name="details" rows="4" maxlength="8000" placeholder="Example: I’d like a wood barn-style door between the bedroom and bathroom. I have a photo of the opening." required></textarea>
+      <span>Tell us about the room <small>(required)</small></span>
+      <textarea name="details" rows="5" maxlength="8000" placeholder="Which room is it? How wide is the opening? What woods and colors are already there?" required></textarea>
     </label>
   <label class="brief-form__field brief-form__field--full" data-service-detail hidden>
     <span data-service-prompt></span><textarea name="serviceDetails" rows="3" maxlength="4000" aria-label="Optional service details"></textarea>

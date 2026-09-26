@@ -9,14 +9,10 @@
   {{ $projects := where site.RegularPages "Section" "projects" }}
 
   <section class="room-hero" id="top">
-    <div class="room-hero__media" aria-hidden="true">
-      {{ partial "image.html" (dict "src" site.Params.heroImage "alt" "" "width" "1600" "height" "900" "priority" true "sizes" "100vw") }}
-    </div>
-    <div class="room-hero__shade" aria-hidden="true"></div>
-    <div class="l-container room-hero__inner">
-      <p class="room-hero__kicker"><span>No. 01</span><span>{{ $specialty.eyebrow }}</span></p>
-      <h1 class="room-hero__title">{{ range split $specialty.headline "|" }}<span>{{ . }}</span> {{ end }}</h1>
-      <div class="room-hero__foot">
+    <div class="room-hero__field">
+      <div class="room-hero__inner">
+        <p class="room-hero__kicker"><span>No. 01</span><span>{{ $specialty.eyebrow }}</span></p>
+        <h1 class="room-hero__title">{{ range split $specialty.headline "|" }}<span>{{ . }}</span> {{ end }}</h1>
         <p class="room-hero__lede">{{ $specialty.introduction }}</p>
         <div class="room-hero__actions">
           <a class="mcm-button" href="{{ partial "brief-url.html" "" }}">Start a door <span aria-hidden="true">→</span></a>
@@ -24,8 +20,11 @@
           {{ with $contactPhone }}<a class="mcm-link mcm-link--light" href="tel:{{ $contactTel }}">Call {{ . }}</a>{{ end }}
         </div>
       </div>
-      <small class="room-hero__note">Illustrative image · not a completed Jeff project</small>
     </div>
+    <figure class="room-hero__media photo">
+      {{ partial "image.html" (dict "src" $specialty.heroImage "alt" $specialty.heroAlt "priority" true "sizes" "(max-width: 760px) 100vw, 45vw") }}
+      <figcaption>Illustrative image · not a completed Jeff project</figcaption>
+    </figure>
   </section>
 
   <section class="spec-strip" aria-label="How every door is approached">
@@ -218,6 +217,11 @@
   {{ end }}
 
 
+  <figure class="room-band photo">
+    {{ partial "image.html" (dict "src" "images/barn-door-illustration.webp" "alt" "Illustrative oak sliding door beside a reading room with an armchair and bookshelves" "sizes" "100vw") }}
+    <figcaption class="l-container"><span>What the room becomes</span>Illustrative image · not a completed Jeff project</figcaption>
+  </figure>
+
   {{ if (partial "feature-enabled.html" "serviceArea") }}
     {{ $area := hugo.Data.service_area }}
     <section class="local l-section" id="area">
@@ -311,7 +315,7 @@
   <section class="consult l-section" id="faq">
     <div class="l-container">
       <div class="consult__panel">
-        <div>
+        <div class="consult__plane">
           <p class="mcm-eyebrow mcm-eyebrow--dark">A design consultation</p>
           <h2>Before anything<br>is made…</h2>
         </div>
@@ -338,14 +342,9 @@
   <section class="brief-builder l-section" id="brief">
     <div class="l-container brief-builder__grid">
       <div class="brief-builder__intro">
-        <p class="eyebrow">Project brief builder</p>
-        <h2>Make the first message more useful.</h2>
-        <p class="brief-builder__lede">Organize what you know into a note for a message or call. Nothing is sent automatically. You can also download a copy to keep.</p>
-        <ul class="brief-builder__checklist">
-          <li><span>01</span><strong>Name the work</strong><small>Choose a service, or leave it unspecified until you talk.</small></li>
-          <li><span>02</span><strong>Describe the door</strong><small>Share your town and what you want to change.</small></li>
-          <li><span>03</span><strong>Say what “done” looks like</strong><small>Add the outcome you want and any timing that matters.</small></li>
-        </ul>
+        <p class="mcm-eyebrow">Start the brief</p>
+        <h2>Tell us about the room.</h2>
+        <p class="brief-builder__lede">A few details are enough to begin the conversation. Nothing is sent automatically, and you can keep a copy.</p>
       </div>
       {{ partial "brief-form.html" (dict "page" . "id" "brief" "wizard" false) }}
     </div>
@@ -354,7 +353,7 @@
   <section class="contact l-section" id="contact">
     <div class="l-container contact__grid">
       <div class="contact__copy">
-        <p class="eyebrow eyebrow--light">Ready when you are</p>
+        <p class="mcm-eyebrow mcm-eyebrow--light">Ready when you are</p>
         <h2>Let’s talk about your door.</h2>
         <p class="contact__lede">Start with the door, the problem, and the result you have in mind. Try the message builder while Jeff’s contact details are being confirmed.</p>
         <div class="contact__actions">
@@ -371,16 +370,10 @@
           </div>
         {{ end }}
       </div>
-      <aside class="quote-card">
-        <span class="quote-card__label">Make the first conversation useful</span>
-        <h3>Have these three things ready:</h3>
-        <ol>
-          <li><span>01</span><strong>The property location</strong></li>
-          <li><span>02</span><strong>What needs attention</strong></li>
-          <li><span>03</span><strong>Photos, if they help explain it</strong></li>
-        </ol>
-        <p>Prepare a message and keep a copy. This review preview does not send it to Jeff.</p>
-      </aside>
+      <figure class="contact__material photo" aria-hidden="true">
+        {{ partial "image.html" (dict "src" "images/wood-texture-dark.webp" "alt" "" "sizes" "(max-width: 760px) 100vw, 40vw") }}
+        <figcaption>Material study · wood grain</figcaption>
+      </figure>
     </div>
   </section>
 
