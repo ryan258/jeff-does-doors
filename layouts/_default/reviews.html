@@ -1,0 +1,26 @@
+{{ define "main" }}
+  {{ $approved := where hugo.Data.reviews "approved" true }}
+  {{ $pending := where hugo.Data.reviews "approved" false }}
+  {{ partial "page-hero.html" (dict "page" . "eyebrow" "Customer reviews") }}
+  <section class="l-section">
+    <div class="l-container">
+      <article class="prose prose--narrow">{{ .Content }}</article>
+      {{ if $approved }}
+        {{ partial "review-cards.html" (dict "reviews" $approved) }}
+      {{ else }}
+        <p class="reviews__empty">No review has been verified against its source yet, so none is published here. Use the review profile to read the available customer feedback.</p>
+      {{ end }}
+      {{ if and $pending (or (eq hugo.Environment "staging") site.Params.noindex) }}
+        <div class="reviews__pending">
+          <h2>Awaiting verification <span>({{ len $pending }})</span></h2>
+          <p>Visible on staging only. Each one needs its source, quote, name, link, and publication date checked before it goes live.</p>
+          <ul class="plain-list">
+            {{ range $pending }}<li>“{{ .quote }}” — {{ .name }}, {{ .context }} (<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">source</a>)</li>{{ end }}
+          </ul>
+        </div>
+      {{ end }}
+      <p class="work-preview__more">{{ with site.Params.reviewURL }}<a class="link-arrow" href="{{ . }}" target="_blank" rel="noopener noreferrer">Read everything on the review profile <span aria-hidden="true">↗</span></a>{{ end }}</p>
+    </div>
+  </section>
+  {{ partial "cta-banner.html" (dict "heading" "Every one of those started with a phone call.") }}
+{{ end }}

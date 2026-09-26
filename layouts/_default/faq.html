@@ -1,0 +1,28 @@
+{{ define "main" }}
+  {{ partial "page-hero.html" (dict "page" . "eyebrow" "Questions") }}
+  <section class="l-section">
+    <div class="l-container faq-page__grid">
+      <nav class="faq-page__nav" aria-label="Question categories">
+        <span class="site-footer__label">Jump to</span>
+        {{ range hugo.Data.faqs }}<a href="#{{ .category | urlize }}">{{ .category }}</a>{{ end }}
+      </nav>
+      <div class="faq-page__body">
+        <article class="prose prose--narrow">{{ .Content }}</article>
+        {{ range hugo.Data.faqs }}
+          <div class="faq-page__group" id="{{ .category | urlize }}">
+            <h2 class="faq__category">{{ .category }}</h2>
+            <div class="faq__list">
+              {{ range .items }}
+                <details class="faq-item">
+                  <summary><span>{{ .question }}</span><span class="faq-item__plus" aria-hidden="true"></span></summary>
+                  <div class="faq-item__answer"><p>{{ .answer }}</p></div>
+                </details>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ partial "cta-banner.html" (dict "heading" "Question not here? That is a good first message.") }}
+{{ end }}

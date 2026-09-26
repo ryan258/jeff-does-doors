@@ -1,0 +1,150 @@
+{{/* dict: page, wizard (bool), id (unique form id prefix) */}}
+{{ $id := .id | default "brief" }}
+{{ $wizard := .wizard | default false }}
+{{ $p := site.Params }}
+<form class="brief-form{{ if $wizard }} brief-form--wizard{{ end }}"
+      method="dialog"
+      data-project-form
+      {{ if $p.intake.enabled }}data-online-intake="true"{{ end }}
+      {{ if $wizard }}data-wizard{{ end }}
+      data-contact-email="{{ $p.contactEmail }}"
+      data-contact-phone="{{ $p.contactPhone }}"
+      data-company-name="{{ $p.companyName }}"
+      data-profile-id="{{ $p.profileID }}"
+      data-draft-scope="{{ "" | relURL }}"
+      data-supports-sms="{{ $p.supportsSMS }}"
+      data-map-url="{{ $p.mapURL }}"
+      aria-describedby="{{ $id }}-help {{ $id }}-privacy">
+  <div class="brief-form__head"><span>{{ if $wizard }}Project message{{ else }}Build a quick project brief{{ end }}</span><span data-wizard-progress role="status" aria-live="polite">{{ if $wizard }}Step 1 of 3{{ else }}Local draft{{ end }}</span></div>
+  <p class="brief-form__help" id="{{ $id }}-help">Your area and a short description are enough to prepare a draft. Contact details are not yet available on this preview, so nothing here is sent to Jeff.</p>
+
+  <div class="brief-form__fields" data-wizard-step="1">
+    {{ if $wizard }}<p class="brief-form__step-label" data-step-heading tabindex="-1">Step 1 — the work</p>{{ end }}
+    <label class="brief-form__field">
+      <span>What kind of work?</span>
+      <select name="projectType" autocomplete="off">
+        <option value="" data-service-id="">Choose a service, or leave unspecified</option>
+        {{ range (partial "services.html" .) }}<option value="{{ .title }}" data-service-id="{{ .id }}" data-inquiry-prompt="{{ .inquiryPrompt }}">{{ .title }}</option>{{ end }}
+        <option value="A project that spans more than one service" data-service-id="multiple">A project that spans more than one service</option>
+      </select>
+    </label>
+    <label class="brief-form__field">
+      <span>Property / area <small>(required)</small></span>
+      <input type="text" name="location" maxlength="300" autocomplete="address-level2" placeholder="Your town or ZIP code" required>
+    </label>
+    <label class="brief-form__field brief-form__field--full">
+      <span>What needs attention? <small>(required)</small></span>
+      <textarea name="details" rows="4" maxlength="8000" placeholder="Example: I’d like a wood barn-style door between the bedroom and bathroom. I have a photo of the opening." required></textarea>
+    </label>
+  <label class="brief-form__field brief-form__field--full" data-service-detail hidden>
+    <span data-service-prompt></span><textarea name="serviceDetails" rows="3" maxlength="4000" aria-label="Optional service details"></textarea>
+  </label>
+  </div>
+
+  {{ if not $wizard }}<details class="brief-form__optional"><summary>Add optional site and contact details</summary>{{ end }}
+  <div class="brief-form__fields" data-wizard-step="2">
+    {{ if $wizard }}<p class="brief-form__step-label" data-step-heading tabindex="-1">Step 2 — the site</p>{{ end }}
+    <label class="brief-form__field">
+      <span>Timing <small>(optional)</small></span>
+      <select name="timing" autocomplete="off">
+        <option value="Flexible">Flexible</option>
+        <option value="As soon as practical">As soon as practical</option>
+        <option value="I have a target date">I have a target date</option>
+      </select>
+    </label>
+    <label class="brief-form__field">
+      <span>Access to the door <small>(optional)</small></span>
+      <select name="access" autocomplete="off">
+        <option value="Not sure">Not sure</option>
+        <option value="Ground floor — clear access">Ground floor — clear access</option>
+        <option value="Stairs or a narrow hallway">Stairs or a narrow hallway</option>
+        <option value="Other access details to discuss">Other access details to discuss</option>
+      </select>
+    </label>
+    <label class="brief-form__field">
+      <span>Property type <small>(optional)</small></span>
+      <select name="propertyType" autocomplete="off">
+        <option value="Not specified">Choose if known</option>
+        <option value="Residential">Residential</option>
+        <option value="Apartment or condo">Apartment or condo</option>
+        <option value="Commercial">Commercial</option>
+        <option value="Renovation or new build">Renovation or new build</option>
+      </select>
+    </label>
+    <label class="brief-form__field">
+      <span>Rough budget range <small>(optional)</small></span>
+      <select name="budget" autocomplete="off">
+        <option value="Not sure yet">Not sure yet</option>
+        <option value="Discuss options first">Discuss options first</option>
+        <option value="I have a budget to discuss">I have a budget to discuss</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="brief-form__fields" data-wizard-step="3">
+    {{ if $wizard }}<p class="brief-form__step-label" data-step-heading tabindex="-1">Step 3 — reaching you</p>{{ end }}
+    <label class="brief-form__field">
+      <span>Your name <small>(optional)</small></span>
+      <input type="text" name="name" autocomplete="name" placeholder="How should they address you?">
+    </label>
+    <label class="brief-form__field">
+      <span>Best phone or email <small>(optional)</small></span>
+      <input type="text" name="contact" autocomplete="off" placeholder="Only if you want it in the brief">
+    </label>
+    <label class="brief-form__field">
+      <span>Preferred reply <small>(optional)</small></span>
+      <select name="preferredContact" autocomplete="off">
+        <option value="No preference">No preference</option>
+        <option value="Call">Call</option>
+        {{ if $p.supportsSMS }}<option value="Text">Text</option>{{ end }}
+        <option value="Email">Email</option>
+      </select>
+    </label>
+    <label class="brief-form__field">
+      <span>How did you hear about {{ site.Params.companyName }}? <small>(optional)</small></span>
+      <select name="referral" autocomplete="off">
+        <option value="Not specified">Prefer not to say</option>
+        <option value="Word of mouth">Word of mouth</option>
+        <option value="Google search or Maps">Google search or Maps</option>
+        <option value="Saw work in the neighborhood">Saw work in the neighborhood</option>
+        <option value="Repeat customer">Repeat customer</option>
+      </select>
+    </label>
+  </div>
+
+  {{ if not $wizard }}</details>{{ end }}
+  {{ if $p.draftRecovery }}
+  <div class="draft-recovery" data-draft-recovery hidden>
+    <label><input type="checkbox" data-draft-consent> Save this draft on this device for up to 7 days</label>
+    <p class="brief-form__note">Optional. Anyone using this browser may be able to restore it. Saving does not send it.</p>
+    <div class="brief-form__actions"><button class="button button--ghost" type="button" data-draft-restore hidden>Restore saved draft</button><button class="button button--ghost" type="button" data-draft-discard>Delete saved draft</button></div>
+    <p data-draft-state role="status" aria-live="polite">Not saved on this device.</p>
+  </div>
+  {{ end }}
+  <div class="brief-form__actions">
+    {{ if $wizard }}
+      <button class="button button--ghost" type="button" data-wizard-back hidden>Back</button>
+      <button class="button button--dark" type="button" data-wizard-next disabled>Next step <span aria-hidden="true">↗</span></button>
+    {{ end }}
+    <button class="button button--dark" type="submit" data-brief-submit{{ if $wizard }} hidden{{ end }} disabled>Prepare my project brief <span aria-hidden="true">↗</span></button>
+    {{ with $p.mapURL }}<a class="link-arrow" href="{{ . }}" target="_blank" rel="noopener noreferrer">Open the listing instead <span aria-hidden="true">↗</span></a>{{ end }}
+  </div>
+
+  <p class="brief-form__note" id="{{ $id }}-privacy">Unless you choose device saving, leaving or reloading can lose this draft. Copy or download it to keep a separate copy. Email and text open your messaging app; you finish sending there. Attach photos in that app.</p>
+  <noscript><p class="brief-form__noscript">JavaScript is required to prepare the brief. Use the direct contact options instead.</p>{{ partial "contact-methods.html" . }}</noscript>
+
+  <div class="brief-form__result" data-brief-result tabindex="-1" aria-labelledby="{{ $id }}-result-title" hidden>
+    <p class="brief-form__result-label" id="{{ $id }}-result-title">Your draft is ready</p>
+    <pre data-brief-text></pre>
+    <div class="brief-form__result-actions">
+      <button class="button button--dark" type="button" data-copy-brief>Copy brief</button>
+      <button class="button button--accent" type="button" data-download-brief>Download brief</button>
+      <a class="button button--dark" data-brief-email hidden>Email this brief</a>
+      <a class="button button--dark" data-brief-sms hidden>Text this brief</a>
+      <a class="link-arrow" data-brief-call hidden>Call {{ site.Params.companyName }} <span aria-hidden="true">↗</span></a>
+      {{ with $p.mapURL }}<a class="link-arrow" href="{{ . }}" target="_blank" rel="noopener noreferrer">Open Google Maps <span aria-hidden="true">↗</span></a>{{ end }}
+    </div>
+    <p class="brief-form__status" data-brief-status aria-live="polite"></p>
+    {{ partial "online-intake.html" (dict "id" $id) }}
+  </div>
+</form>

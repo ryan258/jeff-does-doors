@@ -1,0 +1,10 @@
+{{- $name := . -}}
+{{- $definition := index hugo.Data.publishing.features $name -}}
+{{- $enabled := false -}}
+{{- with $definition -}}
+  {{- $enabled = partial "is-true.html" (index site.Params.features (lower $name)) -}}
+  {{- range .requires -}}
+    {{- if not (partial "feature-enabled.html" .) }}{{ $enabled = false }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $enabled -}}

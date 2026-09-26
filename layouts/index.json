@@ -1,0 +1,49 @@
+{{- $pages := where site.RegularPages "Kind" "page" -}}
+{{- $out := slice -}}
+{{- range $pages -}}
+  {{- $disabled := partial "page-disabled.html" . -}}
+  {{- $excluded := or .Params.noindex (eq .RelPermalink "/thank-you/") $disabled (eq .Kind "404") -}}
+  {{- if and (partial "feature-enabled.html" "search") (not $excluded) -}}
+    {{- $title := .Title -}}
+    {{- $summary := .Description | default (.Summary | plainify | truncate 180) -}}
+    {{- $text := .Plain | plainify | truncate 1200 -}}
+    {{- if eq .Section "services" -}}
+      {{- $serviceSlug := .Params.serviceID -}}
+      {{- with where hugo.Data.services "id" $serviceSlug -}}
+        {{- $svc := index . 0 -}}
+        {{- $text = printf "%s %s %s" $text (delimit $svc.bullets " ") $svc.summary -}}
+        {{- $text = printf "%s %s" $text (delimit $svc.searchTerms " ") -}}
+      {{- end -}}
+    {{- else if eq .Layout "pricing" -}}
+      {{- if (partial "feature-enabled.html" "pricing") -}}
+        {{- range hugo.Data.pricing.rows -}}
+          {{- $text = printf "%s %s %s %s" $text .service .range .drivers -}}
+        {{- end -}}
+      {{- end -}}
+    {{- else if eq .Layout "service-area" -}}
+      {{- if and (partial "feature-enabled.html" "serviceArea") (or site.Params.coverageConfirmed site.Params.showExampleLocations) -}}
+        {{- with hugo.Data.service_area -}}
+          {{- range .primary.towns }}{{ $text = printf "%s %s %s %s" $text .name .state .county }}{{ end -}}
+          {{- range .extended.towns }}{{ $text = printf "%s %s %s %s" $text .name .state .county }}{{ end -}}
+          {{- range .counties }}{{ $text = printf "%s %s" $text . }}{{ end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if eq .Layout "faq" -}}
+      {{- range hugo.Data.faqs }}{{ range .items }}{{ $text = printf "%s %s %s" $text .question .answer }}{{ end }}{{ end -}}
+    {{- else if eq .Layout "equipment" -}}
+      {{- range hugo.Data.equipment }}{{ $text = printf "%s %s %s %s" $text .name .detail .spec }}{{ end -}}
+    {{- else if eq .Layout "financing" -}}
+      {{- range hugo.Data.financing.options }}{{ $text = printf "%s %s %s" $text .title .body }}{{ end -}}
+    {{- else if eq .Layout "careers" -}}
+      {{- range hugo.Data.jobs.positions }}{{ $text = printf "%s %s %s" $text .title .detail }}{{ end -}}
+    {{- end -}}
+    {{- $out = $out | append (dict
+        "title" $title
+        "url" .RelPermalink
+        "section" (.Section | default "page")
+        "summary" $summary
+        "text" $text) -}}
+  {{- end -}}
+{{- end -}}
+{{- $out | jsonify -}}

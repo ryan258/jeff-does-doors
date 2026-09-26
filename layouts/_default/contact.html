@@ -1,0 +1,28 @@
+{{ define "main" }}
+  {{ partial "page-hero.html" (dict "page" . "eyebrow" "Contact") }}
+  <section class="l-section">
+    <div class="l-container contact-page__grid">
+      <div>
+        <article class="prose prose--narrow">{{ .Content }}</article>
+        {{ partial "contact-methods.html" . }}
+        {{ with site.Params.contactResponse }}<p><strong>What happens next:</strong> {{ . }}</p>{{ end }}
+        {{ with site.Params.hoursText }}<p><strong>Contact hours:</strong> {{ . }}</p>{{ end }}
+        {{ if (partial "feature-enabled.html" "emergency") }}
+          <p class="contact-page__urgent">Need urgent assistance? <a href="{{ "emergency/" | relURL }}">Start here instead</a>.</p>
+        {{ end }}
+        <div class="contact-page__meta">
+          <div><strong>Service area</strong><span>{{ site.Params.serviceArea }}</span></div>
+          {{ if and site.Params.publicAddress site.Params.streetAddress site.Params.addressLocality }}
+            <div><strong>Address</strong><span>{{ site.Params.streetAddress }}, {{ site.Params.addressLocality }} {{ site.Params.addressRegion }} {{ site.Params.postalCode }}</span></div>
+          {{ end }}
+          {{ with site.Params.mapURL }}<div><strong>Listing</strong><a href="{{ . }}" target="_blank" rel="noopener noreferrer">Google Maps <span aria-hidden="true">↗</span></a></div>{{ end }}
+        </div>
+      </div>
+      <div class="contact-page__form">
+        <h2>Prepare your project details</h2>
+        <p>Make a clear note of what you need. Copy or download it to keep for a future conversation.</p>
+        {{ partial "brief-form.html" (dict "page" . "id" "contact-brief" "wizard" false) }}
+      </div>
+    </div>
+  </section>
+{{ end }}

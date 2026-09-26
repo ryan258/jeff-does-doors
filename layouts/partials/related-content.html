@@ -1,0 +1,15 @@
+{{ $id := .Params.serviceID | default .Params.service }}
+{{ if $id }}
+  {{ if partial "feature-enabled.html" "projects" }}
+    {{ $projects := where (where site.RegularPages "Section" "projects") "Params.service" $id }}
+    {{ with $projects }}<section class="l-section l-section--tight"><div class="l-container prose"><h2>Relevant work</h2><ul>
+      {{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ if .Params.placeholder }} — illustrative example awaiting a real job{{ end }}</li>{{ end }}
+    </ul></div></section>{{ end }}
+  {{ end }}
+  {{ if partial "feature-enabled.html" "blog" }}
+    {{ $guides := where (where site.RegularPages "Section" "blog") "Params.service" $id }}
+    {{ with $guides }}<section class="l-section l-section--tight"><div class="l-container prose"><h2>Questions to explore before contacting us</h2><ul>
+      {{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
+    </ul></div></section>{{ end }}
+  {{ end }}
+{{ end }}

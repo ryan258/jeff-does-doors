@@ -1,0 +1,19 @@
+{{ define "main" }}
+  {{ partial "page-hero.html" (dict "page" . "eyebrow" "Equipment") }}
+  <section class="l-section">
+    <div class="l-container">
+      <article class="prose prose--narrow">{{ .Content }}</article>
+      <div class="equipment__grid">
+        {{ range hugo.Data.equipment }}
+          <article class="equipment-card">
+            <span class="equipment-card__icon" aria-hidden="true">{{ partial "icon.html" .icon }}</span>
+            <h2>{{ .name }}</h2>
+            <p>{{ .detail }}</p>
+            <p class="equipment-card__spec">{{ .spec }}</p>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ partial "cta-banner.html" (dict "heading" "Got a job the machines should look at?") }}
+{{ end }}

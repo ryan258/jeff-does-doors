@@ -1,0 +1,17 @@
+{{ if site.Params.intake.enabled }}
+<section data-online-panel data-environment="{{ site.Params.intake.environment }}" data-site-key="{{ site.Params.intake.siteKey }}" data-consent-version="{{ site.Params.intake.consentVersion }}" aria-labelledby="{{ .id }}-send-title">
+  <h3 id="{{ .id }}-send-title">Send this project request online</h3>
+  <p>A phone number or email is required for online sending. Your saved receipt is an inquiry, not a booking or emergency response.</p>
+  <p>{{ partial "intake-notice.html" . }}</p>
+  <label><input type="checkbox" data-request-consent> I agree to send this request to {{ site.Params.companyName }} and have it stored as described above.</label>
+  <div data-request-challenge></div>
+  <p data-challenge-status role="status" aria-live="polite"></p>
+  <div class="brief-form__actions">
+    <button class="button button--dark" type="button" data-send-request disabled>Send project request</button>
+    <button class="button button--ghost" type="button" data-retry-request hidden>Retry submitted version</button>
+    <button class="button button--ghost" type="button" data-new-request hidden>Start a new request</button>
+  </div>
+  <p data-request-status role="status" aria-live="polite">Online sending requires verification. Copy and download remain available.</p>
+  <details hidden><summary>Submitted version</summary><pre data-request-revision></pre></details>
+</section>
+{{ end }}

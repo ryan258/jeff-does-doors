@@ -1,0 +1,8 @@
+{{- $paths := slice -}}
+  {{- range readDir . -}}
+    {{- if not (hasPrefix .Name ".") -}}
+      {{- $path := printf "%s/%s" $ .Name -}}
+      {{- if .IsDir }}{{ range partial "source-tree.html" $path }}{{ $paths = $paths | append . }}{{ end }}{{ else if not (and (hasPrefix $path "static/") (hasPrefix .Name "_")) }}{{ $paths = $paths | append $path }}{{ end -}}
+    {{- end -}}
+  {{- end -}}
+{{- return $paths -}}

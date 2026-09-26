@@ -1,0 +1,31 @@
+{{ define "main" }}
+  {{ $posts := .Pages.ByDate.Reverse }}
+  {{ partial "page-hero.html" (dict "page" . "eyebrow" "Job site notes") }}
+  <section class="l-section">
+    <div class="l-container">
+      <article class="prose prose--narrow">{{ .Content }}</article>
+      {{ $cats := slice }}
+      {{ range $posts }}{{ if not (in $cats .Params.category) }}{{ $cats = $cats | append .Params.category }}{{ end }}{{ end }}
+      <div class="gallery__filters" role="group" aria-label="Filter articles by topic">
+        <button type="button" data-post-filter="all" aria-pressed="true">All</button>
+        {{ range $cats }}<button type="button" data-post-filter="{{ . | urlize }}" aria-pressed="false">{{ . }}</button>{{ end }}
+      </div>
+      <div class="blog-teaser__grid" data-post-list>
+        {{ range $posts }}
+          <article class="post-card" data-post-category="{{ .Params.category | urlize }}">
+            <a href="{{ .RelPermalink }}">
+              <div class="post-card__media">{{ partial "image.html" (dict "src" .Params.image "alt" (.Params.imageAlt) "width" "1200" "height" "800" "loading" "lazy") }}</div>
+              <div class="post-card__body">
+                <p class="post-card__meta"><span>{{ .Params.category }}</span>{{ if .Date }}<span>{{ .Date.Format "Jan 2, 2006" }}</span>{{ end }}<span>{{ .ReadingTime }} min read</span></p>
+                <h2>{{ .Title }}</h2>
+                <p>{{ .Params.summary | default .Description }}</p>
+                <span class="link-arrow">Read it <span aria-hidden="true">↗</span></span>
+              </div>
+            </a>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ partial "cta-banner.html" (dict "heading" "Reading is fine. Walking the site is better.") }}
+{{ end }}

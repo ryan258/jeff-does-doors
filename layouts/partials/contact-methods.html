@@ -1,0 +1,27 @@
+{{ $p := site.Params }}
+{{ $tel := replaceRE "[^0-9+]" "" $p.contactPhone }}
+<div class="contact-methods">
+  {{ with $p.contactPhone }}
+    <a class="contact-methods__item" href="tel:{{ $tel }}">
+      <span class="contact-methods__icon" aria-hidden="true">{{ partial "icon.html" "phone" }}</span>
+      <span><strong>Call</strong><small>{{ . }}</small></span>
+    </a>
+    {{ if $p.supportsSMS }}<a class="contact-methods__item" href="sms:{{ $tel }}">
+      <span class="contact-methods__icon" aria-hidden="true">{{ partial "icon.html" "clipboard" }}</span>
+      <span><strong>Text</strong><small>{{ . }}</small></span>
+    </a>{{ end }}
+  {{ end }}
+  {{ with $p.contactEmail }}
+    <a class="contact-methods__item" href="mailto:{{ . }}">
+      <span class="contact-methods__icon" aria-hidden="true">{{ partial "icon.html" "clipboard" }}</span>
+      <span><strong>Email</strong><small>{{ . }}</small></span>
+    </a>
+  {{ end }}
+  {{ with $p.mapURL }}<a class="contact-methods__item" href="{{ . }}" target="_blank" rel="noopener noreferrer">
+    <span class="contact-methods__icon" aria-hidden="true">{{ partial "icon.html" "pin" }}</span>
+    <span><strong>Google Maps</strong><small>Find current contact details</small></span>
+  </a>{{ end }}
+  {{ if not (or $p.contactPhone $p.contactEmail) }}
+    <p class="contact-methods__missing">{{ if $p.mapURL }}Use the listing to find current contact details.{{ else }}Business contact details have not been supplied for this preview.{{ end }}</p>
+  {{ end }}
+</div>

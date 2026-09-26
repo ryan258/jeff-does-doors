@@ -1,0 +1,74 @@
+{{ define "main" }}
+  {{ $service := where hugo.Data.services "id" .Params.service }}
+    <section class="project-hero">
+      <div class="l-container">
+        {{ partial "breadcrumbs.html" . }}
+        <p class="eyebrow eyebrow--light">{{ .Params.serviceLabel }}</p>
+        <h1>{{ .Title }}</h1>
+        <p class="page-hero__lede">{{ .Description }}</p>
+        <dl class="project-hero__facts">
+          <div><dt>Location</dt><dd>{{ .Params.location }}</dd></div>
+          <div><dt>Scope</dt><dd>{{ .Params.scope }}</dd></div>
+          <div><dt>Timeline</dt><dd>{{ .Params.duration }}</dd></div>
+        </dl>
+      </div>
+    </section>
+
+  <section class="project-body l-section">
+    <div class="l-container prose-page__grid">
+      <article class="prose">
+        {{ if partial "review-mode.html" . }}<p class="editorial-notice">Illustrative project draft: job details, outcomes, and images await owner approval.</p>{{ end }}
+        <figure class="project-body__figure">
+          {{ partial "image.html" (dict "src" .Params.heroImage "alt" (.Params.heroAlt) "width" "1200" "height" "800") }}
+          {{ if .Params.placeholder }}<figcaption>Illustrative project copy and image — the job, outcome, and photo await owner verification.</figcaption>{{ end }}
+        </figure>
+        {{ if and (partial "feature-enabled.html" "beforeAfter") .Params.beforeImage .Params.afterImage }}
+          <h2>Before and after</h2>
+          {{ partial "before-after.html" (dict "before" .Params.beforeImage "beforeAlt" .Params.beforeAlt "after" .Params.afterImage "afterAlt" .Params.afterAlt) }}
+        {{ end }}
+        {{ .Content }}
+        {{ with .Params.gallery }}
+          <h2>From the job</h2>
+          {{ partial "gallery-grid.html" (dict "items" . "filter" false) }}
+        {{ end }}
+      </article>
+      <aside class="prose-page__aside">
+        <div class="service-detail__card">
+          <p class="service-detail__card-label">Outcome</p>
+          <ul class="outcome-list">
+            {{ range .Params.outcomes }}<li><strong>{{ .label }}</strong><span>{{ .value }}</span></li>{{ end }}
+          </ul>
+        </div>
+        {{ with $service }}
+          {{ $s := index . 0 }}
+          <div class="service-detail__card service-detail__card--dark">
+            <p class="service-detail__card-label">The service behind it</p>
+            <p>{{ $s.summary }}</p>
+            <a class="link-arrow link-arrow--light" href="{{ printf "services/%s/" $s.path | relURL }}">{{ $s.title }} <span aria-hidden="true">↗</span></a>
+          </div>
+        {{ end }}
+        <div class="service-detail__card">
+          <p class="service-detail__card-label">Similar project?</p>
+          <a class="link-arrow" href="{{ partial "brief-url.html" .Params.service }}">Build a project brief <span aria-hidden="true">↗</span></a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="l-section l-section--tight">
+    <div class="l-container">
+      <h2 class="section-heading__aside">More recent work</h2>
+      <div class="project-grid project-grid--compact">
+        {{ range first 3 (where (where site.RegularPages "Section" "projects") "Permalink" "!=" .Permalink) }}
+          <article class="project-card">
+            <a href="{{ .RelPermalink }}">
+              <div class="project-card__media">{{ partial "image.html" (dict "src" .Params.heroImage "alt" (.Params.heroAlt) "width" "1200" "height" "800" "loading" "lazy") }}</div>
+              <div class="project-card__body"><h3>{{ .Title }}</h3><span class="link-arrow">Read it <span aria-hidden="true">↗</span></span></div>
+            </a>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ partial "cta-banner.html" dict }}
+{{ end }}

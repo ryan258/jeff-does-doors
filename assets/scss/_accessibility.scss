@@ -1,0 +1,18 @@
+/* State and responsive fixes shared by all components. */
+button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible,
+[data-step-heading]:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.review-notice { position: relative; margin: 0; padding: 12px 20px; background: var(--paper); color: var(--ink); font-size: .85rem; }
+/* The notice belongs after main so it does not alter the overlay header origin. */
+.nav-list__group { display: flex; align-items: center; }
+.nav-list__caret { display: none; }
+[data-nav-toggle] { border: 0; background: transparent; color: inherit; cursor: pointer; padding: 10px; min-width: 36px; min-height: 44px; }
+.nav-list__panel:not([hidden]) { opacity: 1; pointer-events: auto; transform: none; }
+/* No-JS: ordinary top-level links work; submenus stay out of the tab sequence. */
+.nav-list__group:has([data-nav-toggle][hidden]) .nav-list__panel { display: none; }
+.site-header__mobile-nav nav button { background: transparent; color: white; border: 0; padding: 12px 13px; text-align: left; font: inherit; }
+.gallery__open { display: block; text-decoration: none; }
+@media (max-width: 700px) { .call-bar { padding-bottom: env(safe-area-inset-bottom); } body:has(.call-bar) { padding-bottom: calc(62px + env(safe-area-inset-bottom)); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
+
+.site-header__brand-group { flex-shrink: 0; }
+.site-header__review-label { display: block; color: var(--gold); font-size: 10px; margin-top: 4px; }

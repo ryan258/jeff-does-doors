@@ -1,0 +1,70 @@
+{{/* Structured data. Only verified, owner-confirmed values are emitted. */}}
+{{ $p := .Site.Params }}
+{{ $business := dict
+  "@context" "https://schema.org"
+  "@type" "GeneralContractor"
+  "@id" (printf "%s#business" .Site.BaseURL)
+  "name" $p.companyName
+  "description" $p.description
+  "url" .Site.BaseURL
+  "image" ($p.heroImage | absURL)
+  "areaServed" $p.serviceArea
+
+}}
+{{ $topics := slice }}{{ range hugo.Data.services }}{{ $topics = $topics | append .title }}{{ end }}
+{{ $business = merge $business (dict "knowsAbout" $topics) }}
+{{ with $p.contactPhone }}{{ $business = merge $business (dict "telephone" .) }}{{ end }}
+{{ with $p.contactEmail }}{{ $business = merge $business (dict "email" .) }}{{ end }}
+{{ with $p.foundedYear }}{{ $business = merge $business (dict "foundingDate" .) }}{{ end }}
+{{ if and $p.publicAddress $p.streetAddress $p.addressLocality }}
+  {{ $business = merge $business (dict "address" (dict "@type" "PostalAddress" "streetAddress" $p.streetAddress "addressLocality" $p.addressLocality "addressRegion" $p.addressRegion "postalCode" $p.postalCode "addressCountry" "US")) }}
+{{ end }}
+{{ $profiles := slice }}
+{{ range slice $p.mapURL $p.reviewURL $p.facebookURL $p.instagramURL }}{{ with . }}{{ $profiles = $profiles | append . }}{{ end }}{{ end }}
+{{ if $profiles }}{{ $business = merge $business (dict "sameAs" $profiles) }}{{ end }}
+{{ if and (partial "feature-enabled.html" "serviceArea") $p.coverageConfirmed }}
+  {{ $towns := slice }}
+  {{ range (index hugo.Data.service_area "primary").towns }}{{ $towns = $towns | append (dict "@type" "City" "name" (partial "town-label.html" .)) }}{{ end }}
+  {{ if $towns }}{{ $business = merge $business (dict "areaServed" $towns) }}{{ end }}
+{{ end }}
+{{ $graph := slice $business }}
+
+{{/* Service offerings */}}
+{{ range (partial "services.html" .) }}
+  {{ $graph = $graph | append (dict
+    "@context" "https://schema.org"
+    "@type" "Service"
+    "@id" (printf "services/%s/#service" .path | absURL)
+    "name" .title
+    "description" .summary
+    "serviceType" .title
+    "provider" (dict "@id" (printf "%s#business" site.BaseURL))
+    "areaServed" site.Params.serviceArea
+    "url" (printf "services/%s/" .path | absURL)) }}
+{{ end }}
+
+{{/* Breadcrumbs for anything below the home page */}}
+{{ if not .IsHome }}
+  {{ $crumbs := slice (dict "@type" "ListItem" "position" 1 "name" "Home" "item" site.BaseURL) }}
+  {{ with .Parent }}{{ if not .IsHome }}{{ $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink) }}{{ end }}{{ end }}
+  {{ $crumbs = $crumbs | append (dict "@type" "ListItem" "position" (add (len $crumbs) 1) "name" .Title "item" .Permalink) }}
+  {{ $graph = $graph | append (dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" $crumbs) }}
+{{ end }}
+
+{{/* FAQs stay visible for visitors. No obsolete Google FAQ rich-result promise. */}}
+
+{{/* Article schema for blog posts */}}
+{{ if and (eq .Section "blog") .IsPage }}{{ if not .Date.IsZero }}
+  {{ $graph = $graph | append (dict
+    "@context" "https://schema.org"
+    "@type" "Article"
+    "headline" .Title
+    "description" (.Description | default site.Params.description)
+    "datePublished" (.Date.Format "2006-01-02")
+    "dateModified" (.Lastmod.Format "2006-01-02")
+    "author" (dict "@type" "Person" "name" (.Params.author | default site.Params.companyName))
+    "publisher" (dict "@id" (printf "%s#business" site.BaseURL))
+    "mainEntityOfPage" .Permalink) }}
+{{ end }}{{ end }}
+
+<script type="application/ld+json">{{ $graph | jsonify | safeJS }}</script>

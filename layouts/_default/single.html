@@ -1,0 +1,16 @@
+{{ define "main" }}
+  {{ partial "page-hero.html" (dict "page" . "eyebrow" site.Params.companyName) }}
+  <section class="prose-page l-section">
+    <div class="l-container prose-page__grid">
+      <article class="prose">{{ .Content }}</article>
+      <aside class="prose-page__aside">
+        <div class="service-detail__card">
+          <p class="service-detail__card-label">Need something specific?</p>
+          <p>Describe the property and the problem and the first reply can start at the real question.</p>
+          <a class="link-arrow" href="{{ partial "brief-url.html" "" }}">{{ site.Params.primaryAction }} <span aria-hidden="true">↗</span></a>
+        </div>
+      </aside>
+    </div>
+  </section>
+  {{ partial "cta-banner.html" dict }}
+{{ end }}

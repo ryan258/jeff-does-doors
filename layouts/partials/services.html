@@ -1,0 +1,9 @@
+{{- $ordered := slice -}}
+{{- $specialty := partial "specialty.html" . -}}
+{{- range $specialty.serviceOrder -}}
+  {{- range where hugo.Data.services "id" . }}{{ $ordered = $ordered | append . }}{{ end -}}
+{{- end -}}
+{{- range hugo.Data.services -}}
+  {{- if not (in $specialty.serviceOrder .id) }}{{ $ordered = $ordered | append . }}{{ end -}}
+{{- end -}}
+{{- return $ordered -}}

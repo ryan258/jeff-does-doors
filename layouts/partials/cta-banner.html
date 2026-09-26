@@ -1,0 +1,17 @@
+{{ $f := site.Params.features }}
+{{ $home := "" | relURL }}
+{{ $tel := replaceRE "[^0-9+]" "" site.Params.contactPhone }}
+<section class="cta-banner">
+  <div class="l-container cta-banner__inner">
+    <div>
+      <p class="eyebrow eyebrow--light">{{ .eyebrow | default "Ready when you are" }}</p>
+      <h2>{{ .heading | default "Start with the door. We’ll talk through the details." }}</h2>
+      {{ with .body }}<p>{{ . }}</p>{{ end }}
+    </div>
+    <div class="cta-banner__actions">
+      <a class="button button--accent" href="{{ partial "brief-url.html" (.service | default "") }}">{{ site.Params.primaryAction }} <span aria-hidden="true">↗</span></a>
+      {{ with site.Params.contactPhone }}<a class="link-arrow link-arrow--light" href="tel:{{ $tel }}">Call {{ . }} <span aria-hidden="true">↗</span></a>{{ end }}
+      {{ with site.Params.mapURL }}<a class="link-arrow link-arrow--light" href="{{ . }}" target="_blank" rel="noopener noreferrer">Open the listing <span aria-hidden="true">↗</span></a>{{ end }}
+    </div>
+  </div>
+</section>

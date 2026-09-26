@@ -1,0 +1,27 @@
+{{ define "main" }}
+  {{ partial "page-hero.html" (dict "page" . "eyebrow" "Recent work") }}
+  <section class="l-section">
+    <div class="l-container">
+      <article class="prose prose--narrow">{{ .Content }}</article>
+      <div class="project-grid">
+        {{ range sort .Pages "Params.weight" }}
+          <article class="project-card">
+            <a href="{{ .RelPermalink }}">
+              <div class="project-card__media">
+                {{ partial "image.html" (dict "src" .Params.heroImage "alt" (.Params.heroAlt) "width" "1200" "height" "800" "loading" "lazy") }}
+                {{ if .Params.placeholder }}<span class="project-card__flag">Placeholder</span>{{ end }}
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__meta"><span>{{ .Params.serviceLabel }}</span><span>{{ .Params.location }}</span></p>
+                <h2>{{ .Title }}</h2>
+                <p>{{ .Description }}</p>
+                <span class="link-arrow">Read the story <span aria-hidden="true">↗</span></span>
+              </div>
+            </a>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ partial "cta-banner.html" (dict "heading" "Your property could be the next one on this page.") }}
+{{ end }}

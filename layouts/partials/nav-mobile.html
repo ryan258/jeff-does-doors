@@ -1,0 +1,20 @@
+{{ $f := site.Params.features }}
+{{ $home := "" | relURL }}
+<nav aria-label="Mobile navigation">
+  {{ if partial "feature-enabled.html" "search" }}<button type="button" data-search-open>Search this site</button>{{ end }}
+  <a href="{{ "services/" | relURL }}">Services</a>
+  {{ range (partial "services.html" .) }}<a class="site-header__mobile-sub" href="{{ printf "services/%s/" .path | relURL }}">{{ .title }}</a>{{ end }}
+  {{ if (partial "feature-enabled.html" "projects") }}<a href="{{ "projects/" | relURL }}">Recent work</a>{{ end }}
+  {{ if (partial "feature-enabled.html" "gallery") }}<a href="{{ "gallery/" | relURL }}">Photo gallery</a>{{ end }}
+  {{ if (partial "feature-enabled.html" "reviewsPage") }}<a href="{{ "reviews/" | relURL }}">Reviews</a>{{ end }}
+  {{ if (partial "feature-enabled.html" "pricing") }}<a href="{{ "pricing/" | relURL }}">What it costs</a>{{ end }}
+  {{ if (partial "feature-enabled.html" "blog") }}<a href="{{ "blog/" | relURL }}">Job site notes</a>{{ end }}
+  {{ if (partial "feature-enabled.html" "about") }}<a href="{{ "about/" | relURL }}">About</a>{{ end }}
+  {{ if (partial "feature-enabled.html" "serviceArea") }}<a href="{{ "service-area/" | relURL }}">Service area</a>{{ end }}
+  {{ if (partial "feature-enabled.html" "equipment") }}<a href="{{ "equipment/" | relURL }}">Equipment</a>{{ end }}
+  {{ if (partial "feature-enabled.html" "faqPage") }}<a href="{{ "faq/" | relURL }}">Questions</a>{{ end }}
+  {{ if (partial "feature-enabled.html" "financing") }}<a href="{{ "financing/" | relURL }}">Payment options</a>{{ end }}
+  {{ if (partial "feature-enabled.html" "careers") }}<a href="{{ "careers/" | relURL }}">Careers</a>{{ end }}
+  {{ if (partial "feature-enabled.html" "contactPage") }}<a href="{{ "contact/" | relURL }}">Contact</a>{{ end }}
+  <a class="site-header__mobile-cta" href="{{ partial "brief-url.html" "" }}">{{ site.Params.primaryAction }} <span aria-hidden="true">↗</span></a>
+</nav>

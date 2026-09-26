@@ -1,0 +1,8 @@
+{{- $feature := .Params.feature -}}
+{{- $section := .Section -}}
+{{- if not $feature -}}
+  {{- range $name, $definition := hugo.Data.publishing.features -}}
+    {{- if in $definition.sections $section }}{{ $feature = $name }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- return (or (and .Params.reviewOnly (not (partial "review-mode.html" .))) (and $feature (not (partial "feature-enabled.html" $feature)))) -}}

@@ -1,0 +1,95 @@
+{{ $f := site.Params.features }}
+{{ $p := site.Params }}
+{{ $tel := replaceRE "[^0-9+]" "" $p.contactPhone }}
+{{ $home := "" | relURL }}
+<footer class="site-footer">
+  <div class="l-container site-footer__grid">
+    <div class="site-footer__brand">
+      {{ partial "brand.html" (dict "modifier" "brand--footer") }}
+      <p class="site-footer__note">Barn-style doors. A little character. A whole new room.</p>
+      <div class="site-footer__contact">
+        {{ with $p.contactPhone }}<a href="tel:{{ $tel }}">{{ . }}</a>{{ end }}
+        {{ with $p.contactEmail }}<a href="mailto:{{ . }}">{{ . }}</a>{{ end }}
+        {{ if and $p.publicAddress $p.streetAddress $p.addressLocality }}<span>{{ $p.streetAddress }}, {{ $p.addressLocality }} {{ $p.addressRegion }} {{ $p.postalCode }}</span>{{ end }}
+        <span>{{ $p.serviceArea }}</span>
+      </div>
+      {{ if or $p.facebookURL $p.instagramURL }}
+        <div class="site-footer__social">
+          {{ with $p.facebookURL }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">Facebook</a>{{ end }}
+          {{ with $p.instagramURL }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">Instagram</a>{{ end }}
+        </div>
+      {{ end }}
+    </div>
+
+    <div class="site-footer__links">
+      <span class="site-footer__label">Services</span>
+      {{ range (partial "services.html" .) }}<a href="{{ printf "services/%s/" .path | relURL }}">{{ .title }}</a>{{ end }}
+      <a href="{{ "services/" | relURL }}">All services</a>
+    </div>
+
+    {{ if or (partial "feature-enabled.html" "projects") (partial "feature-enabled.html" "gallery") (partial "feature-enabled.html" "reviewsPage") (partial "feature-enabled.html" "pricing") (partial "feature-enabled.html" "blog") (partial "feature-enabled.html" "faqPage") }}
+    <div class="site-footer__links">
+      <span class="site-footer__label">Explore</span>
+      {{ if (partial "feature-enabled.html" "projects") }}<a href="{{ "projects/" | relURL }}">Recent work</a>{{ end }}
+      {{ if (partial "feature-enabled.html" "gallery") }}<a href="{{ "gallery/" | relURL }}">Photo gallery</a>{{ end }}
+      {{ if (partial "feature-enabled.html" "reviewsPage") }}<a href="{{ "reviews/" | relURL }}">Customer reviews</a>{{ end }}
+      {{ if (partial "feature-enabled.html" "pricing") }}<a href="{{ "pricing/" | relURL }}">What it costs</a>{{ end }}
+      {{ if (partial "feature-enabled.html" "blog") }}<a href="{{ "blog/" | relURL }}">Job site notes</a>{{ end }}
+      {{ if (partial "feature-enabled.html" "faqPage") }}<a href="{{ "faq/" | relURL }}">Questions</a>{{ end }}
+    </div>
+
+    {{ end }}
+    {{ if or (partial "feature-enabled.html" "about") (partial "feature-enabled.html" "serviceArea") (partial "feature-enabled.html" "equipment") (partial "feature-enabled.html" "financing") (partial "feature-enabled.html" "careers") (partial "feature-enabled.html" "emergency") (partial "feature-enabled.html" "contactPage") }}
+    <div class="site-footer__links">
+      <span class="site-footer__label">Company</span>
+      {{ if (partial "feature-enabled.html" "about") }}<a href="{{ "about/" | relURL }}">About</a>{{ end }}
+      {{ if (partial "feature-enabled.html" "serviceArea") }}<a href="{{ "service-area/" | relURL }}">Service area</a>{{ end }}
+      {{ if (partial "feature-enabled.html" "equipment") }}<a href="{{ "equipment/" | relURL }}">Equipment</a>{{ end }}
+      {{ if (partial "feature-enabled.html" "financing") }}<a href="{{ "financing/" | relURL }}">Payment options</a>{{ end }}
+      {{ if (partial "feature-enabled.html" "careers") }}<a href="{{ "careers/" | relURL }}">Careers</a>{{ end }}
+      {{ if (partial "feature-enabled.html" "emergency") }}<a href="{{ "emergency/" | relURL }}">Urgent help</a>{{ end }}
+      {{ if (partial "feature-enabled.html" "contactPage") }}<a href="{{ "contact/" | relURL }}">Contact</a>{{ end }}
+    </div>
+
+    {{ end }}
+    <div class="site-footer__links">
+      <span class="site-footer__label">Get in touch</span>
+      {{ with $p.mapURL }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">Google Maps listing <span aria-hidden="true">↗</span></a>{{ end }}
+      {{ with $p.reviewURL }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">Review profile <span aria-hidden="true">↗</span></a>{{ end }}
+      <a href="{{ partial "brief-url.html" "" }}">{{ site.Params.primaryAction }}</a>
+    </div>
+  </div>
+
+  {{ with $p.reviewRequestURL }}<p class="l-container"><a href="{{ . }}" rel="noopener noreferrer" target="_blank">Leave a customer review</a></p>{{ end }}
+  <div class="l-container site-footer__bottom">
+    <span>© {{ now.Format "2006" }} {{ $p.companyName }}{{ with $p.licenseNumber }} · License {{ . }}{{ end }}</span>
+    <span class="site-footer__legal">
+      {{ if (partial "feature-enabled.html" "legal") }}
+        <a href="{{ "privacy/" | relURL }}">Privacy</a>
+        <a href="{{ "terms/" | relURL }}">Preview terms</a>
+        <a href="{{ "accessibility/" | relURL }}">Accessibility</a>
+      {{ end }}
+    </span>
+  </div>
+</footer>
+
+{{ if (partial "feature-enabled.html" "stickyCallBar") }}
+  <div class="call-bar" aria-label="Quick contact">
+    {{ with $p.contactPhone }}<a href="tel:{{ $tel }}"><span aria-hidden="true">☏</span> Call</a>{{ end }}
+    {{ if and $p.contactPhone $p.supportsSMS }}<a href="sms:{{ $tel }}"><span aria-hidden="true">✉</span> Text</a>{{ end }}
+    <a href="{{ partial "brief-url.html" "" }}"><span aria-hidden="true">▤</span> Message</a>
+    {{ with $p.mapURL }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">◎</span> Map</a>{{ end }}
+  </div>
+{{ end }}
+
+{{ if (partial "feature-enabled.html" "search") }}
+  <dialog class="search-dialog" data-search-dialog aria-label="Search this site">
+    <div class="search-dialog__form">
+      <label class="u-visually-hidden" for="site-search">Search {{ site.Params.companyName }}</label>
+      <input id="site-search" type="search" placeholder="Search services, projects, and articles" data-search-input autocomplete="off">
+      <button type="button" data-search-close aria-label="Close search">×</button>
+    </div>
+    <p class="search-dialog__hint" data-search-hint role="status" aria-live="polite">Type to search. Results appear as you type.</p>
+    <ul class="search-dialog__results" data-search-results></ul>
+  </dialog>
+{{ end }}

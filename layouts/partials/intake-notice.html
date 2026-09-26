@@ -1,0 +1,5 @@
+{{ if site.Params.intake.enabled }}
+The online send action shares your entries with {{ site.Params.companyName }} through Cloudflare Pages and D1. Cloudflare Turnstile checks the request for abuse. Requests are saved in D1 under a durable receipt ID, and an email notification with your name, reply preference, and contact detail is attempted to the operator's inbox; detailed project notes remain in D1. {{ site.Params.intake.retentionNotice }} A request ID and content fingerprint are kept in this browser tab to make retries safe; they contain no form text. Device draft saving is a separate choice.
+{{ else }}
+Online sending is disabled on this site. Preparing, copying, and downloading a brief does not submit it to a server.
+{{ end }}

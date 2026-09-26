@@ -1,0 +1,62 @@
+{{ $f := site.Params.features }}
+{{ $home := "" | relURL }}
+<ul class="nav-list">
+  <li class="nav-list__group" data-nav-disclosure>
+    <a href="{{ "services/" | relURL }}">Services <span class="nav-list__caret" aria-hidden="true"></span></a>
+    <button type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-panel-1" aria-label="Show services links" hidden>⌄</button>
+    <div class="nav-list__panel" id="nav-panel-1" data-nav-panel>
+      <div class="nav-list__panel-inner">
+        {{ range (partial "services.html" .) }}
+          <a href="{{ printf "services/%s/" .path | relURL }}"><strong>{{ .title }}</strong><small>{{ .kicker }}</small></a>
+        {{ end }}
+        <a class="nav-list__panel-all" href="{{ "services/" | relURL }}"><strong>All services</strong><small>See the full list</small></a>
+      </div>
+    </div>
+  </li>
+
+  {{ if or (partial "feature-enabled.html" "projects") (partial "feature-enabled.html" "gallery") (partial "feature-enabled.html" "reviewsPage") }}
+    <li class="nav-list__group" data-nav-disclosure>
+      <a href="{{ if (partial "feature-enabled.html" "projects") }}{{ "projects/" | relURL }}{{ else if (partial "feature-enabled.html" "gallery") }}{{ "gallery/" | relURL }}{{ else }}{{ "reviews/" | relURL }}{{ end }}">Work <span class="nav-list__caret" aria-hidden="true"></span></a>
+      <button type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-panel-2" aria-label="Show work links" hidden>⌄</button>
+    <div class="nav-list__panel" id="nav-panel-2" data-nav-panel>
+        <div class="nav-list__panel-inner">
+          {{ if (partial "feature-enabled.html" "projects") }}<a href="{{ "projects/" | relURL }}"><strong>Project stories</strong><small>Problem, work, finished site</small></a>{{ end }}
+          {{ if (partial "feature-enabled.html" "gallery") }}<a href="{{ "gallery/" | relURL }}"><strong>Photo gallery</strong><small>Job site photos</small></a>{{ end }}
+          {{ if (partial "feature-enabled.html" "reviewsPage") }}<a href="{{ "reviews/" | relURL }}"><strong>Customer reviews</strong><small>With source links</small></a>{{ end }}
+        </div>
+      </div>
+    </li>
+  {{ end }}
+
+  {{ if or (partial "feature-enabled.html" "about") (partial "feature-enabled.html" "serviceArea") (partial "feature-enabled.html" "equipment") (partial "feature-enabled.html" "careers") }}
+    <li class="nav-list__group" data-nav-disclosure>
+      <a href="{{ if (partial "feature-enabled.html" "about") }}{{ "about/" | relURL }}{{ else }}{{ $home }}#approach{{ end }}">Company <span class="nav-list__caret" aria-hidden="true"></span></a>
+      <button type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-panel-3" aria-label="Show company links" hidden>⌄</button>
+    <div class="nav-list__panel" id="nav-panel-3" data-nav-panel>
+        <div class="nav-list__panel-inner">
+          {{ if (partial "feature-enabled.html" "about") }}<a href="{{ "about/" | relURL }}"><strong>About</strong><small>Who does the work</small></a>{{ end }}
+          {{ if (partial "feature-enabled.html" "serviceArea") }}<a href="{{ "service-area/" | relURL }}"><strong>Service area</strong><small>Towns and counties</small></a>{{ end }}
+          {{ if (partial "feature-enabled.html" "equipment") }}<a href="{{ "equipment/" | relURL }}"><strong>Equipment</strong><small>What we run</small></a>{{ end }}
+          {{ if (partial "feature-enabled.html" "careers") }}<a href="{{ "careers/" | relURL }}"><strong>Careers</strong><small>Open positions</small></a>{{ end }}
+        </div>
+      </div>
+    </li>
+  {{ end }}
+
+  {{ if or (partial "feature-enabled.html" "blog") (partial "feature-enabled.html" "pricing") (partial "feature-enabled.html" "faqPage") (partial "feature-enabled.html" "financing") }}
+    <li class="nav-list__group" data-nav-disclosure>
+      <a href="{{ if (partial "feature-enabled.html" "blog") }}{{ "blog/" | relURL }}{{ else }}{{ $home }}#faq{{ end }}">Learn <span class="nav-list__caret" aria-hidden="true"></span></a>
+      <button type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-panel-4" aria-label="Show learn links" hidden>⌄</button>
+    <div class="nav-list__panel" id="nav-panel-4" data-nav-panel>
+        <div class="nav-list__panel-inner">
+          {{ if (partial "feature-enabled.html" "pricing") }}<a href="{{ "pricing/" | relURL }}"><strong>What it costs</strong><small>Ranges and what moves them</small></a>{{ end }}
+          {{ if (partial "feature-enabled.html" "blog") }}<a href="{{ "blog/" | relURL }}"><strong>Job site notes</strong><small>Articles and guides</small></a>{{ end }}
+          {{ if (partial "feature-enabled.html" "faqPage") }}<a href="{{ "faq/" | relURL }}"><strong>Questions</strong><small>Answers by topic</small></a>{{ end }}
+          {{ if (partial "feature-enabled.html" "financing") }}<a href="{{ "financing/" | relURL }}"><strong>Payment options</strong><small>How billing works</small></a>{{ end }}
+        </div>
+      </div>
+    </li>
+  {{ end }}
+
+  {{ if (partial "feature-enabled.html" "contactPage") }}<li><a href="{{ "contact/" | relURL }}">Contact</a></li>{{ end }}
+</ul>

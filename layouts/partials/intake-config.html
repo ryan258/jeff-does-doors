@@ -1,0 +1,13 @@
+{{- $intake := site.Params.intake -}}
+{{- if $intake.enabled -}}
+  {{- if not (and (in (slice "local" "preview" "production") $intake.environment) $intake.siteKey $intake.consentVersion $intake.retentionNotice) -}}{{ errorf "Online intake needs environment, siteKey, consentVersion, and retentionNotice" }}{{ end -}}
+  {{- if and (eq $intake.environment "local") (not (in (slice "localhost" "127.0.0.1" "::1") (urls.Parse site.BaseURL).Hostname)) -}}{{ errorf "Local intake requires a loopback baseURL" }}{{ end -}}
+  {{- if and (ne $intake.environment "local") (findRE `^[123]x0+(AA|AB|BB|FF)$` $intake.siteKey) -}}{{ errorf "Deployed intake cannot use a Turnstile test key" }}{{ end -}}
+  {{- if and (ne $intake.environment "local") (ne (urls.Parse site.BaseURL).Scheme "https") -}}{{ errorf "Online intake requires HTTPS" }}{{ end -}}
+  {{- if eq $intake.environment "production" -}}
+    {{- $record := index hugo.Data "intake-acceptance" -}}
+    {{- $validDate := and $record.testedOn (findRE `^\d{4}-\d{2}-\d{2}$` (string $record.testedOn)) -}}
+    {{- $validEvidence := and (reflect.IsSlice $record.evidence) (gt (len $record.evidence) 0) -}}
+    {{- if not (and (eq $record.status "accepted") (eq $record.baseURL site.BaseURL) (eq $record.profile site.Params.profileID) (eq $record.consentVersion $intake.consentVersion) $validDate $validEvidence) -}}{{ errorf "Production intake acceptance is pending for this site and notice revision" }}{{ end -}}
+  {{- else if and (eq hugo.Environment "production") (not site.Params.noindex) -}}{{ errorf "Production publication requires production intake configuration" }}{{ end -}}
+{{- end -}}

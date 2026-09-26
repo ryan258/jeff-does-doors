@@ -1,0 +1,14 @@
+{{ if (partial "feature-enabled.html" "stats") }}
+  <section class="stats" aria-label="{{ site.Params.companyName }} at a glance">
+    <div class="l-container stats__grid">
+      {{ range hugo.Data.stats }}
+        <div class="stats__item{{ if not (partial "is-true.html" .verified) }} stats__item--unverified{{ end }}">
+          <strong>{{ if and (eq .id "years") site.Params.foundedYear }}{{ sub now.Year (int site.Params.foundedYear) }}{{ else }}{{ .value }}{{ end }}</strong>
+          <span>{{ .label }}</span>
+          <small>{{ .note }}</small>
+          {{ if not (partial "is-true.html" .verified) }}<span class="stats__flag">To confirm</span>{{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

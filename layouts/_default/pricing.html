@@ -1,0 +1,34 @@
+{{ define "main" }}
+  {{ $pricing := hugo.Data.pricing }}
+  {{ partial "page-hero.html" (dict "page" . "eyebrow" "What it costs") }}
+  <section class="l-section">
+    <div class="l-container">
+      <article class="prose prose--narrow">{{ .Content }}</article>
+      <div class="table-scroll">
+        <table class="pricing-table">
+          <caption class="u-visually-hidden">Typical cost ranges by service and the factors that move them</caption>
+          <thead><tr><th scope="col">Work</th><th scope="col">Typical range</th><th scope="col">What moves the number</th></tr></thead>
+          <tbody>
+            {{ range $pricing.rows }}
+              <tr>
+                <th scope="row">{{ .service }}</th>
+                <td class="pricing-table__range">{{ .range }}{{ if not (partial "is-true.html" .verified) }} <span class="pricing-table__flag">to confirm</span>{{ end }}</td>
+                <td>{{ .drivers }}</td>
+              </tr>
+            {{ end }}
+          </tbody>
+        </table>
+      </div>
+      <p class="pricing-table__disclaimer">{{ $pricing.disclaimer }}</p>
+    </div>
+  </section>
+  {{ if (partial "feature-enabled.html" "financing") }}
+    <section class="l-section l-section--tight">
+      <div class="l-container prose prose--narrow">
+        <h2>Paying for it</h2>
+        <p>Site work often arrives at a bad time financially. <a href="{{ "financing/" | relURL }}">See the payment options</a> worth discussing.</p>
+      </div>
+    </section>
+  {{ end }}
+  {{ partial "cta-banner.html" (dict "heading" "The only real number comes after a site visit." "body" "Describe the property and the work, and the estimate conversation starts from something concrete.") }}
+{{ end }}

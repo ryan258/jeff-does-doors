@@ -1,0 +1,43 @@
+{{- /* The release command validates actual config inputs before invoking Hugo.
+      This environment marker is a workflow interlock, not a credential. */ -}}
+{{- if and (eq hugo.Environment "production") (not site.Params.noindex) -}}
+  {{- if ne (os.Getenv "HUGO_RELEASE_GATE") "source-validated-v1" -}}{{ errorf "Production builds must run scripts/release_check.py; direct Hugo cannot validate the selected config files" }}{{ end -}}
+  {{- if ne site.BaseURL (printf "%s/" (strings.TrimSuffix "/" site.Params.productionURL)) -}}{{- errorf "Production URL must match the owner-approved productionURL" -}}{{- end -}}
+  {{- /* Append paths individually: decoded data and template slices can have
+        different Go element types, making slice append retain a nested list. */ -}}
+  {{- $sources := slice -}}
+  {{- range hugo.Data.publishing.core -}}{{ $sources = $sources | append . }}{{ end -}}
+  {{- range site.Params.approvalConfigFiles -}}{{ $sources = $sources | append . }}{{ end -}}
+  {{- range slice "data/publishing.json" "data/specialties.yaml" "site-profile.json" "static/_headers" "static/_routes.json" "data/intake-acceptance.json" -}}{{ $sources = $sources | append . }}{{ end -}}
+  {{- range slice "layouts" "assets" "static" "functions" "lib" "migrations" -}}
+    {{- range partial "source-tree.html" . -}}{{ $sources = $sources | append . }}{{ end -}}
+  {{- end -}}
+  {{- if fileExists "static/_redirects" -}}{{ $sources = $sources | append "static/_redirects" }}{{ end -}}
+  {{- range $name, $definition := hugo.Data.publishing.features -}}
+    {{- if partial "feature-enabled.html" $name -}}
+      {{- range $definition.sources -}}{{ $sources = $sources | append . }}{{ end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- range site.Pages -}}
+    {{- if and .File (not (partial "page-disabled.html" .)) -}}{{- $sources = $sources | append (printf "content/%s" .File.Path) -}}{{- end -}}
+  {{- end -}}
+  {{- range $sources | uniq -}}
+    {{- if fileExists . -}}
+      {{- range findRE `images/[A-Za-z0-9_./-]+\.(webp|png|jpg|jpeg|svg)` (readFile .) -}}
+        {{- $sources = $sources | append (printf "static/%s" .) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- range $sources | uniq -}}
+    {{- $record := index hugo.Data.evidence . -}}
+    {{- if not (and $record (partial "is-true.html" $record.approved)) -}}
+      {{- errorf "Owner approval pending: %s (data/evidence.json)" . -}}
+    {{- else if not (fileExists .) -}}
+      {{- errorf "Approved source missing: %s" . -}}
+    {{- else if ne $record.sha256 (crypto.SHA256 (readFile .)) -}}
+      {{- errorf "Source changed since approval: %s" . -}}
+    {{- else if not (and $record.reviewer $record.sources $record.reviewedOn) -}}
+      {{- errorf "Incomplete approval record: %s" . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

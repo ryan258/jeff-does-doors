@@ -1,0 +1,55 @@
+{{ define "main" }}
+  {{ partial "page-hero.html" (dict "page" . "eyebrow" "About") }}
+  {{ partial "stats.html" . }}
+  <section class="prose-page l-section">
+    <div class="l-container prose-page__grid">
+      <article class="prose">{{ .Content }}</article>
+      <aside class="prose-page__aside">
+        <div class="service-detail__card">
+          <p class="service-detail__card-label">What we do</p>
+          <ul class="plain-list">
+            {{ range (partial "services.html" .) }}<li><a href="{{ printf "services/%s/" .path | relURL }}">{{ .title }}</a></li>{{ end }}
+          </ul>
+        </div>
+        {{ if (partial "feature-enabled.html" "serviceArea") }}
+          <div class="service-detail__card service-detail__card--dark">
+            <p class="service-detail__card-label">Where we work</p>
+            <p>{{ site.Params.serviceArea }}</p>
+            <a class="link-arrow link-arrow--light" href="{{ "service-area/" | relURL }}">Check coverage <span aria-hidden="true">↗</span></a>
+          </div>
+        {{ end }}
+      </aside>
+    </div>
+  </section>
+
+  {{ if (partial "feature-enabled.html" "team") }}
+    <section class="team l-section">
+      <div class="l-container">
+        <div class="section-heading section-heading--wide">
+          <div><p class="eyebrow">The crew</p><h2>The people who show up.</h2></div>
+          {{ if or (eq hugo.Environment "staging") site.Params.noindex }}
+            <p class="section-heading__aside">Names, roles, and photos need the owner's approval before launch — placeholders below.</p>
+          {{ else }}
+            <p class="section-heading__aside">Experienced operators and crew on every job site.</p>
+          {{ end }}
+        </div>
+        <div class="team__grid">
+          {{ range hugo.Data.team }}
+            <article class="team-card">
+              {{ partial "image.html" (dict "src" .image "alt" (.alt) "width" "800" "height" "800" "loading" "lazy") }}
+              <div class="team-card__body">
+                <h3>{{ .name }}</h3>
+                <p class="team-card__role">{{ .role }}</p>
+                <p>{{ .bio }}</p>
+                {{ if .placeholder }}<span class="team-card__flag">Placeholder</span>{{ end }}
+              </div>
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ partial "credentials.html" . }}
+  {{ partial "cta-banner.html" (dict "heading" "Start with the door you want to improve.") }}
+{{ end }}

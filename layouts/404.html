@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <section class="service-index service-index--hero">
+    <div class="l-container service-index__intro">
+      <p class="eyebrow eyebrow--light">{{ site.Params.companyName }} / Page not found</p>
+      <h1>That page took a wrong turn.</h1>
+      <p class="service-index__lede">The project may have moved, but the next step is still easy to find.</p>
+      <div class="service-hero__actions">
+        <a class="button button--accent" href="{{ "" | relURL }}#brief">Build a project brief <span aria-hidden="true">↗</span></a>
+        <a class="link-arrow link-arrow--light" href="{{ "" | relURL }}#services">See all services <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+{{ end }}

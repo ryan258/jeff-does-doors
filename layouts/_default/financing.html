@@ -1,0 +1,30 @@
+{{ define "main" }}
+  {{ $fin := hugo.Data.financing }}
+  {{ partial "page-hero.html" (dict "page" . "eyebrow" "Payment options") }}
+  <section class="l-section">
+    <div class="l-container prose-page__grid">
+      <article class="prose">
+        {{ .Content }}
+        <p class="prose__lede">{{ $fin.intro }}</p>
+        <div class="option-list">
+          {{ range $fin.options }}
+            <div class="option-list__item{{ if not (partial "is-true.html" .verified) }} option-list__item--unverified{{ end }}">
+              <h2>{{ .title }}</h2>
+              <p>{{ .body }}</p>
+              {{ if not (partial "is-true.html" .verified) }}<span class="option-list__flag">To confirm</span>{{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </article>
+      <aside class="prose-page__aside">
+        <div class="service-detail__card">
+          <p class="service-detail__card-label">Accepted methods</p>
+          <ul class="plain-list">
+            {{ range $fin.accepted }}<li>{{ . }}</li>{{ end }}
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+  {{ partial "cta-banner.html" dict }}
+{{ end }}

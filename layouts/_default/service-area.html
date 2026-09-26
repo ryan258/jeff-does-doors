@@ -1,0 +1,39 @@
+{{ define "main" }}
+  {{ $area := hugo.Data.service_area }}
+  {{ partial "page-hero.html" (dict "page" . "eyebrow" "Service area") }}
+  <section class="l-section">
+    <div class="l-container prose-page__grid">
+      <article class="prose">
+        {{ .Content }}
+        {{ if or site.Params.coverageConfirmed site.Params.showExampleLocations }}
+        <h2>{{ (index $area "primary").label }}</h2>
+        <p>{{ (index $area "primary").note }}</p>
+        <ul class="town-list">
+          {{ range (index $area "primary").towns }}<li>{{ partial "town-label.html" . }}</li>{{ end }}
+        </ul>
+        <h2>{{ (index $area "extended").label }}</h2>
+        <p>{{ (index $area "extended").note }}</p>
+        <ul class="town-list town-list--muted">
+          {{ range (index $area "extended").towns }}<li>{{ partial "town-label.html" . }}</li>{{ end }}
+        </ul>
+        <h2>Counties</h2>
+        <ul class="town-list town-list--muted">
+          {{ range $area.counties }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        {{ else }}<p>The business must supply its actual towns and counties before this module is published.</p>{{ end }}
+      </article>
+      <aside class="prose-page__aside">
+        <div class="service-detail__card">
+          <p class="service-detail__card-label">Start with your town</p>
+          <p>Include your general area and the door work you are considering. Coverage needs confirmation before scheduling.</p>
+          <a class="link-arrow" href="{{ if (partial "feature-enabled.html" "contactPage") }}{{ "contact/" | relURL }}{{ else }}{{ "" | relURL }}#brief{{ end }}">Ask about your property <span aria-hidden="true">↗</span></a>
+        </div>
+        {{ if site.Params.mapURL }}<div class="service-detail__card service-detail__card--dark">
+          <p class="service-detail__card-label">Find us</p>
+          {{ with site.Params.mapURL }}<a class="link-arrow link-arrow--light" href="{{ . }}" target="_blank" rel="noopener noreferrer">Open the Google Maps listing <span aria-hidden="true">↗</span></a>{{ end }}
+        </div>{{ end }}
+      </aside>
+    </div>
+  </section>
+  {{ partial "cta-banner.html" dict }}
+{{ end }}

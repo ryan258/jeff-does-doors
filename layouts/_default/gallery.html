@@ -1,0 +1,10 @@
+{{ define "main" }}
+  {{ partial "page-hero.html" (dict "page" . "eyebrow" "Gallery") }}
+  <section class="gallery l-section">
+    <div class="l-container">
+      <article class="prose prose--narrow">{{ .Content }}</article>
+      {{ partial "gallery-grid.html" (dict "items" hugo.Data.gallery "filter" true) }}
+    </div>
+  </section>
+  {{ partial "cta-banner.html" (dict "heading" "Want your property in this gallery?") }}
+{{ end }}

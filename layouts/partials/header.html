@@ -1,0 +1,32 @@
+{{ $f := site.Params.features }}
+{{ $phone := site.Params.contactPhone }}
+{{ $tel := replaceRE "[^0-9+]" "" $phone }}
+{{ $home := "" | relURL }}
+{{ if and (partial "feature-enabled.html" "promoBanner") hugo.Data.promo.active }}
+  <div class="promo-bar" data-promo hidden>
+    <div class="l-container promo-bar__inner">
+      <p><span class="promo-bar__dot" aria-hidden="true"></span>{{ hugo.Data.promo.message }}</p>
+      <a href="{{ if hasPrefix hugo.Data.promo.linkURL "#" }}{{ $home }}{{ hugo.Data.promo.linkURL }}{{ else }}{{ hugo.Data.promo.linkURL | relURL }}{{ end }}">{{ hugo.Data.promo.linkLabel }} <span aria-hidden="true">↗</span></a>
+      <button type="button" data-promo-dismiss aria-label="Dismiss announcement">×</button>
+    </div>
+  </div>
+{{ end }}
+<header class="site-header">
+  <div class="l-container site-header__inner">
+    <div class="site-header__brand-group">{{ partial "brand.html" dict }}{{ if partial "review-mode.html" . }}<small class="site-header__review-label">Draft for review · services to confirm</small>{{ end }}</div>
+    <nav class="site-header__nav" aria-label="Primary navigation">{{ partial "nav.html" . }}</nav>
+    <div class="site-header__actions">
+      {{ if (partial "feature-enabled.html" "search") }}
+        <button class="site-header__search-toggle" type="button" data-search-open aria-label="Search this site">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </button>
+      {{ end }}
+      {{ with $phone }}<a class="site-header__phone" href="tel:{{ $tel }}">{{ . }}</a>{{ end }}
+      <a class="site-header__cta" href="{{ partial "brief-url.html" "" }}">{{ site.Params.primaryAction }} <span aria-hidden="true">↗</span></a>
+    </div>
+    <details class="site-header__mobile-nav">
+      <summary><span>Menu</span><span class="site-header__menu-icon" aria-hidden="true"><i></i><i></i></span></summary>
+      {{ partial "nav-mobile.html" . }}
+    </details>
+  </div>
+</header>

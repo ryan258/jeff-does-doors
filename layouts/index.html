@@ -1,0 +1,347 @@
+{{ define "main" }}
+  {{ $f := site.Params.features }}
+  {{ $specialty := partial "specialty.html" . }}
+  {{ $contactPhone := site.Params.contactPhone }}
+  {{ $contactTel := replaceRE "[^0-9+]" "" $contactPhone }}
+  {{ $homeURL := "" | relURL }}
+  {{ $reviews := where hugo.Data.reviews "approved" true }}
+  {{ if partial "review-mode.html" . }}{{ $reviews = hugo.Data.reviews }}{{ end }}
+  {{ $projects := where site.RegularPages "Section" "projects" }}
+
+  <section class="hero" id="top">
+    <div class="hero__media" aria-hidden="true">
+      {{ partial "image.html" (dict "src" site.Params.heroImage "alt" "" "width" "1600" "height" "900" "priority" true "sizes" "100vw") }}
+    </div>
+    <div class="hero__shade" aria-hidden="true"></div>
+    <div class="l-container hero__inner">
+      <div class="hero__copy">
+        <p class="eyebrow eyebrow--light"><span class="eyebrow__dot"></span> {{ $specialty.eyebrow }}</p>
+        <h1>{{ $specialty.headline }}</h1>
+        <p class="hero__lede">{{ $specialty.introduction }}</p>
+        <p class="hero__service-area">{{ if site.Params.coverageConfirmed }}Serving {{ end }}{{ site.Params.serviceArea }}</p>
+        <div class="hero__actions">
+          {{ with $contactPhone }}<a class="button button--accent" href="tel:{{ $contactTel }}">Call about your project</a>{{ end }}
+          <a class="link-arrow link-arrow--light" href="{{ partial "brief-url.html" "" }}">{{ site.Params.primaryAction }} <span aria-hidden="true">↗</span></a>
+          {{ with site.Params.mapURL }}<a class="link-arrow link-arrow--light" href="{{ . }}" target="_blank" rel="noopener noreferrer">Open the Google Maps listing <span aria-hidden="true">↗</span></a>{{ end }}
+        </div>
+      </div>
+      <div class="hero__note">
+        <span class="hero__note-label">{{ site.Params.tagline }}</span>
+        <strong>{{ $specialty.proofPrompt }}</strong><small class="hero__image-note">Illustrative image · not a completed Jeff project</small>
+      </div>
+    </div>
+    <a class="hero__scroll-cue" href="#services" aria-label="Scroll to services"><span>Scroll to see the work</span><span class="hero__scroll-line" aria-hidden="true"></span></a>
+  </section>
+
+  <section class="proof-strip" aria-label="What makes a useful project inquiry">
+    <div class="l-container proof-strip__grid">
+      <div class="proof-strip__item"><span class="proof-strip__icon" aria-hidden="true">↗</span><span><strong>Barn-style doors</strong><small>Make the opening a feature</small></span></div>
+      <div class="proof-strip__item"><span class="proof-strip__icon" aria-hidden="true">◷</span><span><strong>Your kind of room</strong><small>Start with the space</small></span></div>
+      <div class="proof-strip__item"><span class="proof-strip__icon" aria-hidden="true">▣</span><span><strong>The complete look</strong><small>Door, track, pull, and finish</small></span></div>
+      <div class="proof-strip__item"><span class="proof-strip__icon" aria-hidden="true">⌁</span><span><strong>A clear next step</strong><small>Prepare the project details</small></span></div>
+    </div>
+  </section>
+
+  {{ partial "credentials.html" . }}
+
+  <section class="intro l-section" id="about">
+    <div class="l-container intro__grid">
+      <div class="section-heading">
+        <p class="eyebrow">The big picture</p>
+        <h2>Some doors just open.<br>Others change the room.</h2>
+      </div>
+      <div class="intro__copy">
+        <p class="intro__lead">There’s a reason a barn-style door catches your eye. The texture of the wood. The line of the track. The way an ordinary opening becomes part of the room.</p>
+        <p>That’s the focus at Jeff Does Doors. Start with a room you want to change and a style you like. Then talk through the opening, the hardware, and the details that make it feel at home.</p>
+        <div class="intro__links">
+          <a class="link-arrow" href="#approach">See how the work comes together <span aria-hidden="true">↗</span></a>
+          {{ if (partial "feature-enabled.html" "about") }}<a class="link-arrow" href="{{ "about/" | relURL }}">About {{ site.Params.companyName }} <span aria-hidden="true">↗</span></a>{{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services l-section" id="services">
+    <div class="l-container">
+      <div class="section-heading section-heading--wide">
+        <div>
+          <p class="eyebrow">Find your starting point</p>
+          <h2>One specialty.<br><em>A few ways to make it yours.</em></h2>
+        </div>
+        <p class="section-heading__aside">Barn-style doors are the focus. These project options are a starting point for Jeff’s review; supply, custom work, and repair scope still need confirmation.</p>
+      </div>
+      <div class="services__grid">
+        {{ range (partial "services.html" .) }}
+          <article class="service-card" id="{{ .id }}">
+            <div class="service-card__head">
+              <span class="service-card__number">{{ .number }}</span>
+              <span class="service-card__icon">{{ partial "icon.html" .icon }}</span>
+            </div>
+            <p class="service-card__kicker">{{ .kicker }}</p>
+            <h3>{{ .title }}</h3>
+            <p class="service-card__summary">{{ .summary }}</p>
+            <ul class="service-card__list">
+              {{ range .bullets }}<li class="service-card__item">{{ . }}</li>{{ end }}
+            </ul>
+            <div class="service-card__actions">
+              <a class="link-arrow" href="{{ printf "services/%s/" .path | relURL }}">Explore this service <span aria-hidden="true">↗</span></a>
+              <a class="service-card__brief-link" href="{{ partial "brief-url.html" .id }}">Start a project</a>
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  {{ partial "stats.html" . }}
+
+  {{ if partial "feature-enabled.html" "projects" }}
+  <section class="work-preview l-section" id="work">
+    <div class="l-container">
+      <div class="section-heading section-heading--wide">
+        <div>
+          <p class="eyebrow">The work in context</p>
+          <h2>See the problem,<br><em>the work, and the result.</em></h2>
+        </div>
+        <p class="section-heading__aside">Explore the scope, site conditions, and finished results of these projects.</p>
+      </div>
+
+      {{ if and (partial "feature-enabled.html" "projects") $projects }}
+        <div class="work-preview__grid">
+          {{ range first 3 (sort $projects "Params.weight") }}
+            <article class="work-story">
+              <div class="work-story__media">
+                {{ partial "image.html" (dict "src" .Params.heroImage "alt" (.Params.heroAlt) "width" "1200" "height" "800" "loading" "lazy") }}
+                <span class="work-story__tag">{{ if .Params.placeholder }}Example story and image{{ else }}Project story{{ end }}</span>
+              </div>
+              <div class="work-story__body">
+                <p class="work-story__label">{{ .Params.serviceLabel }}</p>
+                <h3>{{ .Title }}</h3>
+                <p>{{ .Description }}</p>
+                <a class="link-arrow" href="{{ .RelPermalink }}">Read the project story <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+          {{ end }}
+        </div>
+        <p class="work-preview__more"><a class="link-arrow" href="{{ "projects/" | relURL }}">See all recent work <span aria-hidden="true">↗</span></a></p>
+      {{ end }}
+      {{ if or (eq hugo.Environment "staging") site.Params.noindex }}
+        <p class="work-preview__note">Launch note: these example stories and images are not verified {{ site.Params.companyName }} jobs. Replace them with approved job details and photos before publishing.</p>
+      {{ end }}
+    </div>
+  </section>
+
+  {{ end }}
+  {{ if (partial "feature-enabled.html" "gallery") }}
+    <section class="gallery gallery--teaser l-section" id="gallery">
+      <div class="l-container">
+        <div class="section-heading section-heading--wide">
+          <div>
+            <p class="eyebrow">Door gallery</p>
+            <h2>A closer look at the work.</h2>
+          </div>
+          <p class="section-heading__aside">Explore door styles, finishes, and visible hardware details. Open any image for a closer look.</p>
+        </div>
+        {{ partial "gallery-grid.html" (dict "items" (first 6 hugo.Data.gallery) "filter" false) }}
+        <p class="work-preview__more"><a class="link-arrow" href="{{ "gallery/" | relURL }}">Open the full gallery <span aria-hidden="true">↗</span></a></p>
+      </div>
+    </section>
+  {{ end }}
+
+  <section class="approach l-section" id="approach">
+    <div class="l-container">
+      <div class="approach__top">
+        <div class="section-heading">
+          <p class="eyebrow eyebrow--light">Planning your project</p>
+          <h2>The right questions.<br><em>A clearer next step.</em></h2>
+        </div>
+        <div class="approach__statement">
+          <span class="approach__statement-mark" aria-hidden="true">“</span>
+          <p>The room comes first. The right door feels like it belongs there.</p>
+        </div>
+      </div>
+      <ol class="process-list">
+        {{ range hugo.Data.process }}
+          <li class="process-list__item">
+            <span class="process-list__step">{{ .step }}</span>
+            <div><h3>{{ .title }}</h3><p>{{ .body }}</p></div>
+            <span class="process-list__arrow" aria-hidden="true">↗</span>
+          </li>
+        {{ end }}
+      </ol>
+    </div>
+  </section>
+
+  {{ if (partial "feature-enabled.html" "warranty") }}
+    {{ $w := hugo.Data.warranty }}
+    {{ if or (partial "is-true.html" $w.verified) (or (eq hugo.Environment "staging") site.Params.noindex) }}
+      <section class="warranty l-section" id="warranty">
+        <div class="l-container warranty__grid">
+          <div class="section-heading">
+            <p class="eyebrow">The guarantee</p>
+            <h2>{{ $w.headline }}</h2>
+            <p class="section-heading__aside">{{ $w.body }}</p>
+            {{ if not (partial "is-true.html" $w.verified) }}<p class="warranty__flag">Unverified — visible on staging only until the terms are confirmed.</p>{{ end }}
+          </div>
+          <ul class="warranty__points">
+            {{ range $w.points }}<li><strong>{{ .title }}</strong><span>{{ .body }}</span></li>{{ end }}
+          </ul>
+        </div>
+      </section>
+    {{ end }}
+  {{ end }}
+
+  {{ if (partial "feature-enabled.html" "serviceArea") }}
+    {{ $area := hugo.Data.service_area }}
+    <section class="area-teaser l-section" id="area">
+      <div class="l-container area-teaser__grid">
+        <div class="section-heading">
+          <p class="eyebrow">Where the work happens</p>
+          <h2>{{ site.Params.serviceArea }}</h2>
+          <p class="section-heading__aside">{{ (index $area "primary").note }}</p>
+          <a class="link-arrow" href="{{ "service-area/" | relURL }}">See the full service area <span aria-hidden="true">↗</span></a>
+        </div>
+        <ul class="area-teaser__towns">
+          {{ if or site.Params.coverageConfirmed site.Params.showExampleLocations }}{{ range (index $area "primary").towns }}<li>{{ partial "town-label.html" . }}</li>{{ end }}{{ end }}
+        </ul>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ if partial "feature-enabled.html" "reviewsPage" }}
+  <section class="reviews l-section" id="reviews">
+    <div class="l-container">
+      <div class="section-heading section-heading--wide reviews__heading">
+        <div>
+          <p class="eyebrow">Customer proof</p>
+          <h2>Do the work.<br><em>Let the work speak.</em></h2>
+        </div>
+        <div class="reviews__score">
+          {{ if gt (len $reviews) 0 }}
+            <p>Selected customer notes<br>with source links below</p>
+          {{ else }}
+            <p>Customer proof is being verified<br>before launch.</p>
+          {{ end }}
+          {{ with site.Params.reviewURL }}<a class="link-arrow" href="{{ . }}" target="_blank" rel="noopener noreferrer">View the review profile <span aria-hidden="true">↗</span></a>{{ end }}
+        </div>
+      </div>
+      {{ partial "review-cards.html" (dict "reviews" $reviews) }}
+      {{ if (partial "feature-enabled.html" "reviewsPage") }}<p class="work-preview__more"><a class="link-arrow" href="{{ "reviews/" | relURL }}">Read all customer reviews <span aria-hidden="true">↗</span></a></p>{{ end }}
+    </div>
+  </section>
+
+  {{ end }}
+  {{ if (partial "feature-enabled.html" "pricing") }}
+    <section class="pricing-teaser l-section" id="pricing">
+      <div class="l-container pricing-teaser__inner">
+        <div class="section-heading">
+          <p class="eyebrow eyebrow--light">The money question</p>
+          <h2>“What does something like this usually run?”</h2>
+          <p class="section-heading__aside">Understand what changes the scope and price. Published ranges, when available, are orientation rather than a quote.</p>
+        </div>
+        <a class="button button--accent" href="{{ "pricing/" | relURL }}">Explore costs and scope <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ if (partial "feature-enabled.html" "blog") }}
+    {{ $posts := first 3 (where site.RegularPages "Section" "blog") }}
+    {{ if $posts }}
+      <section class="blog-teaser l-section" id="notes">
+        <div class="l-container">
+          <div class="section-heading section-heading--wide">
+            <div>
+              <p class="eyebrow">Field guides</p>
+              <h2>Useful before you call.</h2>
+            </div>
+            <p class="section-heading__aside">Short pieces on what fails, what it costs, and what to have ready.</p>
+          </div>
+          <div class="blog-teaser__grid">
+            {{ range $posts }}
+              <article class="post-card">
+                <a href="{{ .RelPermalink }}">
+                  <div class="post-card__media">{{ partial "image.html" (dict "src" .Params.image "alt" (.Params.imageAlt) "width" "1200" "height" "800" "loading" "lazy") }}</div>
+                  <div class="post-card__body">
+                    <p class="post-card__meta"><span>{{ .Params.category }}</span><span>{{ .ReadingTime }} min read</span></p>
+                    <h3>{{ .Title }}</h3>
+                    <p>{{ .Params.summary | default .Description }}</p>
+                    <span class="link-arrow">Read it <span aria-hidden="true">↗</span></span>
+                  </div>
+                </a>
+              </article>
+            {{ end }}
+          </div>
+          <p class="work-preview__more"><a class="link-arrow" href="{{ "blog/" | relURL }}">All field guides <span aria-hidden="true">↗</span></a></p>
+        </div>
+      </section>
+    {{ end }}
+  {{ end }}
+
+  <section class="faq l-section" id="faq">
+    <div class="l-container faq__grid">
+      <div class="section-heading">
+        <p class="eyebrow">Before you reach out</p>
+        <h2>Start with the question you actually have.</h2>
+        <p class="section-heading__aside">If your project does not fit neatly into one service, that is exactly what the first conversation is for.</p>
+        {{ if (partial "feature-enabled.html" "faqPage") }}<a class="link-arrow" href="{{ "faq/" | relURL }}">See every question <span aria-hidden="true">↗</span></a>{{ end }}
+      </div>
+      <div>
+        {{ partial "faq-list.html" (dict "groups" (where hugo.Data.faqs "featured" true) "showCategories" false) }}
+      </div>
+    </div>
+  </section>
+
+  <section class="brief-builder l-section" id="brief">
+    <div class="l-container brief-builder__grid">
+      <div class="brief-builder__intro">
+        <p class="eyebrow">Project brief builder</p>
+        <h2>Make the first message more useful.</h2>
+        <p class="brief-builder__lede">Organize what you know into a note for a message or call. Nothing is sent automatically. You can also download a copy to keep.</p>
+        <ul class="brief-builder__checklist">
+          <li><span>01</span><strong>Name the work</strong><small>Choose a service, or leave it unspecified until you talk.</small></li>
+          <li><span>02</span><strong>Describe the door</strong><small>Share your town and what you want to change.</small></li>
+          <li><span>03</span><strong>Say what “done” looks like</strong><small>Add the outcome you want and any timing that matters.</small></li>
+        </ul>
+      </div>
+      {{ partial "brief-form.html" (dict "page" . "id" "brief" "wizard" false) }}
+    </div>
+  </section>
+
+  <section class="contact l-section" id="contact">
+    <div class="l-container contact__grid">
+      <div class="contact__copy">
+        <p class="eyebrow eyebrow--light">Ready when you are</p>
+        <h2>Let’s talk about your door.</h2>
+        <p class="contact__lede">Start with the door, the problem, and the result you have in mind. Try the message builder while Jeff’s contact details are being confirmed.</p>
+        <div class="contact__actions">
+          {{ with site.Params.contactPhone }}<a class="button button--accent" href="tel:{{ replaceRE "[^0-9+]" "" . }}">Call about your project</a>{{ end }}
+          <a class="link-arrow link-arrow--light" href="{{ partial "brief-url.html" "" }}">{{ site.Params.primaryAction }}</a>
+          {{ with site.Params.mapURL }}<a class="button button--accent" href="{{ . }}" target="_blank" rel="noopener noreferrer">Find contact details on Google Maps <span aria-hidden="true">↗</span></a>{{ end }}
+          {{ with site.Params.reviewURL }}<a class="link-arrow link-arrow--light" href="{{ . }}" target="_blank" rel="noopener noreferrer">See the customer proof <span aria-hidden="true">↗</span></a>{{ end }}
+        </div>
+        {{ if or site.Params.contactPhone site.Params.contactEmail }}
+          <div class="contact__direct">
+            <p class="contact__direct-label">Direct contact</p>
+            {{ with site.Params.contactPhone }}<a class="contact__direct-link" href="tel:{{ replaceRE "[^0-9+]" "" . }}">{{ . }}</a>{{ end }}
+            {{ with site.Params.contactEmail }}<a class="contact__direct-link" href="mailto:{{ . }}">{{ . }}</a>{{ end }}
+          </div>
+        {{ end }}
+      </div>
+      <aside class="quote-card">
+        <span class="quote-card__label">Make the first conversation useful</span>
+        <h3>Have these three things ready:</h3>
+        <ol>
+          <li><span>01</span><strong>The property location</strong></li>
+          <li><span>02</span><strong>What needs attention</strong></li>
+          <li><span>03</span><strong>Photos, if they help explain it</strong></li>
+        </ol>
+        <p>Prepare a message and keep a copy. This review preview does not send it to Jeff.</p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="quick-actions" aria-label="Quick actions">
+    <a href="#brief">Start a project <span aria-hidden="true">↗</span></a>
+    {{ with site.Params.mapURL }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">Google Maps <span aria-hidden="true">↗</span></a>{{ end }}
+  </div>
+{{ end }}

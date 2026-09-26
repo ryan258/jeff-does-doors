@@ -1,0 +1,39 @@
+{{ define "main" }}
+  {{ $jobs := hugo.Data.jobs }}
+  {{ $tel := replaceRE "[^0-9+]" "" site.Params.contactPhone }}
+  {{ partial "page-hero.html" (dict "page" . "eyebrow" "Careers") }}
+  <section class="l-section">
+    <div class="l-container prose-page__grid">
+      <article class="prose">
+        {{ .Content }}
+        <p class="prose__lede">{{ $jobs.intro }}</p>
+        <div class="job-list">
+          {{ range $jobs.positions }}
+            <article class="job-card{{ if not .open }} job-card--closed{{ end }}">
+              <div class="job-card__head">
+                <h2>{{ .title }}</h2>
+                <span class="job-card__type">{{ .type }}{{ if not .open }} · not currently open{{ end }}</span>
+              </div>
+              <p>{{ .detail }}</p>
+              <ul class="job-card__reqs">{{ range .requirements }}<li>{{ . }}</li>{{ end }}</ul>
+              {{ if .open }}
+                <div class="job-card__actions">
+                  {{ with site.Params.contactPhone }}<a class="button button--dark" href="tel:{{ $tel }}">Call about this role</a>{{ end }}
+                  {{ with site.Params.contactEmail }}<a class="button button--dark" href="mailto:{{ . }}?subject={{ printf "Application: %s" $.Title | urlquery }}">Email about this role</a>{{ end }}
+                  {{ if not (or site.Params.contactPhone site.Params.contactEmail) }}{{ with site.Params.mapURL }}<a class="link-arrow" href="{{ . }}" target="_blank" rel="noopener noreferrer">Message through the listing <span aria-hidden="true">↗</span></a>{{ end }}{{ end }}
+                </div>
+              {{ end }}
+            </article>
+          {{ end }}
+        </div>
+      </article>
+      <aside class="prose-page__aside">
+        <div class="service-detail__card service-detail__card--dark">
+          <p class="service-detail__card-label">No opening that fits?</p>
+          <p>Say what you can run and when you are available. Crews change with the season.</p>
+          {{ with site.Params.mapURL }}<a class="link-arrow link-arrow--light" href="{{ . }}" target="_blank" rel="noopener noreferrer">Reach out anyway <span aria-hidden="true">↗</span></a>{{ end }}
+        </div>
+      </aside>
+    </div>
+  </section>
+{{ end }}

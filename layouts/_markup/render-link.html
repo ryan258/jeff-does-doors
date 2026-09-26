@@ -1,0 +1,12 @@
+{{- $destination := .Destination -}}
+{{- $disabled := false -}}
+{{- if hasPrefix $destination "/" -}}
+  {{- $path := index (split (index (split $destination "?") 0) "#") 0 -}}
+  {{- with site.GetPage $path }}{{ $disabled = partial "page-disabled.html" . }}{{ end -}}
+  {{- $destination = (strings.TrimPrefix "/" $destination) | relURL -}}
+{{- end -}}
+{{- if $disabled -}}
+  <span>{{ .Text | safeHTML }}</span>
+{{- else -}}
+  <a href="{{ $destination }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- end -}}

@@ -1,0 +1,21 @@
+{{ define "main" }}
+  {{ partial "page-hero.html" (dict "page" . "eyebrow" "Project message" "lede" "Three short steps. Nothing is sent until you choose how to send it.") }}
+  <section class="l-section">
+    <div class="l-container brief-builder__grid">
+      <div class="brief-builder__intro">
+        <h2>What happens with this</h2>
+        <p class="brief-builder__lede">Your entries remain in this browser until you choose a handoff. At the end you get a clean, organized brief and you choose the handoff: email{{ if site.Params.supportsSMS }}, text{{ end }}, copy it, or call and read it out.</p>
+        <ul class="brief-builder__checklist">
+          <li><span>01</span><strong>The work</strong><small>What kind of job and what needs attention.</small></li>
+          <li><span>02</span><strong>The site</strong><small>Access, timing, property type, rough budget.</small></li>
+          <li><span>03</span><strong>Reaching you</strong><small>Only what you want included.</small></li>
+        </ul>
+        <div class="service-detail__card service-detail__card--dark">
+          <p class="service-detail__card-label">Faster path</p>
+          <p>You can call without completing this form{{ if site.Params.contactPhone }} at <a href="tel:{{ replaceRE "[^0-9+]" "" site.Params.contactPhone }}">{{ site.Params.contactPhone }}</a>{{ end }}{{ if (partial "feature-enabled.html" "emergency") }}, or start at the <a href="{{ "emergency/" | relURL }}">urgent help page</a>{{ end }}.</p>
+        </div>
+      </div>
+      {{ partial "brief-form.html" (dict "page" . "id" "estimate" "wizard" true) }}
+    </div>
+  </section>
+{{ end }}

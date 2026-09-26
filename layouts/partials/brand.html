@@ -1,0 +1,8 @@
+<a class="brand{{ with .modifier }} {{ . }}{{ end }}" href="{{ "" | relURL }}" aria-label="{{ site.Params.companyName }} home">
+  <span class="brand__mark" aria-hidden="true">
+    <svg viewBox="0 0 44 44" role="img">
+      <path d="M5 8h34M12 8v5M32 8v5M10 14h24v24H10zM14 18h16M14 34h16M14 18l16 16M29 23v7" />
+    </svg>
+  </span>
+  <span class="brand__copy"><span>{{ site.Params.brandName | default site.Params.companyName }}</span><small>{{ site.Params.brandDescriptor }}</small></span>
+</a>

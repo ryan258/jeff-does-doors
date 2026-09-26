@@ -1,0 +1,14 @@
+{{ partialCached "production-guard.html" . }}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\"?>" | safeHTML }}
+<rss version="2.0"><channel>
+  <title>{{ site.Params.companyName }} — field guides</title>
+  <link>{{ site.BaseURL }}</link>
+  <description>Published field guides</description>
+  {{ if and (partial "feature-enabled.html" "blog") (not (partial "page-disabled.html" .)) }}
+    {{ range where site.RegularPages "Section" "blog" }}
+      {{ if not (or .Params.noindex (partial "page-disabled.html" .)) }}
+      <item><title>{{ .Title }}</title><link>{{ .Permalink }}</link><guid>{{ .Permalink }}</guid><description>{{ .Summary | htmlEscape }}</description></item>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</channel></rss>

@@ -1,0 +1,84 @@
+{{ partialCached "intake-config.html" . }}
+{{ partialCached "production-guard.html" . }}
+<!doctype html>
+<html lang="{{ .Site.Language.Locale | default "en-us" }}">
+  <head>
+    {{ $featureDisabled := partial "page-disabled.html" . }}
+    {{ $pageTitle := cond .IsHome .Site.Title (printf "%s | %s" .Title .Site.Params.companyName) }}
+    {{ if and (eq .Section "services") site.Params.marketLabel }}{{ $pageTitle = printf "%s in %s | %s" .Title site.Params.marketLabel site.Params.companyName }}{{ end }}
+    {{ $pageDescription := .Description | default .Site.Params.description }}
+    {{ $ogImage := .Params.socialImage | default .Params.heroImage | default .Params.image | default .Site.Params.socialImage | default .Site.Params.heroImage }}
+    {{ if $featureDisabled }}
+      {{ $pageTitle = printf "Information unavailable | %s" site.Params.companyName }}
+      {{ $pageDescription = "This section is not currently published." }}
+      {{ $ogImage = "" }}
+    {{ end }}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#17211f">
+    <title>{{ $pageTitle }}</title>
+    <meta name="description" content="{{ $pageDescription }}">
+    <meta name="author" content="{{ .Site.Params.companyName }}">
+    {{ if or .Site.Params.noindex .Params.noindex $featureDisabled }}
+      <meta name="robots" content="noindex, nofollow">
+    {{ else if eq .Kind "404" }}
+      <meta name="robots" content="noindex, follow">
+    {{ end }}
+    <link rel="canonical" href="{{ .Permalink }}">
+    <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+    {{ if site.Params.loadWebFonts }}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    {{ end }}
+    {{ $style := resources.Get "scss/site.scss" | css.Sass | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+    {{/* Only linked when the RSS output is actually generated (staging disables it). */}}
+    {{ if (partial "feature-enabled.html" "blog") }}
+      {{ with site.GetPage "/blog" }}{{ with .OutputFormats.Get "rss" }}
+        <link rel="alternate" type="application/rss+xml" title="{{ site.Params.companyName }} — job site notes" href="{{ .RelPermalink }}">
+      {{ end }}{{ end }}
+    {{ end }}
+
+    <meta property="og:type" content="{{ if .IsHome }}website{{ else if and (eq .Section "blog") .IsPage }}article{{ else }}website{{ end }}">
+    <meta property="og:site_name" content="{{ .Site.Params.companyName }}">
+    <meta property="og:title" content="{{ $pageTitle }}">
+    <meta property="og:description" content="{{ $pageDescription }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    {{ if $ogImage }}<meta property="og:image" content="{{ $ogImage | absURL }}">
+    <meta property="og:image:alt" content="{{ .Params.socialAlt | default .Params.heroAlt | default .Params.imageAlt | default site.Params.socialAlt | default site.Params.heroAlt }}">
+    {{ end }}<meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $pageTitle }}">
+    <meta name="twitter:description" content="{{ $pageDescription }}">
+    {{ if $ogImage }}<meta name="twitter:image" content="{{ $ogImage | absURL }}">{{ end }}
+
+    {{ if not $featureDisabled }}{{ partial "schema.html" . }}{{ end }}
+  </head>
+  <body class="page page--{{ if .IsHome }}home{{ else }}{{ or .Layout .Section .Kind }}{{ end }}"
+        data-brand-tone="{{ site.Params.brandTone | default "amber" }}"
+        data-search-index="{{ "index.json" | relURL }}">
+    <a class="u-skip-link" href="#main-content">Skip to content</a>
+    {{ partial "header.html" . }}
+
+    <main id="main-content">
+      {{ if $featureDisabled }}
+        <section class="page-hero"><div class="l-container"><h1>Information unavailable</h1><p>This section is not currently published online.</p></div></section>
+        <section class="l-section">
+          <div class="l-container prose prose--narrow">
+            <p>Every door project has its own fit, finish, and access requirements. Please <a href="{{ "" | relURL }}#brief">build a project brief</a> or contact us directly.</p>
+          </div>
+        </section>
+      {{ else }}
+        {{ block "main" . }}{{ end }}
+      {{ end }}
+    </main>
+    {{ if partial "review-mode.html" . }}<p class="review-notice">Review preview: proposed services and copy await Jeff’s confirmation. Hero image is AI-generated, not Jeff’s work. Contact details are unset; the message builder does not send inquiries.</p>{{ end }}
+    {{ partial "footer.html" . }}
+    {{ $script := resources.FromString "js/site.js" (printf "%s\n%s\n%s" (readFile "assets/js/brief-core.js") (readFile "assets/js/draft-storage.js") (readFile "assets/js/site.js")) | minify | fingerprint }}
+    <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>
+    {{ if site.Params.intake.enabled }}
+    {{ $intake := resources.Get "js/intake.js" | js.Build (dict "targetPath" "js/intake.js" "minify" true) | fingerprint }}
+    <script src="{{ $intake.RelPermalink }}" integrity="{{ $intake.Data.Integrity }}" defer></script>
+    {{ end }}
+  </body>
+</html>

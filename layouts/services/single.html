@@ -1,0 +1,37 @@
+{{ define "main" }}
+  {{ $service := index (where hugo.Data.services "id" .Params.serviceID) 0 }}
+  {{ $brief := partial "brief-url.html" .Params.serviceID }}
+  <section class="service-hero"><div class="l-container service-hero__inner">
+    {{ partial "breadcrumbs.html" . }}
+    <div class="service-hero__grid"><div>
+      <p class="eyebrow eyebrow--light">{{ site.Params.companyName }} · {{ site.Params.serviceArea }}</p>
+      <h1>{{ .Title }}</h1><p class="service-hero__lede">{{ .Description }}</p>
+      <div class="service-hero__actions">
+        {{ with site.Params.contactPhone }}<a class="button button--accent" href="tel:{{ replaceRE "[^0-9+]" "" . }}">Call about this service</a>{{ end }}
+        <a class="link-arrow link-arrow--light" href="{{ $brief }}">{{ site.Params.primaryAction }}</a>
+      </div>
+    </div><div class="service-hero__summary"><span class="service-hero__summary-label">Common starting points</span><ul>{{ range $service.bullets }}<li>{{ . }}</li>{{ end }}</ul></div></div>
+  </div></section>
+  <section class="service-detail l-section"><div class="l-container service-detail__grid">
+    <article class="service-detail__content prose">
+      {{ .Content }}
+      <h2>What affects the estimate?</h2><ul>{{ range $service.costDrivers }}<li>{{ . }}</li>{{ end }}</ul>
+      <p>A written scope should identify the work, responsibilities, exclusions, and agreed finish. Confirm availability and commercial terms directly.</p>
+      <h2>Before the first conversation</h2><p>{{ $service.inquiryPrompt }}</p>
+      <p>Keep photos ready to attach in your email or text application. This website does not upload attachments.</p>
+      <h2>Common questions</h2>
+      {{ range $service.questions }}<h3>{{ .question }}</h3><p>{{ .answer }}</p>{{ end }}
+    </article>
+    <aside class="service-detail__aside">
+      <div class="service-detail__card"><p class="service-detail__card-label">Service coverage</p><p>{{ site.Params.serviceArea }}</p>
+        {{ if partial "feature-enabled.html" "serviceArea" }}<a class="link-arrow" href="{{ "service-area/" | relURL }}">Check the service area</a>{{ end }}
+      </div>
+      <div class="service-detail__card"><p class="service-detail__card-label">Related work</p><ul>
+        {{ range $service.relatedServices }}{{ range where hugo.Data.services "id" . }}<li><a href="{{ printf "services/%s/" .path | relURL }}">{{ .title }}</a></li>{{ end }}{{ end }}
+      </ul></div>
+      {{ with site.Params.contactResponse }}<div class="service-detail__card"><p class="service-detail__card-label">After you contact us</p><p>{{ . }}</p></div>{{ end }}
+    </aside>
+  </div></section>
+  {{ partial "related-content.html" . }}
+  {{ partial "cta-banner.html" (dict "service" .Params.serviceID "heading" "Tell us what your door needs.") }}
+{{ end }}

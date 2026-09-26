@@ -1,0 +1,38 @@
+{{ $name := . }}
+{{ if eq $name "barn-door" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 6h40M13 6v7M35 6v7M10 13h28v29H10zM15 18h18M15 37h18M15 18l18 19M31 24v7"/></svg>
+{{ else if eq $name "door" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 42V6h28v36M6 42h36M16 12h16v30"/><circle cx="28" cy="28" r="1"/></svg>
+{{ else if eq $name "interior-door" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 42V6h30v36M15 42V12l18 4v26M25 29h3"/></svg>
+{{ else if eq $name "door-repair" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 42V6h26v14M16 38V12h14v10M27 35l7 7 10-13M6 42h14"/></svg>
+{{ else if eq $name "door-hardware" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M14 8h14v32H14zM23 22h17v5H23"/><circle cx="21" cy="15" r="1"/><circle cx="21" cy="34" r="1"/></svg>
+{{ else if eq $name "septic" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M7 15h34v20H7z"/><path d="M12 15v-4h24v4M12 35v4h24v-4M17 23h14M17 28h8"/></svg>
+{{ else if eq $name "dirt" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M7 36h34M9 31h30M13 26h22"/><path d="M28 8 17 31M28 8l6 4M17 31l-4 5"/></svg>
+{{ else if eq $name "clearing" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 37h32M12 32l6-11 6 4 8-13 4 3"/><path d="m27 13 5-1 1-5M18 21l-3-5-5 1"/></svg>
+{{ else if eq $name "water" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 7s11 12 11 20a11 11 0 0 1-22 0C13 19 24 7 24 7Z"/><path d="M19 30a6 6 0 0 0 6 3"/></svg>
+{{ else if eq $name "badge" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6l14 6v10c0 9-6 15-14 20-8-5-14-11-14-20V12l14-6Z"/><path d="m18 24 4 4 8-9"/></svg>
+{{ else if eq $name "shield" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6l14 6v12c0 8-6 14-14 18-8-4-14-10-14-18V12l14-6Z"/><path d="M24 16v14"/></svg>
+{{ else if eq $name "pin" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 42s13-13 13-23a13 13 0 1 0-26 0c0 10 13 23 13 23Z"/><circle cx="24" cy="19" r="5"/></svg>
+{{ else if eq $name "clipboard" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 10h22v30H13z"/><path d="M19 10V7h10v3M19 21h10M19 28h6"/></svg>
+{{ else if eq $name "check" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="17"/><path d="m16 24 6 6 12-13"/></svg>
+{{ else if eq $name "gear" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="7"/><path d="M24 6v6M24 36v6M6 24h6M36 24h6M11 11l4 4M33 33l4 4M37 11l-4 4M15 33l-4 4"/></svg>
+{{ else if eq $name "clock" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="17"/><path d="M24 14v10l7 5"/></svg>
+{{ else if eq $name "phone" }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 8h8l3 8-5 3a20 20 0 0 0 8 8l3-5 8 3v8c0 2-2 4-4 4C22 37 11 26 11 12c0-2 2-4 4-4Z"/></svg>
+{{ else }}
+<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 38V10h28v28H10Z"/><path d="M16 17h16M16 24h16M16 31h9"/><path d="m31 28 7 7"/></svg>
+{{ end }}

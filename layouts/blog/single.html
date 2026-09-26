@@ -1,0 +1,50 @@
+{{ define "main" }}
+  <section class="post-hero">
+    <div class="l-container">
+      {{ partial "breadcrumbs.html" . }}
+      <p class="eyebrow eyebrow--light">{{ .Params.category }}{{ if not .Date.IsZero }} <span aria-hidden="true">•</span> {{ .Date.Format "January 2, 2006" }}{{ end }}{{ with .ReadingTime }} <span aria-hidden="true">•</span> {{ . }} min read{{ end }}</p>
+      <h1>{{ .Title }}</h1>
+      <p class="page-hero__lede">{{ .Params.summary | default .Description }}</p>
+    </div>
+  </section>
+  <section class="l-section">
+    <div class="l-container prose-page__grid">
+      <article class="prose">
+        {{ if partial "review-mode.html" . }}<p class="editorial-notice">Draft field guide: technical content and images await owner review.</p>{{ end }}
+        <figure class="project-body__figure">
+          {{ partial "image.html" (dict "src" .Params.image "alt" (.Params.imageAlt) "width" "1200" "height" "800") }}
+        </figure>
+        {{ with .Params.author }}<p>Written by {{ . }}{{ with $.Params.reviewedBy }} · Reviewed by {{ . }}{{ end }}</p>{{ end }}
+        {{ with .Params.lastmod }}<p>Updated {{ time.Format "January 2, 2006" . }}</p>{{ end }}
+        {{ .Content }}
+      </article>
+      <aside class="prose-page__aside">
+        <div class="service-detail__card">
+          <p class="service-detail__card-label">Related services</p>
+          <ul class="plain-list">
+            {{ range where hugo.Data.services "id" .Params.service }}<li><a href="{{ printf "services/%s/" .path | relURL }}">{{ .title }}</a></li>{{ end }}
+          </ul>
+        </div>
+        <div class="service-detail__card service-detail__card--dark">
+          <p class="service-detail__card-label">Have this problem now?</p>
+          <a class="link-arrow link-arrow--light" href="{{ partial "brief-url.html" .Params.service }}">{{ site.Params.primaryAction }} <span aria-hidden="true">↗</span></a>
+        </div>
+      </aside>
+    </div>
+  </section>
+  <section class="l-section l-section--tight">
+    <div class="l-container">
+      <h2 class="section-heading__aside">Keep reading</h2>
+      <div class="blog-teaser__grid">
+        {{ range first 3 (where (where site.RegularPages "Section" "blog") "Permalink" "!=" .Permalink) }}
+          <article class="post-card">
+            <a href="{{ .RelPermalink }}">
+              <div class="post-card__media">{{ partial "image.html" (dict "src" .Params.image "alt" (.Params.imageAlt) "width" "1200" "height" "800" "loading" "lazy") }}</div>
+              <div class="post-card__body"><p class="post-card__meta"><span>{{ .Params.category }}</span></p><h3>{{ .Title }}</h3><span class="link-arrow">Read it <span aria-hidden="true">↗</span></span></div>
+            </a>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}

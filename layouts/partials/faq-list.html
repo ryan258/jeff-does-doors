@@ -1,0 +1,12 @@
+{{/* dict: groups (slice), showCategories (bool) */}}
+{{ range .groups }}
+  {{ if $.showCategories }}<h3 class="faq__category">{{ .category }}</h3>{{ end }}
+  <div class="faq__list">
+    {{ range .items }}
+      <details class="faq-item">
+        <summary><span>{{ .question }}</span><span class="faq-item__plus" aria-hidden="true"></span></summary>
+        <div class="faq-item__answer"><p>{{ .answer }}</p></div>
+      </details>
+    {{ end }}
+  </div>
+{{ end }}

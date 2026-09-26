@@ -1,0 +1,26 @@
+{{ define "main" }}
+  <section class="service-index service-index--hero">
+    <div class="l-container service-index__intro">
+      <a class="link-arrow link-arrow--light" href="{{ "" | relURL }}#services"><span aria-hidden="true">←</span> Back to home</a>
+      <p class="eyebrow eyebrow--light">{{ site.Params.companyName }} / Services</p>
+      <h1>Barn doors, from idea to detail.</h1>
+      <p class="service-index__lede">Start with your room and the barn-style door you have in mind. Explore these proposed project options, then confirm the specific scope with Jeff.</p>
+    </div>
+  </section>
+  <section class="service-index l-section">
+    <div class="l-container">
+      <div class="service-index__grid">
+        {{ range (partial "services.html" .) }}
+          <a class="service-index__card" href="{{ printf "services/%s/" .path | relURL }}">
+            <span class="service-index__number">{{ .number }}</span>
+            <span class="service-index__icon">{{ partial "icon.html" .icon }}</span>
+            <span class="service-index__kicker">{{ .kicker }}</span>
+            <h2>{{ .title }}</h2>
+            <p>{{ .summary }}</p>
+            <span class="link-arrow">Explore service <span aria-hidden="true">↗</span></span>
+          </a>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}

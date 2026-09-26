@@ -1,0 +1,6 @@
+{{- $service := . | default "" -}}
+{{- $url := "" | relURL -}}
+{{- if partial "feature-enabled.html" "estimateWizard" }}{{ $url = "estimate/" | relURL }}{{ end -}}
+{{- with $service }}{{ $url = printf "%s?service=%s" $url (. | urlquery) }}{{ end -}}
+{{- if not (partial "feature-enabled.html" "estimateWizard") }}{{ $url = printf "%s#brief" $url }}{{ end -}}
+{{- return $url -}}

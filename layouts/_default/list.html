@@ -1,0 +1,12 @@
+{{ define "main" }}
+  {{ partial "page-hero.html" (dict "page" . "eyebrow" site.Params.companyName) }}
+  <section class="prose-page l-section">
+    <div class="l-container">
+      <article class="prose">{{ .Content }}</article>
+      <ul class="plain-list">
+        {{ range .Pages }}<li><a class="link-arrow" href="{{ .RelPermalink }}">{{ .Title }} <span aria-hidden="true">↗</span></a></li>{{ end }}
+      </ul>
+    </div>
+  </section>
+  {{ partial "cta-banner.html" dict }}
+{{ end }}

@@ -1,0 +1,9 @@
+{{ if not .IsHome }}
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="{{ "" | relURL }}">Home</a></li>
+      {{ with .Parent }}{{ if not .IsHome }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}{{ end }}
+      <li aria-current="page">{{ .Title }}</li>
+    </ol>
+  </nav>
+{{ end }}

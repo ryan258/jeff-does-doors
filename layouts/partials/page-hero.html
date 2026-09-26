@@ -1,0 +1,10 @@
+{{/* dict: page (required), eyebrow, lede */}}
+{{ $page := .page }}
+<section class="page-hero">
+  <div class="l-container">
+    {{ partial "breadcrumbs.html" $page }}
+    <p class="eyebrow eyebrow--light">{{ .eyebrow | default site.Params.companyName }}</p>
+    <h1>{{ $page.Title }}</h1>
+    {{ with (.lede | default $page.Description) }}<p class="page-hero__lede">{{ . }}</p>{{ end }}
+  </div>
+</section>

@@ -1,0 +1,19 @@
+{{/* dict: before, beforeAlt, after, afterAlt */}}
+{{ if (partial "feature-enabled.html" "beforeAfter") }}
+  <div class="before-after" data-before-after>
+    <div class="before-after__frame">
+      {{ partial "image.html" (dict "src" .after "alt" (.afterAlt) "width" "1200" "height" "800" "class" "before-after__img before-after__img--after" "loading" "lazy") }}
+      <div class="before-after__clip" data-before-after-clip>
+        {{ partial "image.html" (dict "src" .before "alt" (.beforeAlt) "width" "1200" "height" "800" "class" "before-after__img before-after__img--before" "loading" "lazy") }}
+      </div>
+      <span class="before-after__badge before-after__badge--before" aria-hidden="true">Before</span>
+      <span class="before-after__badge before-after__badge--after" aria-hidden="true">After</span>
+      <span class="before-after__handle" aria-hidden="true"></span>
+    </div>
+    <label class="before-after__control">
+      <span class="u-visually-hidden">Drag to compare the before and after photos</span>
+      <input type="range" min="0" max="100" value="50" step="1" data-before-after-range disabled>
+    </label>
+    <noscript><p>Open the <a href="{{ .before | relURL }}">before photo</a> and <a href="{{ .after | relURL }}">after photo</a> to compare them. The slider requires JavaScript.</p></noscript>
+  </div>
+{{ end }}

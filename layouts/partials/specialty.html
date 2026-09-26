@@ -1,0 +1,3 @@
+{{- $specialty := index hugo.Data.specialties site.Params.specialty -}}
+{{- if not $specialty }}{{ errorf "Unknown specialty: %s" site.Params.specialty }}{{ end -}}
+{{- return ($specialty | default dict) -}}

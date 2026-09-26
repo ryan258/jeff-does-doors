@@ -1,0 +1,33 @@
+{{ with .items }}
+{{/* dict: items (slice of maps with image/alt/caption/tag), filter (bool) */}}
+{{ $items := . }}
+{{ if $.filter }}
+  {{ $tags := slice }}
+  {{ range $items }}{{ if not (in $tags .tag) }}{{ $tags = $tags | append .tag }}{{ end }}{{ end }}
+  <div class="gallery__filters" role="group" aria-label="Filter photos by work type">
+    <button type="button" data-gallery-filter="all" aria-pressed="true">All</button>
+    {{ range $tags }}<button type="button" data-gallery-filter="{{ . | urlize }}" aria-pressed="false">{{ . }}</button>{{ end }}
+  </div>
+{{ end }}
+<ul class="gallery__grid" data-gallery>
+  {{ range $index, $item := $items }}
+    <li class="gallery__cell" data-gallery-tag="{{ $item.tag | urlize }}">
+      <a href="{{ $item.image | relURL }}" class="gallery__open" data-gallery-open="{{ $index }}" aria-label="Open larger view: {{ $item.caption }}">
+        {{ partial "image.html" (dict "src" $item.image "alt" ($item.alt) "width" ($item.width | default 1200) "height" ($item.height | default 800) "loading" "lazy") }}
+        <span class="gallery__meta"><strong>{{ $item.caption }}</strong><small>{{ $item.tag }}</small></span>
+        {{ if $item.placeholder }}<span class="gallery__flag">Placeholder</span>{{ end }}
+      </a>
+    </li>
+  {{ end }}
+</ul>
+<dialog class="lightbox" data-lightbox aria-label="Photo viewer">
+  <button class="lightbox__close" type="button" data-lightbox-close aria-label="Close photo viewer">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" type="button" data-lightbox-prev aria-label="Previous photo">‹</button>
+  <figure>
+    <img data-lightbox-image src="{{ (index $items 0).image | relURL }}" alt="{{ (index $items 0).alt }}" width="1200" height="800">
+    <figcaption data-lightbox-caption>{{ (index $items 0).caption }}</figcaption>
+  </figure>
+  <button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next aria-label="Next photo">›</button>
+</dialog>
+
+{{ end }}
