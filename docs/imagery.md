@@ -15,6 +15,10 @@ All imagery assets on this draft site are illustrative concepts created to flesh
 | `images/barn-door-craftsman.webp` | 1200×896 | 79 KB | Gallery (amber Craftsman horizontal panel) | `barn-door-craftsman.jpg` |
 | `images/barn-door-floor-guide.webp` | 1200×896 | 97 KB | Service 04 (`barn-door-adjustments`), Gallery | `barn-door-floor-guide.jpg` |
 | `images/barn-door-workshop.webp` | 1200×896 | 155 KB | About page (`/about`), Gallery | `barn-door-workshop.jpg` |
+| `images/barn-door-bypass.webp` | 1200×896 | 85 KB | Gallery (double bypass closet sliders) | `barn-door-bypass.jpg` |
+| `images/barn-door-chevron.webp` | 1200×896 | 92 KB | Gallery (chevron pattern feature door) | `barn-door-chevron.jpg` |
+| `images/barn-door-frosted-glass.webp` | 1200×896 | 41 KB | Gallery (frosted reeded glass privacy slider) | `barn-door-frosted-glass.jpg` |
+| `images/barn-door-mirrored.webp` | 1200×896 | 63 KB | Gallery (full-length mirror dressing slider) | `barn-door-mirrored.jpg` |
 | `images/wood-texture-dark.webp` | 1376×768 | 274 KB | Homepage closing section material study (`.contact__material`) | `wood-texture-dark.jpg` |
 
 ## Hero image

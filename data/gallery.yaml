@@ -56,4 +56,32 @@
   width: 1200
   height: 896
   placeholder: true
+- image: "images/barn-door-bypass.webp"
+  alt: "Illustrative concept of custom double bypass sliding barn doors on a dual track for a bedroom closet; not a Jeff Does Doors project"
+  caption: "Double bypass closet sliders"
+  tag: "Bypass"
+  width: 1200
+  height: 896
+  placeholder: true
+- image: "images/barn-door-chevron.webp"
+  alt: "Illustrative concept of an architectural chevron pattern hardwood sliding barn door; not a Jeff Does Doors project"
+  caption: "Chevron pattern feature door"
+  tag: "Chevron"
+  width: 1200
+  height: 896
+  placeholder: true
+- image: "images/barn-door-frosted-glass.webp"
+  alt: "Illustrative concept of a black metal framed frosted reeded glass sliding door for a bathroom; not a Jeff Does Doors project"
+  caption: "Frosted reeded glass privacy slider"
+  tag: "Glass"
+  width: 1200
+  height: 896
+  placeholder: true
+- image: "images/barn-door-mirrored.webp"
+  alt: "Illustrative concept of a full-length mirrored sliding barn door for a master dressing room; not a Jeff Does Doors project"
+  caption: "Full-length mirror dressing slider"
+  tag: "Mirrored"
+  width: 1200
+  height: 896
+  placeholder: true
 
