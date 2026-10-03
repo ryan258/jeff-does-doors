@@ -30,3 +30,9 @@ Required cases: malformed contact, required field cleared after preview, rejecti
 A neutral `/thank-you/` page is retained for old links. It never claims delivery merely because it was opened.
 
 Optional device drafts are independent of delivery. Saving is opt-in, scoped by profile and site path, and expires after seven days when next accessed. Restore is explicit; storage failure must leave the form usable and say that changes were not saved. See the rendered privacy page for the visitor-facing explanation.
+
+## October 3 contract revision
+
+The shared contract includes starting point and target date in canonical payloads. Device draft choice strings are retained. Previously recorded submission hashes, if any were created against an older preview adapter, refer to that older payload shape and must not be silently reused as a different request. Reconcile an uncertain old receipt through the operator before deliberately starting a new request. Production intake remains disabled pending actual acceptance evidence.
+
+Current-tab retries retain the submitted snapshot in memory. Across reloads, automatic storage retains only identity/hash/state; the visitor must restore their separately opted-in draft or re-enter the exact values. A separately consented immutable submitted snapshot is a planned improvement, not an implemented guarantee.

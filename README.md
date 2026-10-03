@@ -1,6 +1,6 @@
 # Jeff Does Doors
 
-A local Hugo website draft for Jeff Does Doors, adapted from a reusable construction master that lives in its own repository. Ryan confirmed that Jeff specializes in barn-style doors. The creative direction interprets this as interior sliding barn doors; exact supply, fabrication, installation, and repair arrangements await Jeff’s confirmation.
+A local Hugo website and door-survey workspace for Jeff Does Doors, adapted from a reusable construction master that lives in its own repository. Ryan confirmed that Jeff specializes in barn-style doors. The creative direction interprets this as interior sliding barn doors; exact supply, fabrication, installation, and repair arrangements await Jeff’s confirmation.
 
 > **Parody copy.** The site text, customers, reviews, stats, and crew are invented for a joke version of the site. The real, owner-facing draft copy is in git history (commit `cdfe44c` and earlier). Jeff's real contact details, services, prices, and credentials are still unconfirmed.
 
@@ -18,17 +18,18 @@ Open <http://localhost:1317/>. The site uses the selected client features, noind
 
 - Home: “A door is part of the room.” (mid-century modern redesign)
 - Four proposed project pages: barn-door installation, replacement/upgrades, tracks/hardware, and adjustments; service index features catalog imagery and project highlights.
-- About, service area, FAQs, contact, privacy, preview terms, and accessibility.
+- About, service area, FAQs, contact, privacy, website terms, and accessibility.
 - Architectural guidance components: four-point measuring & clearance guide, three-point photo prep checklist, door mechanism comparison table (sliding vs. pocket vs. hinged), and craft standards.
 - Local project-message builder with service-specific prompts, copy/download, and optional seven-day device saving.
 - Barn-door brand mark, favicon, and a complete suite of 14 optimized WebP images (hero, 4 services, about workshop, 7 gallery door styles, and dark timber CSS background texture); all identified as illustrative concepts in [imagery docs](docs/imagery.md).
 - Updated `data/gallery.yaml` with 12 barn-door records, category tags (Pantry, Rustic, Double doors, Modern, Hardware, Craftsman, Custom, Bypass, Chevron, Glass, Mirrored), and AI concept disclosures.
 - Expanded `data/faqs.yaml` addressing clearances & fit, hardware mechanics, and material/finish considerations.
-- Generated site is responsive, lightweight, and cleanly audited.
+- A single-opening survey workspace at `/survey/`: inch/fraction or metric measurements, hardware references, scope and materials, installation checks, handover notes, optional device saving, JSON import/export, text download, copy and print.
+- October 3 changes are implemented but awaiting Ryan’s verification run; earlier passing results do not verify this revision.
 
 See [the project roadmap](roadmap.md) for milestone tracking.
 
-The source master is unchanged. No Git history, credentials, deployment workflows, or approvals were copied.
+The source master is unchanged. This repository has its own GitHub Pages staging deployment workflow and a separate pull-request validation workflow. Cloudflare production activation and business approvals remain pending.
 
 ## Editing map
 
@@ -44,6 +45,10 @@ The source master is unchanged. No Git history, credentials, deployment workflow
 | `assets/scss/_modern.scss` | Modern design system, component layouts, and responsive styling |
 | `assets/scss/_doors.scss` | Client refinements & CSS wood texture overlays over shared foundations |
 | `hugo.toml`, `hugo-launch.toml` | Matching minimal feature selections |
+| `assets/contracts/brief-schema.json` | Shared Hugo/browser/server inquiry choices and limits |
+| `data/door-guidance.json` | Shared measurement guidance for homepage and FAQ |
+| `assets/contracts/survey-schema.json`, `assets/js/survey-core.mjs`, `assets/js/survey.js` | Survey fields, calculations, file boundary, device storage and UI |
+| `scripts/lead_desk.py` | Bounded D1 operator commands and notification retry |
 | `data/evidence.json` | Revision-bound approvals, currently empty |
 
 Start with [the review and restart note](docs/jeff-review.md), [current status](docs/improvement-status.md), and [roadmap](roadmap.md).

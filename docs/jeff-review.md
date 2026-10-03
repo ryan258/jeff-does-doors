@@ -1,5 +1,7 @@
 # Jeff Does Doors — review and restart point
 
+> Historical review note. October 3 changes and current verification limits are recorded in [improvement status](improvement-status.md) and [verification](verification.md). Older test counts below do not verify the current revision.
+
 Updated September 26, 2026 (America/Chicago).
 
 Ryan requested an adaptation of the Jones master and confirmed barn-style doors as Jeff’s specialty. Interior sliding doors and the supporting project categories are draft choices for review.
@@ -27,7 +29,7 @@ The site uses a tailored mid-century modern palette (warm paper, timber brown, t
 - Full deterministic test suite passed: 19 Python tests and 36 Node unit tests.
 - Physical-device and assistive-technology acceptance, clipboard/download acceptance, live contact delivery, and deployment were not performed. Full inherited suites were not run.
 
-Local verification is not owner content approval. Production release remains guarded until `data/evidence.json` is signed.
+Local verification is not owner content approval. Production release remains guarded until actual revision approvals are recorded in `data/evidence.json`.
 
 ## Since this note was written
 
@@ -39,7 +41,7 @@ Local verification is not owner content approval. Production release remains gua
 
 ## Next action
 
-Review with Jeff whether he builds doors, installs supplied doors, or both. Confirm the four craft standards practices in [questions for Jeff](questions-for-jeff.md), then finalize contact details, territory, and real job photography.
+Review with Jeff whether he builds doors, installs supplied doors, or both. Confirm the actual products and installation practices in [questions for Jeff](questions-for-jeff.md), then finalize contact details, territory, and real job photography.
 
 ## Restart
 

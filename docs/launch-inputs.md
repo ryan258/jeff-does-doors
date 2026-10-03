@@ -36,7 +36,7 @@ Confirm the business phone or email that should be public. Then confirm the busi
 Generate the required-file inventory for the selected launch configuration:
 
 ```sh
-.venv/bin/python scripts/review_packet.py --output /tmp/jeff-owner-review.md
+.venv/bin/python scripts/review_packet.py --pending-only --output /tmp/jeff-owner-review.md
 ```
 
 Review the file and its evidence. Only after approval, update its record in `data/evidence.json`: `approved`, `sha256`, `reviewer`, `reviewedOn`, `sources`, and optional `reviewAfter`. The inventory supplies hashes, not approval. Use real source references and actual dates. Keep private source evidence outside the public site repository; the record can refer to an internal evidence ID.
@@ -44,3 +44,5 @@ Review the file and its evidence. Only after approval, update its record in `dat
 For credentials, pricing, and other datasets with `verified`, set the correctly typed field only when its content is confirmed. Replace placeholder media and clear `placeholder` only after review. Hash the final file after those edits. A changed hash requires another review.
 
 Do not mark example content approved to obtain a green result. Tests use isolated synthetic fixtures; those approvals never apply to this repository's business data.
+
+The inventory now groups technical versus business/content review and includes release scripts, workflow definitions, requirements and shared schemas. It does not create approvals. Production builds require a clean committed source revision and fail on Hugo warnings; source/output hashes are retained in the receipt. Do not stage or commit until Ryan delegates that action.

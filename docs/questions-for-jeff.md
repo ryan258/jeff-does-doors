@@ -17,21 +17,12 @@ The website currently proposes four core service categories. We need to confirm 
   - *(e.g., White oak, walnut, knotty pine, reclaimed timber, modern slab, British brace / X-brace, paneled, glass/steel frames)*
 - [ ] **Do you supply the tracks, rollers, and handles, or does the homeowner choose/order them?**
 
-> **⚠ The *Craft standards* section on `/about` still needs these four confirmed.**
-> `layouts/partials/craft-standards.html` describes four practices. As of
-> 2026-09-26 the copy was rewritten to state them as general craft knowledge
-> rather than as Jeff's practice, and it carries a visible
-> "Proposed — awaiting Jeff's review" flag while the site is in review mode.
-> The underlying questions are still open:
->
-> - [ ] **Materials** — is kiln-dried hardwood (white oak, walnut, clear fir) what you work in?
-> - [ ] **Header mounting** — do you fit a continuous solid header board into framing studs?
-> - [ ] **Soft-close hardware** — do you offer or fit soft-close dampers?
-> - [ ] **Concealed floor stay** — do you mortise a slot into the slab underside over a guide pin?
->
-> If the answer to 1.1 is **Option B** (installing customer-supplied doors), or if
-> any practice above is not something you do, that card should be rewritten or the
-> section dropped. Nothing here is approved yet.
+The guidance now asks for the selected door/hardware instructions and actual site conditions rather than prescribing a timber species, header, soft-close system or guide for every job.
+
+- [ ] Which slab and hardware systems do you use or accept?
+- [ ] Who verifies the wall structure, mounting method and product compatibility?
+- [ ] Which finishing, adjustment, soft-close and guide work do you provide?
+- [ ] What belongs in your survey, installation checks and customer handover?
 
 ### 1.2 Upgrades, Conversions & Repairs
 - [ ] **Swing-to-Slide Conversions**: Do you take on projects replacing standard swinging doors with barn-style doors? Do you handle the drywall patching, trim casing, or painting required when an old jamb is removed?

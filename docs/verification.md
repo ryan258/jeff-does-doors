@@ -1,70 +1,37 @@
 # Verification and remaining acceptance
 
-## Current status — September 26, 2026
+## Current revision — October 3, 2026
 
-Re-run from a clean checkout after the client-copy cleanup and architectural additions. Every deterministic
-gate below was executed, not inherited from the source master's records.
+Implementation and regression coverage changed on October 3. **No tests, builds or GitNexus analysis were run by Codex for this implementation, as requested.** The earlier September 26 passing test counts are historical and do not verify the current changes. Source inspection is not runtime acceptance.
 
-- **19 Python unit tests passed**: source policy, schema validation, feature
-  dependency resolution, calendar bound checks, intake acceptance schema,
-  transactional artifact swap, release-receipt provenance, and production build
-  interlocks.
-- **36 Node tests passed**: draft storage expiration, client intake UI states,
-  durable D1 receipt idempotency, Cloudflare Email REST `reply_to` delivery
-  payload, retry safety, and browser initializers.
-- **Release check staging gate passed**: staging artifact audited with no broken
-  links, no index leakage, and no OS debris.
-- **Feature menu check passed**: `docs/chisel-menu.md` matches the registry.
-- **Hugo v0.166.0 build clean**: staging builds cleanly with 0 deprecation warnings.
-
-Run `bash scripts/verify-local.sh` for deterministic local gate execution.
-
-The production gate correctly fails closed with owner approvals pending — `data/evidence.json`
-is empty by design. The remainder are real business inputs: production URL, confirmed coverage,
-inquiry handling, a verified service area, and confirmed owner copy. Real business content
-approvals and live Cloudflare deployment remain unperformed.
-
-## Known gaps in this suite
-
-- No test asserts the Functions runtime `INTAKE_SERVICES` list matches
-  `data/services.yaml`. These drifted apart once already; the mismatch is
-  currently correct but unguarded.
-- Deselected modules still carry the source master's excavation-era copy and
-  reference imagery that has been deleted. Selecting one fails the release gate
-  on a missing source, which is the intended direction of failure, but the copy
-  needs a full rewrite before any of them is enabled.
-- Browser, device, and assistive-technology checks below are unautomated.
-
-## Manual acceptance still required
-
-- Keyboard and screen-reader traversal on intended browsers, including modal
-  focus return and validation errors.
-- Real touch devices, zoom, contrast, reduced motion, and longer translated or
-  owner-edited labels.
-- Email/SMS/call recipient and body checks on actual devices, followed by
-  independently confirmed receipt for an authorized test.
-- Downloaded-file contents and copy fallback under denied clipboard access.
-- No-JavaScript navigation and image fallbacks in an actual browser with
-  scripting disabled; current generated-output checks inspect markup only.
-- Live hosting, caching, security headers, indexing configuration, external
-  listing destination, and post-deployment smoke checks after explicit
-  deployment authorization.
-
-## Short reproducible commands
-
-Run from the repository root after the [README setup](../README.md):
+From the repository root, run:
 
 ```sh
-.venv/bin/python -m unittest discover -s tests -p 'test_*.py'
-node --test tests/*.test.cjs
-.venv/bin/python scripts/feature_docs.py --check
-.venv/bin/python scripts/release_check.py --staging \
-  --base-url https://fixture-review.org/jeff-does-doors/ \
-  --report /tmp/jeff-preview-report.json
+bash scripts/verify-local.sh
 ```
 
-These are the focused regression set, not a comprehensive browser, device,
-accessibility, security, or performance certification. A preview pass means
-source structure and generated artifacts met the implemented checks. It does not
-establish business facts, customer demand, source rights, delivery, or
-publication.
+Requires Hugo Extended 0.166.0, Node 22 (including `node:sqlite`), and the Python dependencies in `requirements.txt`. The script chooses `.venv/bin/python` when present and explains dependency setup if unavailable. It runs Python and Node regressions, checks the feature documentation, performs the temporary subpath staging build/audit, and checks diff whitespace. It does not deploy, send inquiries, call live providers or rebuild GitNexus. Tests create disposable Git repositories and synthetic approvals only inside temporary fixtures.
+
+Coverage now includes rendered inquiry choices against the shared schema, every supported barn-door option, local runtime service IDs against the catalog, starting-point/date persistence, storage readback, receipt idempotency, immutable retry behavior, survey parsing/import/arithmetic, operator query boundaries, clean production provenance and output manifest hashes. UI mocks and generated markup checks are not real-browser evidence.
+
+The staging report is `/tmp/jeff-does-doors-preview-report.json`. A production build should remain blocked in the current real checkout: contacts, coverage, source approvals and production URL are unresolved, and the implementation is uncommitted.
+
+## Browser and field acceptance
+
+- At narrow/mobile widths, the hero text/action appears before the image; no horizontal page overflow. FAQ jump label remains readable; the comparison region scrolls with keyboard focus.
+- At 200%/400% zoom and with reduced motion, traverse navigation, brief optional fields, errors and results. Confirm announcements and focus with the intended screen reader.
+- Exercise every brief choice, optional target date, restore/delete and denied storage. Confirm starting point and date in exported and received versions when online sending is deliberately configured.
+- Verify direct email/SMS recipients and text on actual devices. Long messages must instruct copying/pasting rather than silently lose part of the message. A handoff is not a receipt.
+- Survey: enter an inch fraction, convert to millimetres and back, change weight units, leave dimensions unknown, and record an insufficient width/headroom/capacity. No case should imply installation approval.
+- Survey: export JSON, change fields, import the saved file, reject a malformed/oversized file, cancel replacement, and change fields while a file loads. Current work must remain when an import is rejected.
+- Survey: save/restore/delete, start another opening, expire storage, deny clipboard/storage, download text and print. Check that print contains the packet rather than the form/navigation. Device copy and downloaded copies have separate lifetimes.
+- Survey: complete one real opening with a professional using the actual manual. Check datum meanings, dimensions, materials/scope, unresolved checks and customer handover needs.
+- No JavaScript: navigation and content work; interactive buttons stay disabled and explain their requirement.
+
+## Provider and release acceptance
+
+The existing GitHub Pages workflow deploys staging on authorized pushes to `main` or manual dispatch. The separate PR workflow validates with read-only permissions. Repository configuration is not proof that either workflow has run remotely.
+
+Cloudflare Functions/D1/Turnstile/Email acceptance remains separate. Exercise confirmed receipt, lost acknowledgment, wrong identity, notification failure/recovery, lead status changes and retention against explicitly selected test resources. Verify actual HTTP headers on the chosen host; `_headers` is a Cloudflare mechanism and does not configure GitHub Pages headers.
+
+After explicit release authorization, review pending sources and real business evidence, commit the intended revision, build with the production release gate and deploy the exact audited output. Source/output SHA-256 maps identify bytes; they do not constitute signatures or proof of hosting, delivery, accessibility conformance or physical installation suitability.

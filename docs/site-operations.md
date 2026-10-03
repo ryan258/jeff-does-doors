@@ -233,3 +233,21 @@ that correspondence works or that a personal address stays private.
 
 This is a free-tier design under those assumptions, not a permanent zero-cost or
 unlimited-capacity promise. Notifications to visitors are intentionally not added.
+
+## Bounded operator helper
+
+`scripts/lead_desk.py` reduces routine SQL entry. It requires an explicit local/remote target, constrains receipt IDs and status values, and previews mutations unless `--execute` is supplied. Listing shows at most 50 receipt/status records without inquiry text; `show` deliberately reveals the selected inquiry. No provider operation was executed during implementation.
+
+With an installed, configured Wrangler CLI and a migrated local fixture:
+
+```sh
+python3 scripts/lead_desk.py list --local --database DB
+python3 scripts/lead_desk.py show RECEIPT_UUID --local --database DB
+python3 scripts/lead_desk.py status RECEIPT_UUID --status contacted --local --database DB
+```
+
+Replace the receipt with the real UUID. The status command prints the proposed SQL; add `--execute` to apply it. Remote D1 operations additionally require `--remote --config /path/to/the/reviewed/wrangler-config.jsonc` and the database name or binding. Inspect the selected account/configuration before operating. The helper uses documented [Wrangler D1 command flags](https://developers.cloudflare.com/d1/wrangler-commands/).
+
+Notification recovery uses `retry-notification RECEIPT_UUID --remote`; it previews the action. Execution additionally requires `--execute`, an HTTPS `OPERATOR_ORIGIN` and `OPERATOR_TOKEN` already provided through your private environment. Tokens are not command-line arguments, written to the repository or printed. Redirects are rejected to avoid forwarding credentials to a different endpoint. The tool reports the endpoint result; acceptance by an email API is not proof the recipient read it.
+
+The helper does not replace the retention/export/restore procedures above and does not authenticate a browser inbox. Keep operator access and backups private. Source and output manifests in release receipts identify reviewed bytes; production release also requires a clean Git revision. The October 3 helper and release changes await the owner-run verification command.

@@ -1,72 +1,67 @@
 # Current implementation and next actions
 
-Updated September 26, 2026. This repository is the **Jeff Does Doors client
-site** — a single Hugo site for one barn-door contractor. It was adapted from a
-reusable construction master that lives in its own repository; the sculpting CLI,
-the second demonstration profile, and the module-guide page were removed here
-because a client copy has no use for them and they had already broken.
+Updated October 3, 2026. This is one Hugo site for Jeff Does Doors, with a local single-opening survey workspace and an optional Cloudflare inquiry adapter. The selected profile still has no confirmed business contact details, coverage or fabrication scope. Online intake remains disabled.
 
-An optional Cloudflare Pages Functions, Turnstile, and D1 intake adapter is
-implemented and disabled by default.
+**The October 3 implementation has not been tested or built by Codex, at Ryan’s request.** Regression coverage was added; run `bash scripts/verify-local.sh` and review the results before calling this revision verified. The earlier September 26 counts describe an older revision.
 
-**Status: verified locally via `scripts/verify-local.sh` (19 Python tests, 36
-Node tests, feature-menu check, and the staging release gate all passing).
-Business approvals and live Cloudflare deployment are pending.**
+## Review findings and solutions
 
-| Area | State | Remaining acceptance/input |
+| Finding | Implemented response | Remaining acceptance |
 | --- | --- | --- |
-| Identity | Barn-door catalog, specialty, copy, brand mark and hero are Jeff's; engine fallbacks no longer name another business | Jeff's review of every proposed service and answer |
-| Module selection | 6 of 23 features selected: mobile contact bar, about, service area, FAQ, contact, legal | Enable more only as evidence and copy are approved |
-| Approval gate | Discovers all layouts, assets, static JS, selected config, active content and referenced media in both Python and Hugo | Production gate fails closed; `data/evidence.json` is empty awaiting sign-off |
-| Release receipt | Bound to Git revision; verifies tree integrity against signed records | Pre-launch evidence population |
-| Inquiry funnel | No silently selected service, contextual questions, clear local handoffs, nothing sent | Jeff's contact details; real device recipient/body checks |
-| Online intake | Adapter implemented, disabled; runtime service IDs match the rendered catalog | Provider decision, environment setup, end-to-end acceptance |
-| Architectural guides | Measuring guide, photo prep checklist, door mechanism comparison table, craft standards section with review flag | Confirmation of craft practices and workshop scope with Jeff |
-| Recovery | Opt-in browser draft, explicit restore/delete, seven-day expiry | Browser, expiry and denied-storage checks on real devices |
-| Assets | 14 WebP images (hero, 4 services, 7 gallery doors, workshop, dark timber CSS texture) generated and documented; master PNGs kept in `.attic/` | Authentic photography of actual work from Jeff |
-| Gallery data | `data/gallery.yaml` updated with 12 barn-door records, category tags, and AI concept disclosure alt-texts | Client photo collection when ready to enable feature |
-| FAQs | Expanded with 12 practical Q&As covering clearances, mechanics, and finishes | Jeff's review of business specifics |
-| Deselected modules | Remaining optional pages are `draft: true` and datasets remain for future enablement | Full rewrite before any further module is selected |
+| Eight visible intake choices disagreed with the server | `assets/contracts/brief-schema.json` now supplies rendered options, validation limits and friendly field labels; current barn-door fixtures cover every choice | Owner-run tests and optional provider acceptance |
+| Starting point was dropped online | Included in normalized payload, canonical hash and saved D1 payload | Verify with tests |
+| Target-date choice had no actual date | Optional date input, shared validation, local draft recovery and brief output | Real browser entry/restore |
+| Form limits and errors were inconsistent | Name/contact limits match the contract; readable field names; rendered-form contract assertions | Browser error focus and screen-reader announcement |
+| Universal clearance and material claims were unsupported | Shared measurement guidance uses explicit datums and exact product manuals; comparison, craft and FAQ copy is conditional | Professional review with the actual selected systems |
+| Photos were described as verifying clearances | Photo guidance now supports survey planning, not dimensional or structural approval | Real photo/measurement workflow |
+| FAQ navigation label had insufficient contrast | Dedicated dark-on-light label with readable size | Browser contrast/zoom confirmation |
+| Comparison overflow lacked keyboard access | Labelled, focusable scrolling region | Keyboard and touch verification |
+| Preview messages contradicted enabled capabilities | Shared delivery-status partial used by form, contact, FAQ and review notice; terms/privacy updated | Check direct-contact and online modes in configured fixtures |
+| Hero CTA implied completed work | “Explore door ideas”; illustrative disclosure retained | Replace with authentic approved job media when available |
+| Mobile image preceded the primary action | Copy/action precedes the image at narrow widths; image height is bounded | Real mobile viewport check |
+| Social metadata and Markdown images drifted from visible imagery | Specialty hero fallback shared with metadata; Markdown images use responsive image partial | Social preview and generated asset checks |
+| Long mail/SMS links risked truncation | Long messages open the app without the body and tell users to paste the copied brief | Real iOS/Android mail/SMS checks |
+| Browser save could claim success without readback | Saved brief now verifies the stored bytes; one-draft replacement is explained | Denied/quota storage and restore tests |
+| No professional job workflow | `/survey/` records job/opening, datums, dimensions, hardware/manual, scope, materials, estimate notes, checks and handover; produces a reusable packet | Field trial with a barn-door professional |
+| Raw SQL was the only operator interface | `lead_desk.py` lists receipt metadata, shows a selected inquiry, previews status changes and supports explicit notification retry | Configured local/provider acceptance; no live use performed |
+| PR checks were claimed but absent | Dedicated read-only PR validation workflow added; existing push/manual staging deploy remains separate | Actual GitHub run after an authorized push |
+| Dirty production tree could produce a misleading revision receipt | Production requires clean Git state; receipt includes source and output hashes and checks for source changes during build | Owner-run production fixture tests |
+| Release controls escaped source review | Scripts, workflow files, dependency requirements and new schemas join the approval inventory | Real approvals remain empty |
+| Hash records were called signatures | Docs and receipt explicitly distinguish hashes from digital signatures; review inventory can list pending sources by technical/business area | Owner process and repository protections |
+| Hugo warnings could be overlooked | Release builds use `--panicOnWarning` | Owner-run build; resolve rather than suppress new warnings |
+| Disabled modules contained excavation copy and invented numbers | Door-specific unconfirmed placeholders; no fake statistics, active promotions, hiring or payment claims | Keep modules disabled until their actual facts are supplied |
+| Tests and documentation reflected a different trade or revision | Barn-door fixtures, rendered-option contract checks, survey and operator regressions; status and roadmap rewritten | Run the supplied command |
 
-## Next action
+## Professional workflow delivered
 
-Gather answers to the business questionnaire in [questions for Jeff](questions-for-jeff.md), particularly door supply/fabrication scope, the four craft standards practices, confirmed contact details, and authentic job photography.
+One packet represents one opening. Measurements accept decimal inches, inch fractions, or millimetres. Unit changes convert existing dimensions; weight units convert independently. Width, headroom and maximum-weight comparisons show the entered assumptions and unresolved values. Pair/bypass arrangements disable single-door calculations. No generic overlap, floor gap, capacity or mounting height is silently supplied.
 
+The packet includes supply responsibility, scope/exclusions, materials/order notes, estimate reference, changes, installation observations and handover. The user can export editable JSON, import a validated packet, download text, copy or print. Saving is opt-in, scoped to this business/site path, with a seven-day expiry on next access. Import and new-opening actions protect existing work with explicit replacement prompts. Nothing is sent to the business by the survey.
 
-Then run:
+The current packet has one opening and free-text materials/estimate records. It is not a quoting engine, multi-job database, manufacturer compatibility catalog, structural calculator or signed acceptance record.
 
-```sh
-bash scripts/verify-local.sh
-```
+## Next actions, in order
 
-This is local verification, not approval or deployment. Then perform the manual
-cases in [verification](verification.md).
+1. Ryan runs `bash scripts/verify-local.sh`; fix reported failures before release work.
+2. Confirm Jeff’s supply/fabrication/installation scope, then contact details and coverage. The unanswered scope question stays unknown.
+3. Trial one real opening: measurements, manual revision, export/re-import, print and handover checklist. Keep observed friction and missing fields in the packet.
+4. Complete browser/assistive-technology checks in `docs/verification.md`.
+5. Supply authentic photography, approved service copy and actual commercial terms. Record exact revision approval; do not turn placeholders into asserted facts.
+6. Choose and authorize the operational host and receiving workflow. Configure and prove provider delivery separately before enabling intake.
 
-## Business-dependent work
+## Remaining enhancement proposals
 
-See [questions for Jeff](questions-for-jeff.md) for the structured intake questionnaire.
+| Opportunity | Proposed solution | Dependency / acceptance |
+| --- | --- | --- |
+| Several openings and repeat jobs | Versioned job collection with opening IDs, named local records and transactional import/export | First field trial; migration/recovery tests |
+| Structured takeoff and estimating | Line items with quantities, labor, supplier quote date, taxes/allowances and explicit exclusions | Jeff’s actual estimating method; no invented rates |
+| Hardware selection | Curated maker/model catalog with manual URL/revision, verified limits and freshness owner | Manufacturer sources and maintainer commitment |
+| Photo evidence | Local attachments with labels, consent, size limits and export manifest | Photo handling/retention decision |
+| Measured drawings | Dimensioned elevation and travel diagram using the packet datums | Real single-opening workflow validation |
+| Customer handover package | Branded packet with care instructions, product manuals, outstanding items and acknowledgment | Approved terms and real installation evidence |
+| Operator inbox | Authenticated accessible list/detail UI over the existing receipt/status model | Identity/access and provider decision |
+| Submitted-revision recovery across reload | Separate explicit opt-in saved submission snapshot bound to UUID/hash, with expiry | Privacy copy and dedicated retry/reload tests; current automatic storage remains metadata-only |
+| CSS/JS maintenance | Gradually split the legacy optional-feature handlers and retire superseded styles; load only needed modules | Baseline screenshots and browser behavior checks first |
+| Repeatable accessibility evidence | Bounded keyboard/zoom/screen-reader cases around forms, file import, storage and print | Actual assistive-technology use |
 
-The first question is whether Jeff builds doors, installs supplied doors, or
-both. That answer gates the service copy and two FAQ answers, so it is worth
-resolving before any other content review.
-
-
-Then: real contact details, domain, confirmed service territory, opening and
-response expectations, offered services and exclusions, authentic job media and
-rights. Optional credential, pricing, financing, emergency and warranty claims
-require actual business terms. Record approval of exact revisions. The code
-intentionally does not invent these inputs.
-
-## Later enhancements with a concrete decision first
-
-- Online submission/CRM: choose provider and receiving workflow; implement and
-  accept the delivery contract.
-- Analytics/call attribution: choose metrics and privacy treatment; distinguish
-  intent from receipt and booked work.
-- Client content management: choose whether file-based editing remains
-  sufficient before adding a CMS.
-- Automated deployment: choose host/domain and separately authorize deployment
-  setup; this repository contains no deployment workflow.
-
-These are product decisions, not silently connected capabilities. See
-[content strategy](content-strategy.md) for the page and editorial plan.
+Business facts, field acceptance, production configuration and publishing need their own evidence. No files have been staged, committed, pushed or deployed by this implementation.
