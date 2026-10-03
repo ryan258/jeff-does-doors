@@ -61,7 +61,7 @@ ignoreFiles = ["\\.DS_Store$"]
     financing       = true   # /financing payment options
     warranty        = true   # workmanship guarantee block
     careers         = true   # /careers hiring page
-    equipment       = true   # /equipment fleet page
+    equipment       = true   # /equipment capabilities page
     emergency       = true   # /emergency urgent-work page
     reviewsPage     = true   # /reviews full testimonial page
     faqPage         = true   # /faq full question page
@@ -85,3 +85,15 @@ ignoreFiles = ["\\.DS_Store$"]
   siteKey = ""
   consentVersion = ""
   retentionNotice = ""
+
+# Mount canonical contracts into Hugo data while keeping JS imports inside assets.
+[[module.mounts]]
+  source = "data"
+  target = "data"
+[[module.mounts]]
+  source = "assets/contracts"
+  target = "data"
+
+# Release builds must not write generated editor mappings into approved source.
+[build]
+  noJSConfigInAssets = true

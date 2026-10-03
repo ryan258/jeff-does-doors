@@ -1,0 +1,38 @@
+{
+  "checks": [
+    {
+      "id": "overlap",
+      "title": "Opening, trim & overlap",
+      "rule": "Record the opening and the outside of the casing separately",
+      "body": "Measure clear opening width at the top, middle, and bottom, and height at both sides from the finished floor. Record the outside casing dimensions and projection. Choose overlap and final slab size only after checking the selected door and hardware instructions."
+    },
+    {
+      "id": "headroom",
+      "title": "Headroom & mounting height",
+      "rule": "Keep opening, casing, slab top, and rail datum distinct",
+      "body": "Record floor-to-ceiling or lowest obstruction height and floor-to-top-of-casing height. Hardware instructions specify their own reference point for roller clearance and rail mounting height. There is no universal six-inch requirement."
+    },
+    {
+      "id": "travel",
+      "title": "Travel & obstructions",
+      "rule": "Measure the full travel path on the intended side",
+      "body": "Measure available wall run and note switches, handles, baseboard, outlets, furniture, corners, and the opposite face of the opening. Check full opening and closing travel against the chosen rail, stops, soft-close equipment, and guide geometry."
+    },
+    {
+      "id": "floor",
+      "title": "Floor & bottom guide",
+      "rule": "Check the highest finished-floor point along the entire travel",
+      "body": "Record floor variation and rugs or future flooring. Required floor gap and guide engagement come from the selected system. Some guides need a routed groove; others do not. Confirm the approved guide and mounting method before altering the slab or floor."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Rustica installation instructions",
+      "url": "https://rustica.com/instructions/"
+    },
+    {
+      "label": "Johnson Hardware 2610F product specifications",
+      "url": "https://www.johnsonhardware.com/2610f-wall-mount-sliding-door-hardware"
+    }
+  ]
+}

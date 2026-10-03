@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "fields": {
+    "environment": { "label": "Environment", "limit": 20 },
+    "profile": { "label": "Business", "limit": 80 },
+    "projectType": { "label": "Service", "limit": 80 },
+    "startingPoint": { "label": "Starting point", "limit": 80, "choices": ["", "New door", "Replace an existing door", "Not sure yet"] },
+    "location": { "label": "Town or ZIP", "limit": 300 },
+    "details": { "label": "Room description", "limit": 8000 },
+    "serviceDetails": { "label": "Service details", "limit": 4000 },
+    "timing": { "label": "Timing", "limit": 80, "choices": ["Flexible", "As soon as practical", "I have a target date"] },
+    "targetDate": { "label": "Target date", "limit": 10 },
+    "access": { "label": "Access to the door", "limit": 100, "choices": ["Not sure", "Ground floor — clear access", "Stairs or a narrow hallway", "Other access details to discuss"] },
+    "propertyType": { "label": "Property type", "limit": 80, "choices": ["Not specified", "Residential", "Apartment or condo", "Commercial", "Renovation or new build"] },
+    "budget": { "label": "Budget", "limit": 80, "choices": ["Not sure yet", "Discuss options first", "I have a budget to discuss"] },
+    "name": { "label": "Name", "limit": 100 },
+    "contact": { "label": "Phone or email", "limit": 254 },
+    "preferredContact": { "label": "Preferred reply", "limit": 80, "choices": ["No preference", "Call", "Text", "Email"] },
+    "referral": { "label": "How you heard about us", "limit": 80, "choices": ["Not specified", "Word of mouth", "Google search or Maps", "Saw work in the neighborhood", "Repeat customer"] },
+    "consent": { "label": "Consent", "limit": 3 },
+    "consentVersion": { "label": "Privacy notice version", "limit": 100 }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "checkChoices": ["Not checked", "Recorded complete", "Issue to resolve", "Not applicable — explain in notes"],
+  "groups": [
+    {"title":"Job & opening", "fields":[
+      {"id":"job","label":"Job name or short reference","limit":120},
+      {"id":"opening","label":"Opening / room identifier","limit":120},
+      {"id":"client","label":"Client and contact notes (optional)","limit":300},
+      {"id":"site","label":"Site / area (optional)","limit":300},
+      {"id":"surveyor","label":"Surveyed by","limit":120},
+      {"id":"surveyDate","label":"Survey date","type":"date","limit":10},
+      {"id":"stage","label":"Recorded job stage","choices":["Draft","Survey recorded","Scope proposed","Installation in progress","Handover recorded"]},
+      {"id":"units","label":"All dimensions in this packet","choices":["in","mm"]},
+      {"id":"configuration","label":"Door arrangement","choices":["Single surface slider","Pair / bypass / other — specialist review"]},
+      {"id":"direction","label":"Slide direction viewed from track side","choices":["Not selected","Left","Right"]}
+    ]},
+    {"title":"Measurements", "help":"Use one reference: the highest finished-floor point along the entire travel. Record that datum in notes. Inches accept decimals or fractions such as 36 1/2; millimetres accept decimals. Blank means unknown. No dimensions are assumed.", "fields":[
+      {"id":"widthTop","label":"Clear opening width — top","type":"dimension"},
+      {"id":"widthMiddle","label":"Clear opening width — middle","type":"dimension"},
+      {"id":"widthBottom","label":"Clear opening width — bottom","type":"dimension"},
+      {"id":"heightLeft","label":"Clear opening top above datum — left","type":"dimension"},
+      {"id":"heightRight","label":"Clear opening top above datum — right","type":"dimension"},
+      {"id":"casingWidth","label":"Outside casing width","type":"dimension"},
+      {"id":"casingTop","label":"Top of casing above datum","type":"dimension"},
+      {"id":"trimProjection","label":"Maximum trim / baseboard projection from wall","type":"dimension"},
+      {"id":"ceiling","label":"Lowest overhead obstruction above datum","type":"dimension"},
+      {"id":"wallRun","label":"Available wall run on slide side","type":"dimension"},
+      {"id":"floorVariation","label":"Floor variation over full travel","type":"dimension"},
+      {"id":"measureNotes","label":"Datum, obstacles, wall construction, photos and access notes","type":"textarea","limit":3000}
+    ]},
+    {"title":"Door & hardware specification", "help":"Copy values from the exact product documentation. Check the reference points used by that manual. This worksheet does not select fasteners or design structural support.", "fields":[
+      {"id":"doorModel","label":"Slab maker / model / finish","limit":300},
+      {"id":"hardwareModel","label":"Track and hanger maker / exact model","limit":300},
+      {"id":"manual","label":"Manual URL or document reference and revision","limit":500},
+      {"id":"specReviewedBy","label":"Specification reviewed by / date","limit":200},
+      {"id":"doorWidth","label":"Proposed slab width","type":"dimension"},
+      {"id":"doorHeight","label":"Proposed slab height","type":"dimension"},
+      {"id":"thickness","label":"Proposed slab thickness","type":"dimension"},
+      {"id":"overlapLeft","label":"Specified left overlap of clear opening","type":"dimension"},
+      {"id":"overlapRight","label":"Specified right overlap of clear opening","type":"dimension"},
+      {"id":"floorGap","label":"Specified gap above floor datum","type":"dimension"},
+      {"id":"headroom","label":"Manual-required clearance ABOVE SLAB TOP","type":"dimension"},
+      {"id":"railLength","label":"Proposed rail length","type":"dimension"},
+      {"id":"weightUnit","label":"Door and capacity weight unit","choices":["lb","kg"]},
+      {"id":"weight","label":"Door weight including fitted hardware","type":"number"},
+      {"id":"capacity","label":"Documented system maximum door weight","type":"number"},
+      {"id":"hardwareNotes","label":"Minimum weight / width, thickness range, wall gap, rail datum, guide, stops, anti-jump, soft-close and fixings","type":"textarea","limit":3000}
+    ]},
+    {"title":"Scope & procurement", "fields":[
+      {"id":"supply","label":"Who supplies slab / hardware / finish","type":"textarea","limit":1500},
+      {"id":"scope","label":"Agreed work, preparation and exclusions","type":"textarea","limit":3000},
+      {"id":"materials","label":"Bill of materials — item, model, quantity, supplier, order status","type":"textarea","limit":3000},
+      {"id":"estimate","label":"Estimate reference, amount, tax / disposal / travel treatment and validity","type":"textarea","limit":1500},
+      {"id":"changes","label":"Changes, approval reference and open decisions","type":"textarea","limit":2000}
+    ]},
+    {"title":"Installation & handover record", "help":"These are recorded observations, not signed approvals. Keep unresolved items and the person responsible in the notes. Follow the complete manufacturer checklist.", "fields":[
+      {"id":"structureCheck","label":"Wall structure and fixing plan reviewed","type":"check"},
+      {"id":"compatibilityCheck","label":"Slab and complete hardware compatibility reviewed","type":"check"},
+      {"id":"travelCheck","label":"Full travel, floor clearance and obstruction check","type":"check"},
+      {"id":"retentionCheck","label":"Stops, anti-jump and bottom guide installed and checked","type":"check"},
+      {"id":"operationCheck","label":"Operation / soft-close / handles / privacy / access checked","type":"check"},
+      {"id":"careCheck","label":"Care, adjustment contact and warranty documents handed over","type":"check"},
+      {"id":"handover","label":"Installer / date, demonstration, outstanding items and follow-up owner","type":"textarea","limit":3000}
+    ]}
+  ]
+}
