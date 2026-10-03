@@ -441,6 +441,8 @@ def main():
         except (ValueError, OSError) as error:
             print(f'FAIL: {error}'); return 1
     issues = []
+    source_hashes = {}
+    artifact_hashes = {}
     base_url = normalized_base_url(args.base_url)
     if base_url is None:
         issues.append('base-url must be a real absolute URL without credentials, query, or fragment')
@@ -453,7 +455,11 @@ def main():
             issues.append('Production URL must match the owner-approved HTTPS params.productionURL')
         if not args.staging and git_value('rev-parse', 'HEAD') is None:
             issues.append('Release receipts must name a revision: initialize Git and commit this source before a production release')
+        if not args.staging and git_value('status', '--porcelain') != '':
+            issues.append('Production release requires a clean working tree, including untracked files; review and commit the intended source first')
         issues.extend(source_issues(ROOT, CONFIG, production=not args.staging))
+        source_hashes = {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+                         for name in [*required_sources(ROOT, CONFIG), 'data/evidence.json'] if (ROOT / name).is_file()}
         if not args.staging and CONFIG.get('params', {}).get('noindex') is not False:
             issues.append('Production config must explicitly set noindex = false')
         if args.staging and CONFIG.get('params', {}).get('noindex') is not True:
@@ -462,7 +468,7 @@ def main():
         issues.append(f'Invalid configuration or content: {err}')
     with tempfile.TemporaryDirectory(prefix='jeff-does-doors-release-') as tmp:
         if base_url and CONFIG is not None and not issues:
-            command = ['hugo','--cacheDir',str(Path(tempfile.gettempdir()) / 'jeff-does-doors-hugo-cache'),'--config',configs,'--environment','staging' if args.staging else 'production','--baseURL',base_url,'--minify','--destination',tmp,'--cleanDestinationDir','--configDir',str(Path(tmp) / 'unused-config')]
+            command = ['hugo','--panicOnWarning','--cacheDir',str(Path(tempfile.gettempdir()) / 'jeff-does-doors-hugo-cache'),'--config',configs,'--environment','staging' if args.staging else 'production','--baseURL',base_url,'--minify','--destination',tmp,'--cleanDestinationDir','--configDir',str(Path(tmp) / 'unused-config')]
             # Only the explicit, reviewed config files may control this build.
             # Ignore ambient Hugo overrides and implicit config directories.
             build_env = {key: value for key, value in os.environ.items() if not key.upper().startswith('HUGO_')}
@@ -475,10 +481,20 @@ def main():
                 issues.append('Hugo build blocked: ' + (detail[-1] if detail else 'unknown error'))
             else:
                 issues.extend(audit_build(Path(tmp), base_url, staging=args.staging))
+                artifact_hashes = {path.relative_to(tmp).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+                                   for path in sorted(Path(tmp).rglob('*')) if path.is_file()}
+                current_sources = {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+                                   for name in [*required_sources(ROOT, CONFIG), 'data/evidence.json'] if (ROOT / name).is_file()}
+                if source_hashes != current_sources:
+                    issues.append('Source changed during the build; discard this artifact and run the gate again')
+                if not args.staging and git_value('status', '--porcelain') != '':
+                    issues.append('Working tree changed during the production build; discard this artifact')
         report = {'status':'blocked' if issues else 'passed', 'environment':'staging' if args.staging else 'production',
                   'config':configs, 'baseURL':base_url, 'checkedAt':datetime.now(timezone.utc).isoformat(),
                   'commit':git_value('rev-parse','HEAD'),
                   'workingTreeDirty':(lambda s: None if s is None else bool(s))(git_value('status','--porcelain')),
+                  'sourceHashes':source_hashes, 'artifactHashes':artifact_hashes,
+                  'manifestNote':'SHA-256 inventories identify bytes; release.json is excluded from artifactHashes. These are not digital signatures or deployment evidence.',
                   'hugo':subprocess.run(['hugo','version'],capture_output=True,text=True).stdout.strip(),
                   'issues':issues}
         if args.report:

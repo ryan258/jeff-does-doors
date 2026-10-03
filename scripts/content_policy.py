@@ -98,10 +98,10 @@ def required_sources(root, config):
     sources = set(policy['core'])
     # Rendering code can introduce claims anywhere, including unregistered partials.
     # Technical review covers code; business review covers facts. Neither is inferred.
-    sources.update({'data/publishing.json', 'data/specialties.yaml', 'site-profile.json', 'static/_headers', 'static/_routes.json', 'data/intake-acceptance.json'})
-    for directory in ('layouts', 'assets', 'static', 'functions', 'lib', 'migrations'):
+    sources.update({'data/publishing.json', 'data/specialties.yaml', 'assets/contracts/brief-schema.json', 'assets/contracts/survey-schema.json', 'data/door-guidance.json', 'site-profile.json', 'static/_headers', 'static/_routes.json', 'data/intake-acceptance.json', 'requirements.txt'})
+    for directory in ('layouts', 'assets', 'static', 'functions', 'lib', 'migrations', 'scripts', '.github/workflows'):
         for path in (root / directory).rglob('*'):
-            if not path.is_file() or path.name == '.DS_Store' or path.name.startswith('.'):
+            if not path.is_file() or path.name == '.DS_Store' or path.name.startswith('.') or '__pycache__' in path.parts or path.suffix == '.pyc':
                 continue
             if directory == 'static' and path.name.startswith('_'):
                 continue
