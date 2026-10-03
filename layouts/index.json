@@ -30,7 +30,7 @@
       {{- end -}}
     {{- end -}}
     {{- if eq .Layout "faq" -}}
-      {{- range hugo.Data.faqs }}{{ range .items }}{{ $text = printf "%s %s %s" $text .question .answer }}{{ end }}{{ end -}}
+      {{- range hugo.Data.faqs }}{{ range .items }}{{ $text = printf "%s %s %s" $text .question (partial "faq-answer.html" . | plainify) }}{{ end }}{{ end -}}
     {{- else if eq .Layout "equipment" -}}
       {{- range hugo.Data.equipment }}{{ $text = printf "%s %s %s %s" $text .name .detail .spec }}{{ end -}}
     {{- else if eq .Layout "financing" -}}

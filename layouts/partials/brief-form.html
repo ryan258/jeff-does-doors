@@ -22,7 +22,7 @@
     {{ if $wizard }}<p class="brief-form__step-label" data-step-heading tabindex="-1">Step 1 — the work</p>{{ end }}
     <fieldset class="brief-form__field brief-form__field--full brief-form__choices">
       <legend>Where are you starting? <small>(optional)</small></legend>
-      {{ range slice "New door" "Replace an existing door" "Not sure yet" }}<label class="brief-form__chip"><input type="radio" name="startingPoint" value="{{ . }}"><span>{{ . }}</span></label>{{ end }}
+      {{ range (index (index site.Data "brief-schema").fields "startingPoint").choices }}{{ if . }}<label class="brief-form__chip"><input type="radio" name="startingPoint" value="{{ . }}"><span>{{ . }}</span></label>{{ end }}{{ end }}
     </fieldset>
     <label class="brief-form__field">
       <span>Which service fits? <small>(optional)</small></span>
@@ -34,14 +34,14 @@
     </label>
     <label class="brief-form__field">
       <span>Your town or ZIP <small>(required)</small></span>
-      <input type="text" name="location" maxlength="300" autocomplete="address-level2" placeholder="Your town or ZIP code" required>
+      <input type="text" name="location" maxlength="{{ (index (index site.Data "brief-schema").fields "location").limit }}" autocomplete="address-level2" placeholder="Your town or ZIP code" required>
     </label>
     <label class="brief-form__field brief-form__field--full">
       <span>Tell us about the opening <small>(required)</small></span>
-      <textarea name="details" rows="5" maxlength="8000" placeholder="Which opening is it? How wide? How long has it been without a door?" required></textarea>
+      <textarea name="details" rows="5" maxlength="{{ (index (index site.Data "brief-schema").fields "details").limit }}" placeholder="Which opening is it? How wide? How long has it been without a door?" required></textarea>
     </label>
   <label class="brief-form__field brief-form__field--full" data-service-detail hidden>
-    <span data-service-prompt></span><textarea name="serviceDetails" rows="3" maxlength="4000" aria-label="Optional service details"></textarea>
+    <span data-service-prompt></span><textarea name="serviceDetails" rows="3" maxlength="{{ (index (index site.Data "brief-schema").fields "serviceDetails").limit }}" aria-label="Optional service details"></textarea>
   </label>
   </div>
 
@@ -51,36 +51,29 @@
     <label class="brief-form__field">
       <span>Timing <small>(optional)</small></span>
       <select name="timing" autocomplete="off">
-        <option value="Flexible">Flexible</option>
-        <option value="As soon as practical">As soon as practical</option>
-        <option value="I have a target date">I have a target date</option>
+        {{ partial "brief-options.html" "timing" }}
       </select>
+    </label>
+    <label class="brief-form__field" data-target-date hidden>
+      <span>Target date <small>(optional, not a booking)</small></span>
+      <input type="date" name="targetDate" min="0001-01-01" max="9999-12-31">
     </label>
     <label class="brief-form__field">
       <span>Access to the door <small>(optional)</small></span>
       <select name="access" autocomplete="off">
-        <option value="Not sure">Not sure</option>
-        <option value="Ground floor — clear access">Ground floor — clear access</option>
-        <option value="Stairs or a narrow hallway">Stairs or a narrow hallway</option>
-        <option value="Other access details to discuss">Other access details to discuss</option>
+        {{ partial "brief-options.html" "access" }}
       </select>
     </label>
     <label class="brief-form__field">
       <span>Property type <small>(optional)</small></span>
       <select name="propertyType" autocomplete="off">
-        <option value="Not specified">Choose if known</option>
-        <option value="Residential">Residential</option>
-        <option value="Apartment or condo">Apartment or condo</option>
-        <option value="Commercial">Commercial</option>
-        <option value="Renovation or new build">Renovation or new build</option>
+        {{ partial "brief-options.html" "propertyType" }}
       </select>
     </label>
     <label class="brief-form__field">
       <span>Rough budget range <small>(optional)</small></span>
       <select name="budget" autocomplete="off">
-        <option value="Not sure yet">Not sure yet</option>
-        <option value="Discuss options first">Discuss options first</option>
-        <option value="I have a budget to discuss">I have a budget to discuss</option>
+        {{ partial "brief-options.html" "budget" }}
       </select>
     </label>
   </div>
@@ -89,29 +82,22 @@
     {{ if $wizard }}<p class="brief-form__step-label" data-step-heading tabindex="-1">Step 3 — reaching you</p>{{ end }}
     <label class="brief-form__field">
       <span>Your name <small>(optional)</small></span>
-      <input type="text" name="name" autocomplete="name" placeholder="How should they address you?">
+      <input type="text" name="name" maxlength="{{ (index (index site.Data "brief-schema").fields "name").limit }}" autocomplete="name" placeholder="How should they address you?">
     </label>
     <label class="brief-form__field">
       <span>Best phone or email <small>(optional)</small></span>
-      <input type="text" name="contact" autocomplete="off" placeholder="Only if you want it in the brief">
+      <input type="text" name="contact" maxlength="{{ (index (index site.Data "brief-schema").fields "contact").limit }}" autocomplete="off" placeholder="Only if you want it in the brief">
     </label>
     <label class="brief-form__field">
       <span>Preferred reply <small>(optional)</small></span>
       <select name="preferredContact" autocomplete="off">
-        <option value="No preference">No preference</option>
-        <option value="Call">Call</option>
-        {{ if $p.supportsSMS }}<option value="Text">Text</option>{{ end }}
-        <option value="Email">Email</option>
+        {{ partial "brief-options.html" "preferredContact" }}
       </select>
     </label>
     <label class="brief-form__field">
       <span>How did you hear about {{ site.Params.companyName }}? <small>(optional)</small></span>
       <select name="referral" autocomplete="off">
-        <option value="Not specified">Prefer not to say</option>
-        <option value="Word of mouth">Word of mouth</option>
-        <option value="Google search or Maps">Google search or Maps</option>
-        <option value="Saw Jeff’s truck on my street">Saw Jeff’s truck on my street</option>
-        <option value="Repeat customer">Repeat customer</option>
+        {{ partial "brief-options.html" "referral" }}
       </select>
     </label>
   </div>
@@ -120,7 +106,7 @@
   {{ if $p.draftRecovery }}
   <div class="draft-recovery" data-draft-recovery hidden>
     <label><input type="checkbox" data-draft-consent> Save this draft on this device for up to 7 days</label>
-    <p class="brief-form__note">Optional. Anyone using this browser may be able to restore it. Saving does not send it.</p>
+    <p class="brief-form__note">One saved room brief per business in this browser; saving replaces the earlier draft. Anyone using this browser may be able to restore it. Saving does not send it.</p>
     <div class="brief-form__actions"><button class="button button--ghost" type="button" data-draft-restore hidden>Restore saved draft</button><button class="button button--ghost" type="button" data-draft-discard>Delete saved draft</button></div>
     <p data-draft-state role="status" aria-live="polite">Not saved on this device.</p>
   </div>

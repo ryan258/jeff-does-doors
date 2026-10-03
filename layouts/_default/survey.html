@@ -1,0 +1,37 @@
+{{ define "main" }}
+{{ partial "page-hero.html" (dict "page" . "eyebrow" "Professional planning") }}
+<section class="l-section survey-workspace"><div class="l-container">
+  <div class="prose">{{ .Content }}</div>
+  <noscript><p>Enable JavaScript to prepare a packet. The field labels below can also be used as a survey checklist; nothing is sent.</p></noscript>
+  <form method="dialog" data-survey data-profile="{{ site.Params.profileID }}" data-scope="{{ "" | relURL }}" aria-describedby="survey-storage-note">
+    <p id="survey-storage-note">One saved packet per business and browser. Export the current packet before starting another opening. Device saving expires after seven days and is removed on the next visit. Shared browsers can expose saved notes.</p>
+    <div class="survey-actions">
+      <label><input type="checkbox" data-survey-save disabled> Save changes on this device</label>
+      <button type="button" class="button button--ghost" data-survey-restore hidden>Restore saved packet</button>
+      <button type="button" class="button button--ghost" data-survey-delete disabled>Delete device copy</button>
+      <label>Import a saved packet <input type="file" accept=".json,application/json" data-survey-import disabled></label>
+    </div>
+    <p data-survey-status role="status" aria-live="polite">Device saving is off. Prepare a packet to check your entries.</p>
+    {{ range (index site.Data "survey-schema").groups }}
+    <fieldset class="survey-group"><legend>{{ .title }}</legend>{{ with .help }}<p>{{ . }}</p>{{ end }}
+      <div class="survey-fields">{{ range .fields }}
+        <label class="survey-field{{ if eq .type "textarea" }} survey-field--wide{{ end }}" for="survey-{{ .id }}"><span>{{ .label }}</span>
+          {{ if .choices }}<select id="survey-{{ .id }}" name="{{ .id }}">{{ range .choices }}<option>{{ . }}</option>{{ end }}</select>
+          {{ else if eq .type "check" }}<select id="survey-{{ .id }}" name="{{ .id }}">{{ range (index site.Data "survey-schema").checkChoices }}<option>{{ . }}</option>{{ end }}</select>
+          {{ else if eq .type "textarea" }}<textarea id="survey-{{ .id }}" name="{{ .id }}" rows="3" maxlength="{{ .limit }}"></textarea>
+          {{ else }}<input id="survey-{{ .id }}" name="{{ .id }}" type="{{ if eq .type "date" }}date{{ else }}text{{ end }}" maxlength="{{ .limit | default 32 }}" autocomplete="off">{{ end }}
+        </label>
+      {{ end }}</div>
+    </fieldset>{{ end }}
+    <div class="survey-actions">
+      <button type="submit" class="button button--dark" data-survey-prepare disabled>Prepare packet</button>
+      <button type="button" class="button button--ghost" data-survey-json disabled>Export editable JSON</button>
+      <button type="button" class="button button--ghost" data-survey-text disabled>Download text</button>
+      <button type="button" class="button button--ghost" data-survey-copy disabled>Copy packet</button>
+      <button type="button" class="button button--ghost" data-survey-print disabled>Print packet</button>
+      <button type="button" class="button button--ghost" data-survey-new disabled>New opening</button>
+    </div>
+  </form>
+  <section data-survey-result hidden tabindex="-1" aria-labelledby="survey-result-title"><h2 id="survey-result-title">Current job packet</h2><p>Exports include client and site notes. Review before sharing.</p><pre data-survey-output></pre></section>
+</div></section>
+{{ end }}

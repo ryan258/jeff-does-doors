@@ -7,7 +7,8 @@
     {{ $pageTitle := cond .IsHome .Site.Title (printf "%s | %s" .Title .Site.Params.companyName) }}
     {{ if and (eq .Section "services") site.Params.marketLabel }}{{ $pageTitle = printf "%s in %s | %s" .Title site.Params.marketLabel site.Params.companyName }}{{ end }}
     {{ $pageDescription := .Description | default .Site.Params.description }}
-    {{ $ogImage := .Params.socialImage | default .Params.heroImage | default .Params.image | default .Site.Params.socialImage | default .Site.Params.heroImage }}
+    {{ $specialty := partial "specialty.html" . }}
+    {{ $ogImage := .Params.socialImage | default .Params.heroImage | default .Params.image | default .Site.Params.socialImage | default $specialty.heroImage | default .Site.Params.heroImage }}
     {{ if $featureDisabled }}
       {{ $pageTitle = printf "Information unavailable | %s" site.Params.companyName }}
       {{ $pageDescription = "This section is not currently published." }}
@@ -46,7 +47,7 @@
     <meta property="og:description" content="{{ $pageDescription }}">
     <meta property="og:url" content="{{ .Permalink }}">
     {{ if $ogImage }}<meta property="og:image" content="{{ $ogImage | absURL }}">
-    <meta property="og:image:alt" content="{{ .Params.socialAlt | default .Params.heroAlt | default .Params.imageAlt | default site.Params.socialAlt | default site.Params.heroAlt }}">
+    <meta property="og:image:alt" content="{{ .Params.socialAlt | default .Params.heroAlt | default .Params.imageAlt | default site.Params.socialAlt | default $specialty.heroAlt | default site.Params.heroAlt }}">
     {{ end }}<meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $pageTitle }}">
     <meta name="twitter:description" content="{{ $pageDescription }}">
@@ -79,6 +80,10 @@
     {{ if site.Params.intake.enabled }}
     {{ $intake := resources.Get "js/intake.js" | js.Build (dict "targetPath" "js/intake.js" "minify" true) | fingerprint }}
     <script src="{{ $intake.RelPermalink }}" integrity="{{ $intake.Data.Integrity }}" defer></script>
+    {{ end }}
+    {{ if eq .Layout "survey" }}
+    {{ $survey := resources.Get "js/survey.js" | js.Build (dict "targetPath" "js/survey.js" "minify" true) | fingerprint }}
+    <script src="{{ $survey.RelPermalink }}" integrity="{{ $survey.Data.Integrity }}" defer></script>
     {{ end }}
   </body>
 </html>

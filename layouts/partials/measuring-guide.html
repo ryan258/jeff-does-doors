@@ -9,41 +9,22 @@
     </div>
 
     <div class="measuring-guide__grid">
-      <div class="measuring-card">
-        <span class="measuring-card__num">01</span>
-        <h3>Door overlap</h3>
-        <p class="measuring-card__rule">Opening width + 2" to 4" · Opening height + 1"</p>
-        <p>A barn door hangs on the face of the wall rather than inside the frame. Measure the bare opening, not the casing: adding 2" to 4" to that width covers it by 1" to 2" on each side. Wide or proud casing changes the figure, so note your trim width and let Jeff confirm the final slab size. He will say it could be bigger. It is a Texas thing.</p>
+      {{ range $index, $check := (index site.Data "door-guidance").checks }}
+        <span class="measuring-card__num">{{ printf "%02d" (add $index 1) }}</span>
+        <h3>{{ .title }}</h3><p class="measuring-card__rule">{{ .rule }}</p><p>{{ .body }}</p>
       </div>
-
-      <div class="measuring-card">
-        <span class="measuring-card__num">02</span>
-        <h3>Header clearance</h3>
-        <p class="measuring-card__rule">Minimum 6" above door trim</p>
-        <p>The steel rail and roller wheels mount above the door casing. You need at least 6 inches of clear wall space between the top of the opening and the ceiling or crown molding.</p>
-      </div>
-
-      <div class="measuring-card">
-        <span class="measuring-card__num">03</span>
-        <h3>Slide run space</h3>
-        <p class="measuring-card__rule">Full door width along adjacent wall</p>
-        <p>The wall where the door slides open must be completely flat and unobstructed. Check for light switches, thermostats, heat registers, or artwork that might sit in the path of the slide.</p>
-      </div>
-
-      <div class="measuring-card">
-        <span class="measuring-card__num">04</span>
-        <h3>Floor & bottom guide</h3>
-        <p class="measuring-card__rule">3/8" to 1/2" floor gap · Level floor</p>
-        <p>A floor stay roller keeps the door plumb and prevents swinging. Modern doors have a hidden groove mortised into the bottom edge that glides quietly over a concealed guide pin.</p>
-      </div>
+      {{ end }}
     </div>
+    <p>Use the instructions for your exact model. Examples of manufacturer references:
+      {{ range $index, $source := (index site.Data "door-guidance").sources }}{{ if $index }} · {{ end }}<a href="{{ .url }}">{{ .label }}</a>{{ end }}.
+    </p>
 
     <div class="measuring-guide__tip">
       <div class="measuring-guide__tip-content">
         <h4>Not sure if your opening has the clearance?</h4>
         <p>Snap a photo showing the doorway and the entire wall next to it. Include it when you message Jeff and he can check the layout. He will have already looked at it twice.</p>
       </div>
-      <a class="button button--accent" href="{{ "" | relURL }}#brief">Start your room brief</a>
+      <a class="button button--accent" href="{{ "survey/" | relURL }}">Open the door survey</a>
     </div>
   </div>
 </section>

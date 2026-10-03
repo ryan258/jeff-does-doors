@@ -8,9 +8,11 @@
   {{- $sources := slice -}}
   {{- range hugo.Data.publishing.core -}}{{ $sources = $sources | append . }}{{ end -}}
   {{- range site.Params.approvalConfigFiles -}}{{ $sources = $sources | append . }}{{ end -}}
-  {{- range slice "data/publishing.json" "data/specialties.yaml" "site-profile.json" "static/_headers" "static/_routes.json" "data/intake-acceptance.json" -}}{{ $sources = $sources | append . }}{{ end -}}
-  {{- range slice "layouts" "assets" "static" "functions" "lib" "migrations" -}}
+  {{- range slice "data/publishing.json" "data/specialties.yaml" "assets/contracts/brief-schema.json" "assets/contracts/survey-schema.json" "data/door-guidance.json" "site-profile.json" "static/_headers" "static/_routes.json" "data/intake-acceptance.json" "requirements.txt" -}}{{ $sources = $sources | append . }}{{ end -}}
+  {{- range slice "layouts" "assets" "static" "functions" "lib" "migrations" "scripts" ".github/workflows" -}}
+    {{- if fileExists . -}}
     {{- range partial "source-tree.html" . -}}{{ $sources = $sources | append . }}{{ end -}}
+    {{- end -}}
   {{- end -}}
   {{- if fileExists "static/_redirects" -}}{{ $sources = $sources | append "static/_redirects" }}{{ end -}}
   {{- range $name, $definition := hugo.Data.publishing.features -}}

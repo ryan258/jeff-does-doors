@@ -2,6 +2,7 @@
 {{ $home := "" | relURL }}
 <nav aria-label="Mobile navigation">
   {{ if partial "feature-enabled.html" "search" }}<button type="button" data-search-open>Search this site</button>{{ end }}
+  <a href="{{ "survey/" | relURL }}">Door survey &amp; job packet</a>
   <a href="{{ "services/" | relURL }}">Services</a>
   {{ range (partial "services.html" .) }}<a class="site-header__mobile-sub" href="{{ printf "services/%s/" .path | relURL }}">{{ .title }}</a>{{ end }}
   {{ if (partial "feature-enabled.html" "projects") }}<a href="{{ "projects/" | relURL }}">Recent work</a>{{ end }}

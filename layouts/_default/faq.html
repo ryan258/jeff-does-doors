@@ -3,7 +3,7 @@
   <section class="l-section">
     <div class="l-container faq-page__grid">
       <nav class="faq-page__nav" aria-label="Question categories">
-        <span class="site-footer__label">Jump to</span>
+        <span class="faq-jump-label">Jump to</span>
         {{ range hugo.Data.faqs }}<a href="#{{ .category | urlize }}">{{ .category }}</a>{{ end }}
       </nav>
       <div class="faq-page__body">
@@ -15,7 +15,7 @@
               {{ range .items }}
                 <details class="faq-item">
                   <summary><span>{{ .question }}</span><span class="faq-item__plus" aria-hidden="true"></span></summary>
-                  <div class="faq-item__answer"><p>{{ .answer }}</p></div>
+                  <div class="faq-item__answer"><p>{{ partial "faq-answer.html" . }}</p></div>
                 </details>
               {{ end }}
             </div>

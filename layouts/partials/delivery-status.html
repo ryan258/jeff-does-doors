@@ -1,0 +1,7 @@
+{{ if site.Params.intake.enabled }}
+Prepare a local draft, then choose Send online and complete verification. Only a confirmed receipt means the request was saved. A request is not a booking.
+{{ else if or site.Params.contactEmail site.Params.contactPhone }}
+Prepare a local draft, then use a contact option to send it through your own messaging app or discuss it by phone. Preparing this form does not send it.
+{{ else }}
+Prepare, copy, or download a local draft. Business contact details are awaiting confirmation; this site currently cannot deliver your brief to Jeff.
+{{ end }}
