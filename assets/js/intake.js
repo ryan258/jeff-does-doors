@@ -1,4 +1,4 @@
-import { LIMITS, normalize, payloadHash, readAttempt, submitRequest } from './intake-core.mjs';
+import { LIMITS, LABELS, normalize, payloadHash, readAttempt, submitRequest } from './intake-core.mjs';
 let loading;
 function loadChallenge() {
   if (window.turnstile) return Promise.resolve(window.turnstile);
@@ -64,7 +64,7 @@ for (const form of document.querySelectorAll('[data-online-intake]')) {
       message('Sending… Keep this page open until a receipt is confirmed.');
       // Preserve the exact submitted revision, including if fields change during fetch.
       snapshot = payload;
-      revision.textContent = Object.entries(snapshot).filter(([k]) => !['consent','consentVersion','profile'].includes(k)).map(([k,v]) => `${k}: ${v || 'Not specified'}`).join('\n');
+      revision.textContent = Object.entries(snapshot).filter(([k]) => !['consent','consentVersion','profile'].includes(k)).map(([k,v]) => `${LABELS[k] || k}: ${v || 'Not specified'}`).join('\n');
       revision.parentElement.hidden = false;
       const receipt = await submitRequest(payload, { storage, key, token });
       snapshot = payload; confirmed = true;

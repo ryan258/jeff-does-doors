@@ -1,26 +1,21 @@
-// Shared browser/server contract. Property order is the canonical hash representation.
-export const LIMITS = { environment: 20, profile: 80, projectType: 80, location: 300, details: 8000,
-  serviceDetails: 4000, timing: 80, access: 100, propertyType: 80, budget: 80,
-  name: 100, contact: 254, preferredContact: 80, referral: 80, consent: 3, consentVersion: 100 };
-export const CHOICES = {
-  timing: ['Flexible', 'As soon as practical', 'I have a target date', 'Emergency — it cannot wait'],
-  access: ['Not sure', 'Open — a machine can drive right to it', 'Tight — gates, fences, or landscaping in the way', 'Difficult — steep, wooded, or soft ground'],
-  propertyType: ['Not specified', 'Residential', 'Acreage or farm', 'Commercial', 'New build site'],
-  budget: ['Not sure yet', 'Under $5k', '$5k–$15k', '$15k–$40k', '$40k+'],
-  preferredContact: ['No preference', 'Call', 'Text', 'Email'],
-  referral: ['Not specified', 'Word of mouth', 'Google search or Maps', 'Saw the equipment on a job', 'Repeat customer'],
-};
+import schema from '../contracts/brief-schema.json' with { type: 'json' };
+// Property order is the canonical hash representation. Hugo renders these same choices.
+export const LIMITS = Object.fromEntries(Object.entries(schema.fields).map(([key, field]) => [key, field.limit]));
+export const LABELS = Object.fromEntries(Object.entries(schema.fields).map(([key, field]) => [key, field.label]));
+export const CHOICES = Object.fromEntries(Object.entries(schema.fields).filter(([, field]) => field.choices).map(([key, field]) => [key, field.choices]));
 export function normalize(input, config) {
   const fail = (field, message) => { const error = new Error(message); error.field = field; throw error; };
   const result = {};
   for (const [key, limit] of Object.entries(LIMITS)) {
-    const value = input[key];
-    if (typeof value !== 'string' || value.length > limit || /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(value)) fail(key, `Please check ${key}.`);
-    if (!['details', 'serviceDetails'].includes(key) && /[\r\n]/.test(value)) fail(key, `Please check ${key}.`);
+    const value = Object.hasOwn(input, key) ? input[key] : (['startingPoint', 'targetDate'].includes(key) ? '' : undefined);
+    if (typeof value !== 'string' || value.length > limit || /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(value)) fail(key, `Please check ${LABELS[key].toLowerCase()} (maximum ${limit} characters).`);
+    if (!['details', 'serviceDetails'].includes(key) && /[\r\n]/.test(value)) fail(key, `Please check ${LABELS[key].toLowerCase()}.`);
     result[key] = value.trim();
   }
-  for (const key of ['location', 'details', 'contact']) if (!result[key]) fail(key, `Please complete ${key} before sending online.`);
-  for (const [key, choices] of Object.entries(CHOICES)) if (!choices.includes(result[key])) fail(key, `Choose a listed ${key}.`);
+  for (const key of ['location', 'details', 'contact']) if (!result[key]) fail(key, `Please complete ${LABELS[key].toLowerCase()} before sending online.`);
+  for (const [key, choices] of Object.entries(CHOICES)) if (!choices.includes(result[key])) fail(key, `Choose a listed option for ${LABELS[key].toLowerCase()}.`);
+  if (result.timing !== 'I have a target date') result.targetDate = '';
+  if (result.targetDate && (!/^\d{4}-\d{2}-\d{2}$/.test(result.targetDate) || !Number.isFinite(Date.parse(result.targetDate)) || new Date(result.targetDate).toISOString().slice(0, 10) !== result.targetDate)) fail('targetDate', 'Enter a valid target date.');
   if (result.environment !== config.environment) fail('profile', 'This form and server use different environments. Use direct contact.');
   if (result.profile !== config.profile || !['', 'multiple', ...config.services].includes(result.projectType)) fail('projectType', 'This project form has changed. Copy your brief before reloading.');
   const email = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(result.contact);

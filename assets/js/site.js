@@ -302,8 +302,13 @@
     const updateHandoffLinks = () => {
       const subject = `Project inquiry: ${valueFor('projectType', 'Project discussion')}`;
       const encodedBrief = encodeURIComponent(latestBrief);
-      setHandoffLink(emailLink, `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodedBrief}`, !contactEmail);
-      setHandoffLink(smsLink, `sms:${contactTel}?body=${encodedBrief}`, !contactTel || !supportsSMS);
+      // Long URIs are truncated by some messaging apps. Preserve the full brief via copy/download.
+      const mail = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodedBrief}`;
+      const sms = `sms:${contactTel}?body=${encodedBrief}`;
+      setHandoffLink(emailLink, mail.length <= 1800 ? mail : `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}`, !contactEmail);
+      setHandoffLink(smsLink, sms.length <= 1800 ? sms : `sms:${contactTel}`, !contactTel || !supportsSMS);
+      if (emailLink) emailLink.textContent = mail.length <= 1800 ? 'Email this brief' : 'Open email — paste your copied brief';
+      if (smsLink) smsLink.textContent = sms.length <= 1800 ? 'Text this brief' : 'Open text — paste your copied brief';
       setHandoffLink(callLink, `tel:${contactTel}`, !contactTel);
     };
 
@@ -323,6 +328,7 @@
       ...optionalLine('Property type', 'propertyType'),
       ...optionalLine('Door access', 'access'),
       `Timing: ${valueFor('timing', 'Flexible')}`,
+      ...(valueFor('timing', '') === 'I have a target date' ? optionalLine('Target date (not a booking)', 'targetDate') : []),
       ...optionalLine('Budget range', 'budget'),
       `Preferred reply: ${valueFor('preferredContact', 'No preference')}`,
       `Name: ${valueFor('name', 'Not provided')}`,
@@ -401,6 +407,15 @@
       if (detail) detail.value = '';
       showServicePrompt();
     });
+    const showTargetDate = () => {
+      const datePanel = $('[data-target-date]', briefForm);
+      const active = valueFor('timing', '') === 'I have a target date';
+      if (datePanel) datePanel.hidden = !active;
+      const dateField = briefForm.elements.namedItem('targetDate');
+      if (dateField) dateField.disabled = !active;
+    };
+    briefForm.elements.namedItem('timing')?.addEventListener('change', showTargetDate);
+    showTargetDate();
     preselectService();
     showServicePrompt();
 
@@ -459,6 +474,7 @@
           if (field && (field.tagName !== 'SELECT' || Array.from(field.options).some((option) => option.value === value))) field.value = value;
         }
         showServicePrompt();
+        showTargetDate();
         consent.checked = true;
         if (isWizard) { step = 0; renderStep(); }
         if (!result.hidden) syncBrief();
@@ -483,7 +499,9 @@
       if (isWizard && step !== steps.length - 1) return;
       syncBrief();
       result.hidden = false;
-      status.textContent = contactEmail || contactTel
+      status.textContent = briefForm.hasAttribute('data-online-intake')
+        ? 'Your draft is ready. Review the online consent and press Send to request a receipt, or copy or download it. Preparing does not send it.'
+        : contactEmail || contactTel
         ? 'Your draft is ready. Choose a direct handoff, copy it, or use the listing.'
         : 'Your draft is ready. Copy or download it to keep. Business contact details are not available in this preview; nothing has been sent.';
 
@@ -499,12 +517,7 @@
         await navigator.clipboard.writeText(latestBrief);
         status.textContent = 'Copied. Paste the brief into a message or bring it to a call.';
       } catch {
-        const selection = window.getSelection();
-        const range = document.createRange();
-        range.selectNodeContents(briefTextElement);
-        selection.removeAllRanges();
-        selection.addRange(range);
-        status.textContent = 'The brief is selected—copy it with your keyboard, then choose a contact option.';
+        status.textContent = 'Copy is unavailable in this browser. Use Download brief to keep the full message without selecting text.';
       }
     });
 

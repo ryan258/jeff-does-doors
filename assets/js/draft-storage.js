@@ -2,7 +2,7 @@
 (function (root) {
   'use strict';
   const MAX_AGE = 7 * 24 * 60 * 60 * 1000;
-  const fields = ['startingPoint', 'projectType', 'location', 'details', 'serviceDetails', 'timing', 'access', 'propertyType', 'budget', 'name', 'contact', 'preferredContact', 'referral'];
+  const fields = ['startingPoint', 'projectType', 'location', 'details', 'serviceDetails', 'timing', 'targetDate', 'access', 'propertyType', 'budget', 'name', 'contact', 'preferredContact', 'referral'];
   const validFields = (value) => value && typeof value === 'object' && !Array.isArray(value)
     && Object.keys(value).every((key) => fields.includes(key) && typeof value[key] === 'string' && value[key].length <= 10000);
   const decode = (raw, now = Date.now()) => {
@@ -24,7 +24,12 @@
   const save = (storage, key, values, now = Date.now()) => {
     if (!validFields(values)) return { saved: false };
     const record = { version: 1, savedAt: now, fields: values };
-    try { storage.setItem(key, JSON.stringify(record)); return { saved: true, record }; }
+    try {
+      const encoded = JSON.stringify(record);
+      storage.setItem(key, encoded);
+      if (storage.getItem(key) !== encoded) return { saved: false };
+      return { saved: true, record };
+    }
     catch { return { saved: false }; }
   };
   const remove = (storage, key) => {
