@@ -14,7 +14,13 @@ The barn-door images are AI-generated. They illustrate the visual direction and 
 
 ## Project messages
 
-Preparing, copying, or downloading a message does not send it. This preview does not book appointments or issue quotes. Any future work, materials, schedule, and commercial terms must be agreed directly with the business.
+Preparing, copying, or downloading a message does not send it. This website does not book appointments or issue quotes. Any future work, materials, schedule, and commercial terms must be agreed directly with the business.
+
+{{< delivery-status >}}
+
+## Job packets
+
+Survey calculations show arithmetic from the values entered. Blank or unverified specifications remain unresolved. Packet exports and checkboxes record user entries; they are not independent inspections or signed approvals.
 
 ## Before launch
 
