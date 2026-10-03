@@ -15,12 +15,12 @@ class Element {
 function setup(fetcher) {
   const names = ['send-request', 'retry-request', 'new-request', 'request-status', 'request-revision', 'request-consent', 'request-challenge', 'challenge-status'];
   const nodes = Object.fromEntries(names.map(name => [name, new Element()]));
-  const values = { projectType: '', location: 'Fixture area', details: 'Original details', serviceDetails: '', timing: 'Flexible', access: 'Not sure', propertyType: 'Not specified', budget: 'Not sure yet', name: '', contact: 'visitor@site.test', preferredContact: 'Email', referral: 'Not specified' };
+  const values = { projectType: '', location: 'Fixture area', details: 'Original details', startingPoint: 'New door', targetDate: '', serviceDetails: '', timing: 'Flexible', access: 'Not sure', propertyType: 'Not specified', budget: 'Not sure yet', name: '', contact: 'visitor@site.test', preferredContact: 'Email', referral: 'Not specified' };
   const fields = Object.fromEntries(Object.entries(values).map(([name, value]) => { const e = new Element(); e.value = value; return [name, e]; }));
-  fields.projectType.options = [{ dataset: { serviceId: '' } }, { dataset: { serviceId: 'septic' } }];
+  fields.projectType.options = [{ dataset: { serviceId: '' } }, { dataset: { serviceId: 'barn-door-installation' } }];
   fields.projectType.selectedOptions = [fields.projectType.options[0]];
   const panel = { dataset: { environment: 'preview', siteKey: 'fixture', consentVersion: 'v1' }, querySelector: selector => nodes[selector.slice(6,-1)] };
-  const form = { dataset: { profileId: 'jones', draftScope: '/', supportsSms: 'false' }, elements: { namedItem: name => fields[name] }, querySelector: () => panel, dispatchEvent() {} };
+  const form = { dataset: { profileId: 'jeff-does-doors', draftScope: '/', supportsSms: 'false' }, elements: { namedItem: name => fields[name] }, querySelector: () => panel, dispatchEvent() {} };
   const map = new Map(); const storage = { getItem: k => map.get(k) ?? null, setItem: (k,v) => map.set(k,v), removeItem: k => map.delete(k) };
   let callbacks;
   const window = { sessionStorage: storage, confirm: () => true, turnstile: { render(node, options) { callbacks = options; options.callback('fixture-token'); return 'widget'; }, reset() { callbacks.callback('fresh-token'); } } };
@@ -36,7 +36,7 @@ test('online validation checks current edits and requires consent separately fro
   let calls = 0; const ui = setup(async (...args) => { calls++; return receipt(...args); });
   ui.fields.details.value = ' ';
   await ui.nodes['send-request'].click();
-  assert.match(ui.nodes['request-status'].textContent, /complete details/); assert(ui.fields.details.focused);
+  assert.match(ui.nodes['request-status'].textContent, /complete room description/); assert(ui.fields.details.focused);
   ui.fields.details.value = 'Restored';
   await ui.nodes['send-request'].click();
   assert.match(ui.nodes['request-status'].textContent, /agree/); assert.equal(calls, 0);
@@ -79,7 +79,7 @@ test('missing metadata requires explicit restart and displays the new submitted 
   });
   ui.nodes['request-consent'].checked = true;
   await ui.nodes['send-request'].click();
-  ui.storage.removeItem('construction-submission:v1:jones:/');
+  ui.storage.removeItem('construction-submission:v1:jeff-does-doors:/');
   ui.fields.details.value = 'New request details';
   await ui.nodes['send-request'].click();
   assert.equal(sent.length, 1);
@@ -94,7 +94,7 @@ test('missing metadata requires explicit restart and displays the new submitted 
   assert.equal(sent.length, 2);
   assert.notEqual(sent[0]['submission-id'], sent[1]['submission-id']);
   assert.equal(sent[1].details, 'New request details');
-  assert.match(ui.nodes['request-revision'].textContent, /details: New request details/);
+  assert.match(ui.nodes['request-revision'].textContent, /Room description: New request details/);
   assert.doesNotMatch(ui.nodes['request-revision'].textContent, /Original details/);
   assert.match(ui.nodes['request-status'].textContent, /Saved successfully/);
 });

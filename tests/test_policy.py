@@ -10,11 +10,31 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from html.parser import HTMLParser
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 import content_policy as policy
 import release_check as gate
+
+
+class BriefChoices(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.select = None
+        self.choices = {}
+        self.inputs = {}
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == 'select':
+            self.select = attrs.get('name')
+            self.choices.setdefault(self.select, [])
+        if tag == 'option' and self.select:
+            self.choices[self.select].append(attrs.get('value', ''))
+        if tag in ('input', 'textarea') and attrs.get('name'):
+            self.inputs.setdefault(attrs['name'], []).append(attrs)
+    def handle_endtag(self, tag):
+        if tag == 'select': self.select = None
 
 
 class SourcePolicyTests(unittest.TestCase):
@@ -129,6 +149,21 @@ class GeneratedArtifactTests(unittest.TestCase):
         self.assertIn('method=dialog',home.replace('"',''))
         self.assertIn('Choose a service, or leave unspecified',home)
         self.assertNotIn('href=""',home)
+        schema = json.loads((self.root/'assets/contracts/brief-schema.json').read_text())['fields']
+        form = BriefChoices(); form.feed(home)
+        for name, field in schema.items():
+            if 'choices' in field and name != 'startingPoint':
+                expected = [value for value in field['choices'] if value != 'Text']
+                self.assertEqual(form.choices[name], expected, name)
+        self.assertEqual([item['value'] for item in form.inputs['startingPoint']], [value for value in schema['startingPoint']['choices'] if value])
+        for name in ('name','contact','details','location','serviceDetails'):
+            self.assertEqual(form.inputs[name][0]['maxlength'], str(schema[name]['limit']))
+        self.assertIn('targetDate', form.inputs)
+        survey = (output/'survey/index.html').read_text()
+        self.assertIn('data-survey', survey)
+        self.assertIn('/subpath/js/survey.', survey)
+        self.assertNotIn('/subpath/js/survey.', home)
+
         # No inherited demonstration business may survive in a client artifact.
         for page in output.rglob('*.html'):
             text=page.read_text()

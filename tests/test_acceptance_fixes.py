@@ -21,9 +21,9 @@ class AcceptanceFixTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name) / 'site'
         self.root.mkdir()
-        for name in ('assets', 'content', 'data', 'layouts', 'static', 'scripts', 'profiles', 'functions', 'lib', 'migrations'):
+        for name in ('assets', 'content', 'data', 'layouts', 'static', 'scripts', 'profiles', 'functions', 'lib', 'migrations', '.github'):
             shutil.copytree(ROOT / name, self.root / name, ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
-        for name in ('hugo.toml', 'hugo-staging.toml', 'hugo-launch.toml', 'site-profile.json'):
+        for name in ('hugo.toml', 'hugo-staging.toml', 'hugo-launch.toml', 'site-profile.json', 'requirements.txt', '.gitignore'):
             shutil.copy2(ROOT / name, self.root / name)
         self.configs = 'hugo.toml,profiles/jeff-does-doors.toml,hugo-launch.toml,fixture.toml'
         overlay = ('[params]\nproductionURL="https://fixture-review.org/subpath/"\n'
@@ -44,8 +44,13 @@ class AcceptanceFixTests(unittest.TestCase):
                           'reviewedOn': str(datetime.date.today())}
                     for name in policy.required_sources(self.root, self.config)}
         (self.root / 'data/evidence.json').write_text(json.dumps(evidence))
+        self.commit_fixture()
         self.env = {key: value for key, value in os.environ.items() if not key.upper().startswith('HUGO_')}
         self.assertEqual(policy.source_issues(self.root, self.config, True), [])
+
+    def commit_fixture(self):
+        subprocess.run(['git', 'add', '.'], cwd=self.root, check=True, capture_output=True)
+        subprocess.run(['git', '-c', 'user.name=Fixture', '-c', 'user.email=fixture@invalid', 'commit', '-qm', 'Synthetic reviewed fixture'], cwd=self.root, check=True, capture_output=True)
 
     def hugo(self, configs=None, gate_marker=False):
         env = dict(self.env)
@@ -78,13 +83,19 @@ class AcceptanceFixTests(unittest.TestCase):
         implicit = self.root/'config/_default'
         implicit.mkdir(parents=True)
         (implicit/'params.toml').write_text('companyName="UNREVIEWED DIRECTORY"\n')
+        self.commit_fixture()
         env = dict(self.env, HUGO_PARAMS_COMPANYNAME='UNREVIEWED ENVIRONMENT')
         result = self.release(env=env)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         home = (self.root/'public/index.html').read_text()
         self.assertNotIn('UNREVIEWED', home)
         self.assertIn('Jeff Does Doors', home)
-        self.assertEqual(json.loads((self.root/'public/release.json').read_text())['status'], 'passed')
+        report = json.loads((self.root/'public/release.json').read_text())
+        self.assertEqual(report['status'], 'passed')
+        self.assertFalse(report['workingTreeDirty'])
+        self.assertEqual(report['artifactHashes']['index.html'], hashlib.sha256((self.root/'public/index.html').read_bytes()).hexdigest())
+        self.assertIn('scripts/release_check.py', report['sourceHashes'])
+        self.assertNotIn('release.json', report['artifactHashes'])
 
     def test_redirect_addition_and_disabled_acceptance_changes_block_both_guards(self):
         for name, text in [('static/_redirects', '/subpath/contact/ /subpath/ 302\n'),
@@ -107,3 +118,10 @@ class AcceptanceFixTests(unittest.TestCase):
                 finally:
                     if original is None: path.unlink()
                     else: path.write_bytes(original)
+
+    def test_dirty_production_source_is_blocked(self):
+        (self.root/'unreviewed.txt').write_text('Uncommitted source')
+        result = self.release()
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('clean working tree', result.stdout)
+        self.assertFalse((self.root/'public').exists())

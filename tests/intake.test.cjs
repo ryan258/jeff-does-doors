@@ -19,7 +19,7 @@ test.beforeEach(() => {
     async run() { return sql.prepare(query).run(...args); },
   }; } }; } };
   fixture = { sql, db, jobs: [], sends: [], env: { DB: db, INTAKE_ENABLED: 'true', INTAKE_ENV: 'preview',
-    INTAKE_PROFILE: 'jones', INTAKE_SERVICES: '["septic","dirt-work"]', INTAKE_SUPPORTS_SMS: 'false',
+    INTAKE_PROFILE: 'jeff-does-doors', INTAKE_SERVICES: '["barn-door-installation","barn-door-replacement"]', INTAKE_SUPPORTS_SMS: 'false',
     TURNSTILE_SECRET_KEY: 'fixture-secret', TURNSTILE_HOSTNAMES: 'site.test', CONSENT_VERSION: 'v1',
     CF_ACCOUNT_ID: 'a'.repeat(32), EMAIL_API_TOKEN: 'fixture-token', NOTIFICATION_FROM: 'requests@site.test',
     NOTIFICATION_TO: 'operator@site.test', OPERATOR_TOKEN: 'test-only-operator-token-32-characters' } };
@@ -31,8 +31,8 @@ test.beforeEach(() => {
 });
 test.afterEach(async () => { await Promise.allSettled(fixture.jobs); fixture.sql.close(); });
 function fields(changes = {}) {
-  return { environment: 'preview', profile: 'jones', projectType: 'septic', location: 'Fixture area', details: 'Private project details',
-    serviceDetails: '', timing: 'Flexible', access: 'Not sure', propertyType: 'Not specified', budget: 'Not sure yet',
+  return { environment: 'preview', profile: 'jeff-does-doors', projectType: 'barn-door-installation', location: 'Fixture area', details: 'Private project details',
+    startingPoint: 'New door', targetDate: '', serviceDetails: '', timing: 'Flexible', access: 'Not sure', propertyType: 'Not specified', budget: 'Not sure yet',
     name: 'Fixture Visitor', contact: 'visitor@site.test', preferredContact: 'Email', referral: 'Not specified',
     consent: 'yes', consentVersion: 'v1', 'submission-id': crypto.randomUUID(), 'cf-turnstile-response': 'fixture-token', ...changes };
 }
@@ -54,6 +54,22 @@ test('durable receipt matches ID and complete payload hash before notification f
   assert.equal(row().notification_status, 'accepted');
   assert.equal(fixture.sends[0].reply_to, 'visitor@site.test');
   assert(!fixture.sends[0].text.includes('Private project details'));
+});
+test('all advertised barn-door choices are accepted and the starting point and date survive storage', async () => {
+  for (const [field, choices] of Object.entries(core.CHOICES)) {
+    for (const choice of choices) {
+      const changes = { [field]: choice };
+      if (field === 'preferredContact' && ['Call','Text'].includes(choice)) changes.contact = '4172223333';
+      const env = {...fixture.env, INTAKE_SUPPORTS_SMS:'true'};
+      assert.equal((await api(context(req(fields(changes)), env))).status, 200, `${field}: ${choice}`);
+    }
+  }
+  const value = fields({startingPoint:'Replace an existing door',timing:'I have a target date',targetDate:'2026-12-01'});
+  assert.equal((await api(context(req(value)))).status, 200);
+  const stored = JSON.parse(fixture.sql.prepare('SELECT payload_json FROM project_requests WHERE id=?').get(value['submission-id']).payload_json);
+  assert.equal(stored.startingPoint, value.startingPoint); assert.equal(stored.targetDate, value.targetDate);
+  assert.equal((await api(context(req(fields({timing:'I have a target date',targetDate:'2026-02-30'}))))).status, 400);
+  assert.equal((await api(context(req(fields({access:'Open — a machine can drive right to it'}))))).status, 400);
 });
 test('concurrent and delayed identical retries remain one inquiry and one accepted notification', async () => {
   const values = fields();

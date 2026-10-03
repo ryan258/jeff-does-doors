@@ -17,6 +17,12 @@ class IntakePolicyTests(unittest.TestCase):
         self.assertFalse(self.config['params']['formEndpoint'])
         self.assertEqual(policy.source_issues(ROOT, self.config, False), [])
 
+    def test_local_runtime_services_match_selected_catalog(self):
+        local = json.loads((ROOT / 'wrangler.local.jsonc').read_text())['vars']
+        catalog = policy.parse_yaml((ROOT / 'data/services.yaml').read_text())
+        self.assertEqual(set(json.loads(local['INTAKE_SERVICES'])), {service['id'] for service in catalog})
+        self.assertEqual(local['INTAKE_PROFILE'], self.config['params']['profileID'])
+
     def test_enabled_adapter_extends_revision_bound_sources(self):
         self.config['params']['intake']['enabled'] = True
         sources = policy.required_sources(ROOT, self.config)
@@ -62,4 +68,3 @@ class IntakePolicyTests(unittest.TestCase):
                 rec['evidence'] = bad_evidence
                 acc_file.write_text(json.dumps(rec))
                 self.assertTrue(any('acceptance is pending' in i for i in policy.source_issues(tmp_root, cfg, False)))
-
