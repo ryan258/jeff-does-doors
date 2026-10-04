@@ -9,10 +9,12 @@ A local Hugo website and door-survey workspace for Jeff Does Doors, adapted from
 Requires Hugo Extended (verified with 0.166.0). From this directory:
 
 ```sh
-bash scripts/preview.sh
+./jdd.sh
 ```
 
-Open <http://localhost:1317/>. The site uses the selected client features, noindex review configuration, and no online inquiry delivery. This command does not publish anything.
+Open <http://localhost:1317/> for the website or <http://localhost:1317/survey/> for the door survey. Keep the terminal open and press **Ctrl+C** to stop. The launcher checks for Hugo Extended and delegates to `scripts/preview.sh`; no dependency installation, tests or re-indexing run automatically. Use `./jdd.sh --help` for a reminder.
+
+The preview binds to this computer (`127.0.0.1`) and uses the selected client features, noindex review configuration, and no online inquiry delivery. This command does not publish anything. The existing `bash scripts/preview.sh` command remains available.
 
 ## Current site
 
@@ -25,7 +27,7 @@ Open <http://localhost:1317/>. The site uses the selected client features, noind
 - Updated `data/gallery.yaml` with 12 barn-door records, category tags (Pantry, Rustic, Double doors, Modern, Hardware, Craftsman, Custom, Bypass, Chevron, Glass, Mirrored), and AI concept disclosures.
 - Expanded `data/faqs.yaml` addressing clearances & fit, hardware mechanics, and material/finish considerations.
 - A single-opening survey workspace at `/survey/`: inch/fraction or metric measurements, hardware references, scope and materials, installation checks, handover notes, optional device saving, JSON import/export, text download, copy and print.
-- October 3 changes are implemented but awaiting Ryan’s verification run; earlier passing results do not verify this revision.
+- October 3 automated checks passed in Ryan’s full run and targeted follow-up after two corrections. Browser, field and provider acceptance remain open; see [the verification record](docs/verification.md).
 
 See [the project roadmap](roadmap.md) for milestone tracking.
 

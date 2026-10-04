@@ -1,5 +1,5 @@
 {{/* These strings are the versioned wire values. Keep labels and validation in sync. */}}
 {{ $name := . }}
-{{ range (index (index site.Data "brief-schema").fields $name).choices }}
+{{ range (index (index hugo.Data "brief-schema").fields $name).choices }}
   {{ if or (ne . "Text") site.Params.supportsSMS }}<option value="{{ . }}">{{ . }}</option>{{ end }}
 {{ end }}

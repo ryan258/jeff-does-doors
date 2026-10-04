@@ -12,12 +12,12 @@
       <label>Import a saved packet <input type="file" accept=".json,application/json" data-survey-import disabled></label>
     </div>
     <p data-survey-status role="status" aria-live="polite">Device saving is off. Prepare a packet to check your entries.</p>
-    {{ range (index site.Data "survey-schema").groups }}
+    {{ range (index hugo.Data "survey-schema").groups }}
     <fieldset class="survey-group"><legend>{{ .title }}</legend>{{ with .help }}<p>{{ . }}</p>{{ end }}
       <div class="survey-fields">{{ range .fields }}
         <label class="survey-field{{ if eq .type "textarea" }} survey-field--wide{{ end }}" for="survey-{{ .id }}"><span>{{ .label }}</span>
           {{ if .choices }}<select id="survey-{{ .id }}" name="{{ .id }}">{{ range .choices }}<option>{{ . }}</option>{{ end }}</select>
-          {{ else if eq .type "check" }}<select id="survey-{{ .id }}" name="{{ .id }}">{{ range (index site.Data "survey-schema").checkChoices }}<option>{{ . }}</option>{{ end }}</select>
+          {{ else if eq .type "check" }}<select id="survey-{{ .id }}" name="{{ .id }}">{{ range (index hugo.Data "survey-schema").checkChoices }}<option>{{ . }}</option>{{ end }}</select>
           {{ else if eq .type "textarea" }}<textarea id="survey-{{ .id }}" name="{{ .id }}" rows="3" maxlength="{{ .limit }}"></textarea>
           {{ else }}<input id="survey-{{ .id }}" name="{{ .id }}" type="{{ if eq .type "date" }}date{{ else }}text{{ end }}" maxlength="{{ .limit | default 32 }}" autocomplete="off">{{ end }}
         </label>

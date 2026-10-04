@@ -2,7 +2,7 @@
 
 Current implementation details and the complete findings-to-solutions list live in [improvement status](docs/improvement-status.md). Validation instructions live in [verification](docs/verification.md). This roadmap does not treat local code as accepted business behavior.
 
-## Implemented, awaiting October 3 verification
+## Implemented, owner-run automated checks passed
 
 - Barn-door website with four proposed services, illustrative media and explicit review mode.
 - Shared inquiry contract, target-date/starting-point capture, optional device draft recovery and optional receipt-based Cloudflare intake.
@@ -10,9 +10,9 @@ Current implementation details and the complete findings-to-solutions list live 
 - Single-opening survey and job packet with editable file export/import, dimensions, hardware references, scope, materials, installation checks and handover.
 - Bounded operator CLI, PR validation, source/output hash receipts, warning failures and clean production source requirements.
 
-## Next: prove the working revision
+## Next: browser and field acceptance
 
-Run `bash scripts/verify-local.sh`, resolve failures, then trial a real opening and complete accessible browser/print checks. No tests or builds were run by Codex for the October 3 implementation.
+Ryan’s automated checks passed across the full run and targeted follow-up after correcting Hugo data references and a stale search fixture. See the exact results in [verification](docs/verification.md). Trial a real opening and complete accessible browser/print checks next. Codex did not run tests or builds; another automated run is not needed solely for these documentation updates.
 
 ## Next: supply the business facts
 

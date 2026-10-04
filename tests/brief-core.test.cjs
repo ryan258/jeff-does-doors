@@ -7,5 +7,10 @@ test('reject malformed or unsafe search entries without rendering them', () => {
   for (const data of [null,{},[null],[{}],[{...entry,title:7}],[{...entry,url:'javascript:alert(1)'}],[{...entry,url:'//other-host/'}]]) assert.equal(Boolean(validIndex(data)),false);
 });
 test('rank title matches ahead of body matches', () => {
-  assert.ok(scoreEntry(entry,'water') > scoreEntry({...entry,title:'Other',text:'water'},'water'));
+  const query = 'tracks';
+  const titleScore = scoreEntry(entry, query);
+  const bodyScore = scoreEntry({...entry, title:'Other', text:query}, query);
+  assert.ok(titleScore > 0, 'The fixture must contain the query in its title');
+  assert.ok(bodyScore > 0, 'The comparison must contain the query in its body');
+  assert.ok(titleScore > bodyScore, 'Title matches must rank ahead of body matches');
 });

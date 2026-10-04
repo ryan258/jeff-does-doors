@@ -2,9 +2,16 @@
 
 ## Current revision — October 3, 2026
 
-Implementation and regression coverage changed on October 3. **No tests, builds or GitNexus analysis were run by Codex for this implementation, as requested.** The earlier September 26 passing test counts are historical and do not verify the current changes. Source inspection is not runtime acceptance.
+**Owner-run automated verification passed after two corrections:** deprecated Hugo `site.Data` references were replaced with `hugo.Data`, and the search-ranking fixture was updated to query its barn-door title.
 
-From the repository root, run:
+- Ryan’s full run passed all 24 Python tests, including the production-release fixtures.
+- That run passed 46 of 47 Node tests; the sole failure was the stale search-ranking fixture. After its correction, Ryan’s targeted rerun passed both tests in `tests/brief-core.test.cjs`. All 47 Node cases therefore have passing evidence across these runs; this is not a claim of a subsequent single full-suite run.
+- The follow-up command completed the feature-documentation check, staging source/generated-artifact audit, and `git diff --check` successfully.
+- The staging receipt records `passed`, zero issues, Hugo 0.166.0, and `checkedAt: 2026-10-04T00:14:35.224206+00:00` (October 3 locally). It names revision `e84ddd97bebc67154a0bb255e27fa86dbcad2b86` with `workingTreeDirty: true`, covering the uncommitted corrections through its source hashes.
+
+Codex read Ryan’s terminal results and the generated report; it did not run tests, builds or GitNexus analysis. Documentation-only status updates followed the successful checks. Browser, physical-device, professional field and live-provider acceptance remain separate.
+
+For future implementation changes, the complete verification command is:
 
 ```sh
 bash scripts/verify-local.sh
@@ -14,7 +21,7 @@ Requires Hugo Extended 0.166.0, Node 22 (including `node:sqlite`), and the Pytho
 
 Coverage now includes rendered inquiry choices against the shared schema, every supported barn-door option, local runtime service IDs against the catalog, starting-point/date persistence, storage readback, receipt idempotency, immutable retry behavior, survey parsing/import/arithmetic, operator query boundaries, clean production provenance and output manifest hashes. UI mocks and generated markup checks are not real-browser evidence.
 
-The staging report is `/tmp/jeff-does-doors-preview-report.json`. A production build should remain blocked in the current real checkout: contacts, coverage, source approvals and production URL are unresolved, and the implementation is uncommitted.
+The staging report is `/tmp/jeff-does-doors-preview-report.json`; this temporary file can be overwritten by a later run. A production build should remain blocked in the current real checkout: contacts, coverage, source approvals and production URL are unresolved, and the latest corrections are uncommitted.
 
 ## Browser and field acceptance
 

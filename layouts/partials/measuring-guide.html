@@ -9,14 +9,15 @@
     </div>
 
     <div class="measuring-guide__grid">
-      {{ range $index, $check := (index site.Data "door-guidance").checks }}
+      {{ range $index, $check := (index hugo.Data "door-guidance").checks }}
+      <div class="measuring-card">
         <span class="measuring-card__num">{{ printf "%02d" (add $index 1) }}</span>
         <h3>{{ .title }}</h3><p class="measuring-card__rule">{{ .rule }}</p><p>{{ .body }}</p>
       </div>
       {{ end }}
     </div>
     <p>Use the instructions for your exact model. Examples of manufacturer references:
-      {{ range $index, $source := (index site.Data "door-guidance").sources }}{{ if $index }} · {{ end }}<a href="{{ .url }}">{{ .label }}</a>{{ end }}.
+      {{ range $index, $source := (index hugo.Data "door-guidance").sources }}{{ if $index }} · {{ end }}<a href="{{ .url }}">{{ .label }}</a>{{ end }}.
     </p>
 
     <div class="measuring-guide__tip">

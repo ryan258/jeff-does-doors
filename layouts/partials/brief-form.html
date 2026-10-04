@@ -22,7 +22,7 @@
     {{ if $wizard }}<p class="brief-form__step-label" data-step-heading tabindex="-1">Step 1 — the work</p>{{ end }}
     <fieldset class="brief-form__field brief-form__field--full brief-form__choices">
       <legend>Where are you starting? <small>(optional)</small></legend>
-      {{ range (index (index site.Data "brief-schema").fields "startingPoint").choices }}{{ if . }}<label class="brief-form__chip"><input type="radio" name="startingPoint" value="{{ . }}"><span>{{ . }}</span></label>{{ end }}{{ end }}
+      {{ range (index (index hugo.Data "brief-schema").fields "startingPoint").choices }}{{ if . }}<label class="brief-form__chip"><input type="radio" name="startingPoint" value="{{ . }}"><span>{{ . }}</span></label>{{ end }}{{ end }}
     </fieldset>
     <label class="brief-form__field">
       <span>Which service fits? <small>(optional)</small></span>
@@ -34,14 +34,14 @@
     </label>
     <label class="brief-form__field">
       <span>Your town or ZIP <small>(required)</small></span>
-      <input type="text" name="location" maxlength="{{ (index (index site.Data "brief-schema").fields "location").limit }}" autocomplete="address-level2" placeholder="Your town or ZIP code" required>
+      <input type="text" name="location" maxlength="{{ (index (index hugo.Data "brief-schema").fields "location").limit }}" autocomplete="address-level2" placeholder="Your town or ZIP code" required>
     </label>
     <label class="brief-form__field brief-form__field--full">
       <span>Tell us about the opening <small>(required)</small></span>
-      <textarea name="details" rows="5" maxlength="{{ (index (index site.Data "brief-schema").fields "details").limit }}" placeholder="Which opening is it? How wide? How long has it been without a door?" required></textarea>
+      <textarea name="details" rows="5" maxlength="{{ (index (index hugo.Data "brief-schema").fields "details").limit }}" placeholder="Which opening is it? How wide? How long has it been without a door?" required></textarea>
     </label>
   <label class="brief-form__field brief-form__field--full" data-service-detail hidden>
-    <span data-service-prompt></span><textarea name="serviceDetails" rows="3" maxlength="{{ (index (index site.Data "brief-schema").fields "serviceDetails").limit }}" aria-label="Optional service details"></textarea>
+    <span data-service-prompt></span><textarea name="serviceDetails" rows="3" maxlength="{{ (index (index hugo.Data "brief-schema").fields "serviceDetails").limit }}" aria-label="Optional service details"></textarea>
   </label>
   </div>
 
@@ -82,11 +82,11 @@
     {{ if $wizard }}<p class="brief-form__step-label" data-step-heading tabindex="-1">Step 3 — reaching you</p>{{ end }}
     <label class="brief-form__field">
       <span>Your name <small>(optional)</small></span>
-      <input type="text" name="name" maxlength="{{ (index (index site.Data "brief-schema").fields "name").limit }}" autocomplete="name" placeholder="How should they address you?">
+      <input type="text" name="name" maxlength="{{ (index (index hugo.Data "brief-schema").fields "name").limit }}" autocomplete="name" placeholder="How should they address you?">
     </label>
     <label class="brief-form__field">
       <span>Best phone or email <small>(optional)</small></span>
-      <input type="text" name="contact" maxlength="{{ (index (index site.Data "brief-schema").fields "contact").limit }}" autocomplete="off" placeholder="Only if you want it in the brief">
+      <input type="text" name="contact" maxlength="{{ (index (index hugo.Data "brief-schema").fields "contact").limit }}" autocomplete="off" placeholder="Only if you want it in the brief">
     </label>
     <label class="brief-form__field">
       <span>Preferred reply <small>(optional)</small></span>

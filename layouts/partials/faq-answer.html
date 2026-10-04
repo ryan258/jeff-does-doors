@@ -1,4 +1,4 @@
 {{- if .deliveryStatus -}}{{ partial "delivery-status.html" . }}
 {{- else if .guidance -}}
-  {{- range (index site.Data "door-guidance").checks -}}{{ if eq .id $.guidance }}{{ .body }}{{ end }}{{- end -}}
+  {{- range (index hugo.Data "door-guidance").checks -}}{{ if eq .id $.guidance }}{{ .body }}{{ end }}{{- end -}}
 {{- else -}}{{ .answer }}{{- end -}}
