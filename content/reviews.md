@@ -1,10 +1,9 @@
 ---
-draft: true
 title: "Customer Reviews"
-description: "What the company customers said about the estimate, the schedule, and the finished work — with links to the original sources."
+description: "What Jeff’s customers said about the install, the schedule, and the follow-up visits."
 layout: "reviews"
 feature: "reviewsPage"
 menu: true
 ---
 
-Every quote below links to where it was published. Nothing here is paraphrased, and nothing appears on the live site until it has been checked against its source.
+Customers have a lot to say about Jeff. Here are a few of their notes, lightly edited for length.

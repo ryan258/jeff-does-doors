@@ -5,7 +5,7 @@
       {{ if not .approved }}<p class="editorial-notice">Example presentation — source verification pending.</p>{{ end }}
       <div class="review-card__top"><span class="review-card__context">{{ .context }}</span><span class="review-card__date">{{ .date }}</span></div>
       <blockquote>“{{ .quote }}”</blockquote>
-      <figcaption><span class="review-card__avatar" aria-hidden="true">{{ substr .name 0 1 }}</span><span><strong>{{ .name }}</strong><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">View source profile <span aria-hidden="true">↗</span></a></span></figcaption>
+      <figcaption><span class="review-card__avatar" aria-hidden="true">{{ substr .name 0 1 }}</span><span><strong>{{ .name }}</strong>{{ with .url }}{{ if hasPrefix . "http" }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">View source profile <span aria-hidden="true">↗</span></a>{{ end }}{{ end }}</span></figcaption>
     </figure>
   {{ end }}
 </div>

@@ -8,7 +8,7 @@
       {{ if $approved }}
         {{ partial "review-cards.html" (dict "reviews" $approved) }}
       {{ else }}
-        <p class="reviews__empty">No review has been verified against its source yet, so none is published here. Use the review profile to read the available customer feedback.</p>
+        <p class="reviews__empty">No customer notes yet. Jeff is waiting by the phone.</p>
       {{ end }}
       {{ if and $pending (or (eq hugo.Environment "staging") site.Params.noindex) }}
         <div class="reviews__pending">
@@ -22,5 +22,5 @@
       <p class="work-preview__more">{{ with site.Params.reviewURL }}<a class="link-arrow" href="{{ . }}" target="_blank" rel="noopener noreferrer">Read everything on the review profile <span aria-hidden="true">↗</span></a>{{ end }}</p>
     </div>
   </section>
-  {{ partial "cta-banner.html" (dict "heading" "Every one of those started with a phone call.") }}
+  {{ partial "cta-banner.html" (dict "heading" "Every one of those started with a photo of an opening.") }}
 {{ end }}

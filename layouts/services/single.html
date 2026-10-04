@@ -16,14 +16,14 @@
     <article class="service-detail__content prose">
       {{ .Content }}
       <h2>What affects the estimate?</h2><ul>{{ range $service.costDrivers }}<li>{{ . }}</li>{{ end }}</ul>
-      <p>A written scope should identify the work, responsibilities, exclusions, and agreed finish. Confirm availability and commercial terms directly.</p>
+      <p>A written scope should identify the work, responsibilities, exclusions, and agreed finish. Confirm availability and commercial terms directly. Jeff will confirm the rest, and then confirm it again on Sunday.</p>
       <h2>Before the first conversation</h2><p>{{ $service.inquiryPrompt }}</p>
-      <p>Keep photos ready to attach in your email or text application. This website does not upload attachments.</p>
+      <p>Keep photos ready to attach in your email or text application. This website does not upload attachments. Jeff would like a lot of them.</p>
       <h2>Common questions</h2>
       {{ range $service.questions }}<h3>{{ .question }}</h3><p>{{ .answer }}</p>{{ end }}
     </article>
     <aside class="service-detail__aside">
-      <div class="service-detail__card"><p class="service-detail__card-label">Service coverage</p><p>{{ site.Params.serviceArea }}</p>
+      <div class="service-detail__card"><p class="service-detail__card-label">Where Jeff drives</p><p>{{ site.Params.serviceArea }}</p>
         {{ if partial "feature-enabled.html" "serviceArea" }}<a class="link-arrow" href="{{ "service-area/" | relURL }}">Check the service area</a>{{ end }}
       </div>
       {{ partial "photo-prep-guide.html" . }}
@@ -35,5 +35,5 @@
   </div></section>
   {{ partial "measuring-guide.html" . }}
   {{ partial "related-content.html" . }}
-  {{ partial "cta-banner.html" (dict "service" .Params.serviceID "heading" "Tell us what your door needs.") }}
+  {{ partial "cta-banner.html" (dict "service" .Params.serviceID "heading" "Tell Jeff what your door needs. He will listen.") }}
 {{ end }}

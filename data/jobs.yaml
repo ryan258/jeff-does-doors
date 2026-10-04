@@ -1,26 +1,26 @@
-# Open positions. Construction hiring is constant; this page is cheap to keep.
-intro: "the team hires people who show up, run equipment carefully, and leave a site better than they found it. If that is you, start the conversation."
+# Open positions.
+intro: "Jeff is looking for people who can hold one end of a door and say very little. Experience is welcome. Enthusiasm is not required. Jeff has that covered."
 positions:
-  - title: "Equipment operator"
+  - title: "Door-install helper"
     type: "Full-time"
-    detail: "Excavator and skid steer work: septic installs, pads, trenching, and clearing. Experience preferred, attitude required."
+    detail: "Hold doors, carry doors, and hold them some more while Jeff steps back to look. Training provided."
     requirements:
-      - "Valid driver's license"
-      - "Comfortable running an excavator or skid steer"
-      - "Reliable transportation to job sites"
+      - "Steady hands"
+      - "Comfortable waiting quietly while a door settles in"
+      - "Will hear about Dallas"
     open: true
-  - title: "General laborer"
-    type: "Full-time / seasonal"
-    detail: "Site work, hand digging, pipe work, cleanup, and learning the machines from the ground up."
+  - title: "Hardware technician"
+    type: "Part-time / seasonal"
+    detail: "Rails, rollers, floor guides, and pulls. Learn to tell a good bearing from a loud one."
     requirements:
-      - "Willing to work outside year-round"
-      - "Shows up on time"
-      - "No experience required — training provided"
+      - "Own tools preferred"
+      - "Can tell when something is not quite right, and say so gently"
+      - "Reliable transportation"
     open: true
-  - title: "CDL driver"
+  - title: "Sunday visits coordinator"
     type: "As needed"
-    detail: "Hauling dirt, rock, and equipment between jobs."
+    detail: "Schedule follow-up visits with past customers. Currently handled by Jeff, who says he has it under control."
     requirements:
-      - "Current CDL"
-      - "Clean driving record"
+      - "A very large map"
+      - "A good sense of whether anyone is home"
     open: false

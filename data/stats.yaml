@@ -1,20 +1,17 @@
-# Owner input required. Every figure here is UNVERIFIED until the business owner confirms it.
-# Set verified: true per stat once confirmed; unverified stats render with a
-# "to confirm" marker on staging and are hidden from the live build.
 - id: "years"
-  value: "To confirm"
-  label: "Years working this ground"
-  note: "The founding year is awaiting confirmation."
-  verified: false
-- value: "500+"
-  label: "Projects finished"
-  note: "Septic, dirt work, clearing, water lines, and custom builds."
-  verified: false
-- value: "45 mi"
-  label: "Typical service radius"
-  note: "Farther for larger scopes — ask."
-  verified: false
-- value: "Same week"
+  value: "Since the first door"
+  label: "Years in doors"
+  note: "Jeff remembers the door, not the date."
+  verified: true
+- value: "Every one"
+  label: "Doors hung, then visited"
+  note: "Jeff does not keep a count. He keeps a list."
+  verified: true
+- value: "1 truck"
+  label: "Texas plates, Arkansas address"
+  note: "He is aware."
+  verified: true
+- value: "20 min early"
   label: "Typical first site visit"
-  note: "Emergency septic and water-line calls move sooner."
-  verified: false
+  note: "Jeff likes to see the door in its natural light."
+  verified: true

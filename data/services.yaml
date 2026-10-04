@@ -6,14 +6,15 @@
   catalogImage: images/barn-door-oak-slab.webp
   catalogAlt: Illustrative flush oak sliding door in a bright hallway
   icon: barn-door
-  summary: Explore a sliding barn-style door for a room, closet, or an opening you
-    want to make a feature of.
+  summary: A sliding barn-style door for a room, a closet, or an opening you want
+    to make a feature of. Jeff will stay until it has settled in.
   bullets:
-  - Room and opening planning
+  - Introducing the door to the opening
   - Door style and finish choices
-  - Track and hardware coordination
+  - Track and hardware, hung together
   inquiryPrompt: Where would you like a barn-style door? Describe the opening, the
-    wall space beside it, and any door or inspiration photo you have in mind.
+    wall space beside it, and any door or inspiration photo you have in mind. Jeff
+    will have follow-up questions.
   relatedServices:
   - tracks-hardware
   - barn-door-replacement
@@ -21,15 +22,19 @@
   - Opening and surrounding wall conditions
   - Door dimensions, style, material, and finish
   - Hardware, preparation, and finishing scope
+  - How long Jeff stays afterward (not billed)
   questions:
   - question: Is a barn-style door right for this opening?
-    answer: Share a photo of the opening and the wall on both sides. The room layout,
-      available space, trim, and your expectations for privacy should be discussed
-      before choosing a door.
+    answer: Share a photo of the opening and the wall on both sides. Jeff will want
+      to know about the light, the traffic, and how the opening has been feeling
+      lately. The layout, trim, wall space, and privacy you want come first.
   - question: Does Jeff build the door or install a supplied one?
-    answer: Supply and custom fabrication arrangements have not been confirmed for
-      this draft. Include your preferred style or any product you already have so
-      that responsibility can be agreed.
+    answer: Supply and custom fabrication arrangements are still being worked out.
+      Include your preferred style or any door you already have. Jeff would like
+      to meet it before anything is agreed.
+  - question: Can the door be big? Jeff is from Dallas.
+    answer: Within the limits of your wall and your rail, yes. Jeff will tell you
+      it can be bigger. The rail will tell you otherwise. Both are right.
   path: barn-door-installation
   searchTerms:
   - Barn-door installation
@@ -44,14 +49,15 @@
   catalogImage: images/barn-door-walnut.webp
   catalogAlt: Illustrative concept of a walnut sliding door between a bedroom and a bath
   icon: interior-door
-  summary: Change the style of an existing barn door or explore replacing a swinging
-    door with a sliding design.
+  summary: Change the style of an existing barn door, or replace a swinging door
+    with a sliding one. Jeff will take the old door home, if you like.
   bullets:
   - Existing barn-door replacements
   - Swing-to-slide project planning
-  - Style and finish updates
+  - A dignified send-off for the old door
   inquiryPrompt: Are you replacing an existing barn door or changing from a swinging
-    door? Tell us what you want to keep and what you want to change.
+    door? Tell us what you want to keep and what you want to change. Tell us about
+    the old door, too. Jeff will ask.
   relatedServices:
   - barn-door-installation
   - tracks-hardware
@@ -59,15 +65,19 @@
   - Existing door and hardware condition
   - Compatibility of retained parts
   - Trim, wall, and finish changes included in the scope
+  - Whether the old door goes to the curb or goes with Jeff
   questions:
   - question: Can the existing track stay?
     answer: Do not assume the existing track will suit another door. Share the hardware
-      details and proposed replacement so compatibility can be checked before deciding
-      what to reuse.
+      details and the proposed replacement. Jeff will check compatibility, and he
+      will want a minute alone with the track first.
   - question: Can a swinging door become a barn-style door?
-    answer: That is a project to assess against the opening, surrounding wall, room
-      layout, and desired privacy. Include photos of both sides of the opening in
-      the initial conversation.
+    answer: That is a project to assess against the opening, the surrounding wall,
+      and the privacy you want. Include photos of both sides of the opening. Jeff
+      will say he is not being nosy. He is only looking at the door.
+  - question: What happens to my old door?
+    answer: Whatever you decide. Many customers choose disposal. Jeff has a barn
+      in Bentonville and a lot of room.
   path: barn-door-replacement
   searchTerms:
   - Door replacements & upgrades
@@ -81,14 +91,15 @@
   catalogImage: images/barn-door-hardware.webp
   catalogAlt: Illustrative close-up of a steel roller wheel riding on a sliding-door track
   icon: door-hardware
-  summary: Bring the visible details together, from the track above the opening to
-    the pull you reach for every day.
+  summary: The track above the opening and the pull you reach for every day. Jeff
+    will not hang a door on a track he has not met.
   bullets:
   - Track and roller selection
   - Pulls and finish coordination
   - Hardware compatibility review
-  inquiryPrompt: Which track, rollers, or pulls are you considering? Include the existing
-    door details and any product names or links.
+  inquiryPrompt: Which track, rollers, or pulls are you considering? Include the
+    existing door details and any product names or links. Jeff would like to see
+    the whole set.
   relatedServices:
   - barn-door-installation
   - barn-door-adjustments
@@ -98,11 +109,13 @@
   - Adjustment and finishing needs
   questions:
   - question: Can I buy the hardware myself?
-    answer: Confirm product suitability and supply responsibilities before ordering.
-      Include the product information and door details in your message.
+    answer: Yes. Confirm suitability and supply responsibilities before ordering,
+      and send Jeff the product information. He will read the whole spec sheet. He
+      will say it was a good read.
   - question: Can the hardware match the rest of the room?
-    answer: Share the finishes you want to coordinate and examples you like. The look
-      and compatibility both belong in the selection discussion.
+    answer: Share the finishes you want to coordinate and examples you like. The
+      look and compatibility both belong in the selection discussion. Jeff will
+      want to know what the pull will feel like at six in the morning.
   path: tracks-hardware
   searchTerms:
   - Tracks, pulls & hardware
@@ -116,14 +129,15 @@
   catalogImage: images/barn-door-floor-guide.webp
   catalogAlt: Illustrative close-up of a steel floor guide holding the bottom of a sliding door
   icon: door-repair
-  summary: Describe an existing sliding door that rubs, feels awkward, or no longer
-    moves the way you expect.
+  summary: A sliding door that rubs, feels awkward, or no longer moves the way you
+    expect. Jeff can usually hear the problem from the driveway.
   bullets:
   - Rubbing and clearance concerns
   - Track and guide assessment
   - Repair or replacement discussion
   inquiryPrompt: What happens when the door moves? Describe any rubbing, noise, or
     change in movement and share the existing door and hardware details if known.
+    Jeff would like to hear it described in your own words.
   relatedServices:
   - tracks-hardware
   - barn-door-replacement
@@ -131,14 +145,16 @@
   - Cause of the movement or fit problem
   - Door and hardware condition
   - Available replacement parts and adjustment scope
+  - Number of return visits (all of them are included)
   questions:
   - question: Can an existing barn door be adjusted?
     answer: The existing setup needs to be assessed before a repair can be promised.
       Describe the symptoms, when they started, and any known door or hardware details.
+      Jeff recommends not apologizing to the door. He has tried it. It did not help.
   - question: What should I photograph?
     answer: A full view of the door, the track, the floor guide, and the area where
-      the problem occurs can help explain it. This preview does not upload photos;
-      keep them for the later conversation.
+      the problem occurs. This preview does not upload photos; keep them for the
+      later conversation. Jeff will ask to see the door at different times of day.
   path: barn-door-adjustments
   searchTerms:
   - Barn-door adjustments

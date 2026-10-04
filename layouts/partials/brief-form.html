@@ -15,7 +15,7 @@
       data-supports-sms="{{ $p.supportsSMS }}"
       data-map-url="{{ $p.mapURL }}"
       aria-describedby="{{ $id }}-help {{ $id }}-privacy">
-  <div class="brief-form__head"><span>{{ if $wizard }}Project message{{ else }}Room brief{{ end }}</span><span data-wizard-progress role="status" aria-live="polite">{{ if $wizard }}Step 1 of 3{{ else }}Local draft{{ end }}</span></div>
+  <div class="brief-form__head"><span>{{ if $wizard }}Project message{{ else }}Opening brief{{ end }}</span><span data-wizard-progress role="status" aria-live="polite">{{ if $wizard }}Step 1 of 3{{ else }}Local draft{{ end }}</span></div>
   <p class="brief-form__help" id="{{ $id }}-help">Your area and a short description are enough to prepare a draft. Contact details are not yet available on this preview, so nothing here is sent to Jeff.</p>
 
   <div class="brief-form__fields" data-wizard-step="1">
@@ -37,8 +37,8 @@
       <input type="text" name="location" maxlength="300" autocomplete="address-level2" placeholder="Your town or ZIP code" required>
     </label>
     <label class="brief-form__field brief-form__field--full">
-      <span>Tell us about the room <small>(required)</small></span>
-      <textarea name="details" rows="5" maxlength="8000" placeholder="Which room is it? How wide is the opening? What woods and colors are already there?" required></textarea>
+      <span>Tell us about the opening <small>(required)</small></span>
+      <textarea name="details" rows="5" maxlength="8000" placeholder="Which opening is it? How wide? How long has it been without a door?" required></textarea>
     </label>
   <label class="brief-form__field brief-form__field--full" data-service-detail hidden>
     <span data-service-prompt></span><textarea name="serviceDetails" rows="3" maxlength="4000" aria-label="Optional service details"></textarea>
@@ -110,7 +110,7 @@
         <option value="Not specified">Prefer not to say</option>
         <option value="Word of mouth">Word of mouth</option>
         <option value="Google search or Maps">Google search or Maps</option>
-        <option value="Saw work in the neighborhood">Saw work in the neighborhood</option>
+        <option value="Saw Jeff’s truck on my street">Saw Jeff’s truck on my street</option>
         <option value="Repeat customer">Repeat customer</option>
       </select>
     </label>

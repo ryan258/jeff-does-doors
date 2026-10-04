@@ -1,12 +1,9 @@
 ---
-draft: true
 title: "Payment Options"
-description: "How payment works on the company projects — deposits, progress payments, and the methods accepted."
+description: "How payment works on Jeff Does Doors projects: deposits, completion payments, and the methods accepted."
 layout: "financing"
 feature: "financing"
 menu: true
 ---
 
-Septic failures and water line breaks do not schedule themselves around your budget. The options below are the paths worth discussing when the timing is bad but the work cannot wait.
-
-**Every option on this page needs the business owner's confirmation before launch.** Payment terms are a contractual claim, and this site does not invent them.
+A new door should not be hurried, and neither should the bill. The options below are the ways it can work. Jeff will go over them with you at the opening, in no rush.

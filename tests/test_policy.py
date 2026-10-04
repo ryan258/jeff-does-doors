@@ -117,9 +117,10 @@ class GeneratedArtifactTests(unittest.TestCase):
         self.assertEqual(gate.audit_build(output,'https://fixture-review.org/subpath/',True),[])
         # Selected modules render; deselected ones are absent rather than empty shells.
         for route in ('about','faq','contact','service-area','services',
-                      'services/barn-door-installation','services/barn-door-adjustments'):
+                      'services/barn-door-installation','services/barn-door-adjustments',
+                      'pricing','gallery','financing','equipment','careers','emergency','reviews'):
             self.assertTrue((output/route/'index.html').is_file(),route)
-        for route in ('pricing','gallery','equipment','careers','emergency','reviews','estimate','site-kit'):
+        for route in ('estimate','site-kit'):
             self.assertFalse((output/route/'index.html').exists(),route)
         # Search is deselected, so the generated index must stay empty.
         self.assertEqual(json.loads((output/'index.json').read_text()),[])

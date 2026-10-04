@@ -1,10 +1,9 @@
 ---
-draft: true
-title: "Work With Us"
-description: "Open positions at the company for equipment operators, laborers, and drivers in the service area."
+title: "Work With Jeff"
+description: "Open positions at Jeff Does Doors for install helpers and hardware technicians in Northwest Arkansas."
 layout: "careers"
 feature: "careers"
 menu: true
 ---
 
-Good site work comes down to the person running the machine. If you take care of equipment, show up when you said you would, and leave a property better than you found it, there is a conversation worth having here.
+Good door work comes down to the person on the other end of the slab. If you hold steady, show up when you said you would, and leave an opening better than you found it, there is a conversation worth having here.

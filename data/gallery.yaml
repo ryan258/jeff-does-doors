@@ -1,85 +1,84 @@
-# Photo gallery. Every entry is a placeholder graphic until the business owner supplies real
-# job photos. Keep `placeholder: true` until the actual image is dropped in.
+# Photo gallery. Every entry is an illustrative graphic, not a real Jeff Does Doors job.
 - image: "images/barn-door-pantry.webp"
   alt: "Illustrative concept of a modern white shaker sliding barn door for a pantry opening; not a Jeff Does Doors project"
-  caption: "Modern white shaker pantry door"
+  caption: "White shaker pantry door, shown at golden hour"
   tag: "Pantry"
   width: 1200
   height: 896
   placeholder: true
 - image: "images/barn-door-walnut.webp"
   alt: "Illustrative concept of a dark walnut sliding barn door with classic X-brace pattern; not a Jeff Does Doors project"
-  caption: "Dark walnut X-brace bedroom door"
+  caption: "Dark walnut X-brace, with its good side out"
   tag: "Rustic"
   width: 1200
   height: 896
   placeholder: true
 - image: "images/barn-door-french-glass.webp"
   alt: "Illustrative concept of double sliding French-style glass paneled barn doors with black steel frame; not a Jeff Does Doors project"
-  caption: "Double French glass sliders"
+  caption: "Double French glass sliders, together again"
   tag: "Double doors"
   width: 1200
   height: 896
   placeholder: true
 - image: "images/barn-door-oak-slab.webp"
   alt: "Illustrative concept of a minimalist natural white oak vertical plank sliding slab door; not a Jeff Does Doors project"
-  caption: "Natural white oak minimalist slab"
+  caption: "White oak slab. Look at the grain. Jeff did."
   tag: "Modern"
   width: 1200
   height: 896
   placeholder: true
 - image: "images/barn-door-hardware.webp"
   alt: "Illustrative close-up of matte black steel spoke roller wheel, track rail, and hex lag bolts; not a Jeff Does Doors project"
-  caption: "Heavy-duty spoke roller & track"
+  caption: "Spoke roller & track, shown actual size"
   tag: "Hardware"
   width: 1200
   height: 896
   placeholder: true
 - image: "images/barn-door-craftsman.webp"
   alt: "Illustrative concept of a warm amber Craftsman-style horizontal panel sliding door; not a Jeff Does Doors project"
-  caption: "Amber Craftsman dining room slider"
+  caption: "Amber Craftsman slider, early morning"
   tag: "Craftsman"
   width: 1200
   height: 896
   placeholder: true
 - image: "images/barn-door-floor-guide.webp"
   alt: "Illustrative close-up of an adjustable matte black steel floor guide and bottom door mortise; not a Jeff Does Doors project"
-  caption: "Precision floor guide & stay roller"
+  caption: "Floor guide & stay roller, doing their quiet work"
   tag: "Hardware"
   width: 1200
   height: 896
   placeholder: true
 - image: "images/barn-door-workshop.webp"
   alt: "Illustrative workshop scene showing handcrafted door slab, hand plane, wood shavings, and sliding hardware; not a Jeff Does Doors project"
-  caption: "Workshop door staging & assembly"
+  caption: "The workshop. Doors rest here between jobs."
   tag: "Custom"
   width: 1200
   height: 896
   placeholder: true
 - image: "images/barn-door-bypass.webp"
   alt: "Illustrative concept of custom double bypass sliding barn doors on a dual track for a bedroom closet; not a Jeff Does Doors project"
-  caption: "Double bypass closet sliders"
+  caption: "Double bypass closet sliders, passing each other politely"
   tag: "Bypass"
   width: 1200
   height: 896
   placeholder: true
 - image: "images/barn-door-chevron.webp"
   alt: "Illustrative concept of an architectural chevron pattern hardwood sliding barn door; not a Jeff Does Doors project"
-  caption: "Chevron pattern feature door"
+  caption: "Chevron feature door. Jeff has views on the pattern."
   tag: "Chevron"
   width: 1200
   height: 896
   placeholder: true
 - image: "images/barn-door-frosted-glass.webp"
   alt: "Illustrative concept of a black metal framed frosted reeded glass sliding door for a bathroom; not a Jeff Does Doors project"
-  caption: "Frosted reeded glass privacy slider"
+  caption: "Frosted reeded glass slider, thoughtfully lit"
   tag: "Glass"
   width: 1200
   height: 896
   placeholder: true
 - image: "images/barn-door-mirrored.webp"
   alt: "Illustrative concept of a full-length mirrored sliding barn door for a master dressing room; not a Jeff Does Doors project"
-  caption: "Full-length mirror dressing slider"
+  caption: "Full-length mirror slider, looking at itself"
   tag: "Mirrored"
   width: 1200
   height: 896

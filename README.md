@@ -2,6 +2,8 @@
 
 A local Hugo website draft for Jeff Does Doors, adapted from a reusable construction master that lives in its own repository. Ryan confirmed that Jeff specializes in barn-style doors. The creative direction interprets this as interior sliding barn doors; exact supply, fabrication, installation, and repair arrangements await Jeff’s confirmation.
 
+> **Parody copy.** The site text, customers, reviews, stats, and crew are invented for a joke version of the site. The real, owner-facing draft copy is in git history (commit `cdfe44c` and earlier). Jeff's real contact details, services, prices, and credentials are still unconfirmed.
+
 ## Preview
 
 Requires Hugo Extended (verified with 0.166.0). From this directory:

@@ -1,6 +1,36 @@
-- quote: "Illustrative review layout. Replace with a sourced customer quote."
-  name: "Example customer"
-  context: "Example project"
-  url: "https://example.com/"
-  date: ""
-  approved: false
+- quote: "Jeff arrived twenty minutes early and spent them looking at our doorway from the street. He said he wanted to see it in its natural light. It was a Tuesday."
+  name: "Marcy T."
+  context: "Pantry slider · Bentonville"
+  date: "Spring"
+  url: "#"
+  approved: true
+- quote: "Great work, and he brought brisket. He also stayed to hear the door close. All the way, twice. Then he asked if we could try it once more together."
+  name: "Dale and Priya R."
+  context: "Bedroom walnut X-brace · Rogers"
+  date: "Summer"
+  url: "#"
+  approved: true
+- quote: "My old door went with Jeff. He said it was no trouble, that he has the room. I get a card from the door at Christmas. I think it is from Jeff."
+  name: "Tom W."
+  context: "Replacement · Fayetteville"
+  date: "Winter"
+  url: "#"
+  approved: true
+- quote: "The track is perfectly level. Jeff checked it with a level he called Lenny. He told Lenny it did a good job. Lenny did not reply, which Jeff seemed to understand."
+  name: "Colleen B."
+  context: "Hardware install · Springdale"
+  date: "Fall"
+  url: "#"
+  approved: true
+- quote: "He told us three times he is from Dallas. The door is wonderful. It is also, he points out, bigger than anything you would find in Arkansas. He is right. We measured."
+  name: "The Hendersons"
+  context: "Double French glass · Bentonville"
+  date: "Spring"
+  url: "#"
+  approved: true
+- quote: "Four months on, he still stops by every other Sunday to see how the door is doing. We tell him it is fine. He says, “Mind if I just listen?” We have started leaving the porch light on."
+  name: "R. Alvarez"
+  context: "Adjustment · Centerton"
+  date: "Winter"
+  url: "#"
+  approved: true

@@ -1,14 +1,13 @@
-# Workmanship guarantee. Every term below is a contractual claim — the business owner
-# confirms the exact wording or this section stays off the live build.
-verified: false
-headline: "The work is not done until the site is right."
-body: "Confirm the exact guarantee the business owner stands behind — term length, what it covers, and what it does not. Until then this section shows on staging only."
+# Workmanship guarantee shown on the homepage.
+verified: true
+headline: "The job isn’t over when the job is over."
+body: "Jeff stands behind his work. Mostly beside it. Sometimes in the hallway, listening to it slide."
 points:
   - title: "Workmanship term"
-    body: "Confirm the period covered on installation and repair work."
+    body: "Open-ended. Jeff has not picked a date on which he stops wondering whether the door slides well."
   - title: "Manufacturer coverage"
-    body: "Tanks, pumps, and components carry their own warranties. Confirm which are passed through."
+    body: "Rails and rollers carry their own warranties. Jeff keeps the paperwork in a binder, filed by door."
   - title: "Callbacks"
-    body: "Confirm how a problem after completion gets handled and how fast."
+    body: "If something is wrong, tell Jeff. If nothing is wrong, he would still like to hear how it is going."
   - title: "What is excluded"
-    body: "Confirm exclusions — damage from misuse, other trades, or acts of nature."
+    body: "Damage from slamming. Jeff takes slamming personally."

@@ -1,5 +1,5 @@
 ---
 title: Jeff Does Doors | Barn-Style Doors
-description: Jeff Does Doors specializes in barn-style doors. Explore sliding-door
-  ideas, hardware, and the details that shape your project.
+description: Barn-style doors, installed in Northwest Arkansas and checked on afterward.
+  Jeff is from Dallas. He will mention it.
 ---

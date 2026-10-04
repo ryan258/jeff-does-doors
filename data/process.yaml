@@ -1,20 +1,20 @@
 - step: '01'
-  title: Show the space
+  title: Introduce the opening
   body: Send photos of the opening and the wall beside it, plus rough measurements
-    and your town or ZIP code.
+    and your town or ZIP code. Jeff will want to know about the light.
   drawing: photo
 - step: '02'
-  title: Find the look
-  body: Talk through wood, proportions, hardware, and finish as one design for the
-    room.
+  title: Meet the door
+  body: Talk through wood, proportions, hardware, and finish as one design. Jeff
+    wants the door to be comfortable with the choices.
   drawing: swatches
 - step: '03'
-  title: Define the work
-  body: Agree on supply, fitting, finishing, timing, and the estimate before anything
-    is ordered or scheduled.
+  title: Agree on the details
+  body: Settle supply, fitting, finishing, timing, and the estimate before anything
+    is ordered or scheduled. Jeff will explain what the door needs.
   drawing: plan
 - step: '04'
-  title: Fit the room
+  title: Settle in
   body: The door, track, and pull come together in the opening they were planned
-    for.
+    for. Jeff stays until it has settled. Sometimes a little longer.
   drawing: door

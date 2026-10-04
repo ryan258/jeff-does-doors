@@ -6,8 +6,8 @@
       <article class="prose prose--narrow">{{ .Content }}</article>
       <div class="table-scroll">
         <table class="pricing-table">
-          <caption class="u-visually-hidden">Typical cost ranges by service and the factors that move them</caption>
-          <thead><tr><th scope="col">Work</th><th scope="col">Typical range</th><th scope="col">What moves the number</th></tr></thead>
+          <caption class="u-visually-hidden">What shapes the price of each kind of door work</caption>
+          <thead><tr><th scope="col">Work</th><th scope="col">Typically</th><th scope="col">What moves the number</th></tr></thead>
           <tbody>
             {{ range $pricing.rows }}
               <tr>
@@ -26,9 +26,9 @@
     <section class="l-section l-section--tight">
       <div class="l-container prose prose--narrow">
         <h2>Paying for it</h2>
-        <p>Site work often arrives at a bad time financially. <a href="{{ "financing/" | relURL }}">See the payment options</a> worth discussing.</p>
+        <p>A door is a good thing to pay for slowly. <a href="{{ "financing/" | relURL }}">See the payment options</a>. Jeff is in no hurry.</p>
       </div>
     </section>
   {{ end }}
-  {{ partial "cta-banner.html" (dict "heading" "The only real number comes after a site visit." "body" "Describe the property and the work, and the estimate conversation starts from something concrete.") }}
+  {{ partial "cta-banner.html" (dict "heading" "The only real number comes after Jeff has stood in the opening." "body" "Describe the opening and the work, and the estimate conversation starts from something concrete. Jeff will bring his own level.") }}
 {{ end }}

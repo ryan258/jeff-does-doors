@@ -1,37 +1,27 @@
-# "What does this usually cost?" — the question every visitor has and most
-# contractor sites dodge. Ranges are PLACEHOLDERS. Publishing a number the business owner
-# has not approved is worse than publishing none, so every row starts unverified.
-disclaimer: "Ranges are for orientation only, not a quote. Every property is different: soil, access, distance to the road, permits, and how much rock is under the grass all move the number. The only real price comes after walking the site."
+# "What does this usually cost?" Ranges are described, not quoted. No numbers are published.
+disclaimer: "Not a quote. Every doorway is different: wall, trim, floor, light, and how long the opening has been without a door all move the number. Jeff prefers to stand in the opening before naming a price. He may stand there a while."
 rows:
-  - service: "Septic system — new install"
-    range: "Confirm range"
-    drivers: "Soil test and permit, system type, tank size, lateral field length, access for equipment."
-    verified: false
-  - service: "Septic repair"
-    range: "Confirm range"
-    drivers: "What failed, how deep it sits, whether the field is still sound."
-    verified: false
-  - service: "Red dirt building pad"
-    range: "Confirm range"
-    drivers: "Pad size, how much fill has to be hauled in, compaction, distance from the pit."
-    verified: false
-  - service: "Driveway or lane"
-    range: "Confirm range"
-    drivers: "Length, base rock depth, culverts, drainage, slope."
-    verified: false
-  - service: "Land clearing"
-    range: "Confirm range"
-    drivers: "Acreage, tree size, what happens to the debris, stump removal."
-    verified: false
-  - service: "Demolition"
-    range: "Confirm range"
-    drivers: "Structure size, materials, disposal fees, utility disconnects."
-    verified: false
-  - service: "Water line / yard hydrant"
-    range: "Confirm range"
-    drivers: "Run length, depth, rock, tie-in point, meter or well side."
-    verified: false
-  - service: "Custom construction"
-    range: "Quoted per project"
-    drivers: "Scope, materials, finish level, permits."
-    verified: false
+  - service: "Barn-door installation"
+    range: "Depends on the door"
+    drivers: "Door size and material, rail length, wall framing, finish. Jeff will tell you the door could be bigger. In Texas it would be."
+    verified: true
+  - service: "Replacement or swing-to-slide"
+    range: "Depends on the old door"
+    drivers: "Removal, patching, trim, paint. Disposal is optional: Jeff will take the old door with him. He has the room."
+    verified: true
+  - service: "Track, rollers, and pulls"
+    range: "Depends on the hardware"
+    drivers: "Rail length, roller type, finish. Jeff will not hang a door on a track he has not met."
+    verified: true
+  - service: "Adjustments and repair"
+    range: "Per visit, mostly"
+    drivers: "What is rubbing and why. Second visits are included. Third visits are included. Jeff will be in the area."
+    verified: true
+  - service: "Seasonal check-in"
+    range: "Included"
+    drivers: "Quarterly, or whenever Jeff is passing. He will ring the bell. You do not have to answer."
+    verified: true
+  - service: "Custom door"
+    range: "Quoted per door"
+    drivers: "Species, joinery, glass, finish. Jeff will want to know what the door is for, and what it will see."
+    verified: true

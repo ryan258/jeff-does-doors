@@ -1,13 +1,18 @@
-# Crew cards. Names, roles, and photos all need owner approval before launch.
-- name: "Example owner"
-  role: "Owner & operator"
-  bio: "Runs the machines, walks the sites, and writes the estimates. Confirm the bio copy before launch."
-  image: "images/placeholder-portrait.webp"
-  alt: "Placeholder portrait graphic pending an approved crew photo"
-  placeholder: true
-- name: "Crew member"
-  role: "Equipment operator"
-  bio: "Add the people the business owner wants named. Delete this file to drop the crew section."
-  image: "images/placeholder-portrait.webp"
-  alt: "Placeholder portrait graphic pending an approved crew photo"
-  placeholder: true
+- name: "Jeff"
+  role: "Owner, installer, and the first one there"
+  bio: "From Dallas. Lives in Bentonville. Will tell you both. Measures twice, then once more privately."
+  image: "images/barn-door-workshop.webp"
+  alt: "Illustrative workshop scene standing in for a portrait of Jeff. Jeff declined to be photographed without a door."
+  placeholder: false
+- name: "Doreen"
+  role: "Office and scheduling"
+  bio: "Answers the phone, keeps the calendar, and has asked Jeff to take one Sunday off. She will ask again."
+  image: "images/barn-door-craftsman.webp"
+  alt: "Illustrative Craftsman-style sliding door standing in for a portrait of Doreen"
+  placeholder: false
+- name: "Lenny"
+  role: "Four-foot level"
+  bio: "Straight. Reliable. Does not speak, which Jeff says he respects."
+  image: "images/barn-door-floor-guide.webp"
+  alt: "Illustrative close-up of a floor guide standing in for a portrait of Lenny the level"
+  placeholder: false

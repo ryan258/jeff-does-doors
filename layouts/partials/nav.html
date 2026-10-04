@@ -21,8 +21,8 @@
     <div class="nav-list__panel" id="nav-panel-2" data-nav-panel>
         <div class="nav-list__panel-inner">
           {{ if (partial "feature-enabled.html" "projects") }}<a href="{{ "projects/" | relURL }}"><strong>Project stories</strong><small>Problem, work, finished site</small></a>{{ end }}
-          {{ if (partial "feature-enabled.html" "gallery") }}<a href="{{ "gallery/" | relURL }}"><strong>Photo gallery</strong><small>Job site photos</small></a>{{ end }}
-          {{ if (partial "feature-enabled.html" "reviewsPage") }}<a href="{{ "reviews/" | relURL }}"><strong>Customer reviews</strong><small>With source links</small></a>{{ end }}
+          {{ if (partial "feature-enabled.html" "gallery") }}<a href="{{ "gallery/" | relURL }}"><strong>Photo gallery</strong><small>Doors, photographed</small></a>{{ end }}
+          {{ if (partial "feature-enabled.html" "reviewsPage") }}<a href="{{ "reviews/" | relURL }}"><strong>Customer reviews</strong><small>In their own words</small></a>{{ end }}
         </div>
       </div>
     </li>
@@ -34,9 +34,9 @@
       <button type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-panel-3" aria-label="Show company links" hidden>⌄</button>
     <div class="nav-list__panel" id="nav-panel-3" data-nav-panel>
         <div class="nav-list__panel-inner">
-          {{ if (partial "feature-enabled.html" "about") }}<a href="{{ "about/" | relURL }}"><strong>About</strong><small>Who does the work</small></a>{{ end }}
-          {{ if (partial "feature-enabled.html" "serviceArea") }}<a href="{{ "service-area/" | relURL }}"><strong>Service area</strong><small>Towns and counties</small></a>{{ end }}
-          {{ if (partial "feature-enabled.html" "equipment") }}<a href="{{ "equipment/" | relURL }}"><strong>Equipment</strong><small>What we run</small></a>{{ end }}
+          {{ if (partial "feature-enabled.html" "about") }}<a href="{{ "about/" | relURL }}"><strong>About</strong><small>Who does the doors</small></a>{{ end }}
+          {{ if (partial "feature-enabled.html" "serviceArea") }}<a href="{{ "service-area/" | relURL }}"><strong>Service area</strong><small>Bentonville and beyond</small></a>{{ end }}
+          {{ if (partial "feature-enabled.html" "equipment") }}<a href="{{ "equipment/" | relURL }}"><strong>Equipment</strong><small>What Jeff brings</small></a>{{ end }}
           {{ if (partial "feature-enabled.html" "careers") }}<a href="{{ "careers/" | relURL }}"><strong>Careers</strong><small>Open positions</small></a>{{ end }}
         </div>
       </div>

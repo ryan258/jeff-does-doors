@@ -6,14 +6,14 @@
       <article class="prose">{{ .Content }}</article>
       <aside class="prose-page__aside">
         <div class="service-detail__card">
-          <p class="service-detail__card-label">What we do</p>
+          <p class="service-detail__card-label">What Jeff does</p>
           <ul class="plain-list">
             {{ range (partial "services.html" .) }}<li><a href="{{ printf "services/%s/" .path | relURL }}">{{ .title }}</a></li>{{ end }}
           </ul>
         </div>
         {{ if (partial "feature-enabled.html" "serviceArea") }}
           <div class="service-detail__card service-detail__card--dark">
-            <p class="service-detail__card-label">Where we work</p>
+            <p class="service-detail__card-label">Where Jeff works</p>
             <p>{{ site.Params.serviceArea }}</p>
             <a class="link-arrow link-arrow--light" href="{{ "service-area/" | relURL }}">Check coverage <span aria-hidden="true">↗</span></a>
           </div>
@@ -29,11 +29,11 @@
     <section class="team l-section">
       <div class="l-container">
         <div class="section-heading section-heading--wide">
-          <div><p class="eyebrow">The crew</p><h2>The people who show up.</h2></div>
+          <div><p class="eyebrow">The crew</p><h2>The people who show up early.</h2></div>
           {{ if or (eq hugo.Environment "staging") site.Params.noindex }}
-            <p class="section-heading__aside">Names, roles, and photos need the owner's approval before launch — placeholders below.</p>
+            <p class="section-heading__aside">Jeff, Doreen, and Lenny. Doreen has asked that you not read anything into the order.</p>
           {{ else }}
-            <p class="section-heading__aside">Experienced operators and crew on every job site.</p>
+            <p class="section-heading__aside">Jeff, Doreen, and Lenny. Doreen has asked that you not read anything into the order.</p>
           {{ end }}
         </div>
         <div class="team__grid">
@@ -54,5 +54,5 @@
   {{ end }}
 
   {{ partial "credentials.html" . }}
-  {{ partial "cta-banner.html" (dict "heading" "Start with the door you want to improve.") }}
+  {{ partial "cta-banner.html" (dict "heading" "Start with the door. Jeff will meet you there.") }}
 {{ end }}

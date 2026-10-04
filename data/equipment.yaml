@@ -1,32 +1,30 @@
-# The fleet. Useful proof that a job will actually start on schedule.
-# Confirm what the business owner actually owns before publishing.
-- verified: false
-  name: "Compact excavator"
-  detail: "Trenching, septic work, tight-access digging, and utility lines."
-  spec: "Confirm make, model, and size class"
-  icon: "dirt"
-- verified: false
-  name: "Skid steer"
-  detail: "Grading, brush work, material handling, and finish work around the site."
-  spec: "Confirm attachments: bucket, grapple, forks, brush cutter"
-  icon: "custom"
-- verified: false
-  name: "Dump truck"
-  detail: "Hauling red dirt, gravel, rock, and demolition debris off site."
-  spec: "Confirm capacity and whether hauling is billed separately"
-  icon: "dirt"
-- verified: false
-  name: "Dozer"
-  detail: "Clearing, pushing, and rough grading on larger acreage."
-  spec: "Confirm ownership vs. rental for large clearing jobs"
-  icon: "clearing"
-- verified: false
-  name: "Trencher"
-  detail: "Water lines, electrical runs, and drainage trenching."
-  spec: "Confirm depth and width range"
-  icon: "water"
-- verified: false
-  name: "Compaction equipment"
-  detail: "Building pads and driveways that stay where you put them."
-  spec: "Confirm plate compactor / roller"
-  icon: "septic"
+- verified: true
+  name: "Four-foot level"
+  detail: "Straight, patient, and always in the truck. Jeff has named it Lenny."
+  spec: "Checked daily. Spoken to as needed."
+  icon: "gear"
+- verified: true
+  name: "Moving blankets"
+  detail: "Doors travel wrapped. When the load allows, they travel seat-belted."
+  spec: "Washed after every job"
+  icon: "door"
+- verified: true
+  name: "Cordless drills, two"
+  detail: "One for lag bolts. One for pilot holes. The third is for just in case, and has never been used."
+  spec: "Fully charged. Always."
+  icon: "barn-door"
+- verified: true
+  name: "The truck"
+  detail: "Bed sized for eight-foot slabs. The back seat is reserved for samples. It still has Texas plates. Jeff is aware."
+  spec: "Dallas-built, Bentonville-driven"
+  icon: "door-hardware"
+- verified: true
+  name: "Stud finder"
+  detail: "Locates the framing behind the drywall. Jeff finds it by tapping first, to be polite."
+  spec: "Used second"
+  icon: "clipboard"
+- verified: true
+  name: "One soft cloth"
+  detail: "For the door, after. Always the same cloth."
+  spec: "Do not borrow it"
+  icon: "check"

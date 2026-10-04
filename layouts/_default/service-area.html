@@ -20,12 +20,12 @@
         <ul class="town-list town-list--muted">
           {{ range $area.counties }}<li>{{ . }}</li>{{ end }}
         </ul>
-        {{ else }}<p>The business must supply its actual towns and counties before this module is published.</p>{{ end }}
+        {{ else }}<p>Jeff is typing up the town list. He keeps adding to it. In the meantime: Bentonville, the rest of Northwest Arkansas, and Texas, whenever he can manage it.</p>{{ end }}
       </article>
       <aside class="prose-page__aside">
         <div class="service-detail__card">
           <p class="service-detail__card-label">Start with your town</p>
-          <p>Include your general area and the door work you are considering. Coverage needs confirmation before scheduling.</p>
+          <p>Include your general area and the door work you are considering. Jeff will confirm coverage before scheduling. He will probably say yes.</p>
           <a class="link-arrow" href="{{ if (partial "feature-enabled.html" "contactPage") }}{{ "contact/" | relURL }}{{ else }}{{ "" | relURL }}#brief{{ end }}">Ask about your property <span aria-hidden="true">↗</span></a>
         </div>
         {{ if site.Params.mapURL }}<div class="service-detail__card service-detail__card--dark">
