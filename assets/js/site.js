@@ -330,7 +330,9 @@
       ...optionalLine('Heard about us via', 'referral'),
       '',
       'What needs attention:',
-      valueFor('details', 'I would like to talk through the project.'),
+      valueFor('details', 'I would like to talk through the door.'),
+      '',
+      'P.S. Please ring the bell.',
     ].join('\n');
 
     // --- Multi-step wizard (estimate page only) ------------------------------

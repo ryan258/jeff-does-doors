@@ -22,6 +22,6 @@
     <span><strong>Google Maps</strong><small>Find current contact details</small></span>
   </a>{{ end }}
   {{ if not (or $p.contactPhone $p.contactEmail) }}
-    <p class="contact-methods__missing">{{ if $p.mapURL }}Use the listing to find current contact details.{{ else }}Business contact details have not been supplied for this preview.{{ end }}</p>
+    <p class="contact-methods__missing">{{ if $p.mapURL }}Use the listing to find current contact details.{{ else }}Jeff’s phone and email are not listed yet. In the meantime, the message builder will prepare a note you can keep.{{ end }}</p>
   {{ end }}
 </div>

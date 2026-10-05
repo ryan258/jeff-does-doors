@@ -8,7 +8,7 @@ feature: "legal"
 
 The hosting provider receives the technical requests needed to serve pages, such as an IP address and browser information. If web fonts are enabled for this site, they load from Google Fonts. Those services have their own data-handling policies.
 
-This site has no configured advertising pixels or analytics tracker. No announcement banner is enabled in this preview.
+This site has no configured advertising pixels or analytics tracker. Nothing here follows you around. Jeff will only follow up if you ask him to. If you dismiss the announcement bar, your browser remembers that choice on this device. That note stays in your browser and is not sent anywhere.
 
 ## Project briefs
 

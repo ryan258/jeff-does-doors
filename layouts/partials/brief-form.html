@@ -16,7 +16,7 @@
       data-map-url="{{ $p.mapURL }}"
       aria-describedby="{{ $id }}-help {{ $id }}-privacy">
   <div class="brief-form__head"><span>{{ if $wizard }}Project message{{ else }}Opening brief{{ end }}</span><span data-wizard-progress role="status" aria-live="polite">{{ if $wizard }}Step 1 of 3{{ else }}Local draft{{ end }}</span></div>
-  <p class="brief-form__help" id="{{ $id }}-help">Your area and a short description are enough to prepare a draft. Contact details are not yet available on this preview, so nothing here is sent to Jeff.</p>
+  <p class="brief-form__help" id="{{ $id }}-help">Your area and a short description are enough to prepare a draft. Jeff’s contact details are not listed yet, so nothing here is sent to him. He is good at waiting.</p>
 
   <div class="brief-form__fields" data-wizard-step="1">
     {{ if $wizard }}<p class="brief-form__step-label" data-step-heading tabindex="-1">Step 1 — the work</p>{{ end }}

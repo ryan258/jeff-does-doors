@@ -72,7 +72,7 @@
         {{ block "main" . }}{{ end }}
       {{ end }}
     </main>
-    {{ if partial "review-mode.html" . }}<p class="review-notice">Review preview: proposed services and copy await Jeff’s confirmation. Hero image is AI-generated, not Jeff’s work. Contact details are unset; the message builder does not send inquiries.</p>{{ end }}
+    {{ if partial "review-mode.html" . }}<p class="review-notice">Preview: Jeff has not finished reviewing this site, and he has notes. The images are AI-generated, not Jeff’s work. His contact details are unset, so the message builder cannot send anything. He is working on it.</p>{{ end }}
     {{ partial "footer.html" . }}
     {{ $script := resources.FromString "js/site.js" (printf "%s\n%s\n%s" (readFile "assets/js/brief-core.js") (readFile "assets/js/draft-storage.js") (readFile "assets/js/site.js")) | minify | fingerprint }}
     <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>

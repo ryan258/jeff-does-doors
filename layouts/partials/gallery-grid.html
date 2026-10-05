@@ -15,7 +15,7 @@
       <a href="{{ $item.image | relURL }}" class="gallery__open" data-gallery-open="{{ $index }}" aria-label="Open larger view: {{ $item.caption }}">
         {{ partial "image.html" (dict "src" $item.image "alt" ($item.alt) "width" ($item.width | default 1200) "height" ($item.height | default 800) "loading" "lazy") }}
         <span class="gallery__meta"><strong>{{ $item.caption }}</strong><small>{{ $item.tag }}</small></span>
-        {{ if $item.placeholder }}<span class="gallery__flag">Placeholder</span>{{ end }}
+        {{ if $item.placeholder }}<span class="gallery__flag">Not Jeff’s door</span>{{ end }}
       </a>
     </li>
   {{ end }}
