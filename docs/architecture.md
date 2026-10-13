@@ -37,7 +37,7 @@ Direct indexable production Hugo builds are blocked. The release command first v
 - `site.js`: independent feature initialization over a small shared lookup scope; failures are isolated per feature and covered by an empty-document smoke test; no arbitrary POST integration.
 - `contractor-choices.js`: independently enhances native radio/panel groups; validates mappings before hiding fallback content, preserves restored choices and has no network or storage behavior.
 - `style-guide.js`: catalogue-only search, family filters, fragment recovery and copy/failure feedback.
-- SCSS partials: `_modern.scss` owns the mobile header/hero layout; `_survey.scss` owns survey styles. `_contractor.scss`, `_style-guide.scss` and `_easter-eggs.scss` are imported after those shared layers.
+- SCSS partials: `_modern.scss` owns the mobile header/hero layout; `_survey.scss` owns survey styles. `_contractor.scss`, `_style-guide.scss`, `_easter-eggs.scss`, and `_next-openings.scss` are imported after those shared layers.
 
 ## Component library and visitor composition
 
@@ -50,6 +50,8 @@ Only Home and Gallery request the shared choice script through the page store. T
 `easter-egg.html` is a Jeff-profile-only native disclosure, used in three places outside task controls. Home/About crew notes obey `team`; Gallery obeys its page flag. It escapes all supplied text and adds no storage, script or automatic announcement. The notes are documented in the guide's library map, not counted as additional specimens.
 
 The visitor component dataset is an explicit publication core source; rendering assets and templates are already inventoried automatically. Fictional reviews, crew, project stories and planning examples do not establish real business facts. Existing dataset display flags such as `verified` or `approved` are not substitutes for the empty revision-bound evidence register.
+
+`data/next_openings.json`, `layouts/partials/next-openings.html`, and `_next-openings.scss` compose the homepage concept spread between styles and catalog. The partial renders four uncropped 3:2 responsive WebP studies (480w, 960w, 1536w) with visible AI disclosures and native full-image links, independent of the gallery lightbox or JavaScript. The dataset is registered in `data/publishing.json`.
 
 ## Assets and environments
 

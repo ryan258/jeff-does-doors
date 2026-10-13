@@ -1,5 +1,42 @@
 # Verification and remaining acceptance
 
+## Project brief and survey keyboard/zoom follow-up — October 13, 2026
+
+Local browser review of the current single-page brief at `/#brief` and survey at `/survey/`, using disposable entries and native Chrome zoom. Chrome's control confirmed 200% (960×451 CSS pixels, devicePixelRatio 2) and 400% (480×225, ratio 4). This extends the paperwork-component pass below; it is not a full accessibility acceptance result.
+
+Corrections made:
+
+- Brief preparation previously used nearest-edge scrolling on a result taller than the viewport. At 200% this could leave the result title above the viewport. It now aligns the result start; the title was visible after preparation at both zoom levels.
+- Survey preparation focused the entire long packet, leaving its heading above the viewport at 400%. It now focuses and reveals the packet heading, with a visible outline; observed at both zoom levels.
+- Invalid survey preparation left focus on the action while the error was several screens above it. Explicit prepare/export/download/copy/print validation failures now focus and reveal the status message. Import failures use the same visible status treatment. Typing and unit-conversion feedback do not move focus. The invalid-prepare recovery path was exercised at 400%; the other error-action branches have authored, unexecuted regression coverage, rather than individual browser acceptance.
+
+Observed browser coverage:
+
+- Empty brief submission at 200% returned focus to the required town field. Disposable town and opening text produced a local draft.
+- At 400%, Enter opened and closed the optional-details disclosure. Selecting target-date timing exposed the date field; Tab reached it, its full control and focus outline were visible, and native Tab traversed the remaining optional fields and result actions. Closing the disclosure removed its fields from the Tab path. Date entry itself was not exercised.
+- From the prepared brief, Tab reached Copy brief and then Download brief. Shift+Tab from Copy returned to Prepare. Chrome reported the brief text download complete.
+- Native Tab traversed the survey field groups and action row into the footer at 400%. Shift+Tab from the focused packet heading returned to New opening. The New opening confirmation was opened and dismissed with Escape; no reset was accepted.
+- An invalid survey width showed a focused, fully visible error at 400%. Tab from that message reached the first job field. Correcting the width to `36 1/2` and selecting millimetres yielded `927.1`; preparation then focused the visible packet heading.
+- Chrome reported both survey JSON and text downloads complete. This confirms downloads, not file-content or re-import acceptance.
+- No page-wide horizontal overflow was found in the observed brief and survey states at 200%/400%. Expanded brief controls were also checked at 400%. These measurements do not establish all longer-content or device combinations.
+
+The staging build compiled 26 pages with warnings treated as failures. Focused source and generated-artifact audits returned zero issues; JavaScript syntax, generated feature documentation and diff whitespace checks passed. Automated suites were not run. Regression cases were authored for survey heading focus, explicit action/import-error focus with field preservation, and unit-conversion errors without focus theft. Run `bash scripts/verify-local.sh` locally and retain the output with the revision checked.
+
+Repeatable manual checks: prepare each workflow at 200%/400% and confirm its title is visible; submit an invalid survey measurement and confirm the error is visible, correct it and prepare again; traverse the brief's open/closed optional fields and survey action row in both directions. Repeat with intended assistive technology and longer entries.
+
+Not verified here: screen-reader announcements, other browsers, real devices, reduced motion, forced colors, no-JavaScript operation, the feature-gated brief wizard, device save/restore, imported packet replacement, clipboard contents, print preview/output, or online delivery. Device saving stayed off, native zoom was restored to 100%, and nothing was pushed or deployed.
+
+## Homepage concept spread ("The next opening") — October 13, 2026
+
+Visual and markup review of the `#next-openings` section on the homepage across desktop, 390px, and 320px viewports. The section sits between `#styles` and `#catalog`, and renders four uncropped 3:2 architectural door concepts with responsive WebP variants (480w, 960w, 1536w).
+
+Observed checks:
+- Section has `aria-labelledby="next-openings-title"` and `aria-describedby="next-openings-disclosure"`.
+- Each figure has an explicit numbered index, movement/material badge, heading, description, visible AI concept disclosure tag, and full-image direct link with accessible `aria-label`.
+- Direct image links open the full 1536px WebP asset directly; no lightbox script or JavaScript required.
+- Staging build compiled cleanly with `next_openings.json` registered in `data/publishing.json`.
+- Four owner-run regressions in `tests/test_next_openings.py` cover section placement with gallery disabled, accessible labels/disclosures, subpath URL resolution, and publication inventory coverage. Run `bash scripts/verify-local.sh` for the complete local test run.
+
 ## Keyboard and native browser zoom — October 13, 2026
 
 Checked all six project-paperwork specimens and their six visitor placements in Chrome using native browser zoom, confirmed by Chrome’s own zoom control and page metrics. The 100% baseline was 1920 CSS pixels wide with devicePixelRatio 1; 200% produced 960 CSS pixels with ratio 2, and 400% produced 480 CSS pixels with ratio 4. Usable height varied with browser chrome (approximately 451px at 200% and 225–239px at 400%). These were real browser zoom checks, distinct from the earlier viewport and root-font-size simulations.

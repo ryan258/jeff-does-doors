@@ -2,6 +2,25 @@
 
 All imagery assets on this draft site are illustrative concepts created to flesh out the design layout. They are not Jeff’s work, customer properties, product specifications, or installation diagrams. All master images are archived in `.attic/` and encoded to WebP in `static/images/` via `cwebp`.
 
+## Next-generation concept spread — October 13, 2026
+
+Four new images were created with the built-in image generation tool for the homepage section `#next-openings`, immediately after the conventional door styles. The concepts explore surface, light, folding, and pivoting; they do not establish fabrication, hardware compatibility, safety, product availability, or Jeff’s installation capabilities. The spread and every caption identify the images as AI-generated concepts. Native image links work without JavaScript and do not use the existing gallery lightbox.
+
+Copy and image paths live in `data/next_openings.json`, included in the publication source inventory. The new partial uses explicit `srcset` variants at 480, 960, and 1536 pixels. All compositions remain uncropped at 3:2; dimensions reserve image space and loading is lazy. The twelve encoded files total 1,132,644 bytes; each visitor downloads the size chosen by their browser.
+
+| Full image in `static/images/` | Dimensions | Bytes | Source master in `.attic/next-openings/` |
+|---|---|---|---|
+| `next-sculpted-oak.webp` | 1536×1024 | 198,686 | `sculpted-oak.png` |
+| `next-amber-glass.webp` | 1536×1024 | 173,738 | `amber-glass.png` |
+| `next-folding-screen.webp` | 1536×1024 | 208,478 | `folding-screen.png` |
+| `next-terrazzo-pivot.webp` | 1536×1024 | 164,206 | `terrazzo-pivot.png` |
+
+Each full image has matching `-480.webp` (480×320) and `-960.webp` (960×640) variants, encoded with `cwebp -q 80 -resize WIDTH 0`.
+
+Prompt direction: photorealistic architectural concept visualizations, 3:2 landscape, warm cream plaster, earthy mid-century rooms, natural daylight, full door visible, no people, text, logos, or watermarks. Subjects: flowing wave relief in an oak sliding slab with bronze track; amber reeded-glass panels in rounded bronze frames; four hinged slatted walnut panels gathered into a zigzag; and a coral terrazzo-faced panel turning on an offset pivot. These are visual studies, not installation diagrams.
+
+The local Hugo preview was visually reviewed at desktop, 390px, and 320px viewport widths; a full-size image destination also opened successfully. `git diff --check` passed. Four owner-run regressions in `tests/test_next_openings.py` cover section placement with the gallery disabled, accessible labels and disclosures, responsive image/subpath destinations, and publication inventory coverage. They were authored but not executed; run `bash scripts/verify-local.sh` for the complete local gates. Browser observations do not establish device or assistive-technology acceptance.
+
 ## Image inventory
 
 | Asset | Dimensions | Size | Purpose / Placement | Source master in `.attic/` |

@@ -30,9 +30,24 @@ The source review and local staging compilation are complete. Current automated 
 - Authored coverage for repeated instances, escaped content, document-link omissions, table semantics, page-wrapper reuse, all 24 placements, read-only states and form-first ordering. Automated execution remains owner-run.
 - The six changed visitor pages received 320px visual checks; installation and Contact also received 1440px checks. The existing stacked records and contained table scrolling fit the new content without a separate page stylesheet.
 
+## Implemented — brief and survey keyboard and high-zoom focus
+
+- Brief preparation scrolls to start of draft result, keeping title visible at 200%/400% zoom.
+- Survey preparation reveals and focuses `#survey-result-title` heading with visible outline rather than oversized result container.
+- Explicit survey packet actions (prepare, download, copy, print) and import errors focus and reveal status message while preserving current field values.
+- Authored UI regression tests in `tests/survey-ui.test.cjs` covering result focus, action error handling, and unit-conversion behavior without focus theft.
+
+## Implemented — homepage concept spread ("The next opening")
+
+- Four architectural concept studies on Home: sculpted oak slider, amber reeded glass panels, folding walnut screen, and terrazzo-inspired pivot.
+- Uncropped 3:2 layout with 480w, 960w, and 1536w responsive WebP variants, explicit dimensions, and native full-image links without lightbox or JavaScript dependencies.
+- Clear AI concept disclosures in section header, figure captions, links, and image alt text; excluded from completed work or product claims.
+- Integrated into publication source policy via `data/publishing.json`.
+- Authored regressions in `tests/test_next_openings.py` covering placement with gallery disabled, accessible labels/disclosures, subpath URLs, and publication inventory. Execution remains owner-run.
+
 ## Next: current regression run and remaining acceptance
 
-Run `bash scripts/verify-local.sh` and review its output against the exact working-tree or committed revision checked. Native Chrome 200%/400% and keyboard checks now cover the six paperwork specimens and placements; the resulting focus-overlap and status-column fixes are implemented locally. Extend zoom checks to the wider choices, disclosures, brief and survey workflows, and complete no-JavaScript, forced-colors, reduced-motion and screen-reader checks. Trial a real opening and check export/re-import and print. See [verification](docs/verification.md) for observed browser evidence and unperformed checks.
+Run `bash scripts/verify-local.sh` and review its output against the exact working-tree or committed revision checked. Native Chrome 200%/400% and keyboard checks now cover the six paperwork specimens and placements; the resulting focus-overlap and status-column fixes are implemented locally. The single-page brief and survey now also have bounded native 200%/400% checks and corrected result/error focus; see the verification record for the exact interactions observed. Extend coverage to wider choices/disclosures, the optional brief wizard, save/restore, re-import, clipboard and print, and complete no-JavaScript, forced-colors, reduced-motion and screen-reader checks. Trial a real opening and check export/re-import and print. See [verification](docs/verification.md) for observed browser evidence and unperformed checks.
 
 ## Next: supply the business facts
 

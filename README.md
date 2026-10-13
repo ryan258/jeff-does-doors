@@ -27,11 +27,12 @@ The preview binds to this computer (`127.0.0.1`) and uses the selected client fe
 ## Current site
 
 - Home: “The room is there for the door.” (mid-century modern design, with text and actions before the image on mobile)
+- Home “The next opening” concept spread: four large AI-generated images of a sculpted oak slider, amber glass panels, a folding walnut screen, and a terrazzo-inspired pivot. Responsive images and native full-image links; clearly labeled as concepts rather than completed projects or available products.
 - Four proposed project pages: barn-door installation, replacement/upgrades, tracks/hardware, and adjustments; service index features catalog imagery and project highlights.
 - About, service area, FAQs, contact, privacy, website terms, and accessibility.
 - Architectural guidance components: four-point measuring & clearance guide, three-point photo prep checklist, door mechanism comparison table (sliding vs. pocket vs. hinged), and craft standards.
 - Local project-message builder with service-specific prompts, copy/download, and optional seven-day device saving.
-- Barn-door brand mark, favicon, and a complete suite of 14 optimized WebP images (hero, 4 services, about workshop, 7 gallery door styles, and dark timber CSS background texture); all identified as illustrative concepts in [imagery docs](docs/imagery.md).
+- Barn-door brand mark, favicon, and 26 optimized WebP images (14 base site/gallery assets plus 12 responsive concept variants across three sizes); all identified as illustrative concepts in [imagery docs](docs/imagery.md).
 - Updated `data/gallery.yaml` with 12 barn-door records, category tags (Pantry, Rustic, Double doors, Modern, Hardware, Craftsman, Custom, Bypass, Chevron, Glass, Mirrored), and AI concept disclosures.
 - Expanded `data/faqs.yaml` addressing clearances & fit, hardware mechanics, and material/finish considerations.
 - A single-opening survey workspace at `/survey/`: inch/fraction or metric measurements, hardware references, scope and materials, installation checks, handover notes, optional device saving, JSON import/export, text download, copy and print.
@@ -51,6 +52,7 @@ The source master is unchanged. This repository has its own GitHub Pages staging
 | `data/gallery.yaml` | Barn door gallery dataset (12 styles and hardware entries) |
 | `data/faqs.yaml`, `data/process.yaml` | Questions, clearances, mechanics, and project-planning steps |
 | `layouts/index.html` | Homepage copy and sections |
+| `data/next_openings.json`, `layouts/partials/next-openings.html`, `assets/scss/_next-openings.scss` | Next-generation concept imagery, captions, and responsive homepage spread |
 | `layouts/partials/` | Architectural partials: measuring guide, photo prep, door comparison, craft standards |
 | `data/component_library.json`, `layouts/_default/style-guide.html` | Review catalogue, fixtures, source contracts and live specimen links |
 | `data/site_components.json`, `layouts/partials/site-component.html` | Visitor-page component copy, placement metadata and feature-aware wrapper |
