@@ -1,6 +1,41 @@
 # Verification and remaining acceptance
 
-## Current review — October 13, 2026
+## Final expansion review and local commit scope — October 13, 2026
+
+Reviewed the six new partials, shared styling, guide data, page wrapper, six visitor placements, regression fixtures, documentation and Git state. No functional blocker was found in that bounded review. One regression weakness was corrected: the nested-text escaping assertion previously searched the entire guide, where the escaped example JSON could mask unsafe specimen rendering. Each of the six repeated specimens now receives hostile nested text and has its actual preview checked independently for escaped text and absence of executable tags. These strengthened cases have not been executed by the agent.
+
+A fresh staging compilation produced 26 pages under `/subpath/` with warnings treated as failures. Focused source and generated-artifact audits returned zero issues, and changed Python files parsed successfully. The six visitor placements were rechecked at 320px: no page overflow, duplicate IDs, unresolved heading/hint references, unexpected form controls or clipped non-table content were found. The FAQ document register received a fresh visual spot check. Earlier desktop and keyboard observations above still describe the unchanged rendering code.
+
+The local commit groups are reusable components and guide coverage; visitor integration and its coverage; then reconciled documentation. Automated suite execution remains owner-run with `bash scripts/verify-local.sh`. No submodules or tracked Git links are present. Push, deployment and publication are outside this batch.
+
+## Project-paperwork visitor integration — October 13, 2026
+
+All 24 contractor components now have placements across 12 visitor routes; the living guide retains 34 specimens. The six additions appear on installation, replacement, hardware, adjustments, Contact, and FAQ. Page-specific copy remains independent of guide fixtures, and actual work, orders, visits and acceptance remain unconfirmed.
+
+Observed checks for this integration:
+
+- Hugo 0.166.0 Extended compiled 26 pages with `--panicOnWarning` under `/subpath/`. Focused staging source and generated-artifact audits returned zero issues.
+- Chrome emulation at 320px showed document width equal to viewport width on all six changed visitor routes. All six received visual spot checks, with no clipped new headings, record text or actions outside the intentional table scroll areas. Installation and Contact also received visual checks at 1440px, with no page overflow.
+- Both new tables retained contained scroll regions (286px viewport, 620px table), and ArrowRight moved each 40px while focused. Status labels and record facts stack on narrow screens; Contact access areas become one column and FAQ document statuses wrap below the description.
+- The guide rendered 24 actual-placement links, including the six new destinations, without duplicate IDs. Generated feature documentation, changed Python syntax and diff whitespace checks passed. GitNexus change analysis reported low risk with no partial/truncated result; source and browser review supplement its limited Hugo caller coverage.
+- Regression coverage now expects all 24 placements and guide links, preserves service placements without catalogue data, and checks read-only records, keyboard table regions, form-first ordering and the real survey link. Tests were authored, not executed by the agent. Run `bash scripts/verify-local.sh` for the current revision.
+
+The integration reuses the shared responsive component styles and adds no scripts or persistence. These observations do not establish real-device, browser-zoom, no-JavaScript or assistive-technology acceptance. Local review and commit authorization do not include pushing or deployment.
+
+## Earlier component inventory expansion — October 13, 2026
+
+Ryan refreshed GitNexus before this pass. The index matched `f2c5df1` (224 files, 1,017 nodes, 2,220 edges, 36 processes). The existing 28-specimen catalogue received a source and mobile browser review; no blocker was found in that bounded review. The expansion adds six read-only project-paperwork patterns, bringing the guide to 34 specimens and 24 contractor components. At that stage, visitor integration covered 18 components across 12 routes; the later integration described above brings it to all 24.
+
+The new owner-run cases cover repeated IDs, escaping, caption/header/hint semantics, read-only states, real document links and omitted actions, and reuse through the existing page wrapper without new scripts. The agent has not run the automated tests. Earlier passing results below apply only to the revisions described.
+
+Observed checks for the expansion:
+
+- Hugo 0.166.0 Extended compiled 26 pages with `--panicOnWarning` at a `/subpath/` base URL. Staging source and generated-artifact audits returned zero issues.
+- The browser rendered all 34 specimens without duplicate IDs at 390px. All six new previews had no out-of-viewport text or controls at 320px, excluding their intentional table scroll regions. The document-register mobile layout and site-access desktop layout received visual spot checks; document width matched the viewport at 320px, 390px and 1440px.
+- ArrowRight moved the focused material table's horizontal scroll position. Searching “responsibility matrix” returned that specimen; reset restored all 34 entries and returned focus to search.
+- Generated feature documentation, diff whitespace and changed Python syntax checks passed. Real device, browser zoom, no-JavaScript and assistive-technology acceptance remain separate.
+
+## Earlier source review — October 13, 2026
 
 The component library and site integration are implemented: 28 guide specimens, 18 contractor components across 12 visitor routes, mobile layout refinements, a sitewide character-copy pass and three native-disclosure Easter eggs. The final source review corrected FAQ clearance/delivery drift, aligned FAQ answer-source validation with rendering and regenerated the feature menu from corrected documentation text.
 
@@ -26,7 +61,7 @@ Codex read Ryan’s terminal results and the generated report; it did not run te
 
 ## Current owner-run command
 
-Run the complete verification against the current committed revision:
+Run the complete verification against the current working tree, and retain which revision and local changes were checked:
 
 ```sh
 bash scripts/verify-local.sh

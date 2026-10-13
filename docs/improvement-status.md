@@ -2,14 +2,14 @@
 
 Updated October 13, 2026. This is the Jeff Does Doors parody preview, with a reusable contractor component library, a local single-opening survey workspace and an optional Cloudflare inquiry adapter. Contacts, coverage and fabrication scope remain unconfirmed. Online intake is disabled and the evidence register is empty.
 
-**The October 12 component, mobile, copy and Easter-egg work is implemented; the current complete automated run is still pending.** Source review found and corrected FAQ guidance/delivery drift and stale generated documentation. Local compilation and bounded browser observations are recorded in [verification](verification.md). Earlier owner-run test results remain dated evidence for their respective revisions.
+**The October 12–13 component, mobile, copy, Easter-egg and paperwork integration work is implemented; the current complete automated run is still pending.** Source review found and corrected FAQ guidance/delivery drift and stale generated documentation. Local compilation and bounded browser observations are recorded in [verification](verification.md). Earlier owner-run test results remain dated evidence for their respective revisions.
 
 ## Current component and character work
 
 | Area | Implemented state | Remaining check |
 | --- | --- | --- |
-| Living style guide | 28 real specimens: 18 contractor components, six shared patterns and four foundations; search, family filters, snippets and live placement links | Current owner-run regressions; real zoom, no-JavaScript and assistive-technology checks |
-| Visitor integration | All 18 contractor components across 12 routes, with independent copy and publication-source registration | Current placement, feature-suppression and subpath regressions |
+| Living style guide | 34 real specimens: 24 contractor components, six shared patterns and four foundations; search, family filters, snippets and live placement links | Current owner-run regressions; real zoom, no-JavaScript and assistive-technology checks |
+| Visitor integration | All 24 contractor components across 12 routes, with independent copy and publication-source registration | Current placement, feature-suppression and subpath regressions |
 | Mobile layout | Text-first hero, wrapping header, opaque menu, responsive choice panels, tables and quieter component surfaces | Real devices and full browser zoom; emulated viewport observations are bounded |
 | Character copy | Distinct Jeff, Doreen and Lenny voices; shorter service copy; fictional reviews and unresolved terms disclosed | Editorial review whenever examples become real business content |
 | Easter eggs | Three closed native disclosures on Home, Gallery and About; no script or stored preference | No-JavaScript and screen-reader acceptance |
@@ -17,6 +17,8 @@ Updated October 13, 2026. This is the Jeff Does Doors parody preview, with a reu
 | Delivery wording | Brief help, Contact and delivery FAQ use the configured delivery-state partial | Authored local/contact/online fixture coverage; provider acceptance remains separate |
 | Source validation | FAQ policy accepts text, supported guidance references or boolean delivery-state answers; malformed sources are rejected | Owner-run policy regressions |
 | Documentation | README, roadmap, architecture, component guide and status records reflect the current preview; generated feature menu distinguishes disabled shells from drafts | Keep results tied to the revision actually checked |
+
+The subsequent inventory expansion adds six read-only project-paperwork patterns: decisions, responsibilities, site access, materials, open items and document references. All appear in the living guide and now have visitor placements: installation responsibilities, replacement decisions, hardware materials, adjustment open items, Contact access planning, and FAQ document references. The six affected pages received 320px visual checks; both new tables retain contained keyboard scrolling. The refreshed GitNexus index matched the latest local commit at the start of this pass. New coverage remains owner-run.
 
 ## Existing foundation
 
@@ -34,7 +36,7 @@ The current packet has one opening and free-text materials/estimate records. It 
 
 ## Next actions, in order
 
-1. Run `bash scripts/verify-local.sh` against the current committed revision and review its results. The agent has not run the automated suites.
+1. Run `bash scripts/verify-local.sh` against the current working tree and review its results. The agent has not run the automated suites.
 2. Trial one real opening: measurements, manual revision, export/re-import, print and handover checklist. Keep observed friction and missing fields in the packet.
 3. Complete browser/assistive-technology checks in `docs/verification.md`.
 4. If proceeding to a business launch, confirm supply/fabrication/installation scope, contacts and coverage; supply authentic photography, approved copy and actual terms. Record exact revision approval; do not turn parody into asserted facts.
@@ -55,4 +57,4 @@ The current packet has one opening and free-text materials/estimate records. It 
 | CSS/JS maintenance | Gradually split the legacy optional-feature handlers and retire superseded styles; load only needed modules | Baseline screenshots and browser behavior checks first |
 | Repeatable accessibility evidence | Bounded keyboard/zoom/screen-reader cases around forms, file import, storage and print | Actual assistive-technology use |
 
-Business facts, field acceptance, production configuration and publishing need their own evidence. Ryan authorized local review, documentation updates and logically grouped commits for this change set. Push and deployment remain outside that authorization; no submodules are present.
+Business facts, field acceptance, production configuration and publishing need their own evidence. Ryan’s earlier local review and documentation batch was committed. The later inventory expansion and visitor integration have now received source review and local commit authorization. The escaping regressions were tightened to inspect rendered specimens independently of guide JSON; no push or deployment is authorized. No submodules are present.

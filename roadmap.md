@@ -22,9 +22,17 @@ The October 3 owner-run checks cover that earlier foundation; they are historica
 
 The source review and local staging compilation are complete. Current automated regressions are authored but remain owner-run; prior component-only results predate visitor integration. Local commits do not authorize a push or deployment.
 
+## Implemented — October 13 inventory expansion
+
+- Six project-paperwork patterns: decision register, responsibility matrix, site-access plan, material schedule, punch list and document register.
+- The guide now has 34 specimens, including 24 contractor components. All 24 now appear across 12 visitor routes. The additions cover the four service pages, Contact, and FAQ with independent page-specific copy.
+- Native read-only markup, explicit example/status text, real resource links and contained comparison tables; no new scripts or persistence.
+- Authored coverage for repeated instances, escaped content, document-link omissions, table semantics, page-wrapper reuse, all 24 placements, read-only states and form-first ordering. Automated execution remains owner-run.
+- The six changed visitor pages received 320px visual checks; installation and Contact also received 1440px checks. The existing stacked records and contained table scrolling fit the new content without a separate page stylesheet.
+
 ## Next: current regression run and remaining acceptance
 
-Run `bash scripts/verify-local.sh` and review its output for the committed revision. Then complete real zoom, no-JavaScript, forced-colors, reduced-motion and screen-reader checks around the guide, choices, disclosures, brief and survey. Trial a real opening and check export/re-import and print. See [verification](docs/verification.md) for observed browser evidence and unperformed checks.
+Run `bash scripts/verify-local.sh` and review its output against the exact working-tree or committed revision checked. Then complete real zoom, no-JavaScript, forced-colors, reduced-motion and screen-reader checks around the guide, choices, disclosures, brief and survey. Trial a real opening and check export/re-import and print. See [verification](docs/verification.md) for observed browser evidence and unperformed checks.
 
 ## Next: supply the business facts
 

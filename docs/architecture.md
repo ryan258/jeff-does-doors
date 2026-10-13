@@ -41,7 +41,7 @@ Direct indexable production Hugo builds are blocked. The release command first v
 
 ## Component library and visitor composition
 
-The [living style guide](component-library.md) renders 28 specimens from real partials: 18 contractor components, six shared patterns and four foundations. `data/component_library.json` provides review fixtures and contracts. Production page copy lives separately in `data/site_components.json`; all 18 components have placements across 12 routes.
+The [living style guide](component-library.md) renders 34 specimens from real partials: 24 contractor components, six shared patterns and four foundations. `data/component_library.json` provides review fixtures and contracts. Production page copy lives separately in `data/site_components.json`; all 24 components have placements across 12 routes. The six project-paperwork patterns serve the four service pages, Contact, and FAQ through the same wrapper without adding scripts. Contact keeps the brief form before access planning; FAQ links to the existing survey and leaves unavailable project documents as plain text.
 
 `site-component.html` validates an explicit component allowlist, checks optional feature dependencies, supplies section headings and prefixes IDs from each placement key. Missing records and unknown component names fail the build. Templates choose the placements; the dataset's `page` field supplies catalogue links. About's crew/notes obey `team`, and its credential list obeys `credentials`. The existing base layout suppresses disabled pages before their content renders.
 

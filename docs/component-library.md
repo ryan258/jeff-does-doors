@@ -1,6 +1,6 @@
 # Contractor component library
 
-Open `/style-guide/` on the local preview (`./jdd.sh`, port 1317), or use **Component guide** in the preview footer. The catalogue renders the actual partials and current theme. It includes eighteen contractor components, six existing patterns, four foundations, and a map of the shell and workflow components that need their own page context: 28 specimens in total.
+Open `/style-guide/` on the local preview (`./jdd.sh`, port 1317), or use **Component guide** in the preview footer. The catalogue renders the actual partials and current theme. It includes twenty-four contractor components, six existing patterns, four foundations, and a map of the shell and workflow components that need their own page context: 34 specimens in total.
 
 The field-office edition continues the existing parody: Jeff treats doors with unreasonable emotional seriousness, Doreen restores the conversation to practical matters, and Lenny remains a level. That voice lives in the example data, not the component behavior. Fictional staff, testimonials, packages, and project events stay visibly fictional. Real credentials, prices, approvals, and installation details are not invented to support the joke.
 
@@ -8,7 +8,7 @@ The field-office edition continues the existing parody: Jeff treats doors with u
 
 | Source | Responsibility |
 | --- | --- |
-| `layouts/partials/components/` | Eighteen reusable, data-driven contractor partials plus the shared choice-script loader |
+| `layouts/partials/components/` | Twenty-four reusable, data-driven contractor partials plus the shared choice-script loader |
 | `assets/scss/_contractor.scss` | Namespaced component styling, responsive layout, forced-colors treatment |
 | `data/component_library.json` | Review-only catalogue metadata and explicit example content |
 | `data/site_components.json` | Visitor-page copy, page references, and optional feature gates; registered in publication core sources |
@@ -25,21 +25,21 @@ The field-office edition continues the existing parody: Jeff treats doors with u
 
 ### Where the site uses them
 
-All eighteen contractor components now have an actual page placement. Each catalogue specimen includes a **See it on the site** link to its section when that page and feature are enabled.
+All twenty-four contractor components have an actual page placement across twelve visitor routes. Each catalogue specimen includes a **See it on the site** link when its destination and feature are enabled. The six project-paperwork patterns use short, independent page copy; the guide remains a separate set of examples.
 
 | Page | Components | Purpose |
 | --- | --- | --- |
 | Home | Project chooser | Route a new installation, replacement, or movement problem to the right service |
-| Barn-door installation | Scope panel, project timeline | Discuss responsibilities and the sequence before work is agreed |
-| Barn-door replacement | Material comparison | Compare design directions and identify compatibility questions |
-| Tracks & hardware | Service card | Gather product details and route movement problems to adjustments |
-| Barn-door adjustments | Follow-up plan | Discuss care, unresolved issues, and contact arrangements |
+| Barn-door installation | Scope panel, responsibility matrix, project timeline | Name supply, access and finishing responsibilities before agreeing work |
+| Barn-door replacement | Material comparison, decision register | Compare design directions and record reuse and finish decisions still to resolve |
+| Tracks & hardware | Service card, material schedule | Gather compatible product references and establish supply responsibilities |
+| Barn-door adjustments | Punch list, follow-up plan | Record unresolved items, then discuss care and contact arrangements |
 | Gallery | Finish selector, project story | Explore clearly labelled illustrations and a fictional design study |
 | About | Crew roster, field notes, credential list | Introduce the parody cast and keep real qualification status explicit |
 | Pricing | Package comparison, cost drivers, change summary | Explain scope choices and what a revised agreement needs |
-| Contact | Visit checklist | Prepare details locally alongside the existing project brief |
+| Contact | Visit checklist, site-access plan | Prepare details and discuss access needs after the existing brief form |
 | Service Area | Availability panel | Keep coverage and timing unconfirmed until discussed directly |
-| FAQ | Handover pack | Collect walkthrough, care, and support questions in native disclosures |
+| FAQ | Handover pack, document register | Collect walkthrough questions and link to the survey while identifying paperwork still needed |
 | Reviews | Featured testimonial | Present an explicitly fictional quote and Doreen’s reply |
 
 The homepage chooser replaces the earlier repeated consultation-question panel. About uses the new roster in place of the old image cards, and the new credential list in place of its legacy credential block. Existing inquiry and gallery implementations remain single instances.
@@ -58,7 +58,7 @@ Keep each key unique within a page. The wrapper supplies an `h2` and prefixes co
 
 ### Direct partial calls
 
-All eighteen components receive a dictionary containing `id` and `content`. Supply a unique HTML-id-safe prefix for each instance. IDs connect headings, labels, hints, radio-group names, and panels, including when two instances appear on the same page. All visible content is escaped by Hugo; partials do not apply `safeHTML` to supplied text.
+All twenty-four components receive a dictionary containing `id` and `content`. Supply a unique HTML-id-safe prefix for each instance. IDs connect headings, labels, hints, radio-group names, and panels, including when two instances appear on the same page. All visible content is escaped by Hugo; partials do not apply `safeHTML` to supplied text.
 
 ```go-html-template
 {{ partial "components/scope-panel.html" (dict
@@ -103,6 +103,12 @@ Use page front matter or an owner-reviewed production dataset for real content. 
 | `field-notes.html` | `eyebrow`, `title`, `intro`, `entries[{label,title,body,author}]`, `note` | Editorial observations and authorship |
 | `change-summary.html` | `eyebrow`, `title`, `reference`, `status`, `intro`, `original:{label,body}`, `requested:{label,body}`, `impacts[{label,value}]`, `note` | Read-only proposed change and unresolved impacts |
 | `follow-up-plan.html` | `eyebrow`, `title`, `intro`, `items[{when,title,body,owner}]`, `boundary`, `note` | Follow-up topics, responsibility, and contact boundaries |
+| `decision-register.html` | `eyebrow`, `title`, `intro`, `entries[{reference,title,status,decision,reason,next}]`, `note` | Preserve a decision discussion, reason and next step |
+| `responsibility-matrix.html` | `eyebrow`, `title`, `intro`, `rows[{task,owner,coordination,status}]`, `note` | Proposed ownership and coordination in a labelled table |
+| `site-access-plan.html` | `eyebrow`, `title`, `intro`, `arrival:{label,body}`, `areas[{title,detail,confirm}]`, `note` | Public planning prompts for arrival, routes and use of the space |
+| `material-schedule.html` | `eyebrow`, `title`, `intro`, `rows[{item,selection,responsibility,status}]`, `note` | Proposed products, supply responsibility and unresolved states |
+| `punch-list.html` | `eyebrow`, `title`, `intro`, `items[{reference,title,status,observation,owner,next}]`, `note` | Read-only observations and follow-up actions |
+| `document-register.html` | `eyebrow`, `title`, `intro`, `documents[{title,kind,status,detail,href?,action?}]`, `note` | Real resource links alongside missing-document states |
 
 Use at most one `current` timeline step. Unknown state strings render as upcoming. Availability does not perform a postcode lookup, reserve a visit, or calculate a response time. Credential statuses are editorial input, not a validation system. Actions render only when both `href` and `action` are present; use site-relative paths without a leading slash so Hugo retains deployment subpaths.
 
@@ -131,6 +137,18 @@ Use distinct text labels for every option. Native radios preserve keyboard behav
 - The guide intentionally includes one instance of the existing gallery because its initializer binds to one grid/dialog. Existing inquiry, intake, and survey tools are linked in context rather than cloned into the catalogue.
 - `reviewOnly: true` reuses `page-disabled.html`. Outside review mode the guide is replaced by neutral noindex unavailable content and its script is not loaded. Its own `noindex` also excludes it from site search and sitemap. Review/noindex does not provide privacy.
 - No price, license, insurance, service territory, appointment, performance specification, customer quote, or completion acceptance is established by a specimen.
+
+## Project-paperwork patterns
+
+The six October 13 additions fill gaps between discussing scope and recording open items. They remain read-only specimens: the decision register does not approve a choice, the responsibility matrix does not assign work, and the punch list does not accept an installation. Status is explicit supplied text. The material schedule performs no stock, pricing, compatibility or purchasing operation. No dates, quantities, approvals or appointments are inferred.
+
+The site-access plan is for public planning prompts. Never put private access codes, keys, alarm instructions or customer records into the public dataset. The document register is a resource index, not an upload/store; an action appears only when both `href` and `action` are supplied. Its guide example links to the real survey and FAQ routes, while missing product instructions and agreements have no fake download buttons.
+
+Responsibility and material tables retain captions, scoped headers and labelled keyboard-focusable scroll regions. Records and access cards stack at narrow widths. All six use the existing component variables and heading hierarchy and need no additional JavaScript. Give every instance a unique `id`, including table hint references.
+
+Owner-run coverage repeats each new pattern, supplies hostile text, checks read-only markup and table semantics, checks document-link omission and subpaths, and renders all six through the real site wrapper in an isolated fixture. That coverage has been authored, not executed by the agent.
+
+The October 13 browser pass found no page overflow for the new previews at 320px, checked the document register at 320px and the site-access grid at 1440px, and confirmed keyboard scrolling and catalogue search/reset. The 34-specimen guide had no duplicate IDs at 390px. The staging compilation and source/artifact audits passed; see [verification](verification.md) for the scope and remaining checks.
 
 ## Quiet character notes
 
@@ -200,3 +218,10 @@ The staging build succeeded. Browser spot checks of the revised Home, About crew
 The review found that older FAQ clearance answers still prescribed universal dimensions. They now reference the four entries in `data/door-guidance.json`, shared with the measuring cards. Brief help, Contact and the delivery FAQ resolve the existing delivery-status partial so the wording follows local-only, direct-contact or optional online configuration. The FAQ source validator now accepts those supported answer sources and rejects malformed flags, empty answers and unknown guidance references.
 
 Regression coverage was added for the shared guidance, configured delivery wording and policy alternatives. It has not been run by the agent. The generated feature menu was corrected at its source to distinguish disabled-page shells from omitted drafts. The README, roadmap and affected documents were reconciled with this state; earlier test receipts remain historical. See [verification](verification.md) for current checks and remaining acceptance.
+
+
+## Project-paperwork visitor integration — 2026-10-13
+
+All six paperwork patterns now have the placements listed above. Installation names proposed responsibilities; replacement keeps reuse and finish decisions open; hardware groups product references; adjustments shows explicitly fictional unresolved items before the follow-up plan. Contact keeps its form first and uses two short access-planning areas. FAQ links to the real survey while leaving missing manufacturer instructions and scope documents as labelled text.
+
+The existing mobile styles handle these placements: record facts and statuses stack, access areas become one column, document labels wrap, and the two tables scroll inside focusable regions. The six affected routes received visual and width checks at 320px; installation and Contact received 1440px visual checks. The hardware table responded to ArrowRight while focused. No additional script or page-specific stylesheet was needed. See [verification](verification.md) for the current evidence boundary and owner-run regression command.

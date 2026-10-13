@@ -4,7 +4,7 @@
 
 The current Jeff Does Doors site is an intentional parody and a working component library. It is not an operating-business claim. The October 12 copy pass keeps Jeff's door obsession, Doreen's decisions and personal time, and Lenny's silent authority on alignment distinct. Each page gets a specific character beat; preparation instructions, field labels, errors and delivery states stay direct.
 
-Visitor copy lives in Markdown, the existing YAML datasets and `data/site_components.json`. Guide fixtures in `data/component_library.json` tell separate example stories. Eighteen contractor components are used across twelve visitor routes; the review-only `/style-guide/` links each specimen to its placement. See [the library guide](component-library.md) for the source map and contracts.
+Visitor copy lives in Markdown, the existing YAML datasets and `data/site_components.json`. Guide fixtures in `data/component_library.json` tell separate example stories. Twenty-four contractor components are used across twelve visitor routes; the review-only `/style-guide/` links each specimen to its placement. See [the library guide](component-library.md) for the source map and contracts.
 
 Three optional notes use closed native disclosures on Home, Gallery and About. Keep future jokes outside task controls, factual product guidance and delivery receipts. Fictional reviews, crew and project studies remain disclosed; the copy must not turn a joke about return visits into a warranty or booking promise.
 
