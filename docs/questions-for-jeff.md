@@ -1,6 +1,6 @@
 # Questions for Jeff — Site Launch Intake
 
-This intake document collects the business facts, policies, and media required to transition **Jeff Does Doors** from the current illustrative preview draft to an owner-approved, production-ready website.
+This intake document collects the business facts, policies, and media needed if **Jeff Does Doors** moves from its current parody preview to an owner-approved business website. The invented Jeff/Doreen/Lenny stories and component specimens do not supply those facts. This is a future launch intake, not a requirement to continue the creative preview.
 
 ---
 
@@ -67,7 +67,7 @@ The site needs a confirmed service territory to display on the homepage and `/se
 
 ## 4. "About Jeff" & Story Content
 
-The `/about` page currently explains the design direction and features workshop imagery, but needs Jeff's real background.
+The `/about` page currently presents the fictional cast, field notes and workshop imagery. A business version needs Jeff's real background and permission for any actual people shown.
 
 - [ ] **How long have you been doing door work or fine carpentry?**
 - [ ] **What led you to specialize specifically in barn-style doors?**
@@ -79,7 +79,7 @@ The `/about` page currently explains the design direction and features workshop 
 
 ## 5. Real Job Photography & Proof
 
-The site currently uses 9 high-resolution AI-generated illustrative WebP concepts clearly labeled as placeholders. To launch, we should replace as many as possible with real work.
+The site currently uses 14 optimized AI-generated WebP concept assets, disclosed as illustrations rather than completed work. The gallery has 12 records. A business launch needs approved real work wherever the imagery is offered as project evidence; see [the inventory](imagery.md).
 
 - [ ] **Job Photos**: Can you provide 4 to 8 high-resolution photos of doors you have installed or built?
   - *Ideally:*
@@ -118,6 +118,6 @@ The site currently uses 9 high-resolution AI-generated illustrative WebP concept
 
 1. Update `profiles/jeff-does-doors.toml` with confirmed phone, email, hours, and service territory.
 2. Update `data/services.yaml` and `content/about.md` with Jeff's authentic copy and scope.
-3. Confirm the four *Craft standards* practices above, then remove the review-mode "Proposed" flag from `layouts/partials/craft-standards.html` or drop the section.
+3. Review the craft/planning copy against the selected products and actual scope. The current flag says “Planning topics; not installation specifications.” Do not remove that distinction merely because the site is launching.
 4. Drop Jeff's real job photos into `.attic/`, encode them to WebP in `static/images/`, and update `data/gallery.yaml`.
-5. Run `scripts/verify-local.sh` and populate `data/evidence.json` for production release approval.
+5. Review `data/site_components.json` and the enabled parody datasets for every real-business claim. Run `bash scripts/verify-local.sh`; record genuine revision approvals in `data/evidence.json` only after the human review. Passing checks do not create approval.

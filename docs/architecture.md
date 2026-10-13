@@ -2,7 +2,7 @@
 
 ## Flow
 
-Engine defaults + selected business profile + environment/module overlay, Markdown, and YAML data → Hugo templates → static HTML, CSS, JavaScript, search JSON, sitemap, and RSS → the visitor's browser.
+Engine defaults + selected business profile + environment/module overlay, Markdown, YAML and JSON data → Hugo templates → static HTML, CSS, JavaScript, search JSON, sitemap, and RSS → the visitor's browser.
 
 The browser prepares a brief locally by default. Email, text, call, copy, and download are explicit handoffs. An optional Cloudflare Pages Functions, Turnstile, and D1 intake adapter is implemented for online sending, but is disabled by default.
 
@@ -11,6 +11,8 @@ The browser prepares a brief locally by default. Email, text, call, copy, and do
 `data/publishing.json` defines features, source files, section ownership, and dependencies. Both the Hugo feature helper and Python validation consume it. Unknown flags and malformed boolean settings are validation errors. A missing or non-boolean flag is never treated as enabled by templates.
 
 `page-disabled.html` applies the registry to page front matter and section descendants. The base layout, search, sitemap, RSS, links, and structured data use that decision. Disabled routes deliberately return neutral noindex HTML rather than their original content. They are retained URLs, not HTTP 404 responses.
+
+Pages explicitly marked as drafts are omitted from normal builds. The component guide uses `reviewOnly: true` and its own `noindex` setting: the full catalogue renders in review mode, is excluded from search/sitemap, and becomes the neutral unavailable page outside review mode. It does not introduce another feature flag.
 
 ## Content evidence
 
@@ -33,7 +35,21 @@ Direct indexable production Hugo builds are blocked. The release command first v
 - `draft-storage.js`: whitelisted, expiring device drafts with explicit opt-in in the UI; no network delivery.
 - `brief-core.js`: pure search validation/ranking helpers.
 - `site.js`: independent feature initialization over a small shared lookup scope; failures are isolated per feature and covered by an empty-document smoke test; no arbitrary POST integration.
-- SCSS partials: original cascade order preserved, with shared state fixes isolated.
+- `contractor-choices.js`: independently enhances native radio/panel groups; validates mappings before hiding fallback content, preserves restored choices and has no network or storage behavior.
+- `style-guide.js`: catalogue-only search, family filters, fragment recovery and copy/failure feedback.
+- SCSS partials: `_modern.scss` owns the mobile header/hero layout; `_survey.scss` owns survey styles. `_contractor.scss`, `_style-guide.scss` and `_easter-eggs.scss` are imported after those shared layers.
+
+## Component library and visitor composition
+
+The [living style guide](component-library.md) renders 28 specimens from real partials: 18 contractor components, six shared patterns and four foundations. `data/component_library.json` provides review fixtures and contracts. Production page copy lives separately in `data/site_components.json`; all 18 components have placements across 12 routes.
+
+`site-component.html` validates an explicit component allowlist, checks optional feature dependencies, supplies section headings and prefixes IDs from each placement key. Missing records and unknown component names fail the build. Templates choose the placements; the dataset's `page` field supplies catalogue links. About's crew/notes obey `team`, and its credential list obeys `credentials`. The existing base layout suppresses disabled pages before their content renders.
+
+Only Home and Gallery request the shared choice script through the page store. The guide deduplicates its own specimen script declarations. Without JavaScript, choice controls stay hidden and all panels remain readable; native checkboxes and disclosures still work. The guide links to existing brief/survey workflows instead of cloning their forms.
+
+`easter-egg.html` is a Jeff-profile-only native disclosure, used in three places outside task controls. Home/About crew notes obey `team`; Gallery obeys its page flag. It escapes all supplied text and adds no storage, script or automatic announcement. The notes are documented in the guide's library map, not counted as additional specimens.
+
+The visitor component dataset is an explicit publication core source; rendering assets and templates are already inventoried automatically. Fictional reviews, crew, project stories and planning examples do not establish real business facts. Existing dataset display flags such as `verified` or `approved` are not substitutes for the empty revision-bound evidence register.
 
 ## Assets and environments
 
@@ -51,7 +67,7 @@ Launch: explicit minimal overlay, production URL, approved sources, artifact aud
 
 `assets/contracts/brief-schema.json` is the versioned inquiry wire contract. Hugo mounts `assets/contracts` into its data namespace and renders the exact string choices and browser/server normalization reads the same file. Human-readable choice strings are deliberately retained as wire values to preserve saved drafts; change them as a contract migration, not a copy edit. Service IDs still come from `data/services.yaml`. Starting point and target date participate in the submitted payload hash. The shared delivery-status partial reflects available delivery capability rather than a hardcoded preview claim.
 
-`data/door-guidance.json` supplies the common measurement reference points used in guides and FAQ answers. The manufacturer instructions linked there are examples; the actual selected model and revision belong in each job packet.
+`data/door-guidance.json` supplies the common measurement reference points used in guides and FAQ answers. `faq-answer.html` resolves a delivery-state answer, one of the four supported guidance references, or plain answer text; the source policy validates those alternatives. The manufacturer instructions linked there are examples; the actual selected model and revision belong in each job packet.
 
 `assets/contracts/survey-schema.json` supplies the single-opening fields and check states. `survey-core.mjs` validates file boundaries, numeric/fraction values and packet output; `survey.js` manages accessible controls, explicit browser storage and import/export/print. Only the survey route loads that bundle. Canonical JSON contracts live inside assets for both Node and Hugo imports; Hugo data mounts expose the same bytes to templates. Generated editor mappings are disabled to keep builds from modifying approved source. All imported text is assigned through form values or `textContent`; a packet cannot inject HTML or select a network destination. JSON import is size-bounded and versioned. Device saving is optional; the tool is not a multi-job datastore or installation approval engine.
 

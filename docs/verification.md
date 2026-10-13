@@ -1,6 +1,19 @@
 # Verification and remaining acceptance
 
-## Current revision — October 3, 2026
+## Current review — October 13, 2026
+
+The component library and site integration are implemented: 28 guide specimens, 18 contractor components across 12 visitor routes, mobile layout refinements, a sitewide character-copy pass and three native-disclosure Easter eggs. The final source review corrected FAQ clearance/delivery drift, aligned FAQ answer-source validation with rendering and regenerated the feature menu from corrected documentation text.
+
+Evidence for this change set:
+
+- Source review covered tracked changes and new components, scripts, datasets and regression files. GitNexus impact analysis was paired with direct source inspection where Hugo/data references or new files were unresolved. Graph results are not a substitute for runtime validation; the index was not rebuilt.
+- The final local staging compilation passed with Hugo 0.166.0 Extended and `--panicOnWarning`, producing 26 pages under a `/subpath/` base URL. The staging source audit and generated-artifact audit each returned zero issues. Generated feature documentation matched its source, changed Python files parsed, and `git diff --check` passed. These are build/static checks, not execution of the automated suites or the full release command.
+- The October 12 Chrome pass inspected all 12 integrated visitor routes at 320px for document width and clipped content, with visual spot checks at 320px or 390px and selected tablet/desktop checks. Home/Gallery choices, menu scrolling, contained comparison scrolling and the optional notes received bounded keyboard checks. The detailed observations are in [the component guide](component-library.md).
+- A 200% root-font-size simulation was checked on the homepage. This is not full browser zoom, a real-device check or screen-reader acceptance.
+- Ryan reported nine Python component-library tests and nine JavaScript choice tests passing before visitor integration. The later integration, copy, Easter-egg and review-fix coverage has been authored but not executed by the agent. The current complete suite is pending.
+- No submodules or tracked Git links were found. Local commit authorization does not include a push or deployment.
+
+## Historical owner results — October 3, 2026
 
 **Owner-run automated verification passed after two corrections:** deprecated Hugo `site.Data` references were replaced with `hugo.Data`, and the search-ranking fixture was updated to query its barn-door title.
 
@@ -11,7 +24,9 @@
 
 Codex read Ryan’s terminal results and the generated report; it did not run tests, builds or GitNexus analysis. Documentation-only status updates followed the successful checks. Browser, physical-device, professional field and live-provider acceptance remain separate.
 
-For future implementation changes, the complete verification command is:
+## Current owner-run command
+
+Run the complete verification against the current committed revision:
 
 ```sh
 bash scripts/verify-local.sh
@@ -19,9 +34,11 @@ bash scripts/verify-local.sh
 
 Requires Hugo Extended 0.166.0, Node 22 (including `node:sqlite`), and the Python dependencies in `requirements.txt`. The script chooses `.venv/bin/python` when present and explains dependency setup if unavailable. It runs Python and Node regressions, checks the feature documentation, performs the temporary subpath staging build/audit, and checks diff whitespace. It does not deploy, send inquiries, call live providers or rebuild GitNexus. Tests create disposable Git repositories and synthetic approvals only inside temporary fixtures.
 
-Coverage now includes rendered inquiry choices against the shared schema, every supported barn-door option, local runtime service IDs against the catalog, starting-point/date persistence, storage readback, receipt idempotency, immutable retry behavior, survey parsing/import/arithmetic, operator query boundaries, clean production provenance and output manifest hashes. UI mocks and generated markup checks are not real-browser evidence.
+Existing foundation coverage includes rendered inquiry choices against the shared schema, every supported barn-door option, local runtime service IDs against the catalog, starting-point/date persistence, storage readback, receipt idempotency, immutable retry behavior, survey parsing/import/arithmetic, operator query boundaries, clean production provenance and output manifest hashes. UI mocks and generated markup checks are not real-browser evidence.
 
-The staging report is `/tmp/jeff-does-doors-preview-report.json`; this temporary file can be overwritten by a later run. A production build should remain blocked in the current real checkout: contacts, coverage, source approvals and production URL are unresolved, and the latest corrections are uncommitted.
+The new component tests add catalogue filtering and clipboard fallback, choice isolation and restored selection, escaped text, repeated-instance IDs, route placement, feature suppression, subpaths, source inventory and native-disclosure placement. Review-fix cases cover the shared FAQ guidance and delivery modes. These are authored expectations until the owner runs them.
+
+The staging report is `/tmp/jeff-does-doors-preview-report.json`; this temporary file can be overwritten by a later run. A production build should remain blocked in the current real checkout: contacts, coverage, source approvals and production URL are unresolved. Creating local commits does not resolve those publication requirements.
 
 ## Browser and field acceptance
 
@@ -33,7 +50,9 @@ The staging report is `/tmp/jeff-does-doors-preview-report.json`; this temporary
 - Survey: export JSON, change fields, import the saved file, reject a malformed/oversized file, cancel replacement, and change fields while a file loads. Current work must remain when an import is rejected.
 - Survey: save/restore/delete, start another opening, expire storage, deny clipboard/storage, download text and print. Check that print contains the packet rather than the form/navigation. Device copy and downloaded copies have separate lifetimes.
 - Survey: complete one real opening with a professional using the actual manual. Check datum meanings, dimensions, materials/scope, unresolved checks and customer handover needs.
-- No JavaScript: navigation and content work; interactive buttons stay disabled and explain their requirement.
+- Guide and choices: search/filter/reset, direct specimen links, clipboard denial, arrow-key selection and independent instances. Verify checked radio, displayed panel, status text and focus agree.
+- Easter eggs: all three start closed, open/close from the keyboard, keep focus on their summaries and remain outside forms and error recovery.
+- No JavaScript: navigation and content remain readable; choice controls and guide filters stay hidden while all option panels/specimens remain visible. Native disclosures and checkboxes remain usable. Brief/survey enhancements explain their JavaScript requirement.
 
 ## Provider and release acceptance
 

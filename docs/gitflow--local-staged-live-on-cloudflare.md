@@ -6,11 +6,11 @@ Status: workflows and local validation are implemented. Remote Pages settings, c
 
 | Surface | Config | Publication behavior |
 | --- | --- | --- |
-| Review | `hugo.toml,profiles/jeff-does-doors.toml,hugo-staging.toml` | Full preview with example contacts; noindex/nofollow; no sitemap/RSS |
+| Review | `hugo.toml,profiles/jeff-does-doors.toml,hugo-staging.toml` | Broad parody preview with blank contacts and review-only component guide; noindex/nofollow; no sitemap/RSS |
 | Proposed launch | `hugo.toml,profiles/jeff-does-doors.toml,hugo-launch.toml` | Smaller feature set; real contact/domain and revision-bound approvals required |
 | Custom production selection | Explicit `--config` list | Same source and artifact gate; every selected config participates in evidence |
 
-A disabled feature retains a neutral noindex route. Its original content is excluded from bodies, search, sitemap, feed items, and structured data. Staging is public if deployed: noindex is not authentication.
+A disabled feature retains a neutral noindex route when its page is published; explicit drafts are omitted from normal builds. Original disabled content is excluded from bodies, search, sitemap, feed items, and structured data. The guide follows the existing review-only guard. Staging is public if deployed: noindex is not authentication.
 
 ## Local development
 
@@ -62,7 +62,7 @@ Verify current provider setup steps against [Cloudflare's Hugo guide](https://de
 
 ## Live acceptance and recovery
 
-Record deployed commit, deployment identifier, URL, and artifact receipt. Verify HTTPS, correct canonical URLs, crawl policy, sitemap, a missing-page response, mobile navigation, and real device handoffs. If online delivery is ever added, verify the actual destination separately.
+Record deployed commit, deployment identifier, URL, and artifact receipt. Verify HTTPS, correct canonical URLs, crawl policy, sitemap, a missing-page response, mobile navigation, and real device handoffs. If the optional online adapter is activated, verify the actual destination separately.
 
 For recovery, identify a previously verified production deployment and follow the provider's current rollback procedure with authorization. Preserve the Git history and follow with a source correction. Verify the restored site; a dashboard success message alone is insufficient. [Cloudflare rollback guidance](https://developers.cloudflare.com/pages/configuration/rollbacks/)
 

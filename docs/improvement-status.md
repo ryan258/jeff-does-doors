@@ -1,36 +1,28 @@
 # Current implementation and next actions
 
-Updated October 3, 2026. This is one Hugo site for Jeff Does Doors, with a local single-opening survey workspace and an optional Cloudflare inquiry adapter. The selected profile still has no confirmed business contact details, coverage or fabrication scope. Online intake remains disabled.
+Updated October 13, 2026. This is the Jeff Does Doors parody preview, with a reusable contractor component library, a local single-opening survey workspace and an optional Cloudflare inquiry adapter. Contacts, coverage and fabrication scope remain unconfirmed. Online intake is disabled and the evidence register is empty.
 
-**Owner-run automated verification passed after the Hugo API and search-fixture corrections.** Ryan’s full run passed 24 Python tests and 46 of 47 Node tests; the corrected two-test search file then passed its targeted rerun. The follow-up documentation check, staging source/artifact audit and whitespace check also passed. These are combined results across runs, not a new single full-suite run. Codex did not execute tests, builds or re-indexing. See [verification](verification.md) for the receipt and remaining acceptance boundaries.
+**The October 12 component, mobile, copy and Easter-egg work is implemented; the current complete automated run is still pending.** Source review found and corrected FAQ guidance/delivery drift and stale generated documentation. Local compilation and bounded browser observations are recorded in [verification](verification.md). Earlier owner-run test results remain dated evidence for their respective revisions.
 
-## Review findings and solutions
+## Current component and character work
 
-| Finding | Implemented response | Remaining acceptance |
+| Area | Implemented state | Remaining check |
 | --- | --- | --- |
-| Eight visible intake choices disagreed with the server | `assets/contracts/brief-schema.json` now supplies rendered options, validation limits and friendly field labels; current barn-door fixtures cover every choice | Automated checks passed; optional provider acceptance remains |
-| Starting point was dropped online | Included in normalized payload, canonical hash and saved D1 payload | Automated persistence check passed; live-provider acceptance remains |
-| Target-date choice had no actual date | Optional date input, shared validation, local draft recovery and brief output | Real browser entry/restore |
-| Form limits and errors were inconsistent | Name/contact limits match the contract; readable field names; rendered-form contract assertions | Browser error focus and screen-reader announcement |
-| Universal clearance and material claims were unsupported | Shared measurement guidance uses explicit datums and exact product manuals; comparison, craft and FAQ copy is conditional | Professional review with the actual selected systems |
-| Photos were described as verifying clearances | Photo guidance now supports survey planning, not dimensional or structural approval | Real photo/measurement workflow |
-| FAQ navigation label had insufficient contrast | Dedicated dark-on-light label with readable size | Browser contrast/zoom confirmation |
-| Comparison overflow lacked keyboard access | Labelled, focusable scrolling region | Keyboard and touch verification |
-| Preview messages contradicted enabled capabilities | Shared delivery-status partial used by form, contact, FAQ and review notice; terms/privacy updated | Check direct-contact and online modes in configured fixtures |
-| Hero CTA implied completed work | “Explore door ideas”; illustrative disclosure retained | Replace with authentic approved job media when available |
-| Mobile image preceded the primary action | Copy/action precedes the image at narrow widths; image height is bounded | Real mobile viewport check |
-| Social metadata and Markdown images drifted from visible imagery | Specialty hero fallback shared with metadata; Markdown images use responsive image partial | Generated asset checks passed; actual social preview remains |
-| Long mail/SMS links risked truncation | Long messages open the app without the body and tell users to paste the copied brief | Real iOS/Android mail/SMS checks |
-| Browser save could claim success without readback | Saved brief now verifies the stored bytes; one-draft replacement is explained | Automated storage checks passed; real-browser storage/restore remains |
-| No professional job workflow | `/survey/` records job/opening, datums, dimensions, hardware/manual, scope, materials, estimate notes, checks and handover; produces a reusable packet | Field trial with a barn-door professional |
-| Raw SQL was the only operator interface | `lead_desk.py` lists receipt metadata, shows a selected inquiry, previews status changes and supports explicit notification retry | Configured local/provider acceptance; no live use performed |
-| PR checks were claimed but absent | Dedicated read-only PR validation workflow added; existing push/manual staging deploy remains separate | Actual GitHub run after an authorized push |
-| Dirty production tree could produce a misleading revision receipt | Production requires clean Git state; receipt includes source and output hashes and checks for source changes during build | Owner-run production fixture tests passed; actual production remains blocked |
-| Release controls escaped source review | Scripts, workflow files, dependency requirements and new schemas join the approval inventory | Real approvals remain empty |
-| Hash records were called signatures | Docs and receipt explicitly distinguish hashes from digital signatures; review inventory can list pending sources by technical/business area | Owner process and repository protections |
-| Hugo warnings could be overlooked | Release builds use `--panicOnWarning`; all 12 new deprecated data references were corrected | Owner-run staging gate passed with warnings treated as failures |
-| Disabled modules contained excavation copy and invented numbers | Door-specific unconfirmed placeholders; no fake statistics, active promotions, hiring or payment claims | Keep modules disabled until their actual facts are supplied |
-| Tests and documentation reflected a different trade or revision | Barn-door fixtures, rendered-option contract checks, survey and operator regressions; stale search query corrected and results recorded | Automated checks passed across the full run and targeted follow-up |
+| Living style guide | 28 real specimens: 18 contractor components, six shared patterns and four foundations; search, family filters, snippets and live placement links | Current owner-run regressions; real zoom, no-JavaScript and assistive-technology checks |
+| Visitor integration | All 18 contractor components across 12 routes, with independent copy and publication-source registration | Current placement, feature-suppression and subpath regressions |
+| Mobile layout | Text-first hero, wrapping header, opaque menu, responsive choice panels, tables and quieter component surfaces | Real devices and full browser zoom; emulated viewport observations are bounded |
+| Character copy | Distinct Jeff, Doreen and Lenny voices; shorter service copy; fictional reviews and unresolved terms disclosed | Editorial review whenever examples become real business content |
+| Easter eggs | Three closed native disclosures on Home, Gallery and About; no script or stored preference | No-JavaScript and screen-reader acceptance |
+| FAQ guidance | Four clearance answers resolve the same product-specific guidance as the measuring cards; universal dimensions removed | Actual selected-product review and authored regression coverage |
+| Delivery wording | Brief help, Contact and delivery FAQ use the configured delivery-state partial | Authored local/contact/online fixture coverage; provider acceptance remains separate |
+| Source validation | FAQ policy accepts text, supported guidance references or boolean delivery-state answers; malformed sources are rejected | Owner-run policy regressions |
+| Documentation | README, roadmap, architecture, component guide and status records reflect the current preview; generated feature menu distinguishes disabled shells from drafts | Keep results tied to the revision actually checked |
+
+## Existing foundation
+
+The earlier implementation includes the shared inquiry schema, starting-point and target-date capture, optional seven-day device drafts with readback, receipt-bound optional intake, the survey packet, the bounded operator helper, PR validation and revision-bound release receipts. October 3 owner results cover that earlier work; they are not a fresh pass for this component revision.
+
+The broad preview intentionally renders fictional crew, reviews and other optional content. A business launch would use its own reviewed feature selection and actual evidence. Legacy dataset display flags do not make the parody factual or populate the evidence register.
 
 ## Professional workflow delivered
 
@@ -42,10 +34,10 @@ The current packet has one opening and free-text materials/estimate records. It 
 
 ## Next actions, in order
 
-1. Confirm Jeff’s supply/fabrication/installation scope, then contact details and coverage. The unanswered scope question stays unknown.
+1. Run `bash scripts/verify-local.sh` against the current committed revision and review its results. The agent has not run the automated suites.
 2. Trial one real opening: measurements, manual revision, export/re-import, print and handover checklist. Keep observed friction and missing fields in the packet.
 3. Complete browser/assistive-technology checks in `docs/verification.md`.
-4. Supply authentic photography, approved service copy and actual commercial terms. Record exact revision approval; do not turn placeholders into asserted facts.
+4. If proceeding to a business launch, confirm supply/fabrication/installation scope, contacts and coverage; supply authentic photography, approved copy and actual terms. Record exact revision approval; do not turn parody into asserted facts.
 5. Choose and authorize the operational host and receiving workflow. Configure and prove provider delivery separately before enabling intake.
 
 ## Remaining enhancement proposals
@@ -63,4 +55,4 @@ The current packet has one opening and free-text materials/estimate records. It 
 | CSS/JS maintenance | Gradually split the legacy optional-feature handlers and retire superseded styles; load only needed modules | Baseline screenshots and browser behavior checks first |
 | Repeatable accessibility evidence | Bounded keyboard/zoom/screen-reader cases around forms, file import, storage and print | Actual assistive-technology use |
 
-Business facts, field acceptance, production configuration and publishing need their own evidence. No files have been staged, committed, pushed or deployed by this implementation.
+Business facts, field acceptance, production configuration and publishing need their own evidence. Ryan authorized local review, documentation updates and logically grouped commits for this change set. Push and deployment remain outside that authorization; no submodules are present.

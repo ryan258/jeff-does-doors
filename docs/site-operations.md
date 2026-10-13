@@ -3,8 +3,13 @@
 Status: implemented locally on 2026-09-19; **disabled by default and not deployed**.
 The Jeff profile has blank contacts, unapproved business
 content, and no confirmed production URL. This work does not establish a live
-service, email identity, or owner approval. The September master-refactor suite
-still needs the owner-run full check below.
+service, email identity, or owner approval. Historical owner checks and the pending
+current regression run are distinguished in [verification](verification.md).
+
+The October component and character work changes the static site experience. It
+does not activate the adapter, change the inquiry wire contract, configure a
+provider or establish receipt/inbox acceptance. The brief, Contact and delivery
+FAQ use the shared capability-aware delivery text.
 
 ## Architecture and visitor behavior
 
@@ -250,4 +255,4 @@ Replace the receipt with the real UUID. The status command prints the proposed S
 
 Notification recovery uses `retry-notification RECEIPT_UUID --remote`; it previews the action. Execution additionally requires `--execute`, an HTTPS `OPERATOR_ORIGIN` and `OPERATOR_TOKEN` already provided through your private environment. Tokens are not command-line arguments, written to the repository or printed. Redirects are rejected to avoid forwarding credentials to a different endpoint. The tool reports the endpoint result; acceptance by an email API is not proof the recipient read it.
 
-The helper does not replace the retention/export/restore procedures above and does not authenticate a browser inbox. Keep operator access and backups private. Source and output manifests in release receipts identify reviewed bytes; production release also requires a clean Git revision. The owner-run operator regressions and release fixtures passed, and the staging gate passed after the Hugo correction. Real operator/provider acceptance remains unperformed; see [verification](verification.md).
+The helper does not replace the retention/export/restore procedures above and does not authenticate a browser inbox. Keep operator access and backups private. Source and output manifests in release receipts identify reviewed bytes; production release also requires a clean Git revision. The October 3 owner-run operator regressions and release fixtures passed, and that staging gate passed after the Hugo correction. Those historical results do not verify the later component revision. Real operator/provider acceptance remains unperformed; see [verification](verification.md).

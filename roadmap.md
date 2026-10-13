@@ -2,7 +2,7 @@
 
 Current implementation details and the complete findings-to-solutions list live in [improvement status](docs/improvement-status.md). Validation instructions live in [verification](docs/verification.md). This roadmap does not treat local code as accepted business behavior.
 
-## Implemented, owner-run automated checks passed
+## Implemented foundation
 
 - Barn-door website with four proposed services, illustrative media and explicit review mode.
 - Shared inquiry contract, target-date/starting-point capture, optional device draft recovery and optional receipt-based Cloudflare intake.
@@ -10,13 +10,25 @@ Current implementation details and the complete findings-to-solutions list live 
 - Single-opening survey and job packet with editable file export/import, dimensions, hardware references, scope, materials, installation checks and handover.
 - Bounded operator CLI, PR validation, source/output hash receipts, warning failures and clean production source requirements.
 
-## Next: browser and field acceptance
+The October 3 owner-run checks cover that earlier foundation; they are historical evidence, not a pass for the October 12 changes.
 
-Ryan’s automated checks passed across the full run and targeted follow-up after correcting Hugo data references and a stale search fixture. See the exact results in [verification](docs/verification.md). Trial a real opening and complete accessible browser/print checks next. Codex did not run tests or builds; another automated run is not needed solely for these documentation updates.
+## Implemented — October 12 component and character pass
+
+- Review-only living style guide with 28 specimens: 18 contractor components, six shared patterns and four foundations; searchable examples, usage snippets and links to real placements.
+- All 18 contractor components integrated across 12 visitor routes, with page copy independent of guide fixtures and registered for publication review.
+- Responsive component styling, a text-first mobile hero, wrapping headers and an opaque mobile menu. Bounded Chrome viewport and keyboard checks are recorded in the component guide.
+- Shorter, more varied Jeff/Doreen/Lenny copy and three optional native-disclosure Easter eggs on Home, Gallery and About.
+- Review corrections reconnect FAQ clearances to product-specific guidance, align delivery help with configuration, validate those FAQ sources and correct the generated feature-menu description.
+
+The source review and local staging compilation are complete. Current automated regressions are authored but remain owner-run; prior component-only results predate visitor integration. Local commits do not authorize a push or deployment.
+
+## Next: current regression run and remaining acceptance
+
+Run `bash scripts/verify-local.sh` and review its output for the committed revision. Then complete real zoom, no-JavaScript, forced-colors, reduced-motion and screen-reader checks around the guide, choices, disclosures, brief and survey. Trial a real opening and check export/re-import and print. See [verification](docs/verification.md) for observed browser evidence and unperformed checks.
 
 ## Next: supply the business facts
 
-Confirm supply/fabrication/installation scope first. Then confirm contacts, coverage, response expectations, exclusions, owner story, authentic photography and usage rights, and any pricing/warranty/payment terms. Keep unconfirmed modules disabled. Record actual reviewed revisions in the evidence register; hashes are not signatures.
+If this parody preview is taken toward a real business launch, confirm supply/fabrication/installation scope first. Then confirm contacts, coverage, response expectations, exclusions, owner story, authentic photography and usage rights, and any pricing/warranty/payment terms. Select only approved modules for that launch; the current fictional preview intentionally exercises a broader set. Record actual reviewed revisions in the evidence register; hashes are not signatures.
 
 ## Next: operations and authorized release
 

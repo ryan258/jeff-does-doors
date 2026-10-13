@@ -2,9 +2,11 @@
 
 **Current instruction: leave contacts blank for the review preview.** No phone or email is configured; the site says so rather than showing a placeholder. The evidence register is empty.
 
+The current broad preview is a parody with fictional crew, reviews, project studies and character notes. The component library and local commits are implementation work, not owner approval of those claims. This checklist applies if a real business launch is chosen. Existing `verified`, `approved` and `placeholder` fields in parody datasets must not be mistaken for revision-bound evidence.
+
 ## First decision
 
-Confirm the business phone or email that should be public. Then confirm the business identity and the actual service coverage; the current copy has no town list at all.
+Confirm whether Jeff supplies/builds doors, installs supplied doors, or both. Then confirm the public contact, business identity and actual coverage; the current copy has no confirmed town list.
 
 ## Minimal launch checklist
 
@@ -14,6 +16,7 @@ Confirm the business phone or email that should be public. Then confirm the busi
 - [ ] Confirmed business name, service descriptions, coverage wording, and contact preferences.
 - [ ] Approved hero image, with permission to publish it.
 - [ ] Review of the homepage, core FAQs, process descriptions, service pages, and contact/estimate copy.
+- [ ] Review visitor component copy in `data/site_components.json`, including fictional stories and unresolved statuses. It is a registered core publication source. The review-only catalogue remains unavailable outside review mode.
 - [ ] Review of privacy, terms, and accessibility wording.
 - [ ] Choice of optional modules. Start from `hugo-launch.toml`; inactive datasets and pages need no business approval while unpublished; shared rendering code still participates in technical review.
 - [ ] Phone, SMS, and email handoffs checked on the intended devices.

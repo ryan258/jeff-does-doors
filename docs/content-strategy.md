@@ -1,5 +1,15 @@
 # Contractor content, discovery and conversion strategy
 
+## Current preview and voice
+
+The current Jeff Does Doors site is an intentional parody and a working component library. It is not an operating-business claim. The October 12 copy pass keeps Jeff's door obsession, Doreen's decisions and personal time, and Lenny's silent authority on alignment distinct. Each page gets a specific character beat; preparation instructions, field labels, errors and delivery states stay direct.
+
+Visitor copy lives in Markdown, the existing YAML datasets and `data/site_components.json`. Guide fixtures in `data/component_library.json` tell separate example stories. Eighteen contractor components are used across twelve visitor routes; the review-only `/style-guide/` links each specimen to its placement. See [the library guide](component-library.md) for the source map and contracts.
+
+Three optional notes use closed native disclosures on Home, Gallery and About. Keep future jokes outside task controls, factual product guidance and delivery receipts. Fictional reviews, crew and project studies remain disclosed; the copy must not turn a joke about return visits into a warranty or booking promise.
+
+The remaining sections describe a possible future business website. They are conditional launch guidance, not additional requirements for enjoying or developing the parody preview.
+
 ## One connected customer journey
 
 Search or Maps → relevant service page → credible local proof and answers → contact or prepared message → human follow-up. Each page should help a visitor decide whether this contractor handles the work, serves the property, can substantiate its claims and has a practical next step.
@@ -36,7 +46,7 @@ Google's [AI search guidance](https://developers.google.com/search/docs/fundamen
 
 Article metadata requires actual author, reviewer, publication and modification dates before production. Updating a date without substantively reviewing content is not freshness. Technical/regulatory guidance should identify jurisdiction and direct readers to the current authority. Review structured data against visible facts; never add ratings, addresses or qualifications solely to gain a search appearance.
 
-The master emits canonical URLs, responsive images, fingerprinted assets, business/service identity and breadcrumbs. The output audit checks subpath links and sitemap coverage. The current changes await local execution and device checks; these mechanisms do not establish performance or ranking results.
+The inherited site engine emits canonical URLs, responsive images, fingerprinted assets, business/service identity and breadcrumbs. The output audit checks subpath links and sitemap coverage. Current compilation and bounded browser observations are recorded in [verification](verification.md); the complete current automated run and real-device acceptance remain pending. These mechanisms do not establish performance or ranking results. The component catalogue stays outside search and sitemap discovery.
 
 ## Google Business Profile / Maps
 

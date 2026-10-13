@@ -14,11 +14,17 @@ Requires Hugo Extended (verified with 0.166.0). From this directory:
 
 Open <http://localhost:1317/> for the website or <http://localhost:1317/survey/> for the door survey. Keep the terminal open and press **Ctrl+C** to stop. The launcher checks for Hugo Extended and delegates to `scripts/preview.sh`; no dependency installation, tests or re-indexing run automatically. Use `./jdd.sh --help` for a reminder.
 
+The [component living style guide](http://localhost:1317/style-guide/) contains 28 rendered specimens: eighteen reusable contractor components, six existing shared patterns, and four theme foundations. The field-office edition adds interactive project/finish choices, package comparisons, crew cards, a featured quote, field notes, change summaries, and follow-up plans—with Jeff, Doreen, and Lenny continuing the parody. Search the catalogue (including character copy), inspect states, and copy the Hugo usage snippets. It is a review-only page; production uses the existing disabled-page guard. See [the component integration guide](docs/component-library.md) for contracts and the source map.
+
+All eighteen contractor components are also used across twelve visitor-facing routes: Home, the four service pages, Gallery, About, Pricing, Contact, Service Area, FAQ, and Reviews. The guide links each specimen to its page section. Page-specific copy lives in `data/site_components.json`, independently of the guide fixtures, and participates in the publication source inventory. Jeff has acquired a door-birthday anecdote; Doreen has acquired more paperwork; Lenny remains a level.
+
+Three optional character notes reward a closer look: Lenny in the homepage footer, Jeff after the Gallery grid, and Doreen inside her clipboard on About. They are closed native disclosures, with no script or saved state. The mobile layouts, page copy, and component styling have also been revised together; the jokes stay outside task controls and delivery feedback.
+
 The preview binds to this computer (`127.0.0.1`) and uses the selected client features, noindex review configuration, and no online inquiry delivery. This command does not publish anything. The existing `bash scripts/preview.sh` command remains available.
 
 ## Current site
 
-- Home: “A door is part of the room.” (mid-century modern redesign)
+- Home: “The room is there for the door.” (mid-century modern design, with text and actions before the image on mobile)
 - Four proposed project pages: barn-door installation, replacement/upgrades, tracks/hardware, and adjustments; service index features catalog imagery and project highlights.
 - About, service area, FAQs, contact, privacy, website terms, and accessibility.
 - Architectural guidance components: four-point measuring & clearance guide, three-point photo prep checklist, door mechanism comparison table (sliding vs. pocket vs. hinged), and craft standards.
@@ -27,7 +33,7 @@ The preview binds to this computer (`127.0.0.1`) and uses the selected client fe
 - Updated `data/gallery.yaml` with 12 barn-door records, category tags (Pantry, Rustic, Double doors, Modern, Hardware, Craftsman, Custom, Bypass, Chevron, Glass, Mirrored), and AI concept disclosures.
 - Expanded `data/faqs.yaml` addressing clearances & fit, hardware mechanics, and material/finish considerations.
 - A single-opening survey workspace at `/survey/`: inch/fraction or metric measurements, hardware references, scope and materials, installation checks, handover notes, optional device saving, JSON import/export, text download, copy and print.
-- October 3 automated checks passed in Ryan’s full run and targeted follow-up after two corrections. Browser, field and provider acceptance remain open; see [the verification record](docs/verification.md).
+- October 12 implementation and October 13 review: source and dependency review, successful local staging compilation, and bounded browser checks of the component/mobile/copy work. Ryan previously reported nine component-library Python tests and nine choice JavaScript tests passing before page integration. The current complete regression run remains owner-run and pending; see [the verification record](docs/verification.md) for the separate historical results and remaining acceptance.
 
 See [the project roadmap](roadmap.md) for milestone tracking.
 
@@ -44,11 +50,17 @@ The source master is unchanged. This repository has its own GitHub Pages staging
 | `data/faqs.yaml`, `data/process.yaml` | Questions, clearances, mechanics, and project-planning steps |
 | `layouts/index.html` | Homepage copy and sections |
 | `layouts/partials/` | Architectural partials: measuring guide, photo prep, door comparison, craft standards |
+| `data/component_library.json`, `layouts/_default/style-guide.html` | Review catalogue, fixtures, source contracts and live specimen links |
+| `data/site_components.json`, `layouts/partials/site-component.html` | Visitor-page component copy, placement metadata and feature-aware wrapper |
+| `layouts/partials/components/`, `assets/scss/_contractor.scss` | Eighteen reusable components and responsive presentation |
+| `assets/js/contractor-choices.js`, `assets/js/style-guide.js` | Independent choice controls and guide-only filtering/clipboard behavior |
+| `layouts/partials/easter-egg.html`, `assets/scss/_easter-eggs.scss` | Three optional Jeff-profile character notes |
 | `assets/scss/_modern.scss` | Modern design system, component layouts, and responsive styling |
 | `assets/scss/_doors.scss` | Client refinements & CSS wood texture overlays over shared foundations |
-| `hugo.toml`, `hugo-launch.toml` | Matching minimal feature selections |
+| `hugo.toml`, `hugo-launch.toml` | Broad parody preview defaults and a separate minimal launch selection |
 | `assets/contracts/brief-schema.json` | Shared Hugo/browser/server inquiry choices and limits |
-| `data/door-guidance.json` | Shared measurement guidance for homepage and FAQ |
+| `data/door-guidance.json`, `layouts/partials/faq-answer.html` | Shared product-specific measurement guidance and FAQ answer resolution |
+| `layouts/partials/delivery-status.html` | Capability-aware help used by the brief, contact page and delivery FAQ |
 | `assets/contracts/survey-schema.json`, `assets/js/survey-core.mjs`, `assets/js/survey.js` | Survey fields, calculations, file boundary, device storage and UI |
 | `scripts/lead_desk.py` | Bounded D1 operator commands and notification retry |
 | `data/evidence.json` | Revision-bound approvals, currently empty |

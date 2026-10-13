@@ -6,9 +6,9 @@ All imagery assets on this draft site are illustrative concepts created to flesh
 
 | Asset | Dimensions | Size | Purpose / Placement | Source master in `.attic/` |
 |---|---|---|---|---|
-| `images/barn-door-illustration.webp` | 1536×1024 | 123 KB | Homepage hero background | `barn-door-illustration.png` |
+| `images/barn-door-illustration.webp` | 1536×1024 | 123 KB | Homepage editorial room image; profile hero fallback | `barn-door-illustration.png` |
 | `images/barn-door-pantry.webp` | 1200×896 | 44 KB | Service 01 (`barn-door-installation`), Gallery | `barn-door-pantry.jpg` |
-| `images/barn-door-walnut.webp` | 1200×896 | 80 KB | Service 02 (`barn-door-replacement`), Gallery | `barn-door-walnut.jpg` |
+| `images/barn-door-walnut.webp` | 1200×896 | 80 KB | Active specialty homepage hero, Service 02 (`barn-door-replacement`), Gallery and components | `barn-door-walnut.jpg` |
 | `images/barn-door-french-glass.webp` | 1200×896 | 91 KB | Gallery (double French sliding doors) | `barn-door-french-glass.jpg` |
 | `images/barn-door-oak-slab.webp` | 1200×896 | 37 KB | Gallery (minimalist rift-cut oak slab) | `barn-door-oak-slab.jpg` |
 | `images/barn-door-hardware.webp` | 1200×896 | 79 KB | Service 03 (`tracks-hardware`), Gallery | `barn-door-hardware.jpg` |
@@ -21,7 +21,11 @@ All imagery assets on this draft site are illustrative concepts created to flesh
 | `images/barn-door-mirrored.webp` | 1200×896 | 63 KB | Gallery (full-length mirror dressing slider) | `barn-door-mirrored.jpg` |
 | `images/wood-texture-dark.webp` | 1376×768 | 274 KB | Homepage closing section material study (`.contact__material`) | `wood-texture-dark.jpg` |
 
-## Hero image
+## Current component use
+
+The active door specialty selects `barn-door-walnut.webp` in `data/specialties.yaml`; the homepage and social-image fallback resolve that selection. The Gallery finish selector and project-story component reuse existing illustrations. Finish choices show different design concepts, not exact recolors or purchasable product configurations. The About roster uses decorative text initials rather than implied staff photographs. No additional raster assets were created for the component, mobile, copy or Easter-egg passes.
+
+## Original hero illustration and retained provenance
 
 - Asset: `static/images/barn-door-illustration.webp` (1536×1024, 123 KB).
 - The 2.2 MB PNG it was encoded from is kept out of the build in `.attic/`, which is git-ignored.
@@ -29,7 +33,7 @@ All imagery assets on this draft site are illustrative concepts created to flesh
 - AI-generated illustration; not Jeff’s work, a product specification, an installation diagram, or a customer property.
 - Identified in the review notice. Replace with approved actual work when available.
 
-### Hero prompt
+### Original hero prompt
 
 Use case: photorealistic-natural. Asset type: wide website hero photograph for Jeff Does Doors, a contractor specializing in barn-style doors; illustrative concept only, not a real customer project. Subject: one beautifully made natural oak sliding barn-style interior door with simple vertical planks and subtle horizontal rails, matte black steel overhead track, visible black rollers and a simple black pull handle. Door installed on the right side of a wide interior opening, partially open to a warmly lit quiet home room beyond. Believable complete track with room for the door to slide sideways, accurate plumb architectural details, premium craftsmanship with warm wood grain. Modest welcoming residential interior, warm plaster walls and wood floor, soft daylight. Composition: wide landscape 3:2 editorial architectural photograph, straight vertical lines; door and opening in the right half, left half has quiet darker shaded plaster wall with ample low-detail space for website text overlay. No people, no exterior entry doors, no farm or actual agricultural barn, no signage, no text, no logos, no watermark, no before/after. Warm, understated, practical, not a luxury mansion.
 
