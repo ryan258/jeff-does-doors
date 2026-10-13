@@ -19,18 +19,22 @@ ROOT = Path(__file__).resolve().parents[1]
 PAGE_COMPONENTS = {
     'index.html': {'home-start': 'project-chooser'},
     'services/barn-door-installation/index.html': {
-        'installation-scope': 'scope-panel', 'installation-timeline': 'project-timeline'},
-    'services/barn-door-replacement/index.html': {'replacement-materials': 'material-comparison'},
-    'services/tracks-hardware/index.html': {'hardware-next-step': 'service-card'},
-    'services/barn-door-adjustments/index.html': {'adjustments-followup': 'follow-up-plan'},
+        'installation-scope': 'scope-panel', 'installation-timeline': 'project-timeline',
+        'installation-responsibilities': 'responsibility-matrix'},
+    'services/barn-door-replacement/index.html': {
+        'replacement-materials': 'material-comparison', 'replacement-decisions': 'decision-register'},
+    'services/tracks-hardware/index.html': {
+        'hardware-next-step': 'service-card', 'hardware-materials': 'material-schedule'},
+    'services/barn-door-adjustments/index.html': {
+        'adjustments-followup': 'follow-up-plan', 'adjustments-open-items': 'punch-list'},
     'gallery/index.html': {'gallery-finishes': 'finish-selector', 'gallery-story': 'project-story'},
     'about/index.html': {'about-crew': 'crew-roster', 'about-notes': 'field-notes',
                        'about-credentials': 'credential-list'},
     'pricing/index.html': {'pricing-packages': 'package-comparison',
                           'pricing-drivers': 'cost-drivers', 'pricing-change': 'change-summary'},
-    'contact/index.html': {'contact-prep': 'visit-checklist'},
+    'contact/index.html': {'contact-prep': 'visit-checklist', 'contact-access': 'site-access-plan'},
     'service-area/index.html': {'service-area-availability': 'availability-panel'},
-    'faq/index.html': {'faq-handover': 'handover-pack'},
+    'faq/index.html': {'faq-handover': 'handover-pack', 'faq-documents': 'document-register'},
     'reviews/index.html': {'reviews-featured': 'featured-testimonial'},
 }
 FLAGS = ('about', 'team', 'credentials', 'gallery', 'pricing', 'contactPage',
@@ -79,7 +83,7 @@ class SiteComponentTests(unittest.TestCase):
             raise AssertionError(result.stdout + result.stderr)
         return output
 
-    def test_all_eighteen_components_render_on_their_intended_pages(self):
+    def test_all_components_render_on_their_intended_pages(self):
         kinds = set()
         for path, expected in PAGE_COMPONENTS.items():
             with self.subTest(page=path):
@@ -89,7 +93,7 @@ class SiteComponentTests(unittest.TestCase):
                 self.assertEqual(actual, expected)
                 self.assertEqual(len(entries), len(expected))
                 kinds.update(actual.values())
-        self.assertEqual(len(kinds), 18)
+        self.assertEqual(len(kinds), 24)
 
     def test_page_ids_and_component_heading_references_are_unique_and_resolved(self):
         for path, markup in self.markup.items():
@@ -153,7 +157,7 @@ class SiteComponentTests(unittest.TestCase):
         guide = GuideMarkup((self.output / 'style-guide/index.html').read_text())
         links = [attrs for tag, attrs in guide.elements
                  if tag == 'a' and 'data-site-component-link' in attrs]
-        self.assertEqual(len(links), 18)
+        self.assertEqual(len(links), 24)
         self.assertEqual({attrs['data-site-component-link'] for attrs in links},
                          {key for components in PAGE_COMPONENTS.values() for key in components})
         for attrs in links:
@@ -182,7 +186,8 @@ class SiteComponentTests(unittest.TestCase):
         for path in PAGE_COMPONENTS:
             if path.startswith('services/'):
                 html = (self.disabled_output / path).read_text()
-                self.assertIn('data-site-component=', html)
+                for key in PAGE_COMPONENTS[path]:
+                    self.assertIn(f'data-site-component="{key}"', html)
         for tag, attrs in GuideMarkup(home).elements:
             if tag == 'a' and 'contractor-link' in attrs.get('class', '').split():
                 target = self.disabled_output / urlsplit(attrs['href']).path.removeprefix('/subpath/') / 'index.html'
@@ -202,6 +207,60 @@ class SiteComponentTests(unittest.TestCase):
                             for _, attrs in faq.elements))
         self.assertGreaterEqual(sum(tag == 'details' and not attrs.get('class')
                                     for tag, attrs in faq.elements), 3)
+
+    def test_project_records_are_read_only_and_do_not_imply_completed_work(self):
+        records = {
+            'installation-responsibilities': ('services/barn-door-installation/index.html',
+                                            'nobody is assigned'),
+            'replacement-decisions': ('services/barn-door-replacement/index.html',
+                                     'not a record of an actual selection'),
+            'hardware-materials': ('services/tracks-hardware/index.html',
+                                   'not a bill of materials'),
+            'adjustments-open-items': ('services/barn-door-adjustments/index.html',
+                                      'no inspection, repair, completion, or customer acceptance'),
+            'contact-access': ('contact/index.html', 'does not reserve a visit'),
+            'faq-documents': ('faq/index.html', 'No contract, product manual, or completion record'),
+        }
+        for key, (path, boundary) in records.items():
+            with self.subTest(component=key):
+                # Match the new card itself, so unrelated form/checklist controls
+                # elsewhere on the page cannot hide an accidental approval UI.
+                page = self.pages[path]
+                start = page.index(f'aria-labelledby="site-{key}-title"')
+                card = GuideMarkup('<section ' + page[start:page.index('</section>', start) + 10])
+                self.assertIn(boundary, unescape(page[start:page.index('</section>', start)]))
+                self.assertFalse(any(tag in ('input', 'button', 'form', 'select', 'textarea')
+                                     for tag, _ in card.elements))
+                for _, attrs in card.elements:
+                    self.assertNotIn('aria-current', attrs)
+                    for ref in attrs.get('aria-describedby', '').split():
+                        self.assertIn(ref, card.ids)
+
+    def test_planning_tables_keep_keyboard_scroll_regions_and_semantic_headers(self):
+        for key, path in (
+            ('installation-responsibilities', 'services/barn-door-installation/index.html'),
+            ('hardware-materials', 'services/tracks-hardware/index.html'),
+        ):
+            with self.subTest(component=key):
+                markup = self.markup[path]
+                regions = [attrs for _, attrs in markup.elements
+                           if attrs.get('role') == 'region'
+                           and attrs.get('aria-labelledby') == f'site-{key}-title']
+                self.assertEqual(len(regions), 1)
+                self.assertEqual(regions[0].get('tabindex'), '0')
+                self.assertEqual(regions[0].get('aria-describedby'), f'site-{key}-hint')
+                self.assertTrue(any(tag == 'th' and attrs.get('scope') == 'row'
+                                    for tag, attrs in markup.elements))
+
+    def test_contact_access_follows_the_form_and_document_links_are_real_tools(self):
+        contact = self.pages['contact/index.html']
+        self.assertLess(contact.index('</form>'), contact.index('id="site-contact-access"'))
+        faq = self.pages['faq/index.html']
+        start = faq.index('class="contractor-card contractor-documents"')
+        card = GuideMarkup('<section ' + faq[start:faq.index('</section>', start) + 10])
+        links = [attrs for tag, attrs in card.elements if tag == 'a']
+        self.assertEqual([attrs['href'] for attrs in links], ['/subpath/survey/'])
+        self.assertFalse(any('download' in attrs for attrs in links))
 
     def test_parody_and_unresolved_terms_remain_explicit(self):
         self.assertIn('Parody cast:', self.pages['about/index.html'])

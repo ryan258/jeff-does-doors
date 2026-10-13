@@ -75,6 +75,38 @@
       "note": "Discussion topics only; included work must be agreed in writing."
     }
   },
+  "installation-responsibilities": {
+    "component": "responsibility-matrix",
+    "page": "/services/barn-door-installation",
+    "eyebrow": "Before anyone orders",
+    "heading": "Whose list is it on?",
+    "content": {
+      "eyebrow": "The handoffs",
+      "title": "Give each task a name.",
+      "intro": "Use these roles to start the discussion. Doreen has crossed out “one of us” in three places.",
+      "rows": [
+        {
+          "task": "Choose and order the door and hardware",
+          "owner": "Purchaser, to be named",
+          "coordination": "Installer reviews the proposed products and site conditions.",
+          "status": "To agree"
+        },
+        {
+          "task": "Arrange access and room preparation",
+          "owner": "Site contact, to be named",
+          "coordination": "Installer confirms the route, work area, and timing.",
+          "status": "To agree"
+        },
+        {
+          "task": "Handle finishing and making good",
+          "owner": "Responsible trade, to be named",
+          "coordination": "Customer and installer define where the installation scope ends.",
+          "status": "To agree"
+        }
+      ],
+      "note": "Planning roles only; nobody is assigned and no work is included by this list. Record the actual names and responsibilities in the agreed scope."
+    }
+  },
   "installation-timeline": {
     "component": "project-timeline",
     "page": "/services/barn-door-installation",
@@ -139,6 +171,36 @@
       "note": "Design directions only. Verify the actual product and any retained hardware; affection does not make the holes line up."
     }
   },
+  "replacement-decisions": {
+    "component": "decision-register",
+    "page": "/services/barn-door-replacement",
+    "eyebrow": "Narrow the options",
+    "heading": "Two decisions before the old door retires.",
+    "content": {
+      "eyebrow": "The replacement notes",
+      "title": "Keep the reason with the choice.",
+      "intro": "An example of useful decision notes. Jeff has offered to write the old door a reference.",
+      "entries": [
+        {
+          "reference": "01 · What stays",
+          "title": "Can any hardware stay?",
+          "status": "Needs assessment",
+          "decision": "Keep reuse on the list of questions until the existing parts and proposed door have been reviewed.",
+          "reason": "Appearance alone does not establish compatibility or condition.",
+          "next": "Gather visible product details and ask the installer to assess the proposed combination."
+        },
+        {
+          "reference": "02 · What changes",
+          "title": "Choose the finish in the room.",
+          "status": "Still open",
+          "decision": "Compare an actual sample with the room before committing to a finish.",
+          "reason": "A screen image cannot settle the final color or grain.",
+          "next": "Record the chosen sample reference and who supplies the finished door. Doreen files references; Jeff gives them adjectives."
+        }
+      ],
+      "note": "Illustrative planning notes, not a record of an actual selection, approval, or order."
+    }
+  },
   "hardware-next-step": {
     "component": "service-card",
     "page": "/services/tracks-hardware",
@@ -155,6 +217,38 @@
       ],
       "href": "services/barn-door-adjustments/",
       "action": "If the problem is how it moves"
+    }
+  },
+  "hardware-materials": {
+    "component": "material-schedule",
+    "page": "/services/tracks-hardware",
+    "eyebrow": "Match the parts",
+    "heading": "One system. Fewer mystery boxes.",
+    "content": {
+      "eyebrow": "Before the shopping list",
+      "title": "Identify the parts together.",
+      "intro": "Use this list to gather references for the proposed setup. Jeff calls it a family. Doreen asks for the model numbers.",
+      "rows": [
+        {
+          "item": "Door and hanging hardware",
+          "selection": "Door details and the proposed hardware model",
+          "responsibility": "Purchaser to be agreed",
+          "status": "Compatibility unconfirmed"
+        },
+        {
+          "item": "Guides, stops, and accessories",
+          "selection": "Parts specified for the selected system",
+          "responsibility": "Supplier and installer to confirm",
+          "status": "Product list needed"
+        },
+        {
+          "item": "Mounting materials",
+          "selection": "Installer to determine from site conditions and product instructions",
+          "responsibility": "Installer to confirm scope and supply",
+          "status": "Site review needed"
+        }
+      ],
+      "note": "A planning list, not a bill of materials or installation specification. No quantities, substitutions, purchases, or supplied parts are confirmed."
     }
   },
   "adjustments-followup": {
@@ -188,6 +282,36 @@
       ],
       "boundary": "If the door appears loose or unsafe, stop using it and arrange appropriate help. Do not dismantle or force it for a photo.",
       "note": "No warranty, return visit, response time, or check-in is promised here. Agree any follow-up directly. Doreen books appointments; Jeff’s wave from the driveway does not count."
+    }
+  },
+  "adjustments-open-items": {
+    "component": "punch-list",
+    "page": "/services/barn-door-adjustments",
+    "eyebrow": "Keep the loose ends visible",
+    "heading": "Write down what still needs an answer.",
+    "content": {
+      "eyebrow": "A fictional follow-up list",
+      "title": "“Nearly” gets its own line.",
+      "intro": "An example of recording unresolved items after a discussion. Lenny can settle a level reading. He cannot close the paperwork.",
+      "items": [
+        {
+          "reference": "01 · Movement",
+          "title": "A catch near the end of travel",
+          "status": "Assessment needed",
+          "observation": "In this fictional example, the owner reports a catch. Its cause and any repair are still unknown.",
+          "owner": "Assessing contractor, to be agreed",
+          "next": "Record when it happens and arrange an assessment. Do not force or dismantle the door to demonstrate it."
+        },
+        {
+          "reference": "02 · Product information",
+          "title": "The correct care instructions",
+          "status": "Reference needed",
+          "observation": "The imagined folder contains a brochure but no instructions for the installed hardware.",
+          "owner": "Supplier or installer, to be confirmed",
+          "next": "Identify the model and obtain its current instructions. Doreen has labelled the brochure “nice pictures.”"
+        }
+      ],
+      "note": "Fictional open items; no inspection, repair, completion, or customer acceptance is recorded."
     }
   },
   "gallery-finishes": {
@@ -487,6 +611,34 @@
       "note": "These ticks are not sent or saved by the site and do not book a visit. Photos stay with you. Doreen accepts “I don’t know yet” as a complete sentence."
     }
   },
+  "contact-access": {
+    "component": "site-access-plan",
+    "page": "/contact",
+    "eyebrow": "If a visit is being discussed",
+    "heading": "Help the door get through the door.",
+    "content": {
+      "eyebrow": "Access without surprises",
+      "title": "Plan the route and the room.",
+      "intro": "Raise access needs early. Jeff pictures the finished doorway; Doreen remembers the stairs on the way to it.",
+      "arrival": {
+        "label": "Agree the visit first",
+        "body": "Confirm the date, arrival arrangements, and person to contact directly. Preparing a brief does not reserve a visit."
+      },
+      "areas": [
+        {
+          "title": "Getting to the opening",
+          "detail": "Mention stairs, tight turns, shared entrances, or delivery restrictions.",
+          "confirm": "The route and any building permissions with the people doing the work."
+        },
+        {
+          "title": "Keeping the room usable",
+          "detail": "Describe essential walkways, mobility needs, pets, or times the room must remain available.",
+          "confirm": "A workable access and preparation plan before the visit."
+        }
+      ],
+      "note": "Planning prompts only. Keep keys, alarm codes, and other private entry instructions out of the project brief; arrange those directly through an agreed private channel."
+    }
+  },
   "service-area-availability": {
     "component": "availability-panel",
     "page": "/service-area",
@@ -540,6 +692,40 @@
         }
       ],
       "note": "A question list is not a completion record, acceptance, or warranty. Neither is Jeff’s farewell."
+    }
+  },
+  "faq-documents": {
+    "component": "document-register",
+    "page": "/faq",
+    "eyebrow": "Keep the useful references",
+    "heading": "A folder that survives Jeff’s filing system.",
+    "content": {
+      "eyebrow": "Find it again",
+      "title": "Start with these. Add the actual paperwork.",
+      "intro": "Jeff remembers which room felt like oak. Doreen would also like a filename.",
+      "documents": [
+        {
+          "title": "Door and opening worksheet",
+          "kind": "Planning tool",
+          "status": "Available on this site",
+          "detail": "Gather observations and questions before a conversation. It does not establish installation dimensions.",
+          "href": "survey/",
+          "action": "Open the door survey"
+        },
+        {
+          "title": "Selected product instructions",
+          "kind": "Manufacturer reference",
+          "status": "Obtain for your products",
+          "detail": "Keep the exact door, hardware, and finish references together with the instructions that apply to them."
+        },
+        {
+          "title": "Agreed scope and open items",
+          "kind": "Project record",
+          "status": "To agree directly",
+          "detail": "Keep the written scope, any agreed changes, and unresolved items together. Lenny’s silence is not an acceptance signature."
+        }
+      ],
+      "note": "This site provides the survey link, not a project document vault. No contract, product manual, or completion record is stored here."
     }
   },
   "reviews-featured": {

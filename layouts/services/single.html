@@ -34,10 +34,10 @@
     </aside>
   </div></section>
   {{ $componentKeys := dict
-    "barn-door-installation" (slice "installation-scope" "installation-timeline")
-    "barn-door-replacement" (slice "replacement-materials")
-    "tracks-hardware" (slice "hardware-next-step")
-    "barn-door-adjustments" (slice "adjustments-followup")
+    "barn-door-installation" (slice "installation-scope" "installation-responsibilities" "installation-timeline")
+    "barn-door-replacement" (slice "replacement-materials" "replacement-decisions")
+    "tracks-hardware" (slice "hardware-next-step" "hardware-materials")
+    "barn-door-adjustments" (slice "adjustments-open-items" "adjustments-followup")
   }}
   {{ range index $componentKeys .Params.serviceID }}
     {{ partial "site-component.html" (dict "page" $ "key" .) }}
