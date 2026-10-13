@@ -7,10 +7,11 @@ if (form) {
   const key = `door-survey:v1:${form.dataset.profile}:${form.dataset.scope}`;
   let storage, revision = 0, previousUnits = 'in', previousWeightUnit = 'lb';
   try { storage = window.localStorage; } catch { /* exporting is still available */ }
-  const say = text => { state.textContent = text; };
+  const reveal = element => { element.focus({ preventScroll: true }); element.scrollIntoView({ block: 'start', behavior: 'instant' }); };
+  const say = (text, focus = false) => { state.textContent = text; if (focus) reveal(state); };
   const collect = () => validatePacket(Object.fromEntries(FIELDS.map(field => [field.id, form.elements.namedItem(field.id).value])));
   const populate = packet => { for (const field of FIELDS) form.elements.namedItem(field.id).value = packet[field.id]; previousUnits = packet.units; previousWeightUnit = packet.weightUnit; revision++; result.hidden = true; };
-  const guard = action => { try { action(); } catch (error) { say(`${error.message} The current fields are still available. Copy or export valid entries before leaving.`); } };
+  const guard = (action, focusError = false) => { try { action(); } catch (error) { say(`${error.message} The current fields are still available. Copy or export valid entries before leaving.`, focusError); } };
   const saveCurrent = () => {
     if (!save.checked) return;
     const raw = encodePacket(collect());
@@ -97,14 +98,14 @@ if (form) {
       save.checked = false; populate(packet);
       try { find('restore').hidden = !readSaved(); } catch { find('restore').hidden = true; }
       say('Imported into this page. Device saving is off; any earlier device copy is unchanged.');
-    } catch (error) { say(`Import stopped: ${error.message}`); }
+    } catch (error) { say(`Import stopped: ${error.message}`, true); }
     finally { event.target.value = ''; }
   });
-  form.addEventListener('submit', event => { event.preventDefault(); guard(() => { prepare(); result.focus(); say('Packet prepared. Review unresolved items before sharing.'); }); });
-  find('json').addEventListener('click', () => guard(() => download(encodePacket(prepare()), 'json', 'application/json')));
-  find('text').addEventListener('click', () => guard(() => { prepare(); download(output.textContent, 'txt', 'text/plain;charset=utf-8'); }));
+  form.addEventListener('submit', event => { event.preventDefault(); guard(() => { prepare(); reveal(document.querySelector('#survey-result-title')); say('Packet prepared. Review unresolved items before sharing.'); }, true); });
+  find('json').addEventListener('click', () => guard(() => download(encodePacket(prepare()), 'json', 'application/json'), true));
+  find('text').addEventListener('click', () => guard(() => { prepare(); download(output.textContent, 'txt', 'text/plain;charset=utf-8'); }, true));
   find('copy').addEventListener('click', async () => {
-    try { prepare(); } catch (error) { say(error.message); return; }
+    try { prepare(); } catch (error) { say(error.message, true); return; }
     try { await navigator.clipboard.writeText(output.textContent); say('Packet copied.'); }
     catch { say('Copy is unavailable. Use Download text to keep the packet without selecting text.'); }
   });
@@ -112,7 +113,7 @@ if (form) {
     try { prepare(); }
     catch (error) { output.textContent = `Packet cannot be prepared: ${error.message}\nCorrect the current fields before printing.`; result.hidden = false; }
   });
-  find('print').addEventListener('click', () => guard(() => { prepare(); window.print(); }));
+  find('print').addEventListener('click', () => guard(() => { prepare(); window.print(); }, true));
   find('new').addEventListener('click', () => {
     if (!window.confirm('Start another opening? Current unsaved entries will be cleared. Export this packet first if needed. The device copy will remain until replaced or deleted.')) return;
     guard(() => { save.checked = false; populate(emptyPacket()); find('restore').hidden = !readSaved(); say('New opening ready. Device saving is off.'); form.elements.namedItem('job').focus(); });

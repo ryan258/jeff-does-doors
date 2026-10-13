@@ -11,7 +11,7 @@
       <button type="button" class="button button--ghost" data-survey-delete disabled>Delete device copy</button>
       <label>Import a saved packet <input type="file" accept=".json,application/json" data-survey-import disabled></label>
     </div>
-    <p data-survey-status role="status" aria-live="polite">Device saving is off. Prepare a packet to check your entries.</p>
+    <p data-survey-status tabindex="-1" role="status" aria-live="polite">Device saving is off. Prepare a packet to check your entries.</p>
     {{ range (index hugo.Data "survey-schema").groups }}
     <fieldset class="survey-group"><legend>{{ .title }}</legend>{{ with .help }}<p>{{ . }}</p>{{ end }}
       <div class="survey-fields">{{ range .fields }}
@@ -32,6 +32,6 @@
       <button type="button" class="button button--ghost" data-survey-new disabled>New opening</button>
     </div>
   </form>
-  <section data-survey-result hidden tabindex="-1" aria-labelledby="survey-result-title"><h2 id="survey-result-title">Current job packet</h2><p>Exports include client and site notes. Review before sharing.</p><pre data-survey-output></pre></section>
+  <section data-survey-result hidden tabindex="-1" aria-labelledby="survey-result-title"><h2 id="survey-result-title" tabindex="-1">Current job packet</h2><p>Exports include client and site notes. Review before sharing.</p><pre data-survey-output></pre></section>
 </div></section>
 {{ end }}

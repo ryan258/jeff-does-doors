@@ -10,6 +10,7 @@
 .survey-actions input[type="checkbox"] { width: 1.2rem; height: 1.2rem; }
 [data-survey-output] { white-space: pre-wrap; overflow-wrap: anywhere; background: #fffdf7; color: #24201c; padding: 1.2rem; border: 1px solid #786954; font: inherit; }
 [data-survey-status] { padding: 1rem; background: #eee5d3; color: #24201c; }
+[data-survey-status]:focus-visible, #survey-result-title:focus-visible,
 .door-comparison__table-wrap:focus-visible { outline: 3px solid #5c3b0e; outline-offset: 4px; }
 @media (max-width: 760px) {
   .survey-fields { grid-template-columns: minmax(0, 1fr); }

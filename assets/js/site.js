@@ -506,7 +506,7 @@
         : 'Your draft is ready. Copy or download it to keep. Business contact details are not available in this preview; nothing has been sent.';
 
       try { result.focus({ preventScroll: true }); } catch { result.focus(); }
-      result.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'nearest' });
+      result.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'start' });
     });
 
     copyButton?.addEventListener('click', async () => {

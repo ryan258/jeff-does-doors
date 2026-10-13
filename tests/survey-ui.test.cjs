@@ -6,19 +6,19 @@ const path = require('node:path');
 let core;
 test.before(async () => { core = await import('../assets/js/survey-core.mjs'); });
 function setup(saved) {
-  const element = (value = '') => ({value,hidden:false,disabled:true,checked:false,listeners:{},addEventListener(type, fn){this.listeners[type]=fn;},focus(){}});
+  const element = (value = '') => ({value,hidden:false,disabled:true,checked:false,listeners:{},addEventListener(type, fn){this.listeners[type]=fn;},focus(){this.focused=true;},scrollIntoView(options){this.scrollOptions=options;}});
   const fields = Object.fromEntries(Object.entries(core.emptyPacket()).map(([name,value]) => [name, {...element(value),name}]));
   const controls = Object.fromEntries(['status','save','restore','delete','import','prepare','json','text','copy','print','new'].map(name => [name, element()]));
-  const result = element(), output = element();
+  const result = element(), output = element(), title = element();
   const form = {...element(),dataset:{profile:'jeff-does-doors',scope:'/'},elements:{namedItem:name=>fields[name]},querySelector:selector=>controls[selector.match(/data-survey-(.+)\]/)[1]],querySelectorAll:()=>Object.values(controls)};
   const map = new Map(), key = 'door-survey:v1:jeff-does-doors:/';
   if (saved) map.set(key,saved);
   const storage = {getItem:key=>map.get(key)||null,setItem:(key,value)=>map.set(key,value),removeItem:key=>map.delete(key)};
   const source = fs.readFileSync(path.join(__dirname,'../assets/js/survey.js'),'utf8').replace(/^import .*;\n/,'');
   const window = {localStorage:storage,confirm:()=>true,listeners:{},addEventListener(type,fn){this.listeners[type]=fn;}};
-  vm.runInNewContext(source,{...core,window,document:{querySelector:selector=>selector==='[data-survey]'?form:selector==='[data-survey-result]'?result:output},setTimeout,URL,Blob,navigator:{}});
+  vm.runInNewContext(source,{...core,window,document:{querySelector:selector=>selector==='[data-survey]'?form:selector==='[data-survey-result]'?result:selector==='#survey-result-title'?title:output},setTimeout,URL,Blob,navigator:{}});
   const change = target => { target.listeners?.change?.({target,type:'change'}); form.listeners.change({target,type:'change'}); };
-  return {fields,controls,form,result,output,map,key,storage,change,window};
+  return {fields,controls,form,result,output,title,map,key,storage,change,window};
 }
 test('survey values are not stored until opt in; deleting preserves current input', () => {
   const ui = setup(); ui.fields.job.value = 'Opening A'; ui.change(ui.fields.job);
@@ -56,4 +56,42 @@ test('browser print refreshes the current packet and never prints stale validate
   ui.fields.widthTop.value='wrong'; ui.window.listeners.beforeprint();
   assert.match(ui.output.textContent,/cannot be prepared/);
   assert.doesNotMatch(ui.output.textContent,/Latest job/);
+});
+
+// Layout visibility is checked in the native browser pass; these cover focus intent.
+test('preparing a survey focuses its heading rather than the oversized packet', () => {
+  const ui = setup();
+  ui.form.listeners.submit({preventDefault(){}});
+  assert.equal(ui.title.focused, true);
+  assert.equal(ui.title.scrollOptions.block, 'start');
+  assert.equal(ui.result.focused, undefined);
+  assert.equal(ui.result.hidden, false);
+});
+test('invalid explicit packet actions reveal the error without discarding fields', async () => {
+  for (const action of ['prepare', 'json', 'text', 'copy', 'print']) {
+    const ui = setup(); ui.fields.widthTop.value = 'oops';
+    if (action === 'prepare') ui.form.listeners.submit({preventDefault(){}});
+    else await ui.controls[action].listeners.click();
+    assert.equal(ui.controls.status.focused, true, action);
+    assert.match(ui.controls.status.textContent, /Clear opening width/);
+    assert.equal(ui.fields.widthTop.value, 'oops');
+    assert.equal(ui.title.focused, undefined);
+  }
+});
+test('invalid unit conversion reports the error without stealing editing focus', () => {
+  const ui = setup(); ui.fields.widthTop.value = 'oops';
+  ui.fields.units.value = 'mm'; ui.change(ui.fields.units);
+  assert.equal(ui.fields.units.value, 'in');
+  assert.match(ui.controls.status.textContent, /Use a decimal/);
+  assert.equal(ui.controls.status.focused, undefined);
+});
+
+test('invalid import reveals its error and preserves current entries', async () => {
+  const ui = setup(); ui.fields.job.value = 'Keep this opening';
+  ui.controls.import.files = [{size:3, text:async () => 'bad'}];
+  await ui.controls.import.listeners.change({target:ui.controls.import});
+  assert.equal(ui.controls.status.focused, true);
+  assert.match(ui.controls.status.textContent, /Import stopped/);
+  assert.equal(ui.fields.job.value, 'Keep this opening');
+  assert.equal(ui.controls.import.value, '');
 });
