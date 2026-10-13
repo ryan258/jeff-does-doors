@@ -1,0 +1,11 @@
+{{/* dict {id, content: {eyebrow,title,intro,documents[{title,kind,status,detail,href?,action?}],note}}. Links require both label and destination. No fictional downloads. */}}
+{{ $c := .content }}
+<section class="contractor-card contractor-documents" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">{{ $c.eyebrow }}</p><h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p>
+  <ul class="contractor-documents__list">{{ range $c.documents }}<li>
+    <div class="contractor-documents__description"><p class="contractor-records__reference">{{ .kind }}</p><h4>{{ .title }}</h4><p>{{ .detail }}</p>
+      {{ if and .href .action }}<a class="contractor-link" href="{{ .href | relURL }}">{{ .action }} <span aria-hidden="true">↗</span></a>{{ end }}
+    </div><span class="contractor-status">{{ .status }}</span>
+  </li>{{ end }}</ul>
+  <p class="contractor-note">{{ $c.note }}</p>
+</section>

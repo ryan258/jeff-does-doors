@@ -1,0 +1,13 @@
+{{/* dict {id, content: {eyebrow,title,intro,rows[{task,owner,coordination,status}],note}}. Names are proposed responsibilities, not assignments sent by this component. */}}
+{{ $c := .content }}
+<section class="contractor-card contractor-responsibilities" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">{{ $c.eyebrow }}</p><h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p>
+  <p class="contractor-hint" id="{{ .id }}-hint">On a small screen, scroll the table sideways to see every column.</p>
+  <div class="contractor-table-scroll" role="region" aria-labelledby="{{ .id }}-title" aria-describedby="{{ .id }}-hint" tabindex="0">
+    <table class="contractor-table"><caption>{{ $c.title }} — responsibility record</caption>
+      <thead><tr><th scope="col">Task</th><th scope="col">Proposed owner</th><th scope="col">Coordinate with</th><th scope="col">Status</th></tr></thead>
+      <tbody>{{ range $c.rows }}<tr><th scope="row">{{ .task }}</th><td>{{ .owner }}</td><td>{{ .coordination }}</td><td>{{ .status }}</td></tr>{{ end }}</tbody>
+    </table>
+  </div>
+  <p class="contractor-note">{{ $c.note }}</p>
+</section>

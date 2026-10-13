@@ -1,0 +1,13 @@
+{{/* dict {id, content: {eyebrow,title,intro,entries[{reference,title,status,decision,reason,next}],note}}. Read-only editorial record. */}}
+{{ $c := .content }}
+<section class="contractor-card contractor-decisions" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">{{ $c.eyebrow }}</p><h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p>
+  <ol class="contractor-records">
+    {{ range $c.entries }}<li>
+      <div class="contractor-records__heading"><div><p class="contractor-records__reference">{{ .reference }}</p><h4>{{ .title }}</h4></div><span class="contractor-status">{{ .status }}</span></div>
+      <p>{{ .decision }}</p>
+      <dl class="contractor-records__facts"><div><dt>Reason</dt><dd>{{ .reason }}</dd></div><div><dt>Next step</dt><dd>{{ .next }}</dd></div></dl>
+    </li>{{ end }}
+  </ol>
+  <p class="contractor-note">{{ $c.note }}</p>
+</section>

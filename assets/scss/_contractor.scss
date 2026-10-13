@@ -161,6 +161,28 @@
 .contractor-followup__list small { color: var(--ink-soft); }
 .contractor-followup__boundary { padding: 22px; background: var(--ink); color: var(--paper); border-radius: 4px; }
 
+/* Project paperwork: static records with explicit text states. */
+.contractor-records { margin: 28px 0; padding: 0; list-style: none; }
+.contractor-records > li { padding-block: 24px; border-top: 1px solid var(--line); }
+.contractor-records > li:last-child { border-bottom: 1px solid var(--line); }
+.contractor-records__heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.contractor-records__heading > div { min-width: 0; }
+.contractor-records__heading .contractor-status { flex: 0 1 auto; }
+.contractor-card .contractor-records__reference { margin-bottom: 8px; font-size: .8rem; color: var(--ink-soft); }
+.contractor-records__facts { display: grid; gap: 12px; margin: 0; }
+.contractor-records__facts > div { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; }
+.contractor-records__facts dt { font-size: .85rem; font-weight: 600; }
+.contractor-records__facts dd { margin: 0; color: var(--ink-soft); }
+.contractor-access__arrival { margin-block: 24px; padding: 22px; background: var(--ink); color: var(--paper); }
+.contractor-access__areas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; padding: 0; margin: 28px 0; list-style: none; }
+.contractor-access__areas > li { min-width: 0; padding-top: 20px; border-top: 2px solid var(--clay); }
+.contractor-access__confirm { font-size: .9rem; color: var(--ink-soft); }
+.contractor-documents__list { padding: 0; margin: 28px 0; list-style: none; }
+.contractor-documents__list > li { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 24px; padding-block: 24px; border-top: 1px solid var(--line); }
+.contractor-documents__description { min-width: 0; }
+.contractor-documents__description > p { max-width: 65ch; }
+.contractor-documents__list .contractor-status { max-width: 12rem; }
+
 @media (min-width: 761px) {
   // Only use the split chooser after enhancement exposes its controls.
   .contractor-chooser[data-choice-ready="true"] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); column-gap: 32px; align-items: start; }
@@ -170,6 +192,12 @@
 }
 
 @media (max-width: 760px) {
+  .contractor-records__heading { flex-direction: column; gap: 10px; }
+  .contractor-records__facts > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .contractor-access__areas { grid-template-columns: minmax(0, 1fr); }
+  .contractor-access__arrival { padding: 18px; }
+  .contractor-documents__list > li { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .contractor-documents__list .contractor-status { justify-self: start; max-width: 100%; }
   // On a page, the section itself is the surface. Avoid a card inside a card
   // inside a narrow viewport; the guide still shows the standalone specimen.
   .site-component > .l-container { padding-top: 24px; }

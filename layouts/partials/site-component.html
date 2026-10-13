@@ -1,6 +1,6 @@
 {{/* Page integration: explicit site copy, independent of the review catalogue. */}}
 {{ $entry := index hugo.Data.site_components .key }}
-{{ $allowed := slice "service-card" "project-story" "scope-panel" "project-timeline" "material-comparison" "cost-drivers" "visit-checklist" "credential-list" "availability-panel" "handover-pack" "project-chooser" "finish-selector" "package-comparison" "crew-roster" "featured-testimonial" "field-notes" "change-summary" "follow-up-plan" }}
+{{ $allowed := slice "service-card" "project-story" "scope-panel" "project-timeline" "material-comparison" "cost-drivers" "visit-checklist" "credential-list" "availability-panel" "handover-pack" "project-chooser" "finish-selector" "package-comparison" "crew-roster" "featured-testimonial" "field-notes" "change-summary" "follow-up-plan" "decision-register" "responsibility-matrix" "site-access-plan" "material-schedule" "punch-list" "document-register" }}
 {{ if not $entry }}
   {{ errorf "Missing site component content: %s" .key }}
 {{ else if not (in $allowed $entry.component) }}

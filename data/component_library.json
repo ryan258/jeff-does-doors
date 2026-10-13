@@ -634,6 +634,254 @@
       "parody": true
     },
     {
+      "id": "decision-register",
+      "title": "Decision register",
+      "group": "contractor",
+      "purpose": "Keep the choice, reason, and next step together so a conversation does not have to start over.",
+      "fields": "eyebrow, title, intro, entries[{reference,title,status,decision,reason,next}], note",
+      "notes": "A read-only record. Status is supplied as text, never inferred from a date or treated as approval. Keep actual decision authority and evidence in the project record.",
+      "example": {
+        "eyebrow": "The decision survives the meeting",
+        "title": "Doreen wrote down which walnut.",
+        "intro": "Fictional working notes. Jeff remembers the grain; Doreen remembers what still needs an answer.",
+        "entries": [
+          {
+            "reference": "Decision 01 / finish direction",
+            "title": "Walnut stays on the shortlist",
+            "status": "Under discussion",
+            "decision": "Compare the walnut sample with the room finishes before choosing a product.",
+            "reason": "The sample looked different beside the floor. Jeff says it was finding its light.",
+            "next": "Review the sample in the room; record the selected product and finish if agreed."
+          },
+          {
+            "reference": "Decision 02 / hardware",
+            "title": "Choose the system before the small parts",
+            "status": "Awaiting product details",
+            "decision": "Keep the rail, rollers, guide, and stops in one compatibility discussion.",
+            "reason": "A matching color does not establish compatibility. Lenny has declined to arbitrate color.",
+            "next": "Bring the exact model and instructions to the scope conversation."
+          }
+        ],
+        "note": "Fictional decision record. No selection, purchase, or project approval is recorded by this specimen."
+      },
+      "partial": "components/decision-register.html",
+      "parody": true
+    },
+    {
+      "id": "responsibility-matrix",
+      "title": "Responsibility matrix",
+      "group": "contractor",
+      "purpose": "Make proposed ownership and coordination visible before work falls between two people.",
+      "fields": "eyebrow, title, intro, rows[{task,owner,coordination,status}], note",
+      "notes": "Use plain-text names or roles and an explicit unresolved status. The table has a caption, scoped headers, and a keyboard-focusable horizontal scroll region. It sends no assignments.",
+      "example": {
+        "eyebrow": "Whose part is this?",
+        "title": "“We” needs a name beside it.",
+        "intro": "Example coordination sheet. Doreen has removed “someone” from the proposed-owner column.",
+        "rows": [
+          {
+            "task": "Confirm supply of door and hardware",
+            "owner": "To be agreed",
+            "coordination": "Customer and installer",
+            "status": "Unassigned"
+          },
+          {
+            "task": "Define wall and trim finishing",
+            "owner": "To be agreed",
+            "coordination": "Installer and any separate finishing trade",
+            "status": "Scope discussion"
+          },
+          {
+            "task": "Record the selected sample",
+            "owner": "Doreen · fictional example",
+            "coordination": "Customer and Jeff",
+            "status": "Proposed"
+          },
+          {
+            "task": "Keep the level available",
+            "owner": "Jeff · fictional example",
+            "coordination": "Lenny, who already has a job",
+            "status": "Proposed"
+          }
+        ],
+        "note": "Fictional responsibility record. Roles and scope must be agreed directly; this table assigns no work."
+      },
+      "partial": "components/responsibility-matrix.html",
+      "parody": true
+    },
+    {
+      "id": "site-access-plan",
+      "title": "Site-access plan",
+      "group": "contractor",
+      "purpose": "Collect arrival, route, room, and household arrangements without implying a booked appointment.",
+      "fields": "eyebrow, title, intro, arrival:{label,body}, areas[{title,detail,confirm}], note",
+      "notes": "Public planning prompts, not a place for private addresses, keys, access codes, or alarm instructions. An arrival note does not reserve a visit or promise a duration.",
+      "example": {
+        "eyebrow": "Before anyone arrives",
+        "title": "A route for the door. A plan for the room.",
+        "intro": "Example access discussion. Jeff has asked whether the door gets a tour; Doreen has allowed a route.",
+        "arrival": {
+          "label": "Arrival arrangements: unconfirmed",
+          "body": "Agree the visit, contact method, and route before anyone sets off. This specimen books nothing."
+        },
+        "areas": [
+          {
+            "title": "Arrival and unloading",
+            "detail": "Discuss parking and how materials could reach the opening.",
+            "confirm": "The agreed arrival point and any access restrictions."
+          },
+          {
+            "title": "The route through the home",
+            "detail": "Note corners, stairs, floor finishes, and objects along the proposed route.",
+            "confirm": "Who handles preparation and what should remain in place."
+          },
+          {
+            "title": "Use of the room",
+            "detail": "Discuss how the space is used and how work might affect access.",
+            "confirm": "Any access needs and arrangements with the people using the space."
+          },
+          {
+            "title": "People and pets",
+            "detail": "Agree household arrangements in advance. Jeff has volunteered to explain the door to the dog.",
+            "confirm": "A practical plan with the household; the dog does not manage the calendar."
+          }
+        ],
+        "note": "Example planning prompts. Share sensitive access details privately through an agreed channel, never in public website data."
+      },
+      "partial": "components/site-access-plan.html",
+      "parody": true
+    },
+    {
+      "id": "material-schedule",
+      "title": "Material schedule",
+      "group": "contractor",
+      "purpose": "Keep proposed products, supply responsibilities, and unresolved procurement states in one readable list.",
+      "fields": "eyebrow, title, intro, rows[{item,selection,responsibility,status}], note",
+      "notes": "No quantities, prices, compatibility, stock, order, or delivery status are calculated. Use exact product references only when known. Horizontal table scrolling is labelled and keyboard accessible.",
+      "example": {
+        "eyebrow": "The list before the order",
+        "title": "Jeff has samples. Doreen has columns.",
+        "intro": "Fictional planning schedule. “The nice one” is not a product reference.",
+        "rows": [
+          {
+            "item": "Door slab",
+            "selection": "Product, size, and construction to confirm",
+            "responsibility": "To be agreed",
+            "status": "Not selected"
+          },
+          {
+            "item": "Track and compatible hardware",
+            "selection": "Maker, model, instructions, and finish to confirm",
+            "responsibility": "To be agreed",
+            "status": "Not selected"
+          },
+          {
+            "item": "Pull or handle",
+            "selection": "Check against the selected door and layout",
+            "responsibility": "To be agreed",
+            "status": "Awaiting selection"
+          },
+          {
+            "item": "Finish sample",
+            "selection": "A labelled sample for the room discussion",
+            "responsibility": "To be agreed",
+            "status": "For discussion"
+          }
+        ],
+        "note": "Fictional material schedule. No stock check, price, order, delivery, or compatibility approval is represented. Jeff’s shopping expression is not a purchase order."
+      },
+      "partial": "components/material-schedule.html",
+      "parody": true
+    },
+    {
+      "id": "punch-list",
+      "title": "Punch list / open items",
+      "group": "contractor",
+      "purpose": "Show an observation, proposed owner, and next action without turning a checkbox into completion acceptance.",
+      "fields": "eyebrow, title, intro, items[{reference,title,status,observation,owner,next}], note",
+      "notes": "Static observations with textual states. This component has no completion control, signature, or approval action. Describe any actual remedy only after the appropriate assessment.",
+      "example": {
+        "eyebrow": "Before the final goodbye",
+        "title": "A small list with actual next steps.",
+        "intro": "Fictional walkthrough notes. Doreen would like the open items written down before Jeff starts the farewell speech.",
+        "items": [
+          {
+            "reference": "Item 01 / finish",
+            "title": "Record the area to review",
+            "status": "Open",
+            "observation": "The example note identifies a finish detail for discussion. It makes no diagnosis or repair promise.",
+            "owner": "To be agreed",
+            "next": "Review the observation together and record the agreed response."
+          },
+          {
+            "reference": "Item 02 / paperwork",
+            "title": "Keep the product instructions with the job",
+            "status": "Awaiting information",
+            "observation": "The exact model and manual revision have not been supplied in this example.",
+            "owner": "To be agreed",
+            "next": "Add the verified product reference to the actual job packet."
+          },
+          {
+            "reference": "Item 03 / personal effects",
+            "title": "Return the level to the truck",
+            "status": "For review",
+            "observation": "Lenny is still leaning beside the opening. Jeff says he is taking it all in.",
+            "owner": "Jeff · fictional example",
+            "next": "Account for tools before leaving; Doreen has made this a separate line."
+          }
+        ],
+        "note": "Fictional open-item record. Nothing here confirms completed work, customer acceptance, payment, or a scheduled return visit."
+      },
+      "partial": "components/punch-list.html",
+      "parody": true
+    },
+    {
+      "id": "document-register",
+      "title": "Document register",
+      "group": "contractor",
+      "purpose": "Keep useful resources beside missing-document states, with links only where a real resource exists.",
+      "fields": "eyebrow, title, intro, documents[{title,kind,status,detail,href?,action?}], note",
+      "notes": "A resource index, not an upload or document store. Both href and action are required for a link; use site-relative paths without a leading slash for subpath builds. Pending records remain plain text.",
+      "example": {
+        "eyebrow": "Doreen’s folder, legible edition",
+        "title": "A place for the paperwork to be.",
+        "intro": "Example register. Jeff suggested filing by the door’s temperament. Doreen has retained titles.",
+        "documents": [
+          {
+            "title": "Door survey workspace",
+            "kind": "Site tool · HTML",
+            "status": "Available",
+            "detail": "Open the existing local workspace to record one opening. It does not send a packet.",
+            "href": "survey/",
+            "action": "Open the door survey"
+          },
+          {
+            "title": "Planning questions",
+            "kind": "Site guidance · HTML",
+            "status": "Available",
+            "detail": "Review the site’s questions about fit, hardware, and the first conversation.",
+            "href": "faq/",
+            "action": "Read the planning questions"
+          },
+          {
+            "title": "Selected hardware instructions",
+            "kind": "Project document",
+            "status": "Not supplied",
+            "detail": "Record the exact maker, model, and manual revision once the product is known. No manual is attached here."
+          },
+          {
+            "title": "Agreed scope",
+            "kind": "Project document",
+            "status": "Not supplied",
+            "detail": "Keep the actual written agreement with the project. Jeff’s margin drawings are supplemental."
+          }
+        ],
+        "note": "Fictional register with two real site links. No project files are uploaded, stored, approved, or offered as invented downloads."
+      },
+      "partial": "components/document-register.html",
+      "parody": true
+    },
+    {
       "id": "palette",
       "title": "Color & surface",
       "group": "foundation",

@@ -1,0 +1,13 @@
+{{/* dict {id, content: {eyebrow,title,intro,items[{reference,title,status,observation,owner,next}],note}}. Static open-item record, not a sign-off form. */}}
+{{ $c := .content }}
+<section class="contractor-card contractor-punch-list" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">{{ $c.eyebrow }}</p><h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p>
+  <ol class="contractor-records">
+    {{ range $c.items }}<li>
+      <div class="contractor-records__heading"><div><p class="contractor-records__reference">{{ .reference }}</p><h4>{{ .title }}</h4></div><span class="contractor-status">{{ .status }}</span></div>
+      <p>{{ .observation }}</p>
+      <dl class="contractor-records__facts"><div><dt>Proposed owner</dt><dd>{{ .owner }}</dd></div><div><dt>Next step</dt><dd>{{ .next }}</dd></div></dl>
+    </li>{{ end }}
+  </ol>
+  <p class="contractor-note">{{ $c.note }}</p>
+</section>

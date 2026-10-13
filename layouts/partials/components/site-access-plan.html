@@ -1,0 +1,8 @@
+{{/* dict {id, content: {eyebrow,title,intro,arrival:{label,body},areas[{title,detail,confirm}],note}}. Public planning prompts only; never store keys, alarm codes, or private access instructions here. */}}
+{{ $c := .content }}
+<section class="contractor-card contractor-access" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">{{ $c.eyebrow }}</p><h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p>
+  <div class="contractor-access__arrival"><h4>{{ $c.arrival.label }}</h4><p>{{ $c.arrival.body }}</p></div>
+  <ul class="contractor-access__areas">{{ range $c.areas }}<li><h4>{{ .title }}</h4><p>{{ .detail }}</p><p class="contractor-access__confirm"><strong>Confirm:</strong> {{ .confirm }}</p></li>{{ end }}</ul>
+  <p class="contractor-note">{{ $c.note }}</p>
+</section>
