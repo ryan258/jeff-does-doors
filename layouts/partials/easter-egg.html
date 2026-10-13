@@ -1,0 +1,10 @@
+{{/* Optional fiction: dict {id, label, lines[], level?}. Keep outside task controls. */}}
+{{ if eq site.Params.profileID "jeff-does-doors" }}
+<details class="easter-egg" id="egg-{{ .id }}" data-easter-egg="{{ .id }}">
+  <summary>{{ .label }}</summary>
+  <div class="easter-egg__note">
+    {{ if .level }}<span class="easter-egg__level" aria-hidden="true"><span></span></span>{{ end }}
+    {{ range .lines }}<p>{{ . }}</p>{{ end }}
+  </div>
+</details>
+{{ end }}

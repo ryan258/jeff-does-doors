@@ -1,0 +1,6 @@
+<div class="sg-swatches">
+  {{ range slice (dict "name" "Ink" "token" "ink" "value" "#24201c") (dict "name" "Paper" "token" "paper" "value" "#f3ebdd") (dict "name" "Bright paper" "token" "paper-bright" "value" "#faf5ec") (dict "name" "Sand" "token" "sand" "value" "#e8dcc7") (dict "name" "Clay" "token" "clay" "value" "#97482a") (dict "name" "Gold" "token" "gold" "value" "#d39a32") (dict "name" "Teal" "token" "teal" "value" "#4f7470") (dict "name" "Walnut" "token" "walnut" "value" "#5a3524") }}
+    <div class="sg-swatch"><span class="sg-swatch__color sg-swatch__color--{{ .token }}" aria-hidden="true"></span><h3>{{ .name }}</h3><code>--{{ .token }}</code></div>
+  {{ end }}
+</div>
+<p class="sg-muted">Swatches resolve the current CSS variables. Paper and ink are the default reading pair; gold is an accent surface.</p>

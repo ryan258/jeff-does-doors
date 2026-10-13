@@ -1,0 +1,6 @@
+{{/* Contract: dict {id, content: {title, intro, items[{title,body}], note}}. No prices or automatic estimates. */}}
+{{ $c := .content }}
+<section class="contractor-card contractor-costs" aria-labelledby="{{ .id }}-title">
+  <div><p class="contractor-kicker">Before the estimate</p><h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p><p class="contractor-note">{{ $c.note }}</p></div>
+  <dl class="contractor-costs__list">{{ range $index, $item := $c.items }}<div><dt><span aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span> {{ .title }}</dt><dd>{{ .body }}</dd></div>{{ end }}</dl>
+</section>

@@ -1,0 +1,10 @@
+{{/* Contract: dict {id, content: {title, intro, legend, items[], note}}. Unique id required per instance. */}}
+{{ $c := .content }}
+<section class="contractor-card" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">Site preparation</p>
+  <h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p>
+  <fieldset class="contractor-checklist"><legend>{{ $c.legend }}</legend>
+    {{ range $index, $item := $c.items }}<label for="{{ $.id }}-item-{{ $index }}"><input id="{{ $.id }}-item-{{ $index }}" type="checkbox"><span>{{ . }}</span></label>{{ end }}
+  </fieldset>
+  <p class="contractor-note">{{ $c.note }}</p>
+</section>

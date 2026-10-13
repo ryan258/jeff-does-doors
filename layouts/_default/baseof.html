@@ -77,6 +77,7 @@
     {{ partial "footer.html" . }}
     {{ $script := resources.FromString "js/site.js" (printf "%s\n%s\n%s" (readFile "assets/js/brief-core.js") (readFile "assets/js/draft-storage.js") (readFile "assets/js/site.js")) | minify | fingerprint }}
     <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>
+    {{ if .Store.Get "contractorChoices" }}{{ partial "components/choice-script.html" . }}{{ end }}
     {{ if site.Params.intake.enabled }}
     {{ $intake := resources.Get "js/intake.js" | js.Build (dict "targetPath" "js/intake.js" "minify" true) | fingerprint }}
     <script src="{{ $intake.RelPermalink }}" integrity="{{ $intake.Data.Integrity }}" defer></script>

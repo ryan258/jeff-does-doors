@@ -1,0 +1,8 @@
+{{/* dict {id, content: {eyebrow,title,quote,name,context,replyLabel,reply,disclosure}}. Attribution and disclosure always visible. */}}
+{{ $c := .content }}
+<section class="contractor-card contractor-featured-quote" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">{{ $c.eyebrow }}</p><h3 id="{{ .id }}-title">{{ $c.title }}</h3>
+  <figure><blockquote><p>{{ $c.quote }}</p></blockquote><figcaption><strong>{{ $c.name }}</strong><span>{{ $c.context }}</span></figcaption></figure>
+  <div class="contractor-quote-reply"><h4>{{ $c.replyLabel }}</h4><p>{{ $c.reply }}</p></div>
+  <p class="contractor-note">{{ $c.disclosure }}</p>
+</section>

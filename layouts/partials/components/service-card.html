@@ -1,0 +1,9 @@
+{{/* Contract: dict {id: unique page prefix, content: {eyebrow, title, body, points[], href?, action?}}. */}}
+{{ $c := .content }}
+<article class="contractor-card contractor-service" aria-labelledby="{{ .id }}-title">
+  {{ with $c.eyebrow }}<p class="contractor-kicker">{{ . }}</p>{{ end }}
+  <h3 id="{{ .id }}-title">{{ $c.title }}</h3>
+  <p>{{ $c.body }}</p>
+  {{ with $c.points }}<ul class="contractor-list">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}
+  {{ if and $c.href $c.action }}<a class="contractor-link" href="{{ $c.href | relURL }}">{{ $c.action }} <span aria-hidden="true">↗</span></a>{{ end }}
+</article>

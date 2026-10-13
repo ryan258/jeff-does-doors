@@ -1,0 +1,16 @@
+{{/* Contract: dict {id, content: {title, intro, steps[{title,body,state}], note?}}. State: complete/current/upcoming. */}}
+{{ $c := .content }}
+<section class="contractor-card" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">Project roadmap</p>
+  <h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p>
+  <ol class="contractor-timeline">
+    {{ range $index, $step := $c.steps }}
+      {{ $state := "upcoming" }}{{ if in (slice "complete" "current") .state }}{{ $state = .state }}{{ end }}
+      <li class="contractor-timeline__step contractor-timeline__step--{{ $state }}"{{ if eq $state "current" }} aria-current="step"{{ end }}>
+        <span class="contractor-timeline__number" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
+        <div><span class="contractor-status">{{ if eq $state "complete" }}Complete{{ else if eq $state "current" }}Current step{{ else }}Upcoming{{ end }}</span><h4>{{ .title }}</h4><p>{{ .body }}</p></div>
+      </li>
+    {{ end }}
+  </ol>
+  {{ with $c.note }}<p class="contractor-note">{{ . }}</p>{{ end }}
+</section>

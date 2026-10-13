@@ -1,0 +1,15 @@
+{{/* Contract: dict {id, content: {title, image, alt, caption, label, facts[{label,value}], challenge, approach}}. */}}
+{{ $c := .content }}
+<article class="contractor-story" aria-labelledby="{{ .id }}-title">
+  <figure>
+    {{ partial "image.html" (dict "src" $c.image "alt" $c.alt "sizes" "(max-width: 760px) 100vw, 50vw") }}
+    <figcaption>{{ $c.caption }}</figcaption>
+  </figure>
+  <div class="contractor-story__body">
+    <p class="contractor-kicker">{{ $c.label }}</p>
+    <h3 id="{{ .id }}-title">{{ $c.title }}</h3>
+    <dl class="contractor-facts">{{ range $c.facts }}<div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>{{ end }}</dl>
+    <h4>The brief</h4><p>{{ $c.challenge }}</p>
+    <h4>The approach</h4><p>{{ $c.approach }}</p>
+  </div>
+</article>

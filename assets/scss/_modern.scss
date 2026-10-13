@@ -75,7 +75,11 @@ body {
   letter-spacing: -0.01em;
   line-height: 0.95;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
+
+.section-heading,
+.mcm-heading--split > * { min-width: 0; max-width: 100%; }
 
 .section-heading h2 em {
   color: var(--clay);
@@ -188,6 +192,12 @@ button:focus-visible {
   border-bottom-color: var(--line-light);
 }
 
+.site-header__mobile-nav nav {
+  background: var(--ink);
+  border-color: var(--line-light);
+  color: var(--paper);
+}
+
 .site-header__nav a,
 .site-header__cta,
 .site-header__phone {
@@ -250,7 +260,7 @@ button:focus-visible {
 .room-hero__field {
   display: flex;
   align-items: flex-end;
-  padding: 150px clamp(32px, 5vw, 80px) 72px unquote("max(24px, calc((100vw - #{$max-width}) / 2))");
+  padding: calc(150px + var(--promo-h, 0px)) clamp(32px, 5vw, 80px) 72px unquote("max(24px, calc((100vw - #{$max-width}) / 2))");
 }
 
 .room-hero__inner {
@@ -421,6 +431,7 @@ button:focus-visible {
 
 .spec-strip__list li {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   gap: 14px;
   padding: 30px 24px;
@@ -522,7 +533,7 @@ button:focus-visible {
 
 .swatches {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
   gap: 14px;
   margin: 36px 0;
   list-style: none;
@@ -680,6 +691,7 @@ button:focus-visible {
 
 .catalog-entry__label {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   gap: 16px;
   margin-bottom: 18px;
@@ -1230,6 +1242,12 @@ button:focus-visible {
 }
 
 @media (max-width: 760px) {
+  // Keep the announcement and header in flow above the text-first mobile hero.
+  // Their height can change with wrapping, dismissal, and larger text.
+  .page--home > .promo-bar { position: relative; }
+  .page--home .site-header { position: relative; top: auto; background: var(--ink); }
+  .page--home .site-header__inner { flex-wrap: wrap; row-gap: 8px; padding-block: 12px; }
+
   .mcm-heading--split {
     flex-direction: column;
     align-items: flex-start;
@@ -1246,13 +1264,14 @@ button:focus-visible {
   }
 
   .room-hero__media {
-    order: -1;
-    height: 58svh;
-    min-height: 380px;
+    order: 1;
+    height: 22rem;
+    min-height: 0;
   }
 
   .room-hero__field {
-    padding: 40px 24px 56px;
+    order: 0;
+    padding: 36px 24px 48px;
   }
 
   .room-hero__lede {

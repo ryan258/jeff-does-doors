@@ -25,34 +25,17 @@
 
   {{ partial "craft-standards.html" . }}
 
-  {{ if (partial "feature-enabled.html" "team") }}
-    <section class="team l-section">
-      <div class="l-container">
-        <div class="section-heading section-heading--wide">
-          <div><p class="eyebrow">The crew</p><h2>The people who show up early.</h2></div>
-          {{ if or (eq hugo.Environment "staging") site.Params.noindex }}
-            <p class="section-heading__aside">Jeff, Doreen, and Lenny. Doreen has asked that you not read anything into the order.</p>
-          {{ else }}
-            <p class="section-heading__aside">Jeff, Doreen, and Lenny. Doreen has asked that you not read anything into the order.</p>
-          {{ end }}
-        </div>
-        <div class="team__grid">
-          {{ range hugo.Data.team }}
-            <article class="team-card">
-              {{ partial "image.html" (dict "src" .image "alt" (.alt) "width" "800" "height" "800" "loading" "lazy") }}
-              <div class="team-card__body">
-                <h3>{{ .name }}</h3>
-                <p class="team-card__role">{{ .role }}</p>
-                <p>{{ .bio }}</p>
-                {{ if .placeholder }}<span class="team-card__flag">Placeholder</span>{{ end }}
-              </div>
-            </article>
-          {{ end }}
-        </div>
-      </div>
-    </section>
+  {{ partial "site-component.html" (dict "page" . "key" "about-crew") }}
+  {{ partial "site-component.html" (dict "page" . "key" "about-notes") }}
+  {{ if partial "feature-enabled.html" "team" }}
+    <div class="l-container">
+      {{ partial "easter-egg.html" (dict "id" "doreen" "label" "A note inside Doreen’s clipboard" "lines" (slice
+        "Gone home."
+        "‘One last door’ is not a time of day."
+        "— Doreen"
+      )) }}
+    </div>
   {{ end }}
-
-  {{ partial "credentials.html" . }}
+  {{ partial "site-component.html" (dict "page" . "key" "about-credentials") }}
   {{ partial "cta-banner.html" (dict "heading" "Start with the door. Jeff will meet you there.") }}
 {{ end }}

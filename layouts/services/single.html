@@ -16,9 +16,9 @@
     <article class="service-detail__content prose">
       {{ .Content }}
       <h2>What affects the estimate?</h2><ul>{{ range $service.costDrivers }}<li>{{ . }}</li>{{ end }}</ul>
-      <p>A written scope should identify the work, responsibilities, exclusions, and agreed finish. Confirm availability and commercial terms directly. Jeff will confirm the rest, and then confirm it again on Sunday.</p>
+      <p>Agree on responsibilities, exclusions, finish, timing, and price in writing.</p>
       <h2>Before the first conversation</h2><p>{{ $service.inquiryPrompt }}</p>
-      <p>Keep photos ready to attach in your email or text application. This website does not upload attachments. Jeff would like a lot of them.</p>
+      <p>Keep photos ready to share later; this website does not upload them.</p>
       <h2>Common questions</h2>
       {{ range $service.questions }}<h3>{{ .question }}</h3><p>{{ .answer }}</p>{{ end }}
     </article>
@@ -33,7 +33,16 @@
       {{ with site.Params.contactResponse }}<div class="service-detail__card"><p class="service-detail__card-label">After you contact us</p><p>{{ . }}</p></div>{{ end }}
     </aside>
   </div></section>
+  {{ $componentKeys := dict
+    "barn-door-installation" (slice "installation-scope" "installation-timeline")
+    "barn-door-replacement" (slice "replacement-materials")
+    "tracks-hardware" (slice "hardware-next-step")
+    "barn-door-adjustments" (slice "adjustments-followup")
+  }}
+  {{ range index $componentKeys .Params.serviceID }}
+    {{ partial "site-component.html" (dict "page" $ "key" .) }}
+  {{ end }}
   {{ partial "measuring-guide.html" . }}
   {{ partial "related-content.html" . }}
-  {{ partial "cta-banner.html" (dict "service" .Params.serviceID "heading" "Tell Jeff what your door needs. He will listen.") }}
+  {{ partial "cta-banner.html" (dict "service" .Params.serviceID "heading" "What should your door do differently?") }}
 {{ end }}

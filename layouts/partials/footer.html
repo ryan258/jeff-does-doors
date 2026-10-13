@@ -6,13 +6,19 @@
   <div class="l-container site-footer__grid">
     <div class="site-footer__brand">
       {{ partial "brand.html" (dict "modifier" "brand--footer") }}
-      <p class="site-footer__note">Barn-style doors. Dallas-born, Bentonville-hung, and checked on afterward.</p>
+      <p class="site-footer__note">Jeff does doors. Doreen does the rest. Lenny remains level.</p>
       <div class="site-footer__contact">
         {{ with $p.contactPhone }}<a href="tel:{{ $tel }}">{{ . }}</a>{{ end }}
         {{ with $p.contactEmail }}<a href="mailto:{{ . }}">{{ . }}</a>{{ end }}
         {{ if and $p.publicAddress $p.streetAddress $p.addressLocality }}<span>{{ $p.streetAddress }}, {{ $p.addressLocality }} {{ $p.addressRegion }} {{ $p.postalCode }}</span>{{ end }}
         <span>{{ $p.serviceArea }}</span>
       </div>
+      {{ if and .IsHome (partial "feature-enabled.html" "team") }}
+        {{ partial "easter-egg.html" (dict "id" "lenny" "label" "Lenny’s footer note" "level" true "lines" (slice
+          "Still level."
+          "Jeff has filed this under ‘glowing feedback.’"
+        )) }}
+      {{ end }}
       {{ if or $p.facebookURL $p.instagramURL }}
         <div class="site-footer__social">
           {{ with $p.facebookURL }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">Facebook</a>{{ end }}
@@ -64,6 +70,9 @@
   <div class="l-container site-footer__bottom">
     <span>© {{ now.Format "2006" }} {{ $p.companyName }}{{ with $p.licenseNumber }} · License {{ . }}{{ end }}</span>
     <span class="site-footer__legal">
+      {{ if partial "review-mode.html" . }}
+        {{ with site.GetPage "/style-guide" }}<a href="{{ .RelPermalink }}">Component guide</a>{{ end }}
+      {{ end }}
       {{ if (partial "feature-enabled.html" "legal") }}
         <a href="{{ "privacy/" | relURL }}">Privacy</a>
         <a href="{{ "terms/" | relURL }}">About this preview</a>

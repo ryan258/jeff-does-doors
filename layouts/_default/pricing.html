@@ -7,7 +7,7 @@
       <div class="table-scroll">
         <table class="pricing-table">
           <caption class="u-visually-hidden">What shapes the price of each kind of door work</caption>
-          <thead><tr><th scope="col">Work</th><th scope="col">Typically</th><th scope="col">What moves the number</th></tr></thead>
+          <thead><tr><th scope="col">Work</th><th scope="col">Before a price</th><th scope="col">What moves the number</th></tr></thead>
           <tbody>
             {{ range $pricing.rows }}
               <tr>
@@ -22,13 +22,16 @@
       <p class="pricing-table__disclaimer">{{ $pricing.disclaimer }}</p>
     </div>
   </section>
+  {{ partial "site-component.html" (dict "page" . "key" "pricing-packages") }}
+  {{ partial "site-component.html" (dict "page" . "key" "pricing-drivers") }}
+  {{ partial "site-component.html" (dict "page" . "key" "pricing-change") }}
   {{ if (partial "feature-enabled.html" "financing") }}
     <section class="l-section l-section--tight">
       <div class="l-container prose prose--narrow">
         <h2>Paying for it</h2>
-        <p>A door is a good thing to pay for slowly. <a href="{{ "financing/" | relURL }}">See the payment options</a>. Jeff is in no hurry.</p>
+        <p><a href="{{ "financing/" | relURL }}">Review the payment questions</a> to settle before work begins.</p>
       </div>
     </section>
   {{ end }}
-  {{ partial "cta-banner.html" (dict "heading" "The only real number comes after Jeff has stood in the opening." "body" "Describe the opening and the work, and the estimate conversation starts from something concrete. Jeff will bring his own level.") }}
+  {{ partial "cta-banner.html" (dict "heading" "Give the estimate something to go on." "body" "Your town, the current setup, and what you want to change are a useful start.") }}
 {{ end }}

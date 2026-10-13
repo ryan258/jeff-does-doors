@@ -1,0 +1,116 @@
+{{ define "main" }}
+{{ $page := . }}
+{{ $library := hugo.Data.component_library.components }}
+{{ $new := where $library "group" "contractor" }}
+{{ $shared := where $library "group" "shared" }}
+{{ $foundations := where $library "group" "foundation" }}
+<div class="style-guide" data-component-guide>
+  <section class="page-hero sg-hero">
+    <div class="l-container">
+      {{ partial "breadcrumbs.html" . }}
+      <p class="eyebrow eyebrow--light">The contractor toolkit · Jeff’s field office</p>
+      <h1>Every component.<br><em>Checked on twice.</em></h1>
+      <p class="page-hero__lede">{{ .Description }}</p>
+      <div class="sg-hero__meta"><span>{{ len $new }} contractor components</span><span>{{ len $shared }} shared patterns</span><span>{{ len $foundations }} foundations</span></div>
+      <a class="button button--accent" href="#component-catalogue">Explore the catalogue <span aria-hidden="true">↓</span></a>
+    </div>
+  </section>
+  <div class="l-container sg-workspace">
+    <aside class="sg-index" aria-label="Guide index">
+      <p class="sg-label">On the workbench</p>
+      <nav aria-label="Component sections"><a href="#guide-notes">Using this guide</a><a href="#component-catalogue">Browse components</a><a href="#integration-map">Full library map</a></nav>
+      <details class="sg-jump-list"><summary>Jump to a specimen</summary><nav aria-label="Component specimens">{{ range $library }}<a href="#component-{{ .id }}">{{ .title }}</a>{{ end }}</nav></details>
+      <p class="sg-index__note">Real partials. Fictional door feelings. Doreen has made both searchable.</p>
+    </aside>
+    <div class="sg-main">
+      <section id="guide-notes" class="sg-intro" aria-labelledby="guide-notes-title">
+        <p class="sg-label">01 / How to use it</p>
+        <h2 id="guide-notes-title">Jeff has organized his feelings.</h2>
+        <p>Into components. Doreen suggested a diary, but here we are. Each specimen renders its real source partial, with a data contract and a copyable Hugo call. All {{ len $new }} contractor components accept their copy as data; the door feelings are replaceable.</p>
+        <div class="sg-notice"><strong>A working library with a fictional cast.</strong> Jeff, Doreen, Lenny, and the invented customer stories continue the site’s parody. The new choices work; the testimonials, packages, field notes, and emotional support arrangements are fiction. Actual business details still need confirmation.</div>
+        <p class="sg-muted">This page is review-only and noindex. The normal production guard replaces it with the existing “Information unavailable” page. Noindex is not access control.</p>
+      </section>
+      <section id="component-catalogue" aria-labelledby="catalogue-title">
+        <header class="sg-catalogue-heading"><p class="sg-label">02 / Component catalogue</p><h2 id="catalogue-title">Find the right piece.</h2><p>Search by name or task, or browse a family. Every specimen remains available without JavaScript.</p></header>
+        <div class="sg-filter-bar" data-guide-controls hidden>
+          <div><label for="component-search">Find a component</label><input id="component-search" type="search" placeholder="Try scope, cost, or handover" autocomplete="off" data-guide-search></div>
+          <div><label for="component-family">Component family</label><select id="component-family" data-guide-family><option value="all">All components</option><option value="contractor">Contractor components</option><option value="shared">Shared patterns</option><option value="foundation">Foundations</option></select></div>
+          <button class="sg-control" type="button" data-guide-reset>Clear filters</button>
+        </div>
+        <p class="sg-result-count" role="status" aria-live="polite" data-guide-count>{{ len $library }} components</p>
+        <div class="sg-empty" data-guide-empty hidden><h3>No matching components</h3><p>Try a shorter search or clear the filters to see the complete catalogue.</p><button class="sg-control" type="button" data-guide-empty-reset>Show all components</button></div>
+        {{ range $index, $entry := $library }}
+          {{ $specimenID := printf "specimen-%s" .id }}
+          <article class="sg-specimen" id="component-{{ .id }}" data-guide-entry data-guide-family-name="{{ .group }}" data-guide-search-text="{{ printf "%s %s %s %s" .title .purpose .fields (.example | jsonify) }}" aria-labelledby="component-{{ .id }}-title">
+            <header class="sg-specimen__header"><div><p class="sg-label">{{ printf "%02d" (add $index 1) }} / {{ if eq .group "contractor" }}Contractor component{{ else if eq .group "foundation" }}Foundation{{ else }}Shared pattern{{ end }}</p><h2 id="component-{{ .id }}-title"><a href="#component-{{ .id }}">{{ .title }}</a></h2><p>{{ .purpose }}</p></div><span class="sg-tag">{{ if .parody }}Parody sample{{ else if eq .group "contractor" }}Reusable{{ else if eq .group "shared" }}Existing{{ else }}Theme{{ end }}</span></header>
+            <div class="sg-specimen__preview" aria-label="{{ .title }} specimen">
+              {{ if eq .group "contractor" }}
+                {{ partial .partial (dict "id" $specimenID "content" .example) }}
+              {{ else if in (slice "faq" "reviews" "gallery") .id }}
+                {{ partial .partial .example }}
+              {{ else }}
+                {{ partial .partial $page }}
+              {{ end }}
+            </div>
+            <details class="sg-usage"><summary>Usage, data & accessibility notes</summary><div class="sg-usage__body">
+              <dl><dt>Source partial</dt><dd><code>layouts/partials/{{ .partial }}</code></dd><dt>Data contract</dt><dd>{{ .fields }}</dd><dt>Integration notes</dt><dd>{{ .notes }}</dd></dl>
+              {{ if eq .group "contractor" }}
+                {{ range $key, $use := hugo.Data.site_components }}
+                  {{ if eq $use.component $entry.id }}
+                    {{ $enabled := true }}
+                    {{ with $use.feature }}{{ $enabled = partial "feature-enabled.html" . }}{{ end }}
+                    {{ with site.GetPage $use.page }}
+                      {{ if and $enabled (not (partial "page-disabled.html" .)) }}
+                        <p><a class="contractor-link" data-site-component-link="{{ $key }}" href="{{ .RelPermalink }}#site-{{ $key }}">See it on the site: {{ if .IsHome }}Home{{ else }}{{ .Title }}{{ end }} <span aria-hidden="true">↗</span></a></p>
+                      {{ end }}
+                    {{ end }}
+                  {{ end }}
+                {{ end }}
+                <p>Pass a unique <code>id</code> for every instance and your own content object. This call uses the guide fixture for an immediate preview:</p>
+                {{ $call := printf "{{ $sample := index (where hugo.Data.component_library.components \"id\" \"%s\") 0 }}\n{{ partial \"%s\" (dict \"id\" \"your-unique-%s\" \"content\" $sample.example) }}" .id .partial .id }}
+                {{ with .script }}{{ $call = printf "%s\n{{ partial \"%s\" . }}" $call . }}<p>Include the shared script partial once per page, after all choice components.</p>{{ end }}
+                <pre id="usage-{{ .id }}" tabindex="0"><code>{{ $call }}</code></pre>
+                <button class="sg-control" type="button" data-guide-copy="usage-{{ .id }}" hidden>Copy {{ .title }} usage</button>
+                <details class="sg-data"><summary>Example content (JSON)</summary><pre tabindex="0"><code>{{ .example | jsonify (dict "indent" "  ") }}</code></pre></details>
+              {{ else if eq .group "shared" }}
+                {{ $argument := "." }}{{ if in (slice "faq" "reviews" "gallery") .id }}{{ $argument = "$sample.example" }}{{ end }}
+                <pre tabindex="0"><code>{{ printf "{{ $sample := index (where hugo.Data.component_library.components \"id\" \"%s\") 0 }}\n{{ partial \"%s\" %s }}" .id .partial $argument }}</code></pre>
+              {{ end }}
+            </div></details>
+          </article>
+        {{ end }}
+        <p class="u-visually-hidden" data-guide-copy-status role="status" aria-live="polite"></p>
+      </section>
+      <section id="integration-map" class="sg-integration" aria-labelledby="integration-map-title">
+        <p class="sg-label">03 / Full library map</p><h2 id="integration-map-title">The rest of the system.</h2>
+        <p>Some components belong to the page shell or need their own workflow. Keep those in context instead of duplicating live forms, navigation landmarks, or single-instance dialogs in this catalogue.</p>
+        <dl class="sg-library-map">
+          <div><dt>Page shell</dt><dd><code>header</code>, <code>nav</code>, <code>nav-mobile</code>, <code>brand</code>, <code>breadcrumbs</code>, <code>page-hero</code>, and <code>footer</code> render around this guide.</dd></div>
+          <div><dt>Calls to action & trust</dt><dd><code>cta-banner</code>, <code>contact-methods</code>, <code>stats</code>, and <code>credentials</code> use site/profile data. See the <a href="{{ "" | relURL }}">homepage</a> for their selected states.</dd></div>
+          <div><dt>Brief & delivery states</dt><dd><code>brief-form</code>, <code>brief-options</code>, <code>delivery-status</code>, <code>intake-notice</code>, and <code>online-intake</code> follow the shared inquiry contract. <a href="{{ partial "brief-url.html" "" }}">Open the actual project builder</a>.</dd></div>
+          <div><dt>Survey workspace</dt><dd>The measurement, save, import/export, print, and handover controls have a dedicated page and schema. <a href="{{ "survey/" | relURL }}">Open the door survey</a>.</dd></div>
+          <div><dt>Editorial sections</dt><dd><code>measuring-guide</code>, <code>photo-prep-guide</code>, <code>door-comparison</code>, and <code>craft-standards</code> retain client-specific content. <code>related-content</code> composes service, article, and project links.</dd></div>
+          <div><dt>Optional character notes</dt><dd><code>easter-egg</code> uses a closed native disclosure with escaped <code>label</code> and <code>lines[]</code>, a unique <code>id</code>, and an optional decorative <code>level</code>. These small notes need no script and stay outside forms and task controls.
+            {{ if eq site.Params.profileID "jeff-does-doors" }}
+              {{ range slice (dict "page" "/" "feature" "team" "id" "lenny" "label" "Lenny’s footer note") (dict "page" "/gallery" "feature" "gallery" "id" "jeff" "label" "Jeff’s sample card") (dict "page" "/about" "feature" "team" "id" "doreen" "label" "Doreen’s clipboard") }}
+                {{ $note := . }}
+                {{ if partial "feature-enabled.html" .feature }}{{ with site.GetPage .page }}{{ if not (partial "page-disabled.html" .) }}
+                  <p><a href="{{ .RelPermalink }}#egg-{{ $note.id }}">{{ $note.label }}</a></p>
+                {{ end }}{{ end }}{{ end }}
+              {{ end }}
+            {{ end }}
+          </dd></div>
+          <div><dt>Feature-dependent comparison</dt><dd><code>before-after</code> is controlled by the <code>beforeAfter</code> flag, currently {{ if partial "feature-enabled.html" "beforeAfter" }}enabled{{ else }}disabled{{ end }}. It needs a real matched photo pair; the guide does not invent before/after evidence.</dd></div>
+          <div><dt>Supporting helpers</dt><dd><code>image</code>, <code>icon</code>, <code>services</code>, <code>specialty</code>, <code>geo</code>, and <code>town-label</code> supply assets and data. Publication, schema, and feature helpers remain in the existing shared pipeline.</dd></div>
+        </dl>
+        <a class="contractor-link" href="#component-catalogue">Back to the catalogue ↑</a>
+      </section>
+    </div>
+  </div>
+</div>
+{{ $scripts := slice }}
+{{ range $library }}{{ with .script }}{{ $scripts = $scripts | append . }}{{ end }}{{ end }}
+{{ range $scripts | uniq }}{{ partial . $page }}{{ end }}
+{{ $guideScript := resources.Get "js/style-guide.js" | minify | fingerprint }}
+<script src="{{ $guideScript.RelPermalink }}" integrity="{{ $guideScript.Data.Integrity }}" defer></script>
+{{ end }}

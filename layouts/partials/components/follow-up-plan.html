@@ -1,0 +1,7 @@
+{{/* dict {id, content: {eyebrow,title,intro,items[{when,title,body,owner}],boundary,note}}. No reminders or contact are scheduled. */}}
+{{ $c := .content }}
+<section class="contractor-card contractor-followup" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">{{ $c.eyebrow }}</p><h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p>
+  <ul class="contractor-followup__list">{{ range $c.items }}<li><p class="contractor-followup__when">{{ .when }}</p><div><h4>{{ .title }}</h4><p>{{ .body }}</p><small>{{ .owner }}</small></div></li>{{ end }}</ul>
+  <p class="contractor-followup__boundary">{{ $c.boundary }}</p><p class="contractor-note">{{ $c.note }}</p>
+</section>

@@ -1,0 +1,783 @@
+{
+  "components": [
+    {
+      "id": "service-card",
+      "title": "Service card",
+      "group": "contractor",
+      "purpose": "Give one service a clear scope and a next step. Use in a service grid or alongside a related article.",
+      "fields": "title, body, points[]; optional eyebrow, href, action",
+      "notes": "The action is omitted unless both its label and destination exist. Replace example copy with the confirmed service scope.",
+      "example": {
+        "eyebrow": "An introduction would be nice",
+        "title": "Your opening has potential. Jeff has noticed.",
+        "body": "Describe the room and what should change. Jeff has placed “meet the opening” at the top of his notes.",
+        "points": [
+          "Review the existing opening",
+          "Discuss the door and hardware",
+          "Agree what preparation belongs in the scope"
+        ],
+        "href": "survey/",
+        "action": "Introduce your opening"
+      },
+      "partial": "components/service-card.html",
+      "parody": true
+    },
+    {
+      "id": "project-story",
+      "title": "Project story",
+      "group": "contractor",
+      "purpose": "Put the brief, design approach, and project facts beside a useful photograph.",
+      "fields": "title, image, alt, caption, label, facts[{label,value}], challenge, approach",
+      "notes": "Keep image provenance visible. This specimen is a design concept; it is not a completed job or customer endorsement.",
+      "example": {
+        "title": "An opening with room to move",
+        "image": "images/barn-door-oak-slab.webp",
+        "alt": "Illustrative oak sliding door beside an interior opening",
+        "caption": "AI-generated design concept; not a completed Jeff Does Doors project.",
+        "label": "Concept study · example only",
+        "facts": [
+          {
+            "label": "Setting",
+            "value": "Interior opening"
+          },
+          {
+            "label": "Scope",
+            "value": "To be agreed"
+          },
+          {
+            "label": "Status",
+            "value": "Design exploration"
+          }
+        ],
+        "challenge": "Explore a sliding door for an imagined hallway. Jeff has circled the opening in the photo. Nothing else made the shortlist.",
+        "approach": "Review space, privacy, and the exact hardware instructions. Doreen keeps the selected sample beside the written brief."
+      },
+      "partial": "components/project-story.html",
+      "parody": true
+    },
+    {
+      "id": "scope-panel",
+      "title": "Scope of work",
+      "group": "contractor",
+      "purpose": "Separate the proposed work, exclusions, and unresolved decisions before an estimate is accepted.",
+      "fields": "title, intro, groups[{title,items[]}]; optional note",
+      "notes": "Column labels are content, so the same pattern can show inclusions/exclusions or contractor/customer responsibilities.",
+      "example": {
+        "title": "Let’s put it in writing. Doreen insists.",
+        "intro": "Example scope. Include the ideas everyone agreed to; Jeff’s margin sketches can wait.",
+        "groups": [
+          {
+            "title": "Proposed work",
+            "items": [
+              "Review the opening and access",
+              "Confirm door and hardware choices",
+              "Record the agreed finish"
+            ]
+          },
+          {
+            "title": "Separate discussion",
+            "items": [
+              "Electrical or other service alterations",
+              "Wall repair and decoration",
+              "Disposal of existing materials"
+            ]
+          },
+          {
+            "title": "Still to confirm",
+            "items": [
+              "Who supplies each item",
+              "Access arrangements",
+              "Any permissions needed. Jeff’s enthusiasm is not a permit."
+            ]
+          }
+        ],
+        "note": "An item appearing here is not an agreement to supply or perform it."
+      },
+      "partial": "components/scope-panel.html",
+      "parody": true
+    },
+    {
+      "id": "project-timeline",
+      "title": "Project timeline",
+      "group": "contractor",
+      "purpose": "Show what happens next without implying a confirmed booking or completion date.",
+      "fields": "title, intro, steps[{title,body,state}]; optional note",
+      "notes": "States: complete, current, upcoming. Unknown states display as upcoming. Use at most one current step; labels accompany color.",
+      "example": {
+        "title": "Four steps. Jeff may linger at the last one.",
+        "intro": "Fictional project sequence. Doreen drew the arrows so Jeff would keep moving.",
+        "steps": [
+          {
+            "title": "Share the brief",
+            "body": "Describe the room, location, and the change you have in mind.",
+            "state": "complete"
+          },
+          {
+            "title": "Review the site",
+            "body": "Discuss access, measurements, and open decisions. Lenny will attend in his capacity as a level.",
+            "state": "current"
+          },
+          {
+            "title": "Agree the proposal",
+            "body": "Confirm the written scope, materials, price, and timing.",
+            "state": "upcoming"
+          },
+          {
+            "title": "Work & walkthrough",
+            "body": "Review the work and record follow-up items. Doreen has underlined the word “leave.”",
+            "state": "upcoming"
+          }
+        ],
+        "note": "Dates depend on the agreed scope, material availability, and confirmed scheduling."
+      },
+      "partial": "components/project-timeline.html",
+      "parody": true
+    },
+    {
+      "id": "material-comparison",
+      "title": "Material comparison",
+      "group": "contractor",
+      "purpose": "Support an early design conversation with a readable, keyboard-scrollable comparison.",
+      "fields": "title, intro, rows[{name,character,care,confirm}]; optional note",
+      "notes": "Use project-specific, supported statements. This component does not prescribe installation details or certify material performance.",
+      "example": {
+        "title": "Choose a finish. Jeff will remain professional.",
+        "intro": "Example discussion prompts. Jeff has a favorite. He has put it second to look impartial.",
+        "rows": [
+          {
+            "name": "Painted finish",
+            "character": "A color selected for the room",
+            "care": "Ask for the coating care instructions",
+            "confirm": "Substrate, coating system, and touch-up process"
+          },
+          {
+            "name": "Visible timber",
+            "character": "Grain and tone become part of the design",
+            "care": "Ask about the selected finish and cleaning method",
+            "confirm": "Species, sample approval, and finish schedule"
+          },
+          {
+            "name": "Glazed panel",
+            "character": "A chance to discuss light and privacy",
+            "care": "Ask about both glass and frame care",
+            "confirm": "Glazing specification and suitability for the location"
+          }
+        ],
+        "note": "Final selection depends on the exact product and its intended use."
+      },
+      "partial": "components/material-comparison.html",
+      "parody": true
+    },
+    {
+      "id": "cost-drivers",
+      "title": "Cost drivers",
+      "group": "contractor",
+      "purpose": "Explain what shapes a proposal before prices are available, without inventing a quote.",
+      "fields": "title, intro, items[{title,body}], note",
+      "notes": "This is editorial guidance, not a calculator. Add monetary amounts only in a separate owner-approved pricing dataset.",
+      "example": {
+        "title": "The estimate has line items. Jeff has feelings.",
+        "intro": "Materials, access, and responsibilities shape the estimate. The walnut gets no vote.",
+        "items": [
+          {
+            "title": "Door & finish",
+            "body": "Dimensions, construction, finish, and who supplies the door."
+          },
+          {
+            "title": "Hardware",
+            "body": "The chosen track, handles, guides, and any requested accessories."
+          },
+          {
+            "title": "Site preparation",
+            "body": "Existing trim, wall condition, access, and making good."
+          },
+          {
+            "title": "Project coordination",
+            "body": "Delivery arrangements, other trades, and the agreed work sequence."
+          }
+        ],
+        "note": "No price is calculated here. Request a written proposal for the confirmed work."
+      },
+      "partial": "components/cost-drivers.html",
+      "parody": true
+    },
+    {
+      "id": "visit-checklist",
+      "title": "Visit preparation checklist",
+      "group": "contractor",
+      "purpose": "Give a homeowner a short, tappable preparation list for an initial site conversation.",
+      "fields": "title, intro, legend, items[], note",
+      "notes": "Each instance needs a unique id. Native checkboxes work without JavaScript. No upload, submission, or application storage is attached.",
+      "example": {
+        "title": "Before Jeff and his opinions arrive",
+        "intro": "Gather what you can and note any assistance needs. Doreen would rather have a question mark than a guessed measurement.",
+        "legend": "Your preparation notes",
+        "items": [
+          "Have photos of the opening and surrounding wall ready",
+          "Gather any door or hardware references you already have",
+          "Note access, parking, pets, and room-use constraints",
+          "Write down the questions you want to cover"
+        ],
+        "note": "Personal checklist only. Nothing is sent or saved by this site; browser form restoration may retain ticks until you clear them."
+      },
+      "partial": "components/visit-checklist.html",
+      "parody": true
+    },
+    {
+      "id": "credential-list",
+      "title": "Credential & evidence list",
+      "group": "contractor",
+      "purpose": "Keep the details behind a trust claim visible, including evidence that is still missing.",
+      "fields": "title, intro, items[{title,detail,status}]",
+      "notes": "Status is supplied text, not computed verification. Do not publish license, insurance, or review claims without the underlying evidence.",
+      "example": {
+        "title": "Doreen would like the actual paperwork.",
+        "intro": "Example pending states. Jeff’s firm handshake and Lenny’s excellent posture are not documentation.",
+        "items": [
+          {
+            "title": "Business details",
+            "detail": "Confirm the name and contact information for the written proposal.",
+            "status": "Awaiting details"
+          },
+          {
+            "title": "Insurance information",
+            "detail": "Request the relevant current documentation for the proposed work.",
+            "status": "Not reviewed"
+          },
+          {
+            "title": "Project references",
+            "detail": "Use approved examples with permission and clear image provenance.",
+            "status": "Awaiting evidence"
+          }
+        ]
+      },
+      "partial": "components/credential-list.html",
+      "parody": true
+    },
+    {
+      "id": "availability-panel",
+      "title": "Coverage & availability",
+      "group": "contractor",
+      "purpose": "State the limits of known coverage and timing, with a useful empty state instead of a false booking promise.",
+      "fields": "title, status, body, note; optional areas[], href, action",
+      "notes": "This is not a postcode lookup or booking engine. Empty locations stay explicit. Confirm coverage and response times before publishing them.",
+      "example": {
+        "title": "Jeff is emotionally available. Dates need checking.",
+        "status": "Confirmation needed",
+        "body": "Share the location and timing constraints. Doreen keeps the calendar. Jeff keeps a separate list of doors he misses.",
+        "areas": [],
+        "note": "Coverage and appointment availability must be confirmed directly.",
+        "href": "survey/",
+        "action": "Prepare a project survey"
+      },
+      "partial": "components/availability-panel.html",
+      "parody": true
+    },
+    {
+      "id": "handover-pack",
+      "title": "Handover & care pack",
+      "group": "contractor",
+      "purpose": "Organize walkthrough notes, product references, and follow-up information in native disclosures.",
+      "fields": "title, intro, groups[{title,body,items[]}], note",
+      "notes": "This organizes documentation. It does not establish acceptance, warranty coverage, or completion of installation checks.",
+      "example": {
+        "title": "The handover. Also known as letting go.",
+        "intro": "Example handover outline. Keep the useful documents together. Jeff’s farewell speech can be considerably shorter.",
+        "groups": [
+          {
+            "title": "Walkthrough & open items",
+            "body": "Record what was discussed at the walkthrough.",
+            "items": [
+              "Agreed work and any outstanding items",
+              "Who owns each follow-up action",
+              "How completion will be confirmed"
+            ]
+          },
+          {
+            "title": "Product & care references",
+            "body": "Keep the exact product information together.",
+            "items": [
+              "Product names and model references",
+              "Manufacturer care and operating instructions",
+              "Finish details and approved cleaning guidance"
+            ]
+          },
+          {
+            "title": "Support & warranty information",
+            "body": "Use the terms that apply to the actual products and work.",
+            "items": [
+              "Confirmed contact route for questions",
+              "Written terms and relevant exclusions",
+              "Purchase records and applicable documentation"
+            ]
+          }
+        ],
+        "note": "A handover record is not a customer acceptance signature or a warranty promise."
+      },
+      "partial": "components/handover-pack.html",
+      "parody": true
+    },
+    {
+      "id": "project-chooser",
+      "title": "Project starting-point chooser",
+      "group": "contractor",
+      "purpose": "Help a visitor choose a starting conversation, then show the relevant preparation and next step.",
+      "fields": "eyebrow, title, intro, legend, options[{label,summary,title,body,href?,action?}], note",
+      "notes": "Load components/choice-script.html once per page. Unique id per instance. Native radios support keyboard selection; all option panels remain readable without JavaScript. This is guidance, not a diagnosis or quotation.",
+      "example": {
+        "eyebrow": "Jeff’s preliminary door interview",
+        "title": "What brings your opening in today?",
+        "intro": "Pick the nearest description. Jeff would prefer to meet the door, but Doreen says we can start here.",
+        "legend": "Choose your starting point",
+        "options": [
+          {
+            "label": "I want a new door",
+            "summary": "An opening with a future.",
+            "title": "Start with the room, not the shopping cart.",
+            "body": "Gather a photo of the opening and the look you have in mind. Discuss space, privacy, and the selected product before ordering. Jeff has already imagined the first Christmas.",
+            "href": "survey/",
+            "action": "Prepare an opening survey"
+          },
+          {
+            "label": "My existing door needs attention",
+            "summary": "There has been a change in the relationship.",
+            "title": "Describe what changed.",
+            "body": "Note the movement or noise you have noticed and gather any model details. This chooser cannot establish the cause. Jeff is trying very hard not to ask whether the door has been distant.",
+            "href": "survey/",
+            "action": "Record the existing opening"
+          },
+          {
+            "label": "I’m still figuring it out",
+            "summary": "Jeff respects an honest doorway.",
+            "title": "Bring the question you actually have.",
+            "body": "A photo and a short description are enough to begin a conversation. You do not need the right vocabulary. Jeff once referred to a room as “the area around the door.”",
+            "href": "survey/",
+            "action": "Start with your room notes"
+          }
+        ],
+        "note": "Parody framing around general preparation prompts. Choosing an option sends nothing, books nothing, and saves nothing."
+      },
+      "partial": "components/project-chooser.html",
+      "edition": "field-office",
+      "parody": true,
+      "script": "components/choice-script.html"
+    },
+    {
+      "id": "finish-selector",
+      "title": "Finish & style selector",
+      "group": "contractor",
+      "purpose": "Let someone compare illustrated design directions with one native radio group and a matching image panel.",
+      "fields": "eyebrow, title, intro, legend, options[{label,description,image,alt,caption}], note",
+      "notes": "Load components/choice-script.html once per page. Options need readable names and descriptive alt text. The photos are separate concepts, not an exact recolor preview, product inventory, or finish guarantee.",
+      "example": {
+        "eyebrow": "The sample table",
+        "title": "Three directions. One visibly invested man.",
+        "intro": "Compare the concepts. Jeff says there is no wrong answer. He says it faster when you select walnut.",
+        "legend": "Choose a design direction",
+        "options": [
+          {
+            "label": "Oak",
+            "description": "A visible-grain concept. Jeff calls it “approachable,” as though the walnut has been difficult at parties.",
+            "image": "images/barn-door-oak-slab.webp",
+            "alt": "AI-generated concept of an oak sliding door beside an interior opening",
+            "caption": "AI concept image. Confirm actual material and finish from a physical sample."
+          },
+          {
+            "label": "Walnut",
+            "description": "A darker timber concept. Jeff has gone quiet. Doreen says this means the meeting is going well.",
+            "image": "images/barn-door-walnut.webp",
+            "alt": "AI-generated concept of a dark walnut barn-style door",
+            "caption": "AI concept image. A different door design, not a recolor of the oak example."
+          },
+          {
+            "label": "Frosted glass",
+            "description": "A glazed concept for the light-and-privacy conversation. Jeff has asked who the door is allowed to see.",
+            "image": "images/barn-door-frosted-glass.webp",
+            "alt": "AI-generated concept of a frosted-glass sliding door",
+            "caption": "AI concept image. Confirm glazing and suitability for the actual location."
+          }
+        ],
+        "note": "Parody commentary; illustrative designs only. Your selection stays on this page and does not become an order."
+      },
+      "partial": "components/finish-selector.html",
+      "edition": "field-office",
+      "parody": true,
+      "script": "components/choice-script.html"
+    },
+    {
+      "id": "package-comparison",
+      "title": "Service package comparison",
+      "group": "contractor",
+      "purpose": "Compare scope groupings without pretending a price, selection, or commercial offer has been confirmed.",
+      "fields": "eyebrow, title, intro, packages[{label,title,body,items[],footer}], note",
+      "notes": "Each column uses the same content shape. These fictional bundles have no purchase or acceptance control. Replace the entire offer copy with reviewed scope before customer use.",
+      "example": {
+        "eyebrow": "Doreen asked for three columns",
+        "title": "How much door conversation are we having?",
+        "intro": "Fictional package copy. The real scope still belongs in a written proposal.",
+        "packages": [
+          {
+            "label": "01 / Start here",
+            "title": "The Opening",
+            "body": "For an idea that has not yet become a very large rectangle.",
+            "items": [
+              "Room and opening discussion",
+              "Design references",
+              "Questions to settle before ordering"
+            ],
+            "footer": "A starting point, with room for questions."
+          },
+          {
+            "label": "02 / Work it through",
+            "title": "The Whole Doorway",
+            "body": "For the door, the hardware, and the wall they need to get along with.",
+            "items": [
+              "Scope and supply responsibilities",
+              "Hardware and finish discussion",
+              "Access and coordination notes"
+            ],
+            "footer": "Doreen has numbered the decisions."
+          },
+          {
+            "label": "03 / Jeff proposed this",
+            "title": "The Extended Goodbye",
+            "body": "The work is finished. Jeff is standing by the truck with his hat in his hands.",
+            "items": [
+              "Walkthrough notes",
+              "Care and product references",
+              "A clearly agreed follow-up route"
+            ],
+            "footer": "Doreen has not approved a fourth column."
+          }
+        ],
+        "note": "Parody packages, not actual service offers or prices. No package is preselected."
+      },
+      "partial": "components/package-comparison.html",
+      "edition": "field-office",
+      "parody": true
+    },
+    {
+      "id": "crew-roster",
+      "title": "Crew & responsibility roster",
+      "group": "contractor",
+      "purpose": "Show who does what with text portraits, short biographies, and clear responsibility labels.",
+      "fields": "eyebrow, title, intro, people[{initials,name,role,bio,aside}], note",
+      "notes": "Initials are decorative because the name is also visible. These character biographies are fiction; do not infer employment, credentials, or a real point of contact.",
+      "example": {
+        "eyebrow": "The chain of command",
+        "title": "One man. One calendar. One level.",
+        "intro": "Everyone has a role. Only two of them have expressed an opinion about it.",
+        "people": [
+          {
+            "initials": "J",
+            "name": "Jeff",
+            "role": "Door relations",
+            "bio": "Carries a notebook of doors he has seen and doors he hopes to see. Ordinary errands take time.",
+            "aside": "Reports to: Doreen, eventually."
+          },
+          {
+            "initials": "D",
+            "name": "Doreen",
+            "role": "Scheduling & returning to the point",
+            "bio": "Has moved the last meeting to 3:30 so she can get home at five. Jeff has asked which five.",
+            "aside": "Reports to: the calendar. It is less emotional."
+          },
+          {
+            "initials": "—",
+            "name": "Lenny",
+            "role": "Four-foot level",
+            "bio": "Has maintained the same position throughout this discussion. Jeff finds that reassuring.",
+            "aside": "Reports to: gravity."
+          }
+        ],
+        "note": "Parody cast. These are fictional role descriptions, not verified staff biographies."
+      },
+      "partial": "components/crew-roster.html",
+      "edition": "field-office",
+      "parody": true
+    },
+    {
+      "id": "featured-testimonial",
+      "title": "Featured quote & reply",
+      "group": "contractor",
+      "purpose": "Pair an attributed quote with a business response while keeping the source or fictional disclosure visible.",
+      "fields": "eyebrow, title, quote, name, context, replyLabel, reply, disclosure",
+      "notes": "Use real permission and attribution for an actual testimonial. No stars, rating totals, or review schema are generated by this component.",
+      "example": {
+        "eyebrow": "From the fictional mailbag",
+        "title": "The door is doing well, Jeff.",
+        "quote": "We sent Jeff a photo of the finished room. He cropped everyone out and put the door on his fridge.",
+        "name": "A fictional household",
+        "context": "Invented testimonial · no real project claimed",
+        "replyLabel": "Jeff’s fictional reply",
+        "reply": "The original is also on the fridge. Lower down. The door prefers eye level.",
+        "disclosure": "Parody testimonial and reply, written for the component guide. Not a customer review."
+      },
+      "partial": "components/featured-testimonial.html",
+      "edition": "field-office",
+      "parody": true
+    },
+    {
+      "id": "field-notes",
+      "title": "Project field notes",
+      "group": "contractor",
+      "purpose": "Present an editorial site diary with numbered entries, observations, and named authors.",
+      "fields": "eyebrow, title, intro, entries[{label,title,body,author}], note",
+      "notes": "Labels need not be timestamps. Do not make fictional entries look like a live job log or automatically refreshed status feed.",
+      "example": {
+        "eyebrow": "Notebook no. 01 · fictional entries",
+        "title": "Observations from the opening",
+        "intro": "Jeff said these were all relevant. Doreen has retained the numbering.",
+        "entries": [
+          {
+            "label": "Entry 01",
+            "title": "The opening",
+            "body": "Good light. Nice proportions. Someone has been calling it “the pantry hole.” Have asked them to stop.",
+            "author": "Jeff"
+          },
+          {
+            "label": "Entry 02",
+            "title": "The sample",
+            "body": "Walnut received well. By Jeff. Homeowner still considering oak. Maintaining a supportive environment.",
+            "author": "Doreen"
+          },
+          {
+            "label": "Entry 03",
+            "title": "The meeting",
+            "body": "Jeff asked Lenny whether the room felt ready. The bubble stayed put. I have adjourned the meeting.",
+            "author": "Doreen"
+          }
+        ],
+        "note": "Fictional field notes. No actual site visit, measurement, or inspection is recorded here."
+      },
+      "partial": "components/field-notes.html",
+      "edition": "field-office",
+      "parody": true
+    },
+    {
+      "id": "change-summary",
+      "title": "Change request summary",
+      "group": "contractor",
+      "purpose": "Make a proposed change easy to review by separating the original request, proposed revision, impacts, and status.",
+      "fields": "eyebrow, title, reference, status, intro, original:{label,body}, requested:{label,body}, impacts[{label,value}], note",
+      "notes": "Read-only presentation. No signature, approval, cost calculation, or scheduling action is implied. Unknown cost and timing remain explicit.",
+      "example": {
+        "eyebrow": "Paperwork, at last",
+        "title": "Request to describe the door as “fine”",
+        "reference": "Fictional change request · JDD-DOOR-FEELINGS-01",
+        "status": "Awaiting discussion",
+        "intro": "The homeowner has proposed a shorter answer to “How is the door?” Jeff has submitted comments.",
+        "original": {
+          "label": "Original request",
+          "body": "A brief confirmation that the door is working as expected."
+        },
+        "requested": {
+          "label": "Proposed revision",
+          "body": "Jeff would like “fine” replaced with three observations and, if convenient, a photograph."
+        },
+        "impacts": [
+          {
+            "label": "Cost",
+            "value": "Not assessed"
+          },
+          {
+            "label": "Timing",
+            "value": "Not agreed"
+          },
+          {
+            "label": "Next step",
+            "value": "Doreen has accepted “fine.”"
+          }
+        ],
+        "note": "Parody change request. Nothing has been approved, priced, signed, or added to a project."
+      },
+      "partial": "components/change-summary.html",
+      "edition": "field-office",
+      "parody": true
+    },
+    {
+      "id": "follow-up-plan",
+      "title": "Follow-up & contact plan",
+      "group": "contractor",
+      "purpose": "Set out follow-up topics, responsibility, and a clear boundary around future contact.",
+      "fields": "eyebrow, title, intro, items[{when,title,body,owner}], boundary, note",
+      "notes": "Static editorial plan only. No reminder, email, visit, or automation is created. Replace fictional intervals with mutually agreed contact arrangements.",
+      "example": {
+        "eyebrow": "Doreen’s follow-up policy",
+        "title": "A little space is healthy. Even for doors.",
+        "intro": "A fictional plan for keeping useful information close and Jeff a reasonable distance away.",
+        "items": [
+          {
+            "when": "At handover",
+            "title": "Keep the useful notes",
+            "body": "Collect the product references, care instructions, and any agreed follow-up items. Jeff would also like a group photo.",
+            "owner": "Owner: whoever is preparing the actual handover."
+          },
+          {
+            "when": "If a question comes up",
+            "title": "Use the agreed contact route",
+            "body": "Describe what you have noticed and include the relevant product details. “Jeff will sense it” is not a contact method.",
+            "owner": "Owner: confirm the appropriate contact for the real work."
+          },
+          {
+            "when": "Every other Sunday",
+            "title": "Jeff stays home",
+            "body": "The door gets a normal weekend. Doreen has put her own plans in the calendar. Jeff can use his notebook.",
+            "owner": "Owner, in this fictional scenario: Doreen."
+          }
+        ],
+        "boundary": "Any actual follow-up contact or visit needs an agreed arrangement. The porch light is not consent.",
+        "note": "Parody follow-up plan. This component schedules nothing and promises no warranty or response time."
+      },
+      "partial": "components/follow-up-plan.html",
+      "edition": "field-office",
+      "parody": true
+    },
+    {
+      "id": "palette",
+      "title": "Color & surface",
+      "group": "foundation",
+      "purpose": "Use the active theme tokens so components follow the site palette.",
+      "fields": "Existing CSS custom properties",
+      "notes": "Accent colors are not automatic text colors. Check the actual foreground/background pairing when composing a new surface.",
+      "example": {},
+      "partial": "style-guide/palette.html"
+    },
+    {
+      "id": "typography",
+      "title": "Type & rhythm",
+      "group": "foundation",
+      "purpose": "Use geometric sans headings and warm serif supporting text without sacrificing readable line lengths.",
+      "fields": "Existing font stacks and heading hierarchy",
+      "notes": "Keep one page h1. Specimens use h3 beneath catalogue h2 headings; adjust the hierarchy when integrating a component elsewhere.",
+      "example": {},
+      "partial": "style-guide/typography.html"
+    },
+    {
+      "id": "actions",
+      "title": "Actions & feedback",
+      "group": "foundation",
+      "purpose": "Distinguish primary actions, secondary actions, text links, and unavailable actions.",
+      "fields": "button classes, native button/anchor semantics",
+      "notes": "Links navigate; buttons perform actions. Never use color alone to communicate a pending or unavailable state.",
+      "example": {},
+      "partial": "style-guide/actions.html"
+    },
+    {
+      "id": "fields",
+      "title": "Form field states",
+      "group": "foundation",
+      "purpose": "Show visible labels, help text, a required field, an error, and a disabled field.",
+      "fields": "Unique ids, label for, aria-describedby, aria-invalid",
+      "notes": "Static state examples only. No data is submitted. Announce errors after user interaction in an actual form.",
+      "example": {},
+      "partial": "style-guide/fields.html"
+    },
+    {
+      "id": "faq",
+      "title": "FAQ disclosures",
+      "group": "shared",
+      "purpose": "Reuse the existing native disclosure pattern with grouped questions.",
+      "fields": "groups[{category,items[{question,answer}]}], showCategories",
+      "notes": "Works without JavaScript. Use only one question per summary.",
+      "example": {
+        "groups": [
+          {
+            "category": "Planning questions",
+            "items": [
+              {
+                "question": "What should I share first?",
+                "answer": "A description of the opening, the project location, and any questions about the proposed work."
+              },
+              {
+                "question": "Does this guide send an inquiry?",
+                "answer": "No. These are component examples. Use the site’s project message builder for an actual brief."
+              }
+            ]
+          }
+        ],
+        "showCategories": false
+      },
+      "partial": "faq-list.html"
+    },
+    {
+      "id": "reviews",
+      "title": "Review cards",
+      "group": "shared",
+      "purpose": "Reuse the existing attribution and pending-source treatment.",
+      "fields": "reviews[{name,quote,context,date,approved,url?}]",
+      "notes": "Synthetic specimen text only. Approval must come from evidence, not from the visual card.",
+      "example": {
+        "reviews": [
+          {
+            "name": "Fictional homeowner",
+            "quote": "We asked whether the door came in walnut. Jeff took his hat off before answering.",
+            "context": "Parody testimonial · invented for this guide",
+            "date": "",
+            "approved": false
+          }
+        ]
+      },
+      "partial": "review-cards.html",
+      "parody": true
+    },
+    {
+      "id": "gallery",
+      "title": "Gallery & lightbox",
+      "group": "shared",
+      "purpose": "Use the existing image pipeline, category filters, and enlarged-view behavior.",
+      "fields": "items[{image,alt,caption,tag,placeholder}], filter",
+      "notes": "One gallery instance per page: the existing initializer binds to a single gallery. Image links still work without JavaScript.",
+      "example": {
+        "items": [
+          {
+            "image": "images/barn-door-oak-slab.webp",
+            "alt": "AI concept of an oak sliding door",
+            "caption": "Oak door · AI design concept",
+            "tag": "Timber",
+            "placeholder": true
+          },
+          {
+            "image": "images/barn-door-frosted-glass.webp",
+            "alt": "AI concept of a frosted glass sliding door",
+            "caption": "Glazed door · AI design concept",
+            "tag": "Glass",
+            "placeholder": true
+          }
+        ],
+        "filter": true
+      },
+      "partial": "gallery-grid.html"
+    },
+    {
+      "id": "photo-prep",
+      "title": "Photo preparation",
+      "group": "shared",
+      "purpose": "Show the existing barn-door photo preparation pattern in its current site context.",
+      "fields": "Page context",
+      "notes": "Client-specific copy, not a generic contractor data contract. Adapt its content before reusing it in another trade.",
+      "example": {},
+      "partial": "photo-prep-guide.html"
+    },
+    {
+      "id": "measuring",
+      "title": "Measuring guidance",
+      "group": "shared",
+      "purpose": "Show the current data-driven door guidance section and survey handoff.",
+      "fields": "Page context; data/door-guidance.json",
+      "notes": "Manufacturer-specific references stay with the source guidance. This is not a substitute for the selected product instructions.",
+      "example": {},
+      "partial": "measuring-guide.html"
+    },
+    {
+      "id": "door-comparison",
+      "title": "Door mechanism comparison",
+      "group": "shared",
+      "purpose": "Keep the current sliding/pocket/hinged comparison visible alongside the reusable material table.",
+      "fields": "Page context",
+      "notes": "This existing table is door-specific. Use the new material comparison for contractor datasets with a different subject.",
+      "example": {},
+      "partial": "door-comparison.html"
+    }
+  ]
+}

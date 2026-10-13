@@ -1,0 +1,26 @@
+{{/* Page integration: explicit site copy, independent of the review catalogue. */}}
+{{ $entry := index hugo.Data.site_components .key }}
+{{ $allowed := slice "service-card" "project-story" "scope-panel" "project-timeline" "material-comparison" "cost-drivers" "visit-checklist" "credential-list" "availability-panel" "handover-pack" "project-chooser" "finish-selector" "package-comparison" "crew-roster" "featured-testimonial" "field-notes" "change-summary" "follow-up-plan" }}
+{{ if not $entry }}
+  {{ errorf "Missing site component content: %s" .key }}
+{{ else if not (in $allowed $entry.component) }}
+  {{ errorf "Unknown site component %q for %s" $entry.component .key }}
+{{ else }}
+  {{ $enabled := true }}
+  {{ with $entry.feature }}{{ $enabled = partial "feature-enabled.html" . }}{{ end }}
+  {{ if $enabled }}
+    {{ $id := printf "site-%s" .key }}
+    <section class="site-component l-section" id="{{ $id }}" aria-labelledby="{{ $id }}-heading" data-site-component="{{ .key }}" data-component-kind="{{ $entry.component }}">
+      <div class="l-container">
+        <div class="site-component__heading">
+          <p class="mcm-eyebrow">{{ $entry.eyebrow }}</p>
+          <h2 id="{{ $id }}-heading">{{ $entry.heading }}</h2>
+        </div>
+        {{ partial (printf "components/%s.html" $entry.component) (dict "id" $id "content" $entry.content) }}
+      </div>
+    </section>
+    {{ if in (slice "project-chooser" "finish-selector") $entry.component }}
+      {{ .page.Store.Set "contractorChoices" true }}
+    {{ end }}
+  {{ end }}
+{{ end }}

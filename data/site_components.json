@@ -1,0 +1,561 @@
+{
+  "home-start": {
+    "component": "project-chooser",
+    "page": "/",
+    "eyebrow": "Start here",
+    "heading": "What brings you and your door in today?",
+    "content": {
+      "eyebrow": "Doreen’s first question",
+      "title": "Choose your starting point.",
+      "intro": "Describe what is happening. Jeff will supply the vocabulary, including several words for oak.",
+      "legend": "What kind of door project?",
+      "options": [
+        {
+          "label": "A new door",
+          "summary": "An opening with possibilities.",
+          "title": "Start with the room and the opening.",
+          "body": "Think about room use, privacy, and where the open door could sit. Keep a photo of the whole wall ready.",
+          "href": "services/barn-door-installation/",
+          "action": "Plan a new installation"
+        },
+        {
+          "label": "Replace a door",
+          "summary": "A new chapter for this opening.",
+          "title": "Show us what is there now.",
+          "body": "Note what you want to change and what should stay. Photos of the current door and hardware help explain both.",
+          "href": "services/barn-door-replacement/",
+          "action": "Explore a replacement"
+        },
+        {
+          "label": "Fix the movement",
+          "summary": "A scrape, a wobble, or a new opinion.",
+          "title": "Describe what changed.",
+          "body": "Note where it catches and what has changed. Do not force a sticking door or adjust hardware for a better video.",
+          "href": "services/barn-door-adjustments/",
+          "action": "Read about adjustments"
+        }
+      ],
+      "note": "This choice changes the guidance below. It sends nothing and does not book a visit."
+    }
+  },
+  "installation-scope": {
+    "component": "scope-panel",
+    "page": "/services/barn-door-installation",
+    "eyebrow": "The written scope",
+    "heading": "Give the door a plan. Give Doreen a copy.",
+    "content": {
+      "title": "What goes in the proposal?",
+      "intro": "Record the work, responsibilities, and open decisions. Doreen can file that. Jeff’s encouraging nod is harder to retrieve.",
+      "groups": [
+        {
+          "title": "The proposed work",
+          "items": [
+            "Which opening and which door",
+            "Door, track, handle, and finish choices",
+            "The finish condition expected at handover"
+          ]
+        },
+        {
+          "title": "Who handles what",
+          "items": [
+            "Who supplies and receives the materials",
+            "Access, room preparation, and working hours",
+            "Removal, disposal, and any repair work"
+          ]
+        },
+        {
+          "title": "Still to confirm",
+          "items": [
+            "Site conditions and hardware compatibility",
+            "Any work outside the door installation",
+            "The written price and an agreed schedule"
+          ]
+        }
+      ],
+      "note": "Discussion topics only; included work must be agreed in writing."
+    }
+  },
+  "installation-timeline": {
+    "component": "project-timeline",
+    "page": "/services/barn-door-installation",
+    "eyebrow": "From opening to walkthrough",
+    "heading": "Every step. Even measuring again.",
+    "content": {
+      "title": "From first notes to final checks.",
+      "intro": "A planning outline; no project or visit is scheduled here.",
+      "steps": [
+        {
+          "title": "Describe the opening",
+          "body": "Gather the room’s purpose, photos, and the change you want.",
+          "state": "upcoming"
+        },
+        {
+          "title": "Review the site and materials",
+          "body": "Check site conditions and compatible products before ordering.",
+          "state": "upcoming"
+        },
+        {
+          "title": "Agree on the work and timing",
+          "body": "Settle scope, supply, price, and the schedule. Doreen then releases the pencil.",
+          "state": "upcoming"
+        },
+        {
+          "title": "Walk through the result",
+          "body": "Review operation, finish, care, and anything left to resolve.",
+          "state": "upcoming"
+        }
+      ],
+      "note": "Sequence and timing depend on the agreed project. This is not a live tracker or completion record."
+    }
+  },
+  "replacement-materials": {
+    "component": "material-comparison",
+    "page": "/services/barn-door-replacement",
+    "eyebrow": "The next door",
+    "heading": "Keep what works. Discuss what does not.",
+    "content": {
+      "title": "Compare materials before products.",
+      "intro": "Decide what the new door should bring to the room. Jeff votes grain; you still get the casting vote.",
+      "rows": [
+        {
+          "name": "Visible wood grain",
+          "character": "Warmth and variation; every board will have its own appearance.",
+          "care": "Ask for the actual finish manufacturer’s care guidance.",
+          "confirm": "Species, finish sample, weight, and compatibility with the proposed hardware."
+        },
+        {
+          "name": "Painted finish",
+          "character": "A color decision that can join the room or deliberately interrupt it.",
+          "care": "Confirm the coating and the touch-up approach before ordering.",
+          "confirm": "Construction, color sample, edge details, and responsibility for painting."
+        },
+        {
+          "name": "Glass or glazed design",
+          "character": "A different conversation about light and privacy.",
+          "care": "Use guidance for the selected glass, frame, and hardware.",
+          "confirm": "The product’s intended use, privacy level, safety requirements, and installation instructions."
+        }
+      ],
+      "note": "Design directions only. Verify the actual product and any retained hardware; affection does not make the holes line up."
+    }
+  },
+  "hardware-next-step": {
+    "component": "service-card",
+    "page": "/services/tracks-hardware",
+    "eyebrow": "Before buying the shiny part",
+    "heading": "The track is part of the door conversation.",
+    "content": {
+      "eyebrow": "A useful first message",
+      "title": "The model number matters.",
+      "body": "A photograph shows the part. A model number gets you to its instructions.",
+      "points": [
+        "Keep the product link or model number if you have it.",
+        "Photograph the whole installation and any visible labels without dismantling it.",
+        "Describe the problem and which parts you hope to retain."
+      ],
+      "href": "services/barn-door-adjustments/",
+      "action": "If the problem is how it moves"
+    }
+  },
+  "adjustments-followup": {
+    "component": "follow-up-plan",
+    "page": "/services/barn-door-adjustments",
+    "eyebrow": "After the conversation",
+    "heading": "Fewer surprise door visits.",
+    "content": {
+      "eyebrow": "Doreen’s preferred arrangement",
+      "title": "Agree on what happens next.",
+      "intro": "Record the work and agree how to get help afterward. Missing the door is not a service interval.",
+      "items": [
+        {
+          "when": "At the walkthrough",
+          "title": "Record what was addressed",
+          "body": "Review the agreed work and note any issue that remains unresolved.",
+          "owner": "Discuss together"
+        },
+        {
+          "when": "Before everyone leaves",
+          "title": "Keep the care and contact details",
+          "body": "Confirm product guidance, the appropriate contact, and any written terms that apply.",
+          "owner": "Keep with your project notes"
+        },
+        {
+          "when": "If something changes",
+          "title": "Describe the new behavior",
+          "body": "Note when the issue started and what you can observe safely. Confirm any further visit directly.",
+          "owner": "Contact the agreed person"
+        }
+      ],
+      "boundary": "If the door appears loose or unsafe, stop using it and arrange appropriate help. Do not dismantle or force it for a photo.",
+      "note": "No warranty, return visit, response time, or check-in is promised here. Agree any follow-up directly. Doreen books appointments; Jeff’s wave from the driveway does not count."
+    }
+  },
+  "gallery-finishes": {
+    "component": "finish-selector",
+    "page": "/gallery",
+    "eyebrow": "Find a direction",
+    "heading": "Three finishes. Jeff needs a minute.",
+    "content": {
+      "eyebrow": "The finish conversation",
+      "title": "Which direction feels right?",
+      "intro": "Compare illustrative designs. These are different doors, not recolors of one product.",
+      "legend": "Choose a design direction",
+      "options": [
+        {
+          "label": "Warm walnut",
+          "description": "Rich grain, strong presence. Jeff has pulled up a chair.",
+          "image": "images/barn-door-walnut.webp",
+          "alt": "Illustrative dark walnut sliding barn door in an interior",
+          "caption": "AI-generated design illustration; not a completed Jeff project or an exact finish sample."
+        },
+        {
+          "label": "Quiet oak",
+          "description": "Lighter wood, plenty of grain. “Quiet” describes the door, not the meeting.",
+          "image": "images/barn-door-oak-slab.webp",
+          "alt": "Illustrative flush oak sliding door showing its natural grain",
+          "caption": "AI-generated design illustration; confirm the actual wood and finish with a physical sample."
+        },
+        {
+          "label": "Painted pantry",
+          "description": "Let the room lead. Jeff is learning to share the attention.",
+          "image": "images/barn-door-pantry.webp",
+          "alt": "Illustrative white painted sliding door at a pantry opening",
+          "caption": "AI-generated design illustration; not a product color reference or completed installation."
+        }
+      ],
+      "note": "The choice is not saved and places no order. Confirm a physical sample and compatible products for actual work."
+    }
+  },
+  "gallery-story": {
+    "component": "project-story",
+    "page": "/gallery",
+    "eyebrow": "An opening, imagined",
+    "heading": "The pantry that wanted a little dignity.",
+    "content": {
+      "title": "A quieter front for a very busy cupboard.",
+      "image": "images/barn-door-pantry.webp",
+      "alt": "Illustrative painted sliding door in front of a pantry",
+      "caption": "AI-generated illustration. This fictional design study does not document a customer project.",
+      "label": "Fictional design study",
+      "facts": [
+        {
+          "label": "Room",
+          "value": "An imagined pantry"
+        },
+        {
+          "label": "Direction",
+          "value": "Painted, simple, considered"
+        },
+        {
+          "label": "Status",
+          "value": "An idea to discuss"
+        }
+      ],
+      "challenge": "The imagined brief: make the pantry feel part of the kitchen while keeping everyday access in the conversation. Jeff initially proposed a formal introduction to the cereal.",
+      "approach": "Discuss sightlines, available wall space, handle position, and a real finish sample before choosing a door. Doreen has removed the cereal introduction from the scope."
+    }
+  },
+  "about-crew": {
+    "component": "crew-roster",
+    "page": "/about",
+    "feature": "team",
+    "eyebrow": "The field office",
+    "heading": "Jeff. Doreen. Lenny.",
+    "content": {
+      "eyebrow": "A small operation",
+      "title": "Two people. One level.",
+      "intro": "Jeff wants a good door. Doreen wants a finished day. Lenny has one question about the horizontal.",
+      "people": [
+        {
+          "initials": "J",
+          "name": "Jeff",
+          "role": "Doors, and matters arising from doors",
+          "bio": "Remembers a door by its grain and a house by its door. His directions are difficult to follow.",
+          "aside": "Originally from Dallas. You will not have to ask."
+        },
+        {
+          "initials": "D",
+          "name": "Doreen",
+          "role": "Scope, scheduling, and getting home on time",
+          "bio": "Keeps one calendar, a numbered proposal, and a pen Jeff cannot borrow. Makes room for his ideas when they fit the job.",
+          "aside": "Has never written “whenever the door is ready.”"
+        },
+        {
+          "initials": "L",
+          "name": "Lenny",
+          "role": "Four-foot level · reports to gravity",
+          "bio": "Quiet, consistent, and immune to persuasion. Jeff has tried turning him around. Same answer.",
+          "aside": "No direct reports. One bubble."
+        }
+      ],
+      "note": "Parody cast: these biographies are fictional. Lenny is a level. Staffing and responsibilities for actual work must be confirmed directly."
+    }
+  },
+  "about-notes": {
+    "component": "field-notes",
+    "page": "/about",
+    "feature": "team",
+    "eyebrow": "From the clipboard",
+    "heading": "Doreen would like this on the record.",
+    "content": {
+      "eyebrow": "Fictional field notes",
+      "title": "A brief account of a long door conversation.",
+      "intro": "A fictional Tuesday in the field office.",
+      "entries": [
+        {
+          "label": "08:10 · Preparation",
+          "title": "Jeff has brought a second tape measure.",
+          "body": "The first tape measure has done nothing wrong. Jeff says it is helpful for the numbers to have a witness.",
+          "author": "Doreen"
+        },
+        {
+          "label": "10:35 · Materials",
+          "title": "The sample board is now in the passenger seat.",
+          "body": "It was catching the light better there. The seat belt was my idea. The name was Jeff’s.",
+          "author": "Doreen"
+        },
+        {
+          "label": "15:20 · Close of business",
+          "title": "No further comment.",
+          "body": "The bubble is between the lines. The rest is a management decision.",
+          "author": "Lenny, as interpreted by Doreen"
+        }
+      ],
+      "note": "Fictional office notes; no actual visit, progress, or completed work is recorded."
+    }
+  },
+  "about-credentials": {
+    "component": "credential-list",
+    "page": "/about",
+    "feature": "credentials",
+    "eyebrow": "The paperwork",
+    "heading": "A fondness for doors is not a credential.",
+    "content": {
+      "title": "The paperwork has to stand on its own.",
+      "intro": "Qualifications need current evidence. Enthusiasm has its own section.",
+      "items": [
+        {
+          "title": "Licensing and registration",
+          "detail": "Confirm the identity, applicable requirements, and current records for the actual contractor and work.",
+          "status": "Not verified here"
+        },
+        {
+          "title": "Insurance",
+          "detail": "Request current evidence and confirm what it covers. This page makes no insurance claim.",
+          "status": "Not verified here"
+        },
+        {
+          "title": "Product or trade credentials",
+          "detail": "Verify any claimed training or authorization with its issuer. Lenny’s attendance does not constitute certification.",
+          "status": "Not verified here"
+        }
+      ]
+    }
+  },
+  "pricing-packages": {
+    "component": "package-comparison",
+    "page": "/pricing",
+    "eyebrow": "Pick the conversation",
+    "heading": "Three kinds of work. One very interested Jeff.",
+    "content": {
+      "eyebrow": "Scope directions",
+      "title": "Find the closest starting point.",
+      "intro": "Scope outlines to discuss, not priced packages or included-service promises.",
+      "packages": [
+        {
+          "label": "Start fresh",
+          "title": "A new installation",
+          "body": "An opening that needs a complete plan.",
+          "items": [
+            "Opening and room requirements",
+            "Door, finish, and hardware selection",
+            "Supply, installation, and finish responsibilities"
+          ],
+          "footer": "Door, hardware, and preparation belong in the same proposal."
+        },
+        {
+          "label": "Make a change",
+          "title": "A replacement",
+          "body": "The opening stays. Discuss which other parts should.",
+          "items": [
+            "What is being removed or retained",
+            "Compatibility of any reused hardware",
+            "Making good and disposal arrangements"
+          ],
+          "footer": "The old door needs a destination. Jeff has suggestions."
+        },
+        {
+          "label": "Get it moving",
+          "title": "An adjustment",
+          "body": "Something has changed. Describe it before choosing the fix.",
+          "items": [
+            "The observed problem and when it started",
+            "Existing product details and condition",
+            "Assessment, proposed work, and remaining limits"
+          ],
+          "footer": "Assessment comes before a repair promise."
+        }
+      ],
+      "note": "No work is booked, purchased, or authorized here."
+    }
+  },
+  "pricing-drivers": {
+    "component": "cost-drivers",
+    "page": "/pricing",
+    "eyebrow": "What moves the number",
+    "heading": "Four places an estimate can grow.",
+    "content": {
+      "title": "Ask what is included.",
+      "intro": "For each line item, agree who supplies it, who does it, and where the work ends.",
+      "items": [
+        {
+          "title": "The door and its hardware",
+          "body": "The selected products, delivery, and who is ordering them."
+        },
+        {
+          "title": "The existing opening",
+          "body": "Access, obstructions, and preparation before fitting can begin."
+        },
+        {
+          "title": "The finish line",
+          "body": "Painting, trim, repairs, cleanup, and disposal. “Finished” needs a shared meaning."
+        },
+        {
+          "title": "Changes after agreement",
+          "body": "Agree on added work, cost, and timing first. “Jeff had a thought” is not a change order."
+        }
+      ],
+      "note": "This page calculates no price. Request a written proposal for the actual work."
+    }
+  },
+  "pricing-change": {
+    "component": "change-summary",
+    "page": "/pricing",
+    "eyebrow": "When the idea changes",
+    "heading": "Write it down before Jeff gets attached.",
+    "content": {
+      "eyebrow": "A fictional change request",
+      "title": "One pantry. Now two doors?",
+      "reference": "Illustrative office memo · Doreen’s copy",
+      "status": "Discussion only",
+      "intro": "A fictional example of an idea that changes the job.",
+      "original": {
+        "label": "The original idea",
+        "body": "One painted sliding door for the imagined pantry opening."
+      },
+      "requested": {
+        "label": "The new idea",
+        "body": "Explore a pair of doors and a different hardware arrangement. Jeff describes them as a partnership."
+      },
+      "impacts": [
+        {
+          "label": "Scope",
+          "value": "New layout and compatibility review needed"
+        },
+        {
+          "label": "Cost",
+          "value": "Not priced"
+        },
+        {
+          "label": "Timing",
+          "value": "Not scheduled"
+        },
+        {
+          "label": "Decision",
+          "value": "No approval recorded"
+        }
+      ],
+      "note": "Nothing is approved or purchased. Agree the revised scope, price, and timing in writing before proceeding."
+    }
+  },
+  "contact-prep": {
+    "component": "visit-checklist",
+    "page": "/contact",
+    "eyebrow": "Before a conversation",
+    "heading": "A little prep. A manageable amount of Jeff.",
+    "content": {
+      "title": "A short list for the conversation.",
+      "intro": "Tick off what you have. Leave unknowns as unknowns.",
+      "legend": "Details to have ready",
+      "items": [
+        "The general location and which opening needs attention",
+        "A description of the goal or problem, in your own words",
+        "Photos you already have of the wall, door, and visible hardware",
+        "Product names or instructions, if available",
+        "Questions about access, timing, supplies, and what the scope includes"
+      ],
+      "note": "These ticks are not sent or saved by the site and do not book a visit. Photos stay with you. Doreen accepts “I don’t know yet” as a complete sentence."
+    }
+  },
+  "service-area-availability": {
+    "component": "availability-panel",
+    "page": "/service-area",
+    "eyebrow": "Before the truck leaves",
+    "heading": "A town. A date. Doreen has a pencil.",
+    "content": {
+      "title": "Let Doreen check the route.",
+      "status": "Availability not confirmed online",
+      "body": "Include your town and any timing constraints. Jeff finding his keys is not confirmation.",
+      "areas": [],
+      "note": "No live coverage check or appointment booking is available. Confirm the location, visit, and timing directly.",
+      "href": "#brief",
+      "action": "Prepare a project brief"
+    }
+  },
+  "faq-handover": {
+    "component": "handover-pack",
+    "page": "/faq",
+    "eyebrow": "Before the final goodbye",
+    "heading": "The questions to keep after the door is in.",
+    "content": {
+      "title": "Leave with answers.",
+      "intro": "Use these questions at the walkthrough. Jeff can work on his farewell while you check the paperwork.",
+      "groups": [
+        {
+          "title": "Operation and the agreed finish",
+          "body": "Review the actual installation together.",
+          "items": [
+            "How should the selected door and hardware be used?",
+            "Does the result match the written scope?",
+            "What remains open, and who is handling it?"
+          ]
+        },
+        {
+          "title": "Product and care information",
+          "body": "Keep guidance for the products actually installed.",
+          "items": [
+            "Where are the product names and manufacturer instructions?",
+            "Which care instructions apply to this finish?",
+            "What should prompt you to stop using the door and ask for help?"
+          ]
+        },
+        {
+          "title": "Contact and any written terms",
+          "body": "Agree on the practical next step if a question comes up.",
+          "items": [
+            "Who is the right contact?",
+            "What warranty or service terms, if any, were agreed?",
+            "How will unresolved items be recorded and followed up?"
+          ]
+        }
+      ],
+      "note": "A question list is not a completion record, acceptance, or warranty. Neither is Jeff’s farewell."
+    }
+  },
+  "reviews-featured": {
+    "component": "featured-testimonial",
+    "page": "/reviews",
+    "eyebrow": "From the fictional correspondence",
+    "heading": "The door has declined to comment.",
+    "content": {
+      "eyebrow": "A note from the Jeff universe",
+      "title": "‘He remembered the door’s birthday.’",
+      "quote": "I mentioned it had been a year. Jeff brought a card. The envelope was addressed to the pantry. I opened it anyway, and now he’s being a little formal with me.",
+      "name": "An entirely fictional pantry owner",
+      "context": "Fictional pantry correspondence",
+      "replyLabel": "Doreen’s reply",
+      "reply": "The calendar entry has been removed. Jeff has asked whether the door at least saw the card.",
+      "disclosure": "Parody, not a customer review. No real customer, project, or endorsement is represented."
+    }
+  }
+}

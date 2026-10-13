@@ -1,10 +1,16 @@
 {{ define "main" }}
   {{ partial "page-hero.html" (dict "page" . "eyebrow" "Gallery") }}
+  {{ partial "site-component.html" (dict "page" . "key" "gallery-finishes") }}
   <section class="gallery l-section">
     <div class="l-container">
       <article class="prose prose--narrow">{{ .Content }}</article>
       {{ partial "gallery-grid.html" (dict "items" hugo.Data.gallery "filter" true) }}
+      {{ partial "easter-egg.html" (dict "id" "jeff" "label" "On the back of the sample card" "lines" (slice
+        "Jeff: ‘Please return the walnut to the front of the stack. It knows.’"
+        "Doreen: ‘The samples are alphabetical.’"
+      )) }}
     </div>
   </section>
-  {{ partial "cta-banner.html" (dict "heading" "Want your doorway in this gallery? Jeff will bring a camera. And a second camera.") }}
+  {{ partial "site-component.html" (dict "page" . "key" "gallery-story") }}
+  {{ partial "cta-banner.html" (dict "heading" "Found a direction? Bring it to your brief.") }}
 {{ end }}

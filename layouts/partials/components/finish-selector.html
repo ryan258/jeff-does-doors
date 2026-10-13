@@ -1,0 +1,17 @@
+{{/* dict {id, content: {eyebrow,title,intro,legend,options[{label,description,image,alt,caption}],note}}. Load choice-script once per page. */}}
+{{ $c := .content }}
+<section class="contractor-card contractor-finishes" data-contractor-choice aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">{{ $c.eyebrow }}</p>
+  <h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p>
+  <fieldset class="contractor-choice-list contractor-choice-list--compact" data-choice-controls hidden><legend>{{ $c.legend }}</legend>
+    {{ range $index, $option := $c.options }}<label for="{{ $.id }}-choice-{{ $index }}"><input type="radio" name="{{ $.id }}-choice" id="{{ $.id }}-choice-{{ $index }}" value="{{ $index }}" data-choice-input data-choice-label="{{ .label }}" aria-controls="{{ $.id }}-panel-{{ $index }}"{{ if eq $index 0 }} checked{{ end }}><span><strong>{{ .label }}</strong></span></label>{{ end }}
+  </fieldset>
+  <div class="contractor-choice-panels">
+    {{ range $index, $option := $c.options }}<figure class="contractor-finish-panel" id="{{ $.id }}-panel-{{ $index }}" data-choice-panel="{{ $index }}" aria-labelledby="{{ $.id }}-panel-{{ $index }}-title">
+      {{ partial "image.html" (dict "src" .image "alt" .alt "sizes" "(max-width: 760px) 100vw, 60vw") }}
+      <figcaption><h4 id="{{ $.id }}-panel-{{ $index }}-title">{{ .label }}</h4><p>{{ .description }}</p><small>{{ .caption }}</small></figcaption>
+    </figure>{{ end }}
+  </div>
+  <p class="u-visually-hidden" data-choice-status role="status" aria-live="polite"></p>
+  <p class="contractor-note">{{ $c.note }}</p>
+</section>

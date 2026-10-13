@@ -4,6 +4,7 @@
     "data/services.yaml",
     "data/faqs.yaml",
     "data/process.yaml",
+    "data/site_components.json",
     "content/_index.md",
     "content/services/_index.md",
     "content/thank-you.md",

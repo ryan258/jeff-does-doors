@@ -1,0 +1,7 @@
+{{/* dict {id, content: {eyebrow,title,intro,people[{initials,name,role,bio,aside}],note}}. Text portraits avoid implying documentary photographs. */}}
+{{ $c := .content }}
+<section class="contractor-card" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">{{ $c.eyebrow }}</p><h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p>
+  <ul class="contractor-roster">{{ range $c.people }}<li><span class="contractor-roster__portrait" aria-hidden="true">{{ .initials }}</span><div><h4>{{ .name }}</h4><p class="contractor-roster__role">{{ .role }}</p><p>{{ .bio }}</p><p class="contractor-roster__aside">{{ .aside }}</p></div></li>{{ end }}</ul>
+  <p class="contractor-note">{{ $c.note }}</p>
+</section>

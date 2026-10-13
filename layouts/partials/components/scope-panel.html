@@ -1,0 +1,10 @@
+{{/* Contract: dict {id, content: {title, intro, groups[{title,items[]}], note?}}. */}}
+{{ $c := .content }}
+<section class="contractor-card" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">Scope of work</p>
+  <h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p>
+  <div class="contractor-columns">
+    {{ range $c.groups }}<div class="contractor-scope-group"><h4>{{ .title }}</h4><ul class="contractor-list">{{ range .items }}<li>{{ . }}</li>{{ end }}</ul></div>{{ end }}
+  </div>
+  {{ with $c.note }}<p class="contractor-note">{{ . }}</p>{{ end }}
+</section>

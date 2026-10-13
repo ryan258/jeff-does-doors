@@ -21,10 +21,11 @@
       </div>
       <div class="contact-page__form">
         <h2>Prepare your project details</h2>
-        <p>Make a clear note of what the door needs. Copy or download it to keep for a future conversation. Jeff will be glad to have it.</p>
+        <p>Prepare a draft to copy or download for a future conversation.</p>
         {{ partial "brief-form.html" (dict "page" . "id" "contact-brief" "wizard" false) }}
       </div>
     </div>
   </section>
+  {{ partial "site-component.html" (dict "page" . "key" "contact-prep") }}
   {{ partial "measuring-guide.html" . }}
 {{ end }}

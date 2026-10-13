@@ -1,0 +1,9 @@
+{{/* dict {id, content: {eyebrow,title,reference,status,intro,original:{label,body},requested:{label,body},impacts[{label,value}],note}}. Read-only; status never implies an approval action. */}}
+{{ $c := .content }}
+<section class="contractor-card contractor-change" aria-labelledby="{{ .id }}-title">
+  <div class="contractor-change__header"><p class="contractor-kicker">{{ $c.eyebrow }}</p><span class="contractor-status">{{ $c.status }}</span></div>
+  <h3 id="{{ .id }}-title">{{ $c.title }}</h3><p class="contractor-change__reference">{{ $c.reference }}</p><p>{{ $c.intro }}</p>
+  <div class="contractor-change__comparison"><div><h4>{{ $c.original.label }}</h4><p>{{ $c.original.body }}</p></div><div><h4>{{ $c.requested.label }}</h4><p>{{ $c.requested.body }}</p></div></div>
+  <dl class="contractor-facts">{{ range $c.impacts }}<div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>{{ end }}</dl>
+  <p class="contractor-note">{{ $c.note }}</p>
+</section>

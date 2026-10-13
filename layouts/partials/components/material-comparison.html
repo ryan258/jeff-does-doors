@@ -1,0 +1,15 @@
+{{/* Contract: dict {id, content: {title, intro, rows[{name,character,care,confirm}], note?}}. */}}
+{{ $c := .content }}
+<section class="contractor-card" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">Compare options</p>
+  <h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p>
+  <p class="contractor-hint" id="{{ .id }}-hint">On a small screen, scroll the table sideways to see every column.</p>
+  <div class="contractor-table-scroll" role="region" aria-labelledby="{{ .id }}-title" aria-describedby="{{ .id }}-hint" tabindex="0">
+    <table class="contractor-table">
+      <caption>{{ $c.title }} — planning comparison</caption>
+      <thead><tr><th scope="col">Option</th><th scope="col">Look & feel</th><th scope="col">Care conversation</th><th scope="col">Confirm before ordering</th></tr></thead>
+      <tbody>{{ range $c.rows }}<tr><th scope="row">{{ .name }}</th><td>{{ .character }}</td><td>{{ .care }}</td><td>{{ .confirm }}</td></tr>{{ end }}</tbody>
+    </table>
+  </div>
+  {{ with $c.note }}<p class="contractor-note">{{ . }}</p>{{ end }}
+</section>

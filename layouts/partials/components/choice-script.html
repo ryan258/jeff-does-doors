@@ -1,0 +1,3 @@
+{{/* Include once after all project-chooser / finish-selector instances on a page. */}}
+{{ $script := resources.Get "js/contractor-choices.js" | minify | fingerprint }}
+<script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>

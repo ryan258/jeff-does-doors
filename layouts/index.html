@@ -32,10 +32,11 @@
       <li><span>01</span>Introduced to the opening</li>
       <li><span>02</span>Measured. Then measured.</li>
       <li><span>03</span>Wood, finish &amp; hardware, together</li>
-      <li><span>04</span>A clear plan, and a second visit</li>
+      <li><span>04</span>A plan Doreen can file</li>
     </ol>
   </section>
 
+  {{ partial "site-component.html" (dict "page" . "key" "home-start") }}
   {{ partial "credentials.html" . }}
 
   <section class="furniture l-section" id="about">
@@ -47,7 +48,7 @@
       </div>
       <div class="furniture__copy">
         <p class="furniture__lead">A barn-style door takes up a surprising amount of visual space. Jeff considers this a good thing.</p>
-        <p>So it deserves the thought you would give a sofa, a good lamp, or a houseguest. Start with the door. Then, if it helps, choose a room for it. Choose the wood, the proportions, and the hardware together.</p>
+        <p>Choose the wood, proportions, and hardware together, as you would any piece of furniture. Jeff would also offer it a drink, but Doreen has asked him to focus.</p>
         <ul class="swatches" aria-label="Finish directions to talk through">
           <li class="swatch swatch--walnut"><span class="swatch__chip" aria-hidden="true"></span><span class="swatch__code">A</span>Walnut</li>
           <li class="swatch swatch--oak"><span class="swatch__chip" aria-hidden="true"></span><span class="swatch__code">B</span>White oak</li>
@@ -65,14 +66,14 @@
           <p class="mcm-eyebrow mcm-eyebrow--light">Door styles</p>
           <h2>Four ways to<br>dress an opening.</h2>
         </div>
-        <p>Style directions to react to. Each image is an illustration, not a finished Jeff project. Jeff has asked us to note that he would have done the trim differently.</p>
+        <p>Illustrated directions for shape, finish, and light. See what belongs in your room; Jeff has already picked one.</p>
       </div>
       <ul class="styles__row">
         {{ range slice
-          (dict "src" "images/barn-door-oak-slab.webp" "name" "Flush slab" "note" "Quiet and modern. Jeff can look at the grain for a while." "alt" "Illustrative flush oak sliding door")
-          (dict "src" "images/barn-door-craftsman.webp" "name" "Paneled" "note" "Tailored lines. Five panels, each one considered." "alt" "Illustrative five-panel wood sliding door beside a dining room")
-          (dict "src" "images/barn-door-pantry.webp" "name" "Painted" "note" "Color that matches the walls, or one the walls will grow into." "alt" "Illustrative white painted sliding door on a pantry")
-          (dict "src" "images/barn-door-french-glass.webp" "name" "Glass grid" "note" "Light passes through. The room stays open, and so does the view of the door." "alt" "Illustrative pair of black steel-and-glass sliding doors")
+          (dict "src" "images/barn-door-oak-slab.webp" "name" "Flush slab" "note" "Clean lines. Let the grain do the work." "alt" "Illustrative flush oak sliding door")
+          (dict "src" "images/barn-door-craftsman.webp" "name" "Paneled" "note" "A little rhythm for a plain wall." "alt" "Illustrative five-panel wood sliding door beside a dining room")
+          (dict "src" "images/barn-door-pantry.webp" "name" "Painted" "note" "Blend in, or give the wall something to get used to." "alt" "Illustrative white painted sliding door on a pantry")
+          (dict "src" "images/barn-door-french-glass.webp" "name" "Glass grid" "note" "A boundary that keeps the light moving." "alt" "Illustrative pair of black steel-and-glass sliding doors")
         }}
           <li class="style-tile">
             <div class="style-tile__media">{{ partial "image.html" (dict "src" .src "alt" .alt "sizes" "(max-width: 700px) 50vw, 25vw") }}</div>
@@ -91,7 +92,7 @@
           <p class="mcm-eyebrow">The catalog</p>
           <h2>Every part<br>of the door.</h2>
         </div>
-        <p>Four ways to work with Jeff. Supply and custom work are discussed in person, ideally with the door present.</p>
+        <p>From a new opening to an old complaint. Confirm the work and who supplies each part before ordering.</p>
       </div>
       <div class="catalog__list" id="services">
         {{ range $i, $s := (partial "services.html" .) }}
@@ -164,9 +165,9 @@
         <div class="section-heading section-heading--wide">
           <div>
             <p class="eyebrow">Door gallery</p>
-            <h2>A closer look at the work.</h2>
+            <h2>A closer look at the possibilities.</h2>
           </div>
-          <p class="section-heading__aside">Explore door styles, finishes, and visible hardware details. Open any image for a closer look.</p>
+          <p class="section-heading__aside">AI-generated concepts for your reference pile. Open any image to inspect the details.</p>
         </div>
         {{ partial "gallery-grid.html" (dict "items" (first 6 hugo.Data.gallery) "filter" false) }}
         <p class="work-preview__more"><a class="link-arrow" href="{{ "gallery/" | relURL }}">Open the full gallery <span aria-hidden="true">↗</span></a></p>
@@ -182,7 +183,7 @@
           <p class="mcm-eyebrow mcm-eyebrow--light">The project board</p>
           <h2>Meet.<br>Plan. Settle in.</h2>
         </div>
-        <blockquote class="board__quote"><p>The door comes first. The right room feels like it belongs there.</p></blockquote>
+        <blockquote class="board__quote"><p>“There is a place for every idea. Some of them are on the next page.” — Doreen</p></blockquote>
       </div>
       <ol class="board__steps">
         {{ range hugo.Data.process }}
@@ -203,7 +204,7 @@
       <section class="warranty l-section" id="warranty">
         <div class="l-container warranty__grid">
           <div class="section-heading">
-            <p class="eyebrow">The guarantee</p>
+            <p class="eyebrow">Jeff’s idea of a goodbye</p>
             <h2>{{ $w.headline }}</h2>
             <p class="section-heading__aside">{{ $w.body }}</p>
             {{ if not (partial "is-true.html" $w.verified) }}<p class="warranty__flag">Unverified — visible on staging only until the terms are confirmed.</p>{{ end }}
@@ -231,7 +232,7 @@
           <h2>Door<br>by door.</h2>
         </div>
         <div class="local__copy">
-          <p>A door looks best in the home it was planned for. Jeff drives out to meet every door personally, from Bentonville. Dallas is not out of the question.</p>
+          <p>Jeff starts in Bentonville. Where the truck goes next depends on the project and an agreed visit. Dallas appears on his map more prominently than scale requires.</p>
           <p class="local__area"><span>Service area</span>{{ site.Params.serviceArea }}</p>
           {{ if or site.Params.coverageConfirmed site.Params.showExampleLocations }}
             <p class="local__towns">{{ range $i, $t := (index $area "primary").towns }}{{ if $i }} · {{ end }}{{ partial "town-label.html" $t }}{{ end }}</p>
@@ -247,20 +248,20 @@
     <div class="l-container">
       <div class="section-heading section-heading--wide reviews__heading">
         <div>
-          <p class="eyebrow">Customer proof</p>
-          <h2>Let the work speak.<br><em>Jeff will listen.</em></h2>
+          <p class="eyebrow">From the fictional mailbag</p>
+          <h2>Word gets around.<br><em>Doreen reads the mail.</em></h2>
         </div>
         <div class="reviews__score">
           {{ if gt (len $reviews) 0 }}
-            <p>Selected customer notes,<br>lightly edited for length</p>
+            <p>Invented reviews.<br>Part of the parody.</p>
           {{ else }}
-            <p>Customer proof is being verified<br>before launch.</p>
+            <p>The mailbag is empty.<br>Doreen has noticed.</p>
           {{ end }}
           {{ with site.Params.reviewURL }}<a class="link-arrow" href="{{ . }}" target="_blank" rel="noopener noreferrer">View the review profile <span aria-hidden="true">↗</span></a>{{ end }}
         </div>
       </div>
       {{ partial "review-cards.html" (dict "reviews" $reviews) }}
-      {{ if (partial "feature-enabled.html" "reviewsPage") }}<p class="work-preview__more"><a class="link-arrow" href="{{ "reviews/" | relURL }}">Read all customer reviews <span aria-hidden="true">↗</span></a></p>{{ end }}
+      {{ if (partial "feature-enabled.html" "reviewsPage") }}<p class="work-preview__more"><a class="link-arrow" href="{{ "reviews/" | relURL }}">Read the correspondence <span aria-hidden="true">↗</span></a></p>{{ end }}
     </div>
   </section>
 
@@ -271,7 +272,7 @@
         <div class="section-heading">
           <p class="eyebrow eyebrow--light">The money question</p>
           <h2>“What does something like this usually run?”</h2>
-          <p class="section-heading__aside">Understand what changes the scope and price. These are orientation, not a quote. Jeff would like to see the opening first.</p>
+          <p class="section-heading__aside">See what belongs in the estimate before asking for a number. Doreen has made room for the less romantic items, including disposal.</p>
         </div>
         <a class="button button--accent" href="{{ "pricing/" | relURL }}">Explore costs and scope <span aria-hidden="true">↗</span></a>
       </div>
@@ -314,18 +315,6 @@
 
   <section class="consult l-section" id="faq">
     <div class="l-container">
-      <div class="consult__panel">
-        <div class="consult__plane">
-          <p class="mcm-eyebrow mcm-eyebrow--dark">A design consultation</p>
-          <h2>Before anything<br>is made…</h2>
-        </div>
-        <ol class="consult__questions">
-          <li>What kind of room is it?</li>
-          <li>How wide is the opening?</li>
-          <li>How much of the day is the door left alone?</li>
-          <li>Should the door disappear — or become the centerpiece?</li>
-        </ol>
-      </div>
       <div class="consult__faq">
         <div class="mcm-heading">
           <p class="mcm-eyebrow">Common questions</p>
@@ -344,7 +333,7 @@
       <div class="brief-builder__intro">
         <p class="mcm-eyebrow">Start the brief</p>
         <h2>Tell us about the opening.</h2>
-        <p class="brief-builder__lede">A few details are enough to begin the conversation. Nothing is sent automatically, and you can keep a copy.</p>
+        <p class="brief-builder__lede">Your town and a short description make a useful draft. Copy or download it when you are ready.</p>
       </div>
       {{ partial "brief-form.html" (dict "page" . "id" "brief" "wizard" false) }}
     </div>
@@ -355,7 +344,7 @@
       <div class="contact__copy">
         <p class="mcm-eyebrow mcm-eyebrow--light">Ready when you are</p>
         <h2>Let’s talk about your door.</h2>
-        <p class="contact__lede">Start with the door, the problem, and the result you have in mind. Jeff will have follow-up questions. Several. Try the message builder while his contact details are being confirmed.</p>
+        <p class="contact__lede">An idea, a problem, or a door you have been thinking about. Gather it in a draft while contact details are being confirmed. Doreen recommends the short version first.</p>
         <div class="contact__actions">
           {{ with site.Params.contactPhone }}<a class="button button--accent" href="tel:{{ replaceRE "[^0-9+]" "" . }}">Call about your project</a>{{ end }}
           <a class="link-arrow link-arrow--light" href="{{ partial "brief-url.html" "" }}">{{ site.Params.primaryAction }}</a>
@@ -372,7 +361,7 @@
       </div>
       <figure class="contact__material photo" aria-hidden="true">
         {{ partial "image.html" (dict "src" "images/wood-texture-dark.webp" "alt" "" "sizes" "(max-width: 760px) 100vw, 40vw") }}
-        <figcaption>Wood grain, close up. Jeff can tell you which tree.</figcaption>
+        <figcaption>Wood grain, close up. Jeff calls this a portrait.</figcaption>
       </figure>
     </div>
   </section>

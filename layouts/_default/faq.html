@@ -24,7 +24,8 @@
       </div>
     </div>
   </section>
+  {{ partial "site-component.html" (dict "page" . "key" "faq-handover") }}
   {{ partial "door-comparison.html" . }}
   {{ partial "measuring-guide.html" . }}
-  {{ partial "cta-banner.html" (dict "heading" "Question not here? That is a good first message. Jeff has answers, and more questions.") }}
+  {{ partial "cta-banner.html" (dict "heading" "Still have a question? Start there.") }}
 {{ end }}

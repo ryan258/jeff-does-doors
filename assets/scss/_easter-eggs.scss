@@ -1,0 +1,51 @@
+// Quiet, optional marginalia. Native disclosures keep keyboard/touch and no-JS use.
+.easter-egg {
+  max-inline-size: 38rem;
+  margin-block-start: 1.25rem;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+
+  summary {
+    min-block-size: 44px;
+    padding-block: 10px;
+    cursor: pointer;
+    list-style: disclosure-closed inside;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+  }
+
+  &[open] > summary { list-style-type: disclosure-open; }
+}
+
+.easter-egg__note {
+  padding: 0.25rem 0 0.25rem 1rem;
+  border-inline-start: 1px solid currentColor;
+  font-family: $font-serif;
+  font-size: 1.0625rem;
+
+  p { margin: 0; }
+  p + p { margin-block-start: 0.6rem; }
+}
+
+.easter-egg__level {
+  display: block;
+  inline-size: 5rem;
+  block-size: 0.75rem;
+  margin-block: 0.5rem 0.75rem;
+  border: 1px solid currentColor;
+  border-radius: 1rem;
+
+  span {
+    display: block;
+    inline-size: 1rem;
+    block-size: 100%;
+    margin-inline: auto;
+    border-inline: 1px solid currentColor;
+    border-radius: 50%;
+  }
+}
+
+.site-footer .easter-egg { color: var(--paper); }

@@ -1,0 +1,11 @@
+{{/* Contract: dict {id, content: {title, status, body, areas[]?, note, href?, action?}}. Does not check dates or coverage. */}}
+{{ $c := .content }}
+<aside class="contractor-availability" aria-labelledby="{{ .id }}-title">
+  <div><p class="contractor-kicker">Location & timing</p><h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.body }}</p></div>
+  <div class="contractor-availability__detail">
+    <span class="contractor-status">{{ $c.status }}</span>
+    {{ with $c.areas }}<ul class="contractor-area-list" aria-label="Service locations">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ else }}<p>Service locations have not been added.</p>{{ end }}
+    <p>{{ $c.note }}</p>
+    {{ if and $c.href $c.action }}<a class="contractor-link" href="{{ $c.href | relURL }}">{{ $c.action }} <span aria-hidden="true">↗</span></a>{{ end }}
+  </div>
+</aside>

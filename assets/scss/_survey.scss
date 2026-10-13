@@ -13,8 +13,6 @@
 .door-comparison__table-wrap:focus-visible { outline: 3px solid #5c3b0e; outline-offset: 4px; }
 @media (max-width: 760px) {
   .survey-fields { grid-template-columns: minmax(0, 1fr); }
-  .room-hero__field { order: 0; }
-  .room-hero__media { order: 1; min-height: 0; max-height: 22rem; }
 }
 @media print {
   body.page--survey > :not(main), .page--survey main > :not(.survey-workspace),
