@@ -181,7 +181,7 @@ def data_issues(name, data, production):
     def walk(value, location):
         if isinstance(value, dict):
             for key, child in value.items():
-                if key in {'verified','approved','placeholder','active','open','featured'} and type(child) is not bool:
+                if key in {'verified','approved','placeholder','active','open','featured','deliveryStatus'} and type(child) is not bool:
                     issues.append(f'{location}.{key}: must be a boolean, not {type(child).__name__}')
                 walk(child, f'{location}.{key}')
         elif isinstance(value, list):
@@ -218,8 +218,19 @@ def data_issues(name, data, production):
                     issues.append(f'{name}: FAQ items must be a nonempty list')
                     continue
                 for question in questions:
-                    if not isinstance(question, dict) or not question.get('question') or not question.get('answer'):
-                        issues.append(f'{name}: each FAQ needs a question and answer')
+                    if not isinstance(question, dict):
+                        issues.append(f'{name}: each FAQ needs a question and answer'); continue
+                    if not isinstance(question.get('question'), str) or not question['question'].strip():
+                        issues.append(f'{name}: each FAQ needs a nonempty question')
+                    # Match faq-answer.html: delivery state, shared guidance, or text.
+                    # These IDs are the supported references in door-guidance.json.
+                    if question.get('deliveryStatus') is True:
+                        continue
+                    if 'guidance' in question:
+                        if question['guidance'] not in ('headroom', 'travel', 'overlap', 'floor'):
+                            issues.append(f'{name}: unknown FAQ guidance reference')
+                    elif not isinstance(question.get('answer'), str) or not question['answer'].strip():
+                        issues.append(f'{name}: each FAQ needs answer text or a supported answer source')
     elif stem == 'service_area':
         if not isinstance(data, dict): return issues + [f'{name}: expected mapping']
         if production and data.get('verified') is not True: issues.append(f'{name}: requires verified: true')

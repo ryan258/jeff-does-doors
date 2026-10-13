@@ -2,114 +2,82 @@
   featured: true
   items:
   - question: What does Jeff specialize in?
-    answer: Barn-style doors. Interior sliding designs, mostly, plus replacement
-      doors, tracks and hardware, and adjustments. Jeff is still confirming the
-      detailed service scope. He is also happy to talk about it for a while.
+    answer: Interior barn-style doors, replacements, hardware, and adjustments. Confirm the
+      exact scope directly. Hinges are where Jeff’s attention starts to wander.
   - question: Could a barn door work in my room?
-    answer: Start with a photo of the opening and the wall beside it. The room layout,
-      trim, wall space, hardware, and the privacy you want all belong in the discussion
-      before a door is chosen. Jeff will ask about the opening first and the room
-      second.
+    answer: Room layout, wall space, trim, hardware, and privacy all matter. Start with a photo
+      of the opening and the wall beside it.
   - question: Does Jeff make custom doors or install doors I buy?
-    answer: That arrangement is still being confirmed. Share the look you want and
-      any door you already have, then settle who supplies or builds the door and
-      who provides the hardware. Jeff would like to meet any door you already have.
+    answer: That arrangement is unconfirmed. Agree who supplies or builds the door and who provides
+      the hardware before ordering.
   - question: Does this form send a message to Jeff?
-    answer: No. It prepares a draft in your browser that you can copy or download.
-      Jeff’s contact details have not been supplied, and online delivery is disabled.
-      He will hear about your door anyway. It is a small town.
+    deliveryStatus: true
 - category: Planning your project
   featured: false
   items:
   - question: What should I include in a first message?
-    answer: Your town, where the door will go, the result you want, and any inspiration
-      or product details. Keep photos for a later conversation; this preview does
-      not upload them. Jeff will want a lot of photos. Take them at different times
-      of day.
+    answer: Your town, the opening, what you want to change, and any product links. Keep photos
+      ready for later; this preview does not upload them.
   - question: Should I order a door or track first?
-    answer: Confirm the opening, product compatibility, and supply responsibilities
-      before ordering. Include product links in your message if you have already found
-      something you like. Jeff will read every link.
+    answer: Confirm fit, product compatibility, and supply responsibilities first. A saved link
+      gives you something to discuss without committing to a purchase.
   - question: Where does Jeff work?
-    answer: Jeff lives in Bentonville, Arkansas, and works from there. He is from
-      Dallas, and will cross the Red River for the right door. He would like you to
-      know that Texas is not far. It is a long way. He would like you to know it
-      anyway. A confirmed town list is still on its way.
+    answer: He is based in Bentonville. Coverage still needs confirmation. His map includes
+      Dallas; Doreen’s includes travel time.
   - question: What will it cost?
-    answer: Prices are given in person, with the opening in view. The door, hardware,
-      opening conditions, preparation, and finish all help define the estimate.
-      Jeff does not charge for the second visit. Or the third.
+    answer: The door, hardware, site conditions, preparation, and finish shape the estimate.
+      Confirm the price and any follow-up terms in writing.
 - category: Clearances & fit
   featured: false
   items:
   - question: How much space do I need above the doorway?
-    answer: Measure from the top of the door casing to the ceiling. You want at least
-      6 inches of clear, flat wall for the rail and the roller wheels. Crown molding
-      or a low ceiling eats into that, so photograph the whole wall above the trim.
-      Jeff will look at that wall for a while.
+    guidance: headroom
   - question: There is a light switch on the wall beside my opening. Is that a problem?
-    answer: It can be. The door parks on that wall, so it needs a flat run about as
-      wide as the door, clear of switches, thermostats, heat registers, and air returns.
-      A corner or a second doorway close by limits the run as well. Photograph the
-      full wall. Jeff will want to know how the wall feels about visitors.
+    guidance: travel
   - question: How much wider than the opening should the door be?
-    answer: Measure the bare opening, not the casing. The slab is usually that opening
-      width plus 2 to 4 inches and roughly 1 inch taller, which covers the opening by
-      1 to 2 inches on each side. Wide or proud trim changes it, so send your trim width
-      and treat the final slab size as Jeff's to confirm. He will say it can go
-      bigger. Bigger is how they do it in Texas.
+    guidance: overlap
   - question: Does the floor have to be level?
-    answer: The door hangs from the rail, so a small variation is not fatal, but the
-      gap at the bottom changes across the run. Plan on 3/8 to 1/2 inch of floor clearance
-      and a bottom guide that keeps the slab from swinging. Mention a sloping floor
-      or a thick rug early. Jeff will not judge the rug.
+    guidance: floor
 - category: Hardware & how it moves
   featured: false
   items:
   - question: What is the door actually hanging from?
-    answer: Two roller hangers bolted through the top of the slab ride on a steel
-      rail. That rail carries the full weight, often 80 pounds or more, so it has
-      to be anchored into wall framing or a solid header board rather than into drywall
-      alone. Jeff finds the studs by tapping first and by stud finder second, to be
-      polite.
+    answer: The selected track and mounting system carries the door. Check the exact door
+      weight, hardware rating, structural support, and fastening instructions together.
+      A photograph cannot establish what is behind the wall.
   - question: Can a sliding barn door lock?
-    answer: There is no jamb to latch into, so privacy comes from face-mounted hardware
-      such as a hook, a teardrop latch, or a small slide bolt. Treat it as a privacy
-      signal rather than a bedroom lockset. Pull and latch placement should be decided
-      together so both fall to hand.
+    answer: There is no jamb to latch into, so privacy comes from face-mounted hardware such
+      as a hook, a teardrop latch, or a small slide bolt. Treat it as a privacy signal rather
+      than a bedroom lockset. Pull and latch placement should be decided together so both fall
+      to hand.
   - question: Can a barn door be made quieter?
-    answer: Most of the noise is mechanical. Sealed bearing rollers, a properly seated
-      rail, soft-close dampers at each end, and a bottom guide that is not binding
-      all reduce the rumble and the bang at the stops. Which hardware is available
-      belongs in the conversation with Jeff. He prefers a door that closes the way
-      a good conversation ends.
+    answer: Most of the noise is mechanical. Sealed bearing rollers, a properly seated rail,
+      soft-close dampers at each end, and a bottom guide that is not binding all reduce the
+      rumble and the bang at the stops. Which hardware is available belongs in the conversation
+      with Jeff.
   - question: My door rubs and drifts open on its own. What causes that?
-    answer: Usually one of a few things. The rail is slightly out of level, the roller
-      bolts have loosened, the bottom guide is off line, or the floor has a high spot.
-      Describe when it started and what you hear, then photograph the rail, the guide,
-      and the place where it rubs. Jeff may ask whether the door has seemed itself
-      lately.
+    answer: Usually one of a few things. The rail is slightly out of level, the roller bolts
+      have loosened, the bottom guide is off line, or the floor has a high spot. Describe when
+      it started and what you hear, then photograph the rail, the guide, and the place where
+      it rubs.
 - category: Materials, finish & living with it
   featured: false
   items:
   - question: Is a solid door worth it over a hollow-core one?
-    answer: Solid slabs feel steadier, hang truer, and block noticeably more sound.
-      Hollow-core doors are lighter and cheaper, but they telegraph sound and give
-      hardware less to fasten into. Either way, check the door weight against the
-      rating of the rail and rollers.
+    answer: Solid slabs feel steadier, hang truer, and block noticeably more sound. Hollow-core
+      doors are lighter and cheaper, but they telegraph sound and give hardware less to fasten
+      into. Either way, check the door weight against the rating of the rail and rollers.
   - question: Will a wood door warp?
-    answer: Wood moves with the seasons. The usual protections are kiln-dried stock,
-      a slab built to allow that movement, and finish applied to both faces and all
-      edges so neither side takes on moisture faster. Rooms with steam or large humidity
-      swings deserve extra thought.
+    answer: Wood moves with the seasons. The usual protections are kiln-dried stock, a slab
+      built to allow that movement, and finish applied to both faces and all edges so neither
+      side takes on moisture faster. Rooms with steam or large humidity swings deserve extra
+      thought.
   - question: Should I paint it or stain it?
-    answer: Stain keeps the grain visible, so the species carries the room. Paint
-      gives you a flat block of color instead. Look at samples in the real room light,
-      morning and evening. A satin topcoat wipes down more easily than a dead flat
-      one, which matters where hands and paws meet the door. Jeff will wipe it down
-      on his way out, whether it needs it or not.
+    answer: Stain keeps the grain visible, so the species carries the room. Paint gives you
+      a flat block of color instead. Look at samples in the real room light, morning and evening.
+      A satin topcoat wipes down more easily than a dead flat one, which matters where hands
+      and paws meet the door.
   - question: How much light and sound come through around the door?
-    answer: More than with a hinged door. The slab hangs on the face of the wall with
-      roughly a 3/8 inch gap behind it, so expect a line of light and muffled rather
-      than blocked sound. Brush sweeps and generous overlap help. Frosted or reeded
-      glass passes light without a clear view.
+    answer: Gaps around a face-mounted sliding door can pass light and sound. Discuss the
+      privacy you need before choosing it. The door, overlap, glazing, and compatible seals
+      all affect the result; do not assume a sound rating or a fixed gap.

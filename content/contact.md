@@ -5,6 +5,8 @@ layout: contact
 feature: contactPage
 ---
 
-A barn-style door for a new space, a different look, or hardware that needs attention. Start with what you have in mind. Jeff will have follow-up questions.
+Start with the opening, what you want to change, and your town. Doreen can work with three useful details. Jeff can work with the word “door.”
 
-**This is a preview.** Jeff’s phone number, email address, and service area are still to be supplied. You can try the message builder and save a copy, but this website cannot send an inquiry. Jeff is, however, in Bentonville, and the town is not that big.
+**This is a preview.** Coverage and business details still need confirmation.
+
+{{< delivery-status >}}

@@ -85,6 +85,23 @@ class SourcePolicyTests(unittest.TestCase):
         self.assertEqual(policy.page_feature(Path('blog/nested/guide.md'), {}, definitions), 'blog')
         self.assertTrue(policy.data_issues('data/faqs.yaml', [{'category':'Fixture','items':None}], False))
 
+    def test_faq_answer_sources_match_rendering_contract(self):
+        guidance = json.loads((ROOT / 'data/door-guidance.json').read_text())
+        valid = [{'answer': 'Plain text'}, {'deliveryStatus': True}]
+        valid.extend({'guidance': check['id']} for check in guidance['checks'])
+        invalid = [{}, {'answer': '  '}, {'answer': ['Not text']},
+                   {'deliveryStatus': 'true'}, {'deliveryStatus': 1},
+                   {'deliveryStatus': False}, {'guidance': 'unknown'},
+                   {'guidance': None}, {'guidance': ['floor']},
+                   {'guidance': 'unknown', 'answer': 'Ignored by the renderer'}]
+        for production in (False, True):
+            for fields, expected_issues in ([(fields, False) for fields in valid]
+                                            + [(fields, True) for fields in invalid]):
+                with self.subTest(fields=fields, production=production):
+                    record = [{'category': 'Fixture', 'items': [dict(question='Question?', **fields)]}]
+                    issues = policy.data_issues('data/faqs.yaml', record, production)
+                    self.assertEqual(bool(issues), expected_issues)
+
     def test_evidence_binds_revision_and_calendar(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);(root/'data').mkdir();source=root/'copy.md';source.write_text('Fixture only')
