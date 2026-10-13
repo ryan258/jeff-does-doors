@@ -1,30 +1,31 @@
 - verified: true
-  name: "Four-foot level"
-  detail: "Straight, patient, and always in the truck. Jeff has named it Lenny."
-  spec: "Checked daily. Spoken to as needed."
-  icon: "gear"
+  name: Four-foot level
+  detail: Lenny. Four feet of professional distance from the discussion.
+  spec: Reports to gravity
+  icon: gear
 - verified: true
-  name: "Moving blankets"
-  detail: "Doors travel wrapped. When the load allows, they travel seat-belted."
-  spec: "Washed after every job"
-  icon: "door"
+  name: Moving blankets
+  detail: For the doors in transit. Jeff refers to this as getting them comfortable.
+  spec: Returned to the truck folded
+  icon: door
 - verified: true
-  name: "Cordless drills, two"
-  detail: "One for lag bolts. One for pilot holes. The third is for just in case, and has never been used."
-  spec: "Fully charged. Always."
-  icon: "barn-door"
+  name: Cordless drills
+  detail: Two in use. A third for “just in case.” Doreen inventories three.
+  spec: Batteries before departure
+  icon: barn-door
 - verified: true
-  name: "The truck"
-  detail: "Bed sized for eight-foot slabs. The back seat is reserved for samples. It still has Texas plates. Jeff is aware."
-  spec: "Dallas-built, Bentonville-driven"
-  icon: "door-hardware"
+  name: The truck
+  detail: The samples have taken the back seat. Doreen is negotiating for her clipboard.
+  spec: Bentonville-based; Dallas frequently mentioned
+  icon: door-hardware
 - verified: true
-  name: "Stud finder"
-  detail: "Locates the framing behind the drywall. Jeff finds it by tapping first, to be polite."
-  spec: "Used second"
-  icon: "clipboard"
+  name: Stud finder
+  detail: For locating framing. Jeff apologizes to the wall before the beeping starts.
+  spec: Not a substitute for checking site conditions
+  icon: clipboard
 - verified: true
-  name: "One soft cloth"
-  detail: "For the door, after. Always the same cloth."
-  spec: "Do not borrow it"
-  icon: "check"
+  name: One soft cloth
+  detail: Jeff’s finishing cloth. Doreen labeled it so it would stop coming through the office
+    laundry.
+  spec: DOOR ONLY
+  icon: check

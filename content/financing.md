@@ -1,9 +1,11 @@
 ---
 title: "Payment Options"
-description: "How payment works on Jeff Does Doors projects: deposits, completion payments, and the methods accepted."
+description: "Payment questions to settle in writing before work starts. Doreen has the calculator."
 layout: "financing"
 feature: "financing"
 menu: true
 ---
 
-A new door should not be hurried, and neither should the bill. The options below are the ways it can work. Jeff will go over them with you at the opening, in no rush.
+Doreen handles the payment conversation. Jeff once wrote “beautiful grain” in the amount column.
+
+These are topics to settle before work begins. Payment methods, deposits, due dates, and any installment terms remain unconfirmed.

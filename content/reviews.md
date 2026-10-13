@@ -1,9 +1,11 @@
 ---
 title: "Customer Reviews"
-description: "What Jeff’s customers said about the install, the schedule, and the follow-up visits."
+description: "Fictional customer correspondence from the Jeff Does Doors universe. Doreen is managing the replies."
 layout: "reviews"
 feature: "reviewsPage"
 menu: true
 ---
 
-Customers have a lot to say about Jeff. Here are a few of their notes, lightly edited for length.
+Fictional customers. Very specific door experiences. These invented reviews are part of the parody, not customer endorsements.
+
+Doreen requested feedback on the work. The correspondence took a turn.

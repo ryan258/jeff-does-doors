@@ -1,25 +1,24 @@
 ---
 title: Barn-style doors. That’s Jeff’s thing.
-description: Jeff Does Doors does barn-style doors. Meet Jeff, who grew up in Dallas,
-  lives in Bentonville, and would like to see your opening.
+description: Meet Jeff, Doreen, and Lenny. Doors, decisions, and one very steady level.
 layout: about
 feature: about
 ---
 
-## A door can change the whole room
+## The room, according to Jeff
 
-Jeff does barn-style doors. He starts with the opening, then the style, then the visible hardware. The room comes along after, and so far it always has.
+Most people choose a door for a room. Jeff would like the door consulted earlier.
 
-## Meet Jeff
+He grew up in Dallas and lives in Bentonville. Both places feature in his introductions. So does whatever door he passed on the way in.
 
-Jeff grew up in Dallas and moved to Bentonville, Arkansas. He is proud to be from Texas and will tell you so inside the first minute. He is also proud to live in Arkansas, which he will tell you in the second.
+## A small operation
 
-He has been hanging doors for a long time. Ask him how long and he will say, “Which one?” He remembers his first. He is happy to tell you about it.
+Jeff remembers his first door better than his first truck. Ask how long he has been doing this and you may get the history of that particular door.
 
-Jeff arrives early, brings his own level, and stays until the door has settled in. Sometimes that is a few minutes. Sometimes it is the afternoon.
+Doreen keeps the calendar and wants Friday’s paperwork finished by Friday. Lenny is a four-foot level. On questions of alignment, he outranks everyone.
 
 ## Bring your idea
 
 ![Illustrative workshop view of timber slabs, carpenter's plane, and black sliding hardware on a workbench](/images/barn-door-workshop.webp)
 
-A photo of the opening and a style you like can start the conversation. Add your town and what you hope to change. Jeff will have questions about the opening, the light, and the wall beside it. He will ask them gently. He will also ask them again on Sunday.
+Bring a photo, a product link, or a description of what is bothering you. “I’m not sure yet” is a useful starting point. Doreen has had it added to the form in spirit.

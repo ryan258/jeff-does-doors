@@ -6,4 +6,4 @@ feature: "gallery"
 menu: true
 ---
 
-Filter by the kind of door, or open any photo for a closer look. Every image is an illustrative concept, not a Jeff Does Doors job. Jeff has asked us to say that he would have done the trim differently.
+Filter by style or open a photo for a closer look. These are AI-generated concepts, not completed Jeff projects. Jeff’s notes on the trim are being kept in a separate folder.

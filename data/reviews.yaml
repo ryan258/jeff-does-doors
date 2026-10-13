@@ -1,36 +1,41 @@
-- quote: "Jeff arrived twenty minutes early and spent them looking at our doorway from the street. He said he wanted to see it in its natural light. It was a Tuesday."
-  name: "Marcy T."
-  context: "Pantry slider · Bentonville"
-  date: "Spring"
-  url: "#"
+- quote: Jeff arrived twenty minutes early to look at our doorway from the street. He said he
+    wanted to see it in its natural light. It was a Tuesday.
+  name: Marcy T.
+  context: Pantry slider · Bentonville
+  date: Spring
+  url: '#'
   approved: true
-- quote: "Great work, and he brought brisket. He also stayed to hear the door close. All the way, twice. Then he asked if we could try it once more together."
-  name: "Dale and Priya R."
-  context: "Bedroom walnut X-brace · Rogers"
-  date: "Summer"
-  url: "#"
+- quote: Doreen sent a three-line schedule. Jeff arrived with a binder. They were describing
+    the same afternoon.
+  name: Dale and Priya R.
+  context: Bedroom walnut X-brace · Rogers
+  date: Summer
+  url: '#'
   approved: true
-- quote: "My old door went with Jeff. He said it was no trouble, that he has the room. I get a card from the door at Christmas. I think it is from Jeff."
-  name: "Tom W."
-  context: "Replacement · Fayetteville"
-  date: "Winter"
-  url: "#"
+- quote: My old door went with Jeff. I get a card from it at Christmas. This year Doreen corrected
+    the return address.
+  name: Tom W.
+  context: Replacement · Fayetteville
+  date: Winter
+  url: '#'
   approved: true
-- quote: "The track is perfectly level. Jeff checked it with a level he called Lenny. He told Lenny it did a good job. Lenny did not reply, which Jeff seemed to understand."
-  name: "Colleen B."
-  context: "Hardware install · Springdale"
-  date: "Fall"
-  url: "#"
+- quote: Jeff called the level Lenny and thanked it when the track was straight. I thanked Lenny
+    too. It felt rude not to.
+  name: Colleen B.
+  context: Hardware install · Springdale
+  date: Fall
+  url: '#'
   approved: true
-- quote: "He told us three times he is from Dallas. The door is wonderful. It is also, he points out, bigger than anything you would find in Arkansas. He is right. We measured."
-  name: "The Hendersons"
-  context: "Double French glass · Bentonville"
-  date: "Spring"
-  url: "#"
+- quote: We chose painted white. Jeff asked whether we were sure. Doreen handed him the paint.
+  name: The Hendersons
+  context: Painted pantry · Bentonville
+  date: Spring
+  url: '#'
   approved: true
-- quote: "Four months on, he still stops by every other Sunday to see how the door is doing. We tell him it is fine. He says, “Mind if I just listen?” We have started leaving the porch light on."
-  name: "R. Alvarez"
-  context: "Adjustment · Centerton"
-  date: "Winter"
-  url: "#"
+- quote: He used to ask how the door was doing every other Sunday. Doreen moved us to an annual
+    newsletter. We are on page four.
+  name: R. Alvarez
+  context: Adjustment · Centerton
+  date: Winter
+  url: '#'
   approved: true

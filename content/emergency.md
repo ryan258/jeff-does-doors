@@ -6,4 +6,4 @@ feature: "emergency"
 menu: true
 ---
 
-Some door problems can wait for a scheduled estimate. A door off its track and blocking an exit cannot. Jeff considers every door problem urgent. This page is for the ones that are urgent for everyone else, too.
+An unsafe door needs appropriate help, not a project brief. Keep clear of a door that has come off its track or appears loose. This preview does not provide emergency service.

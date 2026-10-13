@@ -1,26 +1,28 @@
 # Open positions.
-intro: "Jeff is looking for people who can hold one end of a door and say very little. Experience is welcome. Enthusiasm is not required. Jeff has that covered."
+intro: Steady work, clear communication, and enough patience for a door to be described as promising.
 positions:
-  - title: "Door-install helper"
-    type: "Full-time"
-    detail: "Hold doors, carry doors, and hold them some more while Jeff steps back to look. Training provided."
-    requirements:
-      - "Steady hands"
-      - "Comfortable waiting quietly while a door settles in"
-      - "Will hear about Dallas"
-    open: true
-  - title: "Hardware technician"
-    type: "Part-time / seasonal"
-    detail: "Rails, rollers, floor guides, and pulls. Learn to tell a good bearing from a loud one."
-    requirements:
-      - "Own tools preferred"
-      - "Can tell when something is not quite right, and say so gently"
-      - "Reliable transportation"
-    open: true
-  - title: "Sunday visits coordinator"
-    type: "As needed"
-    detail: "Schedule follow-up visits with past customers. Currently handled by Jeff, who says he has it under control."
-    requirements:
-      - "A very large map"
-      - "A good sense of whether anyone is home"
-    open: false
+- title: Door-install helper
+  type: Full-time
+  detail: Help handle materials and prepare the work area. Jeff handles introductions to the
+    door.
+  requirements:
+  - Safe material handling
+  - Clear communication
+  - Can distinguish a pause from the end of Jeff’s sentence
+  open: true
+- title: Hardware technician
+  type: Part-time / seasonal
+  detail: Tracks, rollers, guides, and pulls. Doreen would like the small parts counted before
+    departure.
+  requirements:
+  - Relevant hardware experience
+  - Comfortable asking for the exact product instructions
+  - Keeps track of the washers
+  open: true
+- title: Sunday visits coordinator
+  type: As needed
+  detail: Doreen has closed this vacancy and reclaimed Sunday.
+  requirements:
+  - No visits to coordinate
+  - Jeff has been informed
+  open: false

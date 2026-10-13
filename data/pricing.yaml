@@ -1,27 +1,30 @@
 # "What does this usually cost?" Ranges are described, not quoted. No numbers are published.
-disclaimer: "Not a quote. Every doorway is different: wall, trim, floor, light, and how long the opening has been without a door all move the number. Jeff prefers to stand in the opening before naming a price. He may stand there a while."
+disclaimer: Planning guidance, not a quote or confirmed service offer. Get the scope, price,
+  and any return-visit terms in writing.
 rows:
-  - service: "Barn-door installation"
-    range: "Depends on the door"
-    drivers: "Door size and material, rail length, wall framing, finish. Jeff will tell you the door could be bigger. In Texas it would be."
-    verified: true
-  - service: "Replacement or swing-to-slide"
-    range: "Depends on the old door"
-    drivers: "Removal, patching, trim, paint. Disposal is optional: Jeff will take the old door with him. He has the room."
-    verified: true
-  - service: "Track, rollers, and pulls"
-    range: "Depends on the hardware"
-    drivers: "Rail length, roller type, finish. Jeff will not hang a door on a track he has not met."
-    verified: true
-  - service: "Adjustments and repair"
-    range: "Per visit, mostly"
-    drivers: "What is rubbing and why. Second visits are included. Third visits are included. Jeff will be in the area."
-    verified: true
-  - service: "Seasonal check-in"
-    range: "Included"
-    drivers: "Quarterly, or whenever Jeff is passing. He will ring the bell. You do not have to answer."
-    verified: true
-  - service: "Custom door"
-    range: "Quoted per door"
-    drivers: "Species, joinery, glass, finish. Jeff will want to know what the door is for, and what it will see."
-    verified: true
+- service: Barn-door installation
+  range: Scope to confirm
+  drivers: Door size and material, rail system, mounting conditions, and finish.
+  verified: true
+- service: Replacement or swing-to-slide
+  range: Scope to confirm
+  drivers: Removal, reused parts, patching, trim, paint, and disposal.
+  verified: true
+- service: Track, rollers, and pulls
+  range: Products to confirm
+  drivers: Compatible products, mounting work, and finish choices. Black is a color, not a model
+    number.
+  verified: true
+- service: Adjustments and repair
+  range: Assessment needed
+  drivers: The cause of the problem, existing parts, and the work agreed after assessment.
+  verified: true
+- service: Seasonal check-in
+  range: Terms to agree
+  drivers: Whether a check-in is needed, when, and on what terms. Jeff passing the house is
+    not a booking.
+  verified: true
+- service: Custom door
+  range: Availability to confirm
+  drivers: Fabrication, material, design, finish, and who supplies it.
+  verified: true

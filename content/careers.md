@@ -1,9 +1,11 @@
 ---
 title: "Work With Jeff"
-description: "Open positions at Jeff Does Doors for install helpers and hardware technicians in Northwest Arkansas."
+description: "Fictional vacancies for the Jeff Does Doors crew. Doreen has written the job descriptions."
 layout: "careers"
 feature: "careers"
 menu: true
 ---
 
-Good door work comes down to the person on the other end of the slab. If you hold steady, show up when you said you would, and leave an opening better than you found it, there is a conversation worth having here.
+Someone has to hold the other end of the door. Doreen would prefer that person to be on the schedule.
+
+These fictional vacancies belong to the parody; this preview is not accepting applications.

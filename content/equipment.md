@@ -6,4 +6,6 @@ feature: "equipment"
 menu: true
 ---
 
-Jeff brings his own equipment, and he looks after it. A job that does not wait on a borrowed tool starts when it was supposed to start. The tools below are all in the truck. Please do not move them. They have an order.
+Everything has a place in the truck. Lenny’s is easy to find: Jeff asks him to sit up front.
+
+This is the fictional crew’s tool list, not a verified equipment inventory.

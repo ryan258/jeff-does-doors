@@ -1,20 +1,17 @@
 ---
 title: Door replacements & upgrades
-description: Change the style of an existing barn door, or replace a swinging door
-  with a sliding one. Jeff will take the old door home, if you like.
+description: Keep what works, change what does not, and give the old door a considered exit.
 serviceID: barn-door-replacement
 ---
 
-## Keep what works. Change the feel.
+## Decide what earns another term
 
-You may like the sliding layout but want a different door, finish, or handle. Or you may be considering a barn-style door where a conventional door hangs now. Describe the current setup and the result you have in mind. Tell Jeff about the old door, too. He likes to know where it has been.
+You might keep the sliding layout and change the door, or replace a swinging door with a sliding one. List what you like, what needs to change, and any track or hardware you hope to reuse.
 
-## Be clear about what stays
-
-List any track, trim, or hardware you hope to keep. Product details and photographs help start the compatibility discussion.
-
-## Include the surrounding finish
+## Include the edges of the job
 
 ![Illustrative concept of a rich dark walnut X-brace barn door replacement on a bedroom entrance](/images/barn-door-walnut.webp)
 
-Removing or changing a door can also affect the trim and the wall around it. Agree which preparation, patching, painting, and removal work belongs in the project. If the old door is going, Jeff would like a moment with it first.
+Removal can leave trim, wall, and paint work behind. Agree who handles those details and where the old door goes.
+
+Jeff prefers “retirement” to “disposal.” Doreen’s form has one box for either.

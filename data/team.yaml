@@ -1,18 +1,19 @@
-- name: "Jeff"
-  role: "Owner, installer, and the first one there"
-  bio: "From Dallas. Lives in Bentonville. Will tell you both. Measures twice, then once more privately."
-  image: "images/barn-door-workshop.webp"
-  alt: "Illustrative workshop scene standing in for a portrait of Jeff. Jeff declined to be photographed without a door."
+- name: Jeff
+  role: Door relations
+  bio: Dallas-born, Bentonville-based. Remembers every door and very few street names.
+  image: images/barn-door-workshop.webp
+  alt: Illustrative workshop scene standing in for a portrait of Jeff. Jeff declined to be photographed
+    without a door.
   placeholder: false
-- name: "Doreen"
-  role: "Office and scheduling"
-  bio: "Answers the phone, keeps the calendar, and has asked Jeff to take one Sunday off. She will ask again."
-  image: "images/barn-door-craftsman.webp"
-  alt: "Illustrative Craftsman-style sliding door standing in for a portrait of Doreen"
+- name: Doreen
+  role: Scope, scheduling, and getting home on time
+  bio: Keeps Friday’s paperwork on Friday. Carries a pen Jeff is not allowed to use for sketches.
+  image: images/barn-door-craftsman.webp
+  alt: Illustrative Craftsman-style sliding door standing in for a portrait of Doreen
   placeholder: false
-- name: "Lenny"
-  role: "Four-foot level"
-  bio: "Straight. Reliable. Does not speak, which Jeff says he respects."
-  image: "images/barn-door-floor-guide.webp"
-  alt: "Illustrative close-up of a floor guide standing in for a portrait of Lenny the level"
+- name: Lenny
+  role: Four-foot level
+  bio: On alignment, the final word. On everything else, unavailable for comment.
+  image: images/barn-door-floor-guide.webp
+  alt: Illustrative close-up of a floor guide standing in for a portrait of Lenny the level
   placeholder: false

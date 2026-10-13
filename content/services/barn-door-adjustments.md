@@ -1,20 +1,17 @@
 ---
 title: Barn-door adjustments
-description: Describe an existing sliding door that rubs, feels awkward, or no longer
-  moves the way you expect. Jeff can usually hear it from the driveway.
+description: Describe a sliding door that rubs, catches, or has changed its habits.
 serviceID: barn-door-adjustments
 ---
 
-## Start with what you notice
+## Tell us what changed
 
-A scrape at one point, a new noise, or a change in movement is useful information. You do not need to know the cause before describing the problem. Jeff would like to hear it in your own words, and then in the door’s.
+A scrape in one spot, a new noise, or a door that drifts: describe what happens and when it began. Add any known product details and nearby changes. You do not need to diagnose it.
 
-## Give the existing setup some context
-
-Include the door and hardware details if you have them, when the issue began, and whether anything nearby has changed. A view of the whole opening helps put the close-up details in context. Jeff will ask how the door has been sleeping. Answer however you like.
-
-## Confirm the next step
+## Let the setup supply the answer
 
 ![Illustrative close-up of an adjustable matte black steel floor guide and bottom door mortise](/images/barn-door-floor-guide.webp)
 
-Repair and adjustment visits are included as many times as the door needs. The condition and compatibility of the existing parts determine what can be agreed. Jeff will return to check. He does not consider this a favor.
+The condition and compatibility of the existing parts determine the options. If the door appears loose or unsafe, stop using it and arrange appropriate help.
+
+Jeff listens to the symptom. Lenny checks the premise. Doreen records what was actually agreed.
