@@ -1,0 +1,40 @@
+{{ with hugo.Data.next_openings }}
+<section class="next-openings l-section" id="next-openings" aria-labelledby="next-openings-title" aria-describedby="next-openings-disclosure">
+  <div class="l-container">
+    <div class="mcm-heading mcm-heading--split next-openings__heading">
+      <div>
+        <p class="mcm-eyebrow">{{ .eyebrow }}</p>
+        <h2 id="next-openings-title">{{ .heading }}</h2>
+      </div>
+      <p>{{ .introduction }}</p>
+    </div>
+    <div class="next-openings__legend">
+      <p id="next-openings-disclosure">{{ .disclosure }}</p>
+      <span>Open an image for a closer look <span aria-hidden="true">↗</span></span>
+    </div>
+    <div class="next-openings__grid">
+      {{ range $index, $item := .items }}
+        <figure class="next-opening" id="next-opening-{{ .id }}">
+          <a class="next-opening__image" href="{{ .image | relURL }}" aria-label="View full image: {{ .title }} (AI-generated concept)">
+            <img src="{{ .image | relURL }}"
+                 srcset="{{ .smallImage | relURL }} 480w, {{ .mediumImage | relURL }} 960w, {{ .image | relURL }} {{ .width }}w"
+                 sizes="(max-width: 760px) calc(100vw - 48px), (max-width: 1288px) calc((100vw - 76px) / 2), 606px"
+                 alt="{{ .alt }}" width="{{ .width }}" height="{{ .height }}" loading="lazy" decoding="async">
+            <span class="next-opening__view" aria-hidden="true">View concept <span>↗</span></span>
+          </a>
+          <figcaption class="next-opening__caption">
+            <p class="next-opening__index"><span>{{ printf "%02d" (add $index 1) }}</span>{{ .movement }} / {{ .material }}</p>
+            <h3>{{ .title }}</h3>
+            <p class="next-opening__description">{{ .description }}</p>
+            <small class="next-opening__disclosure">AI-generated concept</small>
+          </figcaption>
+        </figure>
+      {{ end }}
+    </div>
+    <div class="next-openings__footer">
+      <p>Jeff calls this the future. Doreen would like a drawing.</p>
+      {{ if partial "feature-enabled.html" "gallery" }}<a class="mcm-link" href="{{ "gallery/" | relURL }}">Keep exploring the door gallery</a>{{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

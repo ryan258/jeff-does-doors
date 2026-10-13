@@ -1,0 +1,60 @@
+{
+  "eyebrow": "Next-generation door ideas",
+  "heading": "The next opening.",
+  "introduction": "Barn doors, reimagined. Folding walls. Light filters. A few ideas that bend the definition of a door.",
+  "disclosure": "AI-generated design concepts · not completed Jeff projects or available products.",
+  "items": [
+    {
+      "id": "sculpted-oak",
+      "title": "The sculpted slider",
+      "material": "Sculpted oak",
+      "movement": "Slide",
+      "description": "A familiar sideways motion, with flowing contours that turn the whole slab into a piece of wall sculpture.",
+      "image": "images/next-sculpted-oak.webp",
+      "smallImage": "images/next-sculpted-oak-480.webp",
+      "mediumImage": "images/next-sculpted-oak-960.webp",
+      "alt": "AI concept of an oak sliding door with carved wave relief, partly open beside a warm living room",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "amber-glass",
+      "title": "The light filter",
+      "material": "Amber reeded glass",
+      "movement": "Slide",
+      "description": "Rounded bronze frames and honey-colored glass make the boundary part of the room’s changing light.",
+      "image": "images/next-amber-glass.webp",
+      "smallImage": "images/next-amber-glass-480.webp",
+      "mediumImage": "images/next-amber-glass-960.webp",
+      "alt": "AI concept of rounded bronze-framed amber glass sliding panels casting striped sunlight beside a dining room",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "folding-screen",
+      "title": "The folding wall",
+      "material": "Slatted walnut",
+      "movement": "Fold",
+      "description": "A hinged timber screen gathers into a zigzag, letting two rooms borrow a little space from each other.",
+      "image": "images/next-folding-screen.webp",
+      "smallImage": "images/next-folding-screen-480.webp",
+      "mediumImage": "images/next-folding-screen-960.webp",
+      "alt": "AI concept of four tall slatted walnut panels folded into a zigzag between a reading room and dining space",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "terrazzo-pivot",
+      "title": "The quiet pivot",
+      "material": "Terrazzo-inspired surface",
+      "movement": "Pivot",
+      "description": "A soft coral surface, rounded corners, and an offset turn give the opening a completely different presence.",
+      "image": "images/next-terrazzo-pivot.webp",
+      "smallImage": "images/next-terrazzo-pivot-480.webp",
+      "mediumImage": "images/next-terrazzo-pivot-960.webp",
+      "alt": "AI concept of a coral terrazzo-faced pivot door turned within a cream plaster opening, with a teal chair beyond",
+      "width": 1536,
+      "height": 1024
+    }
+  ]
+}

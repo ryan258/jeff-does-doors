@@ -5,6 +5,7 @@
     "data/faqs.yaml",
     "data/process.yaml",
     "data/site_components.json",
+    "data/next_openings.json",
     "content/_index.md",
     "content/services/_index.md",
     "content/thank-you.md",
