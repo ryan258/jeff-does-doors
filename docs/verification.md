@@ -1,10 +1,37 @@
 # Verification and remaining acceptance
 
+## Keyboard and native browser zoom — October 13, 2026
+
+Checked all six project-paperwork specimens and their six visitor placements in Chrome using native browser zoom, confirmed by Chrome’s own zoom control and page metrics. The 100% baseline was 1920 CSS pixels wide with devicePixelRatio 1; 200% produced 960 CSS pixels with ratio 2, and 400% produced 480 CSS pixels with ratio 4. Usable height varied with browser chrome (approximately 451px at 200% and 225–239px at 400%). These were real browser zoom checks, distinct from the earlier viewport and root-font-size simulations.
+
+Two issues were corrected:
+
+- At 400%, the fixed Message bar overlapped the bottom of the focused document link. At or below 700px width and 480px height, the bar now follows the footer in normal flow. At taller phone sizes it remains fixed, with root scroll padding reserved for focused content.
+- The two new tables squeezed status labels into broken words at 200%. Their final columns now have a 9rem minimum width, keeping labels such as “Unassigned” and “Scope discussion” readable while retaining contained horizontal scrolling.
+
+Observed after correction:
+
+- All six guide specimens and all six placements fit at 200% and 400% without page-wide horizontal overflow or clipped non-table headings, text or actions. The tables intentionally retain their own horizontal scroll regions.
+- Tab from each guide heading reaches the next real control: usage disclosure for static records/access prompts, a scroll region for either table, and the survey link for the document register. All six usage disclosures opened with Enter; Tab reached each placement link, and Enter opened its intended page section.
+- Both guide tables accepted ArrowRight and allowed Tab onward to the usage disclosure and Shift+Tab back to the region. Both visitor tables accepted keyboard focus and ArrowRight, and Tab exited to the following page links. No keyboard trap was observed.
+- The visitor document link showed its full focus outline at 400% after the fix; Enter opened the existing survey. At an additional 390×844 viewport check, the bar remained fixed and focused document links in both guide and FAQ cleared it.
+- At 390×480 the bar was static with no reserved body padding; at 390×481 it was fixed with 88px root scroll clearance. Native Chrome zoom was restored to 100% and the temporary viewport override was cleared after inspection.
+- The final Hugo staging build compiled 26 pages with warnings treated as failures. Focused source/output audits returned zero issues; generated feature documentation and diff whitespace checks passed.
+
+Repeatable manual regression coverage (automated suites do not establish these behaviors):
+
+1. At 200% and 400% native zoom, visit the six guide specimens and follow their placement links by keyboard. Expect readable text, visible focus and no page-wide horizontal scrolling.
+2. For responsibility and material tables in both contexts, Tab into the region, use left/right arrows, and Tab/Shift+Tab out and back. Expect contained scrolling and no focus trap.
+3. At a viewport at or below 700×480, focus the document-register survey link. Expect the Message bar in normal flow and the entire focus outline visible. At 390×844, expect the bar fixed with focused links above it. Also inspect the 480px height boundary and the ordinary footer/contact path after changing the sticky-call-bar feature.
+4. Verify the two table status columns wrap between words; repeat with longer product/status text before reusing these patterns.
+
+This pass changes CSS only, alongside documentation. Automated tests were not run. Screen-reader, real-device, other-browser, reduced-motion and the wider brief/survey workflow acceptance remain separate. Local commit authorization does not include pushing or deployment.
+
 ## Final expansion review and local commit scope — October 13, 2026
 
 Reviewed the six new partials, shared styling, guide data, page wrapper, six visitor placements, regression fixtures, documentation and Git state. No functional blocker was found in that bounded review. One regression weakness was corrected: the nested-text escaping assertion previously searched the entire guide, where the escaped example JSON could mask unsafe specimen rendering. Each of the six repeated specimens now receives hostile nested text and has its actual preview checked independently for escaped text and absence of executable tags. These strengthened cases have not been executed by the agent.
 
-A fresh staging compilation produced 26 pages under `/subpath/` with warnings treated as failures. Focused source and generated-artifact audits returned zero issues, and changed Python files parsed successfully. The six visitor placements were rechecked at 320px: no page overflow, duplicate IDs, unresolved heading/hint references, unexpected form controls or clipped non-table content were found. The FAQ document register received a fresh visual spot check. Earlier desktop and keyboard observations above still describe the unchanged rendering code.
+A fresh staging compilation produced 26 pages under `/subpath/` with warnings treated as failures. Focused source and generated-artifact audits returned zero issues, and changed Python files parsed successfully. The six visitor placements were rechecked at 320px: no page overflow, duplicate IDs, unresolved heading/hint references, unexpected form controls or clipped non-table content were found. The FAQ document register received a fresh visual spot check. The integration record below contains the earlier desktop and keyboard observations for that revision.
 
 The local commit groups are reusable components and guide coverage; visitor integration and its coverage; then reconciled documentation. Automated suite execution remains owner-run with `bash scripts/verify-local.sh`. No submodules or tracked Git links are present. Push, deployment and publication are outside this batch.
 

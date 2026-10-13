@@ -162,6 +162,10 @@
 .contractor-followup__boundary { padding: 22px; background: var(--ink); color: var(--paper); border-radius: 4px; }
 
 /* Project paperwork: static records with explicit text states. */
+.contractor-responsibilities, .contractor-materials {
+  // Keep status words readable when the table is viewed at high zoom.
+  .contractor-table tr > :last-child { min-width: 9rem; }
+}
 .contractor-records { margin: 28px 0; padding: 0; list-style: none; }
 .contractor-records > li { padding-block: 24px; border-top: 1px solid var(--line); }
 .contractor-records > li:last-child { border-bottom: 1px solid var(--line); }

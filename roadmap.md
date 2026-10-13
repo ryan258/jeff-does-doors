@@ -32,7 +32,7 @@ The source review and local staging compilation are complete. Current automated 
 
 ## Next: current regression run and remaining acceptance
 
-Run `bash scripts/verify-local.sh` and review its output against the exact working-tree or committed revision checked. Then complete real zoom, no-JavaScript, forced-colors, reduced-motion and screen-reader checks around the guide, choices, disclosures, brief and survey. Trial a real opening and check export/re-import and print. See [verification](docs/verification.md) for observed browser evidence and unperformed checks.
+Run `bash scripts/verify-local.sh` and review its output against the exact working-tree or committed revision checked. Native Chrome 200%/400% and keyboard checks now cover the six paperwork specimens and placements; the resulting focus-overlap and status-column fixes are implemented locally. Extend zoom checks to the wider choices, disclosures, brief and survey workflows, and complete no-JavaScript, forced-colors, reduced-motion and screen-reader checks. Trial a real opening and check export/re-import and print. See [verification](docs/verification.md) for observed browser evidence and unperformed checks.
 
 ## Next: supply the business facts
 

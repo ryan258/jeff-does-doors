@@ -278,6 +278,11 @@
     padding-bottom: 62px;
   }
 
+  html:has(.call-bar) {
+    // Leave room for the fixed contact bar when Tab scrolls a link into view.
+    scroll-padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+  }
+
   .quick-actions {
     display: none !important;
   }

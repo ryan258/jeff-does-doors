@@ -8,9 +8,9 @@ Updated October 13, 2026. This is the Jeff Does Doors parody preview, with a reu
 
 | Area | Implemented state | Remaining check |
 | --- | --- | --- |
-| Living style guide | 34 real specimens: 24 contractor components, six shared patterns and four foundations; search, family filters, snippets and live placement links | Current owner-run regressions; real zoom, no-JavaScript and assistive-technology checks |
+| Living style guide | 34 real specimens: 24 contractor components, six shared patterns and four foundations; search, family filters, snippets and live placement links | Current owner-run regressions; broader zoom, no-JavaScript and assistive-technology checks |
 | Visitor integration | All 24 contractor components across 12 routes, with independent copy and publication-source registration | Current placement, feature-suppression and subpath regressions |
-| Mobile layout | Text-first hero, wrapping header, opaque menu, responsive choice panels, tables and quieter component surfaces | Real devices and full browser zoom; emulated viewport observations are bounded |
+| Mobile layout | Text-first hero, wrapping header, opaque menu, responsive choice panels, tables and quieter component surfaces; native 200%/400% checks cover the six paperwork patterns | Real devices and wider workflow zoom checks |
 | Character copy | Distinct Jeff, Doreen and Lenny voices; shorter service copy; fictional reviews and unresolved terms disclosed | Editorial review whenever examples become real business content |
 | Easter eggs | Three closed native disclosures on Home, Gallery and About; no script or stored preference | No-JavaScript and screen-reader acceptance |
 | FAQ guidance | Four clearance answers resolve the same product-specific guidance as the measuring cards; universal dimensions removed | Actual selected-product review and authored regression coverage |
@@ -19,6 +19,8 @@ Updated October 13, 2026. This is the Jeff Does Doors parody preview, with a reu
 | Documentation | README, roadmap, architecture, component guide and status records reflect the current preview; generated feature menu distinguishes disabled shells from drafts | Keep results tied to the revision actually checked |
 
 The subsequent inventory expansion adds six read-only project-paperwork patterns: decisions, responsibilities, site access, materials, open items and document references. All appear in the living guide and now have visitor placements: installation responsibilities, replacement decisions, hardware materials, adjustment open items, Contact access planning, and FAQ document references. The six affected pages received 320px visual checks; both new tables retain contained keyboard scrolling. The refreshed GitNexus index matched the latest local commit at the start of this pass. New coverage remains owner-run.
+
+The subsequent native keyboard/zoom pass corrected Message-bar overlap of focused links at 400% and cramped table status columns. The bar now follows the footer on short viewports; taller phone views reserve focus-scroll clearance. These local CSS follow-ups do not change publication or deployment readiness. See the manual regression checklist in [verification](verification.md).
 
 ## Existing foundation
 

@@ -12,6 +12,12 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
 .site-header__mobile-nav nav button { background: transparent; color: white; border: 0; padding: 12px 13px; text-align: left; font: inherit; }
 .gallery__open { display: block; text-decoration: none; }
 @media (max-width: 700px) { .call-bar { padding-bottom: env(safe-area-inset-bottom); } body:has(.call-bar) { padding-bottom: calc(62px + env(safe-area-inset-bottom)); } }
+// Preserve reading space and visible focus at high zoom and in landscape.
+@media (max-width: 700px) and (max-height: 480px) {
+  .call-bar { position: static; }
+  body:has(.call-bar) { padding-bottom: 0; }
+  html:has(.call-bar) { scroll-padding-bottom: 1rem; }
+}
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
 
 .site-header__brand-group { flex-shrink: 0; }

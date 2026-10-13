@@ -225,3 +225,9 @@ Regression coverage was added for the shared guidance, configured delivery wordi
 All six paperwork patterns now have the placements listed above. Installation names proposed responsibilities; replacement keeps reuse and finish decisions open; hardware groups product references; adjustments shows explicitly fictional unresolved items before the follow-up plan. Contact keeps its form first and uses two short access-planning areas. FAQ links to the real survey while leaving missing manufacturer instructions and scope documents as labelled text.
 
 The existing mobile styles handle these placements: record facts and statuses stack, access areas become one column, document labels wrap, and the two tables scroll inside focusable regions. The six affected routes received visual and width checks at 320px; installation and Contact received 1440px visual checks. The hardware table responded to ArrowRight while focused. No additional script or page-specific stylesheet was needed. See [verification](verification.md) for the current evidence boundary and owner-run regression command.
+
+## Keyboard and zoom follow-up — 2026-10-13
+
+Native Chrome 200% and 400% zoom checks now cover the six paperwork specimens and their visitor placements. Guide disclosures and placement links worked by keyboard. Both guide and visitor tables accepted arrow-key scrolling and Tab exit; Shift+Tab return was also checked in the guide. The document register links to the actual survey.
+
+The status columns have a 9rem minimum width to avoid splitting ordinary words. The shared Message bar moves into normal flow when the viewport is at most 700px wide and 480px high; taller phone views reserve scroll clearance above the fixed bar. This corrects a partially obscured focus outline found at 400%. See [verification](verification.md) for measurements, the repeatable manual regression checklist and checks still outstanding.
