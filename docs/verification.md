@@ -1,5 +1,17 @@
 # Verification and remaining acceptance
 
+## Enquiry through aftercare guide expansion — October 13, 2026
+
+Added eight contractor partials, guide fixtures and contracts, task links, namespaced responsive styles, and wrapper allowlist entries. The guide now renders 42 specimens, including 32 contractor components. These eight have guide placements only; the existing 24 visitor placements retain their independent copy.
+
+The existing GitNexus index returned `UNKNOWN` for the guide, catalogue dataset, wrapper and stylesheets, with no callers or processes resolved. Source inspection confirmed the catalogue renderer, shared stylesheet imports and wrapper call sites across the 12 visitor routes. These empty graph results were not treated as a low-risk finding. The recorded installed GitNexus runner was used after the default launcher tried to provision a package manager outside the sandbox; no re-indexing was performed.
+
+Local Hugo staging compilation succeeded with the actual profile and staging configuration. Browser inspection confirmed 42 rendered specimens, 32 contractor entries, and all eight new task-link destinations. At an emulated 320px viewport, the page width was 320px, all eight preview containers stayed within the viewport, and there were no duplicate IDs. The estimate's 620px table remained inside its 210px scroll region. At 1440px the page width was 1440px. Visual spot checks inspected the enquiry summary at 320px and disruption plan at 1440px. All three product-care disclosures began closed.
+
+No tests were executed, as requested. Eight regression cases were authored in `tests/test_contractor_expansion.py` for owner execution: searchable live specimens, hostile nested text, empty states, repeated IDs and references, estimate table semantics, native care/payment structure, action-pair omission/subpaths, and shared-wrapper reuse. Compilation and these browser observations do not establish keyboard, screen-reader, real-device, no-JavaScript, forced-colors, or business acceptance for the additions.
+
+Owner verification remains `bash scripts/verify-local.sh`. Changes remain local and uncommitted; no staging, push, deployment, or publication was performed.
+
 ## Project brief and survey keyboard/zoom follow-up — October 13, 2026
 
 Local browser review of the current single-page brief at `/#brief` and survey at `/survey/`, using disposable entries and native Chrome zoom. Chrome's control confirmed 200% (960×451 CSS pixels, devicePixelRatio 2) and 400% (480×225, ratio 4). This extends the paperwork-component pass below; it is not a full accessibility acceptance result.

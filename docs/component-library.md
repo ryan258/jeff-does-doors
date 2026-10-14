@@ -1,6 +1,6 @@
 # Contractor component library
 
-Open `/style-guide/` on the local preview (`./jdd.sh`, port 1317), or use **Component guide** in the preview footer. The catalogue renders the actual partials and current theme. It includes twenty-four contractor components, six existing patterns, four foundations, and a map of the shell and workflow components that need their own page context: 34 specimens in total.
+Open `/style-guide/` on the local preview (`./jdd.sh`, port 1317), or use **Component guide** in the preview footer. The catalogue renders the actual partials and current theme. It includes thirty-two contractor components, six existing patterns, four foundations, and a map of the shell and workflow components that need their own page context: 42 specimens in total.
 
 The field-office edition continues the existing parody: Jeff treats doors with unreasonable emotional seriousness, Doreen restores the conversation to practical matters, and Lenny remains a level. That voice lives in the example data, not the component behavior. Fictional staff, testimonials, packages, and project events stay visibly fictional. Real credentials, prices, approvals, and installation details are not invented to support the joke.
 
@@ -8,7 +8,7 @@ The field-office edition continues the existing parody: Jeff treats doors with u
 
 | Source | Responsibility |
 | --- | --- |
-| `layouts/partials/components/` | Twenty-four reusable, data-driven contractor partials plus the shared choice-script loader |
+| `layouts/partials/components/` | Thirty-two reusable, data-driven contractor partials plus the shared choice-script loader |
 | `assets/scss/_contractor.scss` | Namespaced component styling, responsive layout, forced-colors treatment |
 | `data/component_library.json` | Review-only catalogue metadata and explicit example content |
 | `data/site_components.json` | Visitor-page copy, page references, and optional feature gates; registered in publication core sources |
@@ -25,7 +25,7 @@ The field-office edition continues the existing parody: Jeff treats doors with u
 
 ### Where the site uses them
 
-All twenty-four contractor components have an actual page placement across twelve visitor routes. Each catalogue specimen includes a **See it on the site** link when its destination and feature are enabled. The six project-paperwork patterns use short, independent page copy; the guide remains a separate set of examples.
+Twenty-four contractor components have an actual page placement across twelve visitor routes. Each placed catalogue specimen includes a **See it on the site** link when its destination and feature are enabled. The eight enquiry-through-aftercare additions currently render in the guide and are allowed by the shared wrapper for future reuse; they have no visitor-page placements yet. The six project-paperwork patterns use short, independent page copy; the guide remains a separate set of examples.
 
 | Page | Components | Purpose |
 | --- | --- | --- |
@@ -58,7 +58,7 @@ Keep each key unique within a page. The wrapper supplies an `h2` and prefixes co
 
 ### Direct partial calls
 
-All twenty-four components receive a dictionary containing `id` and `content`. Supply a unique HTML-id-safe prefix for each instance. IDs connect headings, labels, hints, radio-group names, and panels, including when two instances appear on the same page. All visible content is escaped by Hugo; partials do not apply `safeHTML` to supplied text.
+All thirty-two components receive a dictionary containing `id` and `content`. Supply a unique HTML-id-safe prefix for each instance. IDs connect headings, labels, hints, radio-group names, and panels, including when two instances appear on the same page. All visible content is escaped by Hugo; partials do not apply `safeHTML` to supplied text.
 
 ```go-html-template
 {{ partial "components/scope-panel.html" (dict
@@ -109,6 +109,14 @@ Use page front matter or an owner-reviewed production dataset for real content. 
 | `material-schedule.html` | `eyebrow`, `title`, `intro`, `rows[{item,selection,responsibility,status}]`, `note` | Proposed products, supply responsibility and unresolved states |
 | `punch-list.html` | `eyebrow`, `title`, `intro`, `items[{reference,title,status,observation,owner,next}]`, `note` | Read-only observations and follow-up actions |
 | `document-register.html` | `eyebrow`, `title`, `intro`, `documents[{title,kind,status,detail,href?,action?}]`, `note` | Real resource links alongside missing-document states |
+| `enquiry-summary.html` | `eyebrow`, `title`, `intro`, `status`, `facts[{label,value}]`, `needs[]`, `next:{title,body,href?,action?}`, `note` | A supplied brief, missing details, and next conversation |
+| `site-observations.html` | `eyebrow`, `title`, `intro`, `observations[{place,observation,source,next}]`, `note` | Reported observations, sources, and checks still needed |
+| `permission-tracker.html` | `eyebrow`, `title`, `intro`, `items[{title,status,check,owner,next}]`, `note` | Permission questions and who will investigate |
+| `disruption-plan.html` | `eyebrow`, `title`, `intro`, `periods[{label,title,impact,arrangement}]`, `note` | Room use, access, communication, and disruption discussions |
+| `estimate-breakdown.html` | `eyebrow`, `title`, `intro`, `status`, `rows[{item,detail,basis,amount}]`, `summary[{label,value}]`, `note` | Supplied estimate lines and unresolved totals |
+| `payment-milestones.html` | `eyebrow`, `title`, `intro`, `milestones[{title,trigger,amount,status}]`, `note` | Proposed payment stages and agreement status |
+| `waste-plan.html` | `eyebrow`, `title`, `intro`, `streams[{material,route,responsibility,status}]`, `retained:{title,body}`, `note` | Retention, removal, and reuse questions |
+| `care-guide.html` | `eyebrow`, `title`, `intro`, `groups[{title,body,items[]}]`, `reference:{label,body,href?,action?}`, `note` | Native disclosures for selected-product care references |
 
 Use at most one `current` timeline step. Unknown state strings render as upcoming. Availability does not perform a postcode lookup, reserve a visit, or calculate a response time. Credential statuses are editorial input, not a validation system. Actions render only when both `href` and `action` are present; use site-relative paths without a leading slash so Hugo retains deployment subpaths.
 
@@ -150,6 +158,20 @@ Owner-run coverage repeats each new pattern, supplies hostile text, checks read-
 
 The October 13 browser pass found no page overflow for the new previews at 320px, checked the document register at 320px and the site-access grid at 1440px, and confirmed keyboard scrolling and catalogue search/reset. The 34-specimen guide had no duplicate IDs at 390px. The staging compilation and source/artifact audits passed; see [verification](verification.md) for the scope and remaining checks.
 
+## Enquiry through aftercare patterns — October 13, 2026
+
+Eight additions cover the practical gaps around the existing scope, timeline, and handover components. The guide renders every real partial, indexes its example copy for search, provides a fragment link and copyable call, and exposes its full data contract. The new task links near the guide introduction jump directly to these specimens. They use the current theme tokens and narrow-screen stacking; the estimate retains a caption, scoped headers, and a labelled keyboard-focusable scroll region.
+
+The enquiry summary is supplied display copy, not the existing brief form, saved-draft system, or delivery receipt. Site observations preserve a source and a next check without asserting a measurement or structural conclusion. Permission status does not establish applicable law or approval. Disruption prompts include room use, communication, pauses, and access needs without promising a schedule.
+
+Estimate amounts, pricing bases, and summary values are author-supplied strings; the component performs no arithmetic or tax calculation. The fixture uses “Not priced” and “Not established” instead of fictional prices. Payment milestones show undecided terms rather than a deposit requirement, invoice, or payment control. The removal plan establishes no disposal service, recycling route, or handling instruction. Care disclosures start closed, use native HTML, and request actual product instructions without inventing cleaning methods, maintenance intervals, or warranty coverage. A care-reference action appears only when both its label and destination exist.
+
+Every specimen includes a visible fictional-example note. Jeff supplies the door feelings, Doreen asks for the missing details, and Lenny remains a level. These eight add no JavaScript, storage, network, booking, purchasing, or approval behavior. Public examples must not contain customer records or private site-access information.
+
+All eight are supported by `site-component.html`, but this expansion places them only in the guide. The existing twenty-four visitor placements and their independent dataset retain their current copy. Use owner-reviewed content and a unique placement key when adding one to a real page.
+
+`tests/test_contractor_expansion.py` authors owner-run coverage for repeated previews, hostile nested text, unresolved empty states, complete/incomplete link pairs, estimate table semantics, native care disclosures, ordered payment stages, and reuse of all eight through the real wrapper. No tests were run by the agent for this expansion. Local staging compilation succeeded; browser observations are recorded separately in [verification](verification.md).
+
 ## Quiet character notes
 
 `layouts/partials/easter-egg.html` renders an optional native disclosure from `id`, `label`, and `lines[]`, with an optional decorative `level`. It is specific to the Jeff profile. All text is escaped; it has no script, storage, timer, animation, or announcement region. The disclosure starts closed and retains the native marker, keyboard behavior, and visible focus, with a minimum 44px summary target.
@@ -162,7 +184,7 @@ Local browser spot check (2026-10-12): all three notes began closed and had 44px
 
 ## Owner-run verification
 
-Regressions are in `tests/style-guide.test.cjs`, `tests/contractor-choices.test.cjs`, `tests/test_component_library.py`, and `tests/test_site_components.py`; the existing verification script discovers them automatically. They cover filtering and reset behavior, direct links, clipboard failure, repeated-instance IDs and radio names, escaped content, subpath links, review visibility, choice isolation, restored selections, malformed-instance fallback, repeat loading, and catalogue output. The site integration coverage adds page placement, heading references, feature suppression, selective script loading, catalogue independence, retained gallery/form instances, and publication source registration. They do not establish browser/assistive-technology acceptance or business approval.
+Regressions are in `tests/style-guide.test.cjs`, `tests/contractor-choices.test.cjs`, `tests/test_component_library.py`, `tests/test_site_components.py`, and `tests/test_contractor_expansion.py`; the existing verification script discovers them automatically. They cover filtering and reset behavior, direct links, clipboard failure, repeated-instance IDs and radio names, escaped content, subpath links, review visibility, choice isolation, restored selections, malformed-instance fallback, repeat loading, and catalogue output. The site integration coverage adds page placement, heading references, feature suppression, selective script loading, catalogue independence, retained gallery/form instances, and publication source registration. They do not establish browser/assistive-technology acceptance or business approval.
 
 Ryan reported nine Python component-library tests and nine JavaScript choice tests passing before the visitor-page integration. This integration has a successful staging compilation; its new regression coverage is authored but has not been run by the agent. For a focused owner run (requires the existing Python dependencies):
 

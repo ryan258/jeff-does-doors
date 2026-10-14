@@ -2,6 +2,14 @@
 
 Current implementation details and the complete findings-to-solutions list live in [improvement status](docs/improvement-status.md). Validation instructions live in [verification](docs/verification.md). This roadmap does not treat local code as accepted business behavior.
 
+## Implemented — enquiry through aftercare component expansion
+
+- Eight reusable guide additions: enquiry summary, site observations, permission tracker, disruption plan, estimate breakdown, payment milestones, removal/reuse plan, and product care guide.
+- The living guide now renders 42 specimens: 32 contractor components, six shared patterns, and four foundations. Each addition has searchable fictional character copy, a data contract, usage snippet, and direct task link.
+- Native care disclosures, a labelled estimate scroll region, visible unresolved states, and responsive layouts. No new JavaScript or data-delivery workflow.
+- Shared wrapper support for future reuse; these eight currently have guide placements only. Twenty-four earlier components remain placed across twelve visitor routes.
+- Regression coverage authored in `tests/test_contractor_expansion.py`; no tests run by the agent. Local staging compilation succeeded. Owner verification remains pending.
+
 ## Implemented foundation
 
 - Barn-door website with four proposed services, illustrative media and explicit review mode.
