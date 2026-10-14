@@ -27,6 +27,8 @@
 .sg-intro { margin-bottom: 60px; }
 .sg-intro h2, .sg-catalogue-heading h2, .sg-integration h2 { margin-bottom: 20px; }
 .sg-intro > p, .sg-catalogue-heading > p, .sg-integration > p { max-width: 68ch; }
+.sg-task-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 22px; }
+.sg-task-links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--clay); text-decoration: underline; text-underline-offset: 4px; }
 .sg-notice { margin-block: 24px; padding: 22px; border: 1px solid var(--sg-border); border-left: 4px solid var(--clay); background: var(--paper-bright); }
 .sg-notice strong { display: block; margin-bottom: 6px; }
 .sg-muted { color: var(--ink-soft); font-size: .9rem; }

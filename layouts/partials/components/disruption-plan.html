@@ -1,0 +1,10 @@
+{{/* dict {id, content: {eyebrow,title,intro,periods[{label,title,impact,arrangement}],note}}. Discussion of disruption and access, not a promised work schedule. */}}
+{{ $c := .content }}
+<section class="contractor-card contractor-disruption" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">{{ $c.eyebrow }}</p><h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p>
+  <ul class="contractor-disruption__periods">{{ range $c.periods }}<li>
+    <p class="contractor-disruption__label">{{ .label }}</p>
+    <div><h4>{{ .title }}</h4><dl><div><dt>Possible impact</dt><dd>{{ .impact }}</dd></div><div><dt>Discuss together</dt><dd>{{ .arrangement }}</dd></div></dl></div>
+  </li>{{ else }}<li>No disruption arrangements supplied. Discuss how the space needs to stay usable.</li>{{ end }}</ul>
+  <p class="contractor-note">{{ $c.note }}</p>
+</section>

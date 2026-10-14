@@ -1,0 +1,13 @@
+{{/* dict {id, content: {eyebrow,title,intro,status,facts[{label,value}],needs[],next:{title,body,href?,action?},note}}. Read-only brief, never a delivery receipt. */}}
+{{ $c := .content }}
+<section class="contractor-card contractor-enquiry" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">{{ $c.eyebrow }}</p>
+  <h3 id="{{ .id }}-title">{{ $c.title }}</h3>
+  <p><span class="contractor-status">{{ $c.status }}</span></p><p>{{ $c.intro }}</p>
+  <dl class="contractor-enquiry__facts">{{ range $c.facts }}<div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>{{ end }}</dl>
+  <div class="contractor-enquiry__next">
+    <div><h4>Still needed</h4><ul class="contractor-list">{{ range $c.needs }}<li>{{ . }}</li>{{ else }}<li>No preparation questions supplied.</li>{{ end }}</ul></div>
+    <div><h4>{{ $c.next.title }}</h4><p>{{ $c.next.body }}</p>{{ if and $c.next.href $c.next.action }}<a class="contractor-link" href="{{ $c.next.href | relURL }}">{{ $c.next.action }} <span aria-hidden="true">↗</span></a>{{ end }}</div>
+  </div>
+  <p class="contractor-note">{{ $c.note }}</p>
+</section>

@@ -1,0 +1,8 @@
+{{/* dict {id, content: {eyebrow,title,intro,groups[{title,body,items[]}],reference:{label,body,href?,action?},note}}. Native disclosures for supplied product-specific guidance; no invented maintenance interval or warranty terms. */}}
+{{ $c := .content }}
+<section class="contractor-card contractor-care" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">{{ $c.eyebrow }}</p><h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p>
+  <div class="contractor-handover">{{ range $c.groups }}<details><summary>{{ .title }}</summary><div><p>{{ .body }}</p><ul class="contractor-list">{{ range .items }}<li>{{ . }}</li>{{ end }}</ul></div></details>{{ else }}<p>No care guidance supplied. Obtain the instructions for the selected product.</p>{{ end }}</div>
+  <div class="contractor-care__reference"><h4>{{ $c.reference.label }}</h4><p>{{ $c.reference.body }}</p>{{ if and $c.reference.href $c.reference.action }}<a class="contractor-link" href="{{ $c.reference.href | relURL }}">{{ $c.reference.action }} <span aria-hidden="true">↗</span></a>{{ end }}</div>
+  <p class="contractor-note">{{ $c.note }}</p>
+</section>

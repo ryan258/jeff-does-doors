@@ -882,6 +882,336 @@
       "parody": true
     },
     {
+      "id": "enquiry-summary",
+      "title": "Enquiry summary",
+      "purpose": "Bring the customer’s aim, known details, missing information, and next conversation into one readable brief.",
+      "fields": "eyebrow, title, intro, status, facts[{label,value}], needs[], next:{title,body,href?,action?}, note",
+      "notes": "Read-only supplied copy. It does not submit an enquiry, recover a saved draft, or prove delivery. A next-step link needs both href and action; keep customer records out of public fixtures.",
+      "example": {
+        "eyebrow": "The first conversation",
+        "title": "Jeff heard “door.” Doreen heard the rest.",
+        "status": "Example brief · not sent",
+        "intro": "An imagined customer wants a quieter-looking hallway. Jeff has underlined “hallway” because it contains an opening.",
+        "facts": [
+          {
+            "label": "The aim",
+            "value": "Explore replacing an existing interior door"
+          },
+          {
+            "label": "Known so far",
+            "value": "A design conversation; no site visit has taken place"
+          },
+          {
+            "label": "Timing",
+            "value": "To discuss, with room for pauses"
+          },
+          {
+            "label": "Budget",
+            "value": "Not supplied"
+          }
+        ],
+        "needs": [
+          "Photos of the opening and adjacent space",
+          "The selected product details, if there are any",
+          "How the room needs to remain usable during work"
+        ],
+        "next": {
+          "title": "One useful next step",
+          "body": "Gather the opening details. Doreen would prefer one clear brief to six enthusiastic messages from Jeff.",
+          "href": "survey/",
+          "action": "Open the door survey"
+        },
+        "note": "Fictional brief. No customer data, delivery receipt, appointment, or agreed scope is represented."
+      },
+      "group": "contractor",
+      "partial": "components/enquiry-summary.html",
+      "parody": true
+    },
+    {
+      "id": "site-observations",
+      "title": "Site observations",
+      "purpose": "Keep what was reported separate from what still needs checking, with a visible source for each observation.",
+      "fields": "eyebrow, title, intro, observations[{place,observation,source,next}], note",
+      "notes": "Observations are supplied text, not inspection findings. Record product-specific requirements in the actual survey; this pattern sets no clearances, structural conclusions, or installation tolerances.",
+      "example": {
+        "eyebrow": "Look first. Then write it down.",
+        "title": "Lenny has seen enough to request more information.",
+        "intro": "Imagined site notes. The level is quiet; the unknowns deserve their own column.",
+        "observations": [
+          {
+            "place": "Beside the opening",
+            "observation": "An existing switch is visible in the concept photo.",
+            "source": "Fictional photo discussion; not checked on site.",
+            "next": "Check the intended door travel and whether another trade needs to be involved."
+          },
+          {
+            "place": "Above the opening",
+            "observation": "The wall construction has not been established.",
+            "source": "No assessment supplied.",
+            "next": "Have the appropriate person assess the selected system’s support requirements."
+          },
+          {
+            "place": "Along the route",
+            "observation": "The customer wants to keep using the room.",
+            "source": "Imagined brief.",
+            "next": "Discuss access needs and a workable route before agreeing the work."
+          }
+        ],
+        "note": "Fictional observations. No measurement, structural assessment, compatibility check, or installation approval has been completed."
+      },
+      "group": "contractor",
+      "partial": "components/site-observations.html",
+      "parody": true
+    },
+    {
+      "id": "permission-tracker",
+      "title": "Permission tracker",
+      "purpose": "Show which permissions or outside checks need a decision, who will investigate, and what remains unresolved.",
+      "fields": "eyebrow, title, intro, items[{title,status,check,owner,next}], note",
+      "notes": "Statuses are editorial copy. The component cannot determine local requirements, issue permits, or establish consent. Confirm applicable requirements with the relevant owner or authority.",
+      "example": {
+        "eyebrow": "Doreen’s “before we start” page",
+        "title": "Jeff’s nod is not a permission slip.",
+        "intro": "Example questions for an imagined project. Nobody gets an approval stamp just for bringing a level.",
+        "items": [
+          {
+            "title": "Property consent",
+            "status": "Not checked",
+            "check": "Does someone else need to agree to changes at this property?",
+            "owner": "To be agreed with the customer",
+            "next": "Identify the property decision-maker and record any required consent."
+          },
+          {
+            "title": "Local requirements",
+            "status": "Undetermined",
+            "check": "Which local permissions or inspections apply to the actual scope?",
+            "owner": "To be agreed before work",
+            "next": "Ask the relevant local authority or qualified adviser about this project."
+          },
+          {
+            "title": "Other trades",
+            "status": "Discussion needed",
+            "check": "Could the selected layout affect existing services?",
+            "owner": "Contractor and customer to discuss",
+            "next": "Confirm whether a separate assessment or trade is needed. Lenny cannot sign for an electrician."
+          }
+        ],
+        "note": "Fictional permission discussion. No consent, permit, inspection, professional determination, or authority approval is recorded."
+      },
+      "group": "contractor",
+      "partial": "components/permission-tracker.html",
+      "parody": true
+    },
+    {
+      "id": "disruption-plan",
+      "title": "Disruption plan",
+      "purpose": "Discuss how noise, room use, access, and communication could affect the people living or working in the space.",
+      "fields": "eyebrow, title, intro, periods[{label,title,impact,arrangement}], note",
+      "notes": "Each period and arrangement is supplied text. This does not schedule work or promise a duration; include the customer’s access and communication needs in the actual agreement.",
+      "example": {
+        "eyebrow": "The house still has to be a house",
+        "title": "A plan for the people on both sides of the door.",
+        "intro": "Fictional discussion prompts. Doreen remembered that the room contains people as well as Jeff’s favourite opening.",
+        "periods": [
+          {
+            "label": "Before work",
+            "title": "Agree a useful way to communicate",
+            "impact": "Noise or repeated interruptions may make a conversation difficult.",
+            "arrangement": "Ask about preferred contact, quiet periods, and a way to pause. Jeff’s door monologue is optional."
+          },
+          {
+            "label": "During work",
+            "title": "Keep everyday needs in the conversation",
+            "impact": "Tools and materials may affect the route or room use.",
+            "arrangement": "Discuss a usable route, room access, and what happens if the arrangement stops working."
+          },
+          {
+            "label": "Before leaving",
+            "title": "Review the space together",
+            "impact": "The room may need an agreed reset before normal use resumes.",
+            "arrangement": "Review the remaining items and access arrangements. Lenny checks alignment; people describe what they need."
+          }
+        ],
+        "note": "Fictional disruption plan. No working hours, completion date, uninterrupted access, or protection arrangement has been agreed."
+      },
+      "group": "contractor",
+      "partial": "components/disruption-plan.html",
+      "parody": true
+    },
+    {
+      "id": "estimate-breakdown",
+      "title": "Estimate breakdown",
+      "purpose": "Present proposed line items, their pricing basis, and unresolved totals without hiding scope inside one unexplained number.",
+      "fields": "eyebrow, title, intro, status, rows[{item,detail,basis,amount}], summary[{label,value}], note",
+      "notes": "Amounts and summary values are display strings supplied by the author. No totals, tax, discounts, currency conversion, or acceptance are calculated. Include the actual currency and terms in confirmed project copy.",
+      "example": {
+        "eyebrow": "Numbers need somewhere honest to live",
+        "title": "Jeff priced the feelings. Doreen removed that row.",
+        "status": "Illustrative structure · no quote",
+        "intro": "An estimate layout with every amount deliberately unresolved. The written scope comes before the arithmetic.",
+        "rows": [
+          {
+            "item": "Door and hardware",
+            "detail": "Selected products and supply responsibility",
+            "basis": "Product references and supply scope to confirm",
+            "amount": "Not priced"
+          },
+          {
+            "item": "Installation work",
+            "detail": "Work at the assessed opening",
+            "basis": "Site assessment and agreed scope needed",
+            "amount": "Not priced"
+          },
+          {
+            "item": "Separate preparation",
+            "detail": "Any repair, decoration, or other trade work",
+            "basis": "Inclusions and exclusions to agree",
+            "amount": "Not priced"
+          }
+        ],
+        "summary": [
+          {
+            "label": "Project total",
+            "value": "Not established"
+          },
+          {
+            "label": "Tax treatment",
+            "value": "To confirm for the actual proposal"
+          },
+          {
+            "label": "Validity and exclusions",
+            "value": "Terms have not been supplied"
+          }
+        ],
+        "note": "Fictional estimate structure. No price, tax rate, quote validity, purchase, or acceptance is represented. Lenny has declined to estimate emotional labour."
+      },
+      "group": "contractor",
+      "partial": "components/estimate-breakdown.html",
+      "parody": true
+    },
+    {
+      "id": "payment-milestones",
+      "title": "Payment milestones",
+      "purpose": "Make proposed payment stages readable alongside their triggers, amounts, and explicit agreement status.",
+      "fields": "eyebrow, title, intro, milestones[{title,trigger,amount,status}], note",
+      "notes": "A read-only discussion pattern. Display supplied terms; it cannot invoice, collect money, mark a stage complete, establish a debt, or infer that a deposit is required.",
+      "example": {
+        "eyebrow": "Doreen keeps the money conversation legible",
+        "title": "A milestone needs more than Jeff saying “nearly.”",
+        "intro": "Possible discussion stages for a fictional project. Whether any stage requires payment remains undecided.",
+        "milestones": [
+          {
+            "title": "Agreeing the proposal",
+            "trigger": "Discuss whether an initial payment belongs in the actual agreement.",
+            "amount": "No amount agreed",
+            "status": "Terms unresolved"
+          },
+          {
+            "title": "Supplying materials",
+            "trigger": "Discuss who purchases materials and whether a related payment stage is needed.",
+            "amount": "No amount agreed",
+            "status": "Terms unresolved"
+          },
+          {
+            "title": "Reviewing the agreed work",
+            "trigger": "Define the review process and any payment trigger in the written agreement. Lenny’s silence is not customer acceptance.",
+            "amount": "No amount agreed",
+            "status": "Terms unresolved"
+          }
+        ],
+        "note": "Fictional payment discussion. No deposit requirement, invoice, due date, payment, debt, financing offer, or completion acceptance exists."
+      },
+      "group": "contractor",
+      "partial": "components/payment-milestones.html",
+      "parody": true
+    },
+    {
+      "id": "waste-plan",
+      "title": "Removal & reuse plan",
+      "purpose": "Discuss what stays, what might leave, and who confirms a suitable route before removal becomes an assumption.",
+      "fields": "eyebrow, title, intro, streams[{material,route,responsibility,status}], retained:{title,body}, note",
+      "notes": "Planning copy only. Confirm actual material condition, handling requirements, destination, and responsibility separately; do not treat a proposed reuse route as a recycling or environmental claim.",
+      "example": {
+        "eyebrow": "The old door gets a conversation too",
+        "title": "Jeff said “retirement.” Doreen asked “where?”",
+        "intro": "Example removal questions. A destination needs to be agreed before the old door receives a farewell speech.",
+        "streams": [
+          {
+            "material": "Existing door",
+            "route": "Ask whether the customer wants to retain it, and assess any proposed reuse separately.",
+            "responsibility": "Customer and contractor to agree",
+            "status": "Decision needed"
+          },
+          {
+            "material": "Existing hardware",
+            "route": "Confirm ownership and condition before choosing retention or removal.",
+            "responsibility": "To be agreed in the scope",
+            "status": "Not assessed"
+          },
+          {
+            "material": "Packaging and offcuts",
+            "route": "Identify suitable handling and destinations for the actual materials.",
+            "responsibility": "Removal scope still to confirm",
+            "status": "Route unconfirmed"
+          }
+        ],
+        "retained": {
+          "title": "Keep aside only by agreement",
+          "body": "Record what the customer wants to retain and where it can be kept. Lenny is returning to the toolbox; he is not an offcut."
+        },
+        "note": "Fictional removal plan. No disposal service, safe-handling assessment, recycling route, or reuse outcome is promised."
+      },
+      "group": "contractor",
+      "partial": "components/waste-plan.html",
+      "parody": true
+    },
+    {
+      "id": "care-guide",
+      "title": "Product care guide",
+      "purpose": "Group product care references, questions, and support topics into native disclosures that remain usable without JavaScript.",
+      "fields": "eyebrow, title, intro, groups[{title,body,items[]}], reference:{label,body,href?,action?}, note",
+      "notes": "Use the selected product’s actual instructions. This component invents no cleaner, adjustment procedure, maintenance interval, or warranty. Reference links require both href and action; missing guidance has no fake download.",
+      "example": {
+        "eyebrow": "After the walkthrough",
+        "title": "The door does not need a pep talk. Jeff disagrees.",
+        "intro": "Fictional care topics. Open a section to see which product information still needs gathering.",
+        "groups": [
+          {
+            "title": "Finish and cleaning",
+            "body": "The finish has not been selected, so care instructions are not supplied.",
+            "items": [
+              "Obtain the instructions for the actual finish.",
+              "Keep the finish reference with the project documents."
+            ]
+          },
+          {
+            "title": "Hardware and movement",
+            "body": "The chosen hardware determines the operating and maintenance guidance.",
+            "items": [
+              "Keep the selected system’s instructions available.",
+              "Record who to contact about a change in movement; do not invent an adjustment procedure."
+            ]
+          },
+          {
+            "title": "Support and warranty questions",
+            "body": "Doreen wants the real terms in writing. Jeff has offered a heartfelt promise about oak.",
+            "items": [
+              "Identify the relevant supplier and contractor contact details.",
+              "Obtain the actual applicable terms and exclusions. Lenny does not administer warranties."
+            ]
+          }
+        ],
+        "reference": {
+          "label": "Product reference still needed",
+          "body": "No product manual has been selected. Add a real reference when the product is known."
+        },
+        "note": "Fictional care outline. No maintenance schedule, repair instruction, support commitment, or warranty coverage is established."
+      },
+      "group": "contractor",
+      "partial": "components/care-guide.html",
+      "parody": true
+    },
+    {
       "id": "palette",
       "title": "Color & surface",
       "group": "foundation",

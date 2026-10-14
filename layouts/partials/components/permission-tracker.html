@@ -1,0 +1,10 @@
+{{/* dict {id, content: {eyebrow,title,intro,items[{title,status,check,owner,next}],note}}. Editorial status; no permit determination or approval operation. */}}
+{{ $c := .content }}
+<section class="contractor-card contractor-permissions" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">{{ $c.eyebrow }}</p><h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p>
+  <ul class="contractor-records">{{ range $c.items }}<li>
+    <div class="contractor-records__heading"><div><h4>{{ .title }}</h4><p>{{ .check }}</p></div><span class="contractor-status">{{ .status }}</span></div>
+    <dl class="contractor-records__facts"><div><dt>Who checks</dt><dd>{{ .owner }}</dd></div><div><dt>Next step</dt><dd>{{ .next }}</dd></div></dl>
+  </li>{{ else }}<li>No permission checks supplied. Requirements have not been determined.</li>{{ end }}</ul>
+  <p class="contractor-note">{{ $c.note }}</p>
+</section>

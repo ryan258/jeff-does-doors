@@ -1,0 +1,17 @@
+{{/* dict {id, content: {eyebrow,title,intro,status,rows[{item,detail,basis,amount}],summary[{label,value}],note}}. Amounts are supplied display text: no arithmetic, taxes, quote acceptance, or payment action. */}}
+{{ $c := .content }}
+<section class="contractor-card contractor-estimate" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">{{ $c.eyebrow }}</p><h3 id="{{ .id }}-title">{{ $c.title }}</h3>
+  <p><span class="contractor-status">{{ $c.status }}</span></p><p>{{ $c.intro }}</p>
+  {{ if $c.rows }}
+    <p class="contractor-hint" id="{{ .id }}-hint">On a small screen, scroll the estimate sideways to see every column.</p>
+    <div class="contractor-table-scroll" role="region" aria-labelledby="{{ .id }}-title" aria-describedby="{{ .id }}-hint" tabindex="0">
+      <table class="contractor-table"><caption>{{ $c.title }} — supplied line items</caption>
+        <thead><tr><th scope="col">Item</th><th scope="col">Proposed scope</th><th scope="col">Basis</th><th scope="col">Amount</th></tr></thead>
+        <tbody>{{ range $c.rows }}<tr><th scope="row">{{ .item }}</th><td>{{ .detail }}</td><td>{{ .basis }}</td><td>{{ .amount }}</td></tr>{{ end }}</tbody>
+      </table>
+    </div>
+  {{ else }}<p class="contractor-note">No estimate line items supplied. Pricing remains unresolved.</p>{{ end }}
+  {{ with $c.summary }}<dl class="contractor-estimate__summary">{{ range . }}<div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>{{ end }}</dl>{{ end }}
+  <p class="contractor-note">{{ $c.note }}</p>
+</section>

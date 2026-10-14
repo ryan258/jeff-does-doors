@@ -1,0 +1,10 @@
+{{/* dict {id, content: {eyebrow,title,intro,observations[{place,observation,source,next}],note}}. Supplied observations, not engineering findings or product tolerances. */}}
+{{ $c := .content }}
+<section class="contractor-card contractor-observations" aria-labelledby="{{ .id }}-title">
+  <p class="contractor-kicker">{{ $c.eyebrow }}</p><h3 id="{{ .id }}-title">{{ $c.title }}</h3><p>{{ $c.intro }}</p>
+  <ul class="contractor-observations__list">{{ range $c.observations }}<li>
+    <div><p class="contractor-records__reference">{{ .place }}</p><h4>{{ .observation }}</h4><p><strong>Source:</strong> {{ .source }}</p></div>
+    <div class="contractor-observations__next"><h4>Check next</h4><p>{{ .next }}</p></div>
+  </li>{{ else }}<li>No site observations supplied. A site assessment is still needed.</li>{{ end }}</ul>
+  <p class="contractor-note">{{ $c.note }}</p>
+</section>

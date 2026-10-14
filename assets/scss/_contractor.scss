@@ -187,6 +187,54 @@
 .contractor-documents__description > p { max-width: 65ch; }
 .contractor-documents__list .contractor-status { max-width: 12rem; }
 
+/* Enquiry through aftercare: supplied records and native disclosures. */
+.contractor-enquiry__facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; margin-block: 26px; }
+.contractor-enquiry__facts > div { min-width: 0; padding-block: 18px; border-top: 1px solid var(--line); }
+.contractor-enquiry__facts dt { margin-bottom: 6px; font-size: .85rem; color: var(--ink-soft); }
+.contractor-enquiry__facts dd { margin: 0; font-weight: 500; }
+.contractor-enquiry__next { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-block: 26px; padding: 24px; background: var(--paper); }
+.contractor-enquiry__next > div { min-width: 0; }
+.contractor-enquiry__next .contractor-list { margin-bottom: 0; }
+.contractor-observations__list { margin: 28px 0; padding: 0; list-style: none; }
+.contractor-observations__list > li { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 24px; padding-block: 24px; border-top: 1px solid var(--line); }
+.contractor-observations__next { padding: 20px; background: var(--sand); border-left: 3px solid var(--clay); }
+.contractor-disruption__periods { padding: 0; margin: 28px 0; list-style: none; }
+.contractor-disruption__periods > li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 24px; padding-block: 24px; border-top: 1px solid var(--line); }
+.contractor-disruption__label { font-family: $font-serif; font-size: 1.2rem; font-style: italic; color: var(--clay); }
+.contractor-disruption__periods dl { margin: 0; }
+.contractor-disruption__periods dl > div { margin-top: 12px; }
+.contractor-disruption__periods dt { margin-bottom: 4px; font-size: .85rem; font-weight: 600; }
+.contractor-disruption__periods dd { margin: 0; color: var(--ink-soft); }
+.contractor-estimate .contractor-table tr > :last-child { min-width: 9rem; }
+.contractor-estimate__summary { margin: 24px 0; padding: 20px; border: 1px solid var(--line); background: var(--paper); }
+.contractor-estimate__summary > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 20px; padding-block: 12px; border-bottom: 1px solid var(--line); }
+.contractor-estimate__summary > div:last-child { border: 0; }
+.contractor-estimate__summary dt { font-weight: 600; }
+.contractor-estimate__summary dd { margin: 0; }
+.contractor-payments__list { margin: 28px 0; padding-left: 1.5rem; }
+.contractor-payments__list > li { padding: 24px 0 24px 8px; border-top: 1px solid var(--line); }
+.contractor-payments__list > li::marker { color: var(--clay); font-weight: 600; }
+.contractor-payments__row { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px; }
+.contractor-payments__amount { padding: 18px; border: 1px solid var(--line); background: var(--paper); align-self: start; }
+.contractor-payments__amount > p { font-weight: 600; }
+.contractor-waste__streams { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding: 0; margin: 28px 0; list-style: none; }
+.contractor-waste__streams > li { min-width: 0; padding: 22px; border: 1px solid var(--line); border-top: 3px solid var(--clay); }
+.contractor-waste__retained, .contractor-care__reference { margin-bottom: 24px; padding: 22px; background: var(--paper); border-left: 3px solid var(--clay); }
+
+@media (max-width: 760px) {
+  .contractor-enquiry__facts, .contractor-enquiry__next, .contractor-observations__list > li,
+  .contractor-disruption__periods > li, .contractor-estimate__summary > div,
+  .contractor-payments__row, .contractor-waste__streams { grid-template-columns: minmax(0, 1fr); }
+  .contractor-enquiry__next { padding: 18px; }
+  .contractor-disruption__periods > li { gap: 4px; }
+  .contractor-estimate__summary > div { gap: 6px; }
+  .contractor-payments__row { gap: 12px; }
+}
+@media (forced-colors: active) {
+  .contractor-observations__next, .contractor-estimate__summary, .contractor-payments__amount,
+  .contractor-waste__streams > li, .contractor-waste__retained, .contractor-care__reference { border-color: CanvasText; }
+}
+
 @media (min-width: 761px) {
   // Only use the split chooser after enhancement exposes its controls.
   .contractor-chooser[data-choice-ready="true"] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); column-gap: 32px; align-items: start; }
